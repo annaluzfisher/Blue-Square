@@ -5,7 +5,7 @@ const DELETE_USER = "DELETE_USER";
 
 export const receiveUser = (user) => ({
   type: RECEIVE_USER,
-  user,
+  user: user,
 });
 
 export const deleteUser = (userId) => ({
@@ -14,16 +14,20 @@ export const deleteUser = (userId) => ({
 });
 
 export const createUser = (user) => async (dispatch) => {
+  console.log('increate',user)
   const res = await csrfFetch("/api/users", {
     method: "POST",
-    body: JSON.stringify(user),
-  });
-  if (res.ok) {
-    const newUser = await res.json();
-    dispatch(receiveUser(newUser));
-  } else {
-    alert("error");
-  }
+    body: JSON.stringify({"user":{user}}),
+  })
+    .then((result) => result.json())
+    .then((newUser) => dispatch(receiveUser(newUser)))
+    .catch((error) => console.log('error from createUser action:',error));
+  // if (res.ok) {
+  //   const newUser = await res.json();
+  //   ;
+  // } else {
+  //   alert("error");
+  // }
 };
 
 const userReducer = (state = {}, action) => {

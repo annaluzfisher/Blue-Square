@@ -11,7 +11,6 @@ import { preloadedModals } from "./store/ui";
 const store = configureStore(preloadedModals);
 
 if (sessionStorage.getItem("X-CSRF-Token") === null) {
-  console.log("did we reach this conditional?");
   restoreCSRF()
     .then(initializeApp)
     .catch((err) => console.log(err));

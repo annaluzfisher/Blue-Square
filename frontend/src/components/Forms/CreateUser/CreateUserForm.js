@@ -1,9 +1,7 @@
 import "./createuserform.css";
 import { React, useState, useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
-
-import "./Form.css";
-import { createUser } from "../../store/user";
+import { useDispatch } from "react-redux";
+import { createUser } from "../../../store/user";
 
 
 function CreateUserForm() {
@@ -24,16 +22,17 @@ function CreateUserForm() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    console.log('user upon submit', user)
     dispatch(createUser(user));
   };
 
-  setEmail("");
-  setUser("");
-  setPassword("");
-  setCompanyName("");
-  setFirstName("");
-  setLastName("");
-  setMailingList("");
+  // setEmail("");
+  // setUser("");
+  // setPassword("");
+  // setCompanyName("");
+  // setFirstName("");
+  // setLastName("");
+  // setMailingList("");
 
   return (
     <div className="user-form-wrapper">
@@ -58,15 +57,9 @@ function CreateUserForm() {
         />
         <input
           type="text"
-          placeholder="your_email@internet.com..."
+          placeholder="Company Name"
           value={companyName}
           onChange={(e) => setCompanyName(e.target.value)}
-        />
-        <input
-          type="email"
-          placeholder="your_email@internet.com..."
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
         />
         <input
           type="checkbox"
@@ -81,7 +74,7 @@ function CreateUserForm() {
           onChange={(e) => setPassword(e.target.value)}
         />
 
-        <input type="submit" value={type} />
+        <input type="submit" value='Submit' />
       </form>
     </div>
   );

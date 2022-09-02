@@ -30,3 +30,329 @@ Migrating to AddColumnsToUser (20220902023805)
   [1m[36mActiveRecord::InternalMetadata Load (3.7ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
   [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(5218433952325587210)[0m
   [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/api/session" for 127.0.0.1 at 2022-09-01 20:18:59 -0700
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::SessionsController#show as JSON
+  [1m[36mUser Load (3.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/api/sessions_controller.rb:5:in `show'
+Completed 200 OK in 17ms (Views: 0.5ms | ActiveRecord: 5.0ms | Allocations: 4733)
+
+
+Started POST "/api/users" for 127.0.0.1 at 2022-09-01 20:19:30 -0700
+Processing by Api::UsersController#create as JSON
+  Parameters: {"email"=>"test@email.com", "password"=>"[FILTERED]", "firstName"=>"first", "lastName"=>"last", "companyName"=>"company", "mailingList"=>false, "user"=>{"email"=>"test@email.com", "password"=>"[FILTERED]"}}
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:43:in `generate_unique_session_token'
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "[FILTERED]"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:43:in `generate_unique_session_token'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "test@email.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:8:in `create'
+  [1m[36mCACHE User Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "[FILTERED]"], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:8:in `create'
+  [1m[36mTRANSACTION (50.4ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/users_controller.rb:8:in `create'
+  Rendering api/errors/internal_server_error.json.jbuilder
+  Rendered api/errors/internal_server_error.json.jbuilder (Duration: 1.2ms | Allocations: 455)
+
+ActiveRecord::RecordInvalid - Validation failed: First name can't be blank, Last name can't be blank, Mailing list can't be blank:
+	app/controllers/api/users_controller.rb:8:in `create'
+
+Completed 500 Internal Server Error in 327ms (Views: 7.5ms | ActiveRecord: 115.6ms | Allocations: 15880)
+
+
+Started POST "/api/users" for 127.0.0.1 at 2022-09-01 20:22:40 -0700
+Processing by Api::UsersController#create as JSON
+  Parameters: {"email"=>"test@email.com", "password"=>"[FILTERED]", "firstName"=>"first", "lastName"=>"last", "companyName"=>"company", "mailingList"=>false, "user"=>{"email"=>"test@email.com", "password"=>"[FILTERED]"}}
+  Rendering api/errors/internal_server_error.json.jbuilder
+  Rendered api/errors/internal_server_error.json.jbuilder (Duration: 0.3ms | Allocations: 160)
+
+NameError - undefined local variable or method `debugger' for #<Api::UsersController:0x000000000045d8>
+
+    debugger
+    ^^^^^^^^:
+	app/controllers/api/users_controller.rb:6:in `create'
+
+Completed 500 Internal Server Error in 6ms (Views: 1.1ms | ActiveRecord: 0.0ms | Allocations: 3750)
+
+
+Started POST "/api/users" for 127.0.0.1 at 2022-09-01 20:24:05 -0700
+Processing by Api::UsersController#create as JSON
+  Parameters: {"email"=>"test@email.com", "password"=>"[FILTERED]", "firstName"=>"first", "lastName"=>"last", "companyName"=>"company", "mailingList"=>false, "user"=>{"email"=>"test@email.com", "password"=>"[FILTERED]"}}
+  Rendering api/errors/internal_server_error.json.jbuilder
+  Rendered api/errors/internal_server_error.json.jbuilder (Duration: 0.2ms | Allocations: 115)
+
+NameError - undefined local variable or method `debugger' for #<Api::UsersController:0x00000000004678>
+
+    debugger
+    ^^^^^^^^:
+	app/controllers/api/users_controller.rb:6:in `create'
+
+Completed 500 Internal Server Error in 6ms (Views: 0.6ms | ActiveRecord: 0.0ms | Allocations: 3240)
+
+
+Started POST "/api/users" for 127.0.0.1 at 2022-09-01 20:24:32 -0700
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::UsersController#create as JSON
+  Parameters: {"email"=>"test@email.com", "password"=>"[FILTERED]", "firstName"=>"first", "lastName"=>"last", "companyName"=>"company", "mailingList"=>false, "user"=>{"email"=>"test@email.com", "password"=>"[FILTERED]"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:43:in `generate_unique_session_token'
+  [1m[36mUser Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "[FILTERED]"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:43:in `generate_unique_session_token'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "test@email.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:8:in `create'
+  [1m[36mCACHE User Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "[FILTERED]"], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:8:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/users_controller.rb:8:in `create'
+  Rendering api/errors/internal_server_error.json.jbuilder
+  Rendered api/errors/internal_server_error.json.jbuilder (Duration: 1.6ms | Allocations: 543)
+
+ActiveRecord::RecordInvalid - Validation failed: First name can't be blank, Last name can't be blank, Mailing list can't be blank:
+	app/controllers/api/users_controller.rb:8:in `create'
+
+Completed 500 Internal Server Error in 230092ms (Views: 9.3ms | ActiveRecord: 3.2ms | Allocations: 167087)
+
+
+Started POST "/api/users" for 127.0.0.1 at 2022-09-01 20:29:26 -0700
+Processing by Api::UsersController#create as JSON
+  Parameters: {"email"=>"test@gmail.com", "password"=>"[FILTERED]", "firstName"=>"test", "lastName"=>"test", "companyName"=>"test@email.com", "mailingList"=>false, "user"=>{"email"=>"test@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:43:in `generate_unique_session_token'
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "[FILTERED]"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:43:in `generate_unique_session_token'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "test@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:8:in `create'
+  [1m[36mCACHE User Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "[FILTERED]"], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:8:in `create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/users_controller.rb:8:in `create'
+  Rendering api/errors/internal_server_error.json.jbuilder
+  Rendered api/errors/internal_server_error.json.jbuilder (Duration: 0.9ms | Allocations: 258)
+
+ActiveRecord::RecordInvalid - Validation failed: First name can't be blank, Last name can't be blank, Mailing list can't be blank:
+	app/controllers/api/users_controller.rb:8:in `create'
+
+Completed 500 Internal Server Error in 270317ms (Views: 2.3ms | ActiveRecord: 12.8ms | Allocations: 1506209)
+
+
+Started POST "/api/users" for 127.0.0.1 at 2022-09-01 20:38:08 -0700
+Processing by Api::UsersController#create as JSON
+  Parameters: {"email"=>"test@email.com", "password"=>"[FILTERED]", "firstName"=>"test", "lastName"=>"test", "companyName"=>"test", "mailingList"=>false, "user"=>{"email"=>"test@email.com", "password"=>"[FILTERED]"}}
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:43:in `generate_unique_session_token'
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "[FILTERED]"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:43:in `generate_unique_session_token'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "test@email.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:8:in `create'
+  [1m[36mCACHE User Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "[FILTERED]"], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:8:in `create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/users_controller.rb:8:in `create'
+  Rendering api/errors/internal_server_error.json.jbuilder
+  Rendered api/errors/internal_server_error.json.jbuilder (Duration: 0.3ms | Allocations: 153)
+
+ActiveRecord::RecordInvalid - Validation failed: First name can't be blank, Last name can't be blank, Mailing list can't be blank:
+	app/controllers/api/users_controller.rb:8:in `create'
+
+Completed 500 Internal Server Error in 201ms (Views: 2.5ms | ActiveRecord: 2.1ms | Allocations: 8470)
+
+
+Started POST "/api/users" for 127.0.0.1 at 2022-09-01 20:41:24 -0700
+Processing by Api::UsersController#create as JSON
+  Parameters: {"email"=>"test@gmail.com", "password"=>"[FILTERED]", "firstName"=>"test", "lastName"=>"test", "companyName"=>"test", "mailingList"=>false, "user"=>{"email"=>"test@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:43:in `generate_unique_session_token'
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "[FILTERED]"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:43:in `generate_unique_session_token'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "test@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:8:in `create'
+  [1m[36mCACHE User Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "[FILTERED]"], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:8:in `create'
+  [1m[36mTRANSACTION (3.6ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/users_controller.rb:8:in `create'
+  Rendering api/errors/internal_server_error.json.jbuilder
+  Rendered api/errors/internal_server_error.json.jbuilder (Duration: 0.6ms | Allocations: 107)
+
+ActiveRecord::RecordInvalid - Validation failed: First name can't be blank, Last name can't be blank, Mailing list can't be blank:
+	app/controllers/api/users_controller.rb:8:in `create'
+
+Completed 500 Internal Server Error in 208ms (Views: 1.0ms | ActiveRecord: 4.4ms | Allocations: 5706)
+
+
+Started POST "/api/users" for 127.0.0.1 at 2022-09-01 20:48:37 -0700
+Processing by Api::UsersController#create as JSON
+  Parameters: {"email"=>"test@email.com", "password"=>"[FILTERED]", "firstName"=>"test", "lastName"=>"test", "companyName"=>"test", "mailingList"=>false, "user"=>{"email"=>"test@email.com", "password"=>"[FILTERED]"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:43:in `generate_unique_session_token'
+  [1m[36mUser Exists? (0.9ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "[FILTERED]"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:43:in `generate_unique_session_token'
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "test@email.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:8:in `create'
+  [1m[36mCACHE User Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "[FILTERED]"], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:8:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/users_controller.rb:8:in `create'
+  Rendering api/errors/internal_server_error.json.jbuilder
+  Rendered api/errors/internal_server_error.json.jbuilder (Duration: 0.1ms | Allocations: 108)
+
+ActiveRecord::RecordInvalid - Validation failed: First name can't be blank, Last name can't be blank, Mailing list can't be blank:
+	app/controllers/api/users_controller.rb:8:in `create'
+
+Completed 500 Internal Server Error in 216ms (Views: 0.5ms | ActiveRecord: 10.2ms | Allocations: 8407)
+
+
+Started POST "/api/users" for 127.0.0.1 at 2022-09-01 20:49:10 -0700
+Processing by Api::UsersController#create as JSON
+  Parameters: {"email"=>"test@email.com", "password"=>"[FILTERED]", "firstName"=>"test", "lastName"=>"test", "companyName"=>"test", "mailingList"=>false, "user"=>{"email"=>"test@email.com", "password"=>"[FILTERED]"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:43:in `generate_unique_session_token'
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "[FILTERED]"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:43:in `generate_unique_session_token'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "test@email.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:8:in `create'
+  [1m[36mCACHE User Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "[FILTERED]"], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:8:in `create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/users_controller.rb:8:in `create'
+  Rendering api/errors/internal_server_error.json.jbuilder
+  Rendered api/errors/internal_server_error.json.jbuilder (Duration: 0.2ms | Allocations: 108)
+
+ActiveRecord::RecordInvalid - Validation failed: First name can't be blank, Last name can't be blank, Mailing list can't be blank:
+	app/controllers/api/users_controller.rb:8:in `create'
+
+Completed 500 Internal Server Error in 203ms (Views: 0.7ms | ActiveRecord: 1.1ms | Allocations: 5426)
+
+
+Started POST "/api/users" for 127.0.0.1 at 2022-09-01 20:49:13 -0700
+Processing by Api::UsersController#create as JSON
+  Parameters: {"email"=>"test@email.com", "password"=>"[FILTERED]", "firstName"=>"test", "lastName"=>"test", "companyName"=>"test", "mailingList"=>false, "user"=>{"email"=>"test@email.com", "password"=>"[FILTERED]"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:43:in `generate_unique_session_token'
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "[FILTERED]"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:43:in `generate_unique_session_token'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "test@email.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:8:in `create'
+  [1m[36mCACHE User Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "[FILTERED]"], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:8:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/users_controller.rb:8:in `create'
+  Rendering api/errors/internal_server_error.json.jbuilder
+  Rendered api/errors/internal_server_error.json.jbuilder (Duration: 0.1ms | Allocations: 107)
+
+ActiveRecord::RecordInvalid - Validation failed: First name can't be blank, Last name can't be blank, Mailing list can't be blank:
+	app/controllers/api/users_controller.rb:8:in `create'
+
+Completed 500 Internal Server Error in 197ms (Views: 0.4ms | ActiveRecord: 0.7ms | Allocations: 5403)
+
+
+Started POST "/api/users" for 127.0.0.1 at 2022-09-01 20:56:30 -0700
+Processing by Api::UsersController#create as JSON
+  Parameters: {"email"=>"test@email.com", "password"=>"[FILTERED]", "firstName"=>"test", "lastName"=>"test", "companyName"=>"test", "mailingList"=>false, "user"=>{"email"=>"test@email.com", "password"=>"[FILTERED]"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:43:in `generate_unique_session_token'
+  [1m[36mUser Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "[FILTERED]"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:43:in `generate_unique_session_token'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "test@email.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:8:in `create'
+  [1m[36mCACHE User Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "[FILTERED]"], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:8:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/users_controller.rb:8:in `create'
+  Rendering api/errors/internal_server_error.json.jbuilder
+  Rendered api/errors/internal_server_error.json.jbuilder (Duration: 0.1ms | Allocations: 107)
+
+ActiveRecord::RecordInvalid - Validation failed: First name can't be blank, Last name can't be blank, Mailing list can't be blank:
+	app/controllers/api/users_controller.rb:8:in `create'
+
+Completed 500 Internal Server Error in 212ms (Views: 0.5ms | ActiveRecord: 6.2ms | Allocations: 8212)
+
+
+Started POST "/api/users" for 127.0.0.1 at 2022-09-01 21:02:28 -0700
+Processing by Api::UsersController#create as JSON
+  Parameters: {"email"=>"test@email.com", "password"=>"[FILTERED]", "firstName"=>"test", "lastName"=>"test", "companyName"=>"test", "mailingList"=>false, "user"=>{"email"=>"test@email.com", "password"=>"[FILTERED]"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:43:in `generate_unique_session_token'
+  [1m[36mUser Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "[FILTERED]"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:43:in `generate_unique_session_token'
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "test@email.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:8:in `create'
+  [1m[36mCACHE User Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "[FILTERED]"], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:8:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/users_controller.rb:8:in `create'
+  Rendering api/errors/internal_server_error.json.jbuilder
+  Rendered api/errors/internal_server_error.json.jbuilder (Duration: 0.2ms | Allocations: 152)
+
+ActiveRecord::RecordInvalid - Validation failed: First name can't be blank, Last name can't be blank, Mailing list can't be blank:
+	app/controllers/api/users_controller.rb:8:in `create'
+
+Completed 500 Internal Server Error in 202ms (Views: 1.5ms | ActiveRecord: 5.7ms | Allocations: 12996)
+
+
+Started POST "/api/users" for 127.0.0.1 at 2022-09-01 21:02:45 -0700
+Processing by Api::UsersController#create as JSON
+  Parameters: {"email"=>"test@email.com", "password"=>"[FILTERED]", "firstName"=>"test", "lastName"=>"test", "companyName"=>"test", "mailingList"=>false, "user"=>{"email"=>"test@email.com", "password"=>"[FILTERED]"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:43:in `generate_unique_session_token'
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "[FILTERED]"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:43:in `generate_unique_session_token'
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "test@email.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:8:in `create'
+  [1m[36mCACHE User Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "[FILTERED]"], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:8:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/users_controller.rb:8:in `create'
+  Rendering api/errors/internal_server_error.json.jbuilder
+  Rendered api/errors/internal_server_error.json.jbuilder (Duration: 0.2ms | Allocations: 152)
+
+ActiveRecord::RecordInvalid - Validation failed: First name can't be blank, Last name can't be blank, Mailing list can't be blank:
+	app/controllers/api/users_controller.rb:8:in `create'
+
+Completed 500 Internal Server Error in 39915ms (Views: 1.3ms | ActiveRecord: 7.9ms | Allocations: 111422)
+
+
+Started POST "/api/users" for 127.0.0.1 at 2022-09-01 21:03:37 -0700
+Processing by Api::UsersController#create as JSON
+  Parameters: {"email"=>"test@email.com", "password"=>"[FILTERED]", "firstName"=>"test", "lastName"=>"test", "companyName"=>"test", "mailingList"=>false, "user"=>{"email"=>"test@email.com", "password"=>"[FILTERED]"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:43:in `generate_unique_session_token'
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "[FILTERED]"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:43:in `generate_unique_session_token'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "test@email.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:8:in `create'
+  [1m[36mCACHE User Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "[FILTERED]"], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:8:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/users_controller.rb:8:in `create'
+  Rendering api/errors/internal_server_error.json.jbuilder
+  Rendered api/errors/internal_server_error.json.jbuilder (Duration: 0.3ms | Allocations: 152)
+
+ActiveRecord::RecordInvalid - Validation failed: First name can't be blank, Last name can't be blank, Mailing list can't be blank:
+	app/controllers/api/users_controller.rb:8:in `create'
+
+Completed 500 Internal Server Error in 17814ms (Views: 1.3ms | ActiveRecord: 3.5ms | Allocations: 112918)
+
+
+Started POST "/api/users" for 127.0.0.1 at 2022-09-01 21:13:23 -0700
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::UsersController#create as JSON
+  Parameters: {"email"=>"test@email.com", "password"=>"[FILTERED]", "firstName"=>"test", "lastName"=>"test", "companyName"=>"test", "mailingList"=>false, "user"=>{"email"=>"test@email.com", "password"=>"[FILTERED]"}}
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:43:in `generate_unique_session_token'
+  [1m[36mUser Exists? (0.9ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "[FILTERED]"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:43:in `generate_unique_session_token'
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "test@email.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:8:in `create'
+  [1m[36mCACHE User Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "[FILTERED]"], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:8:in `create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/users_controller.rb:8:in `create'
+  Rendering api/errors/internal_server_error.json.jbuilder
+  Rendered api/errors/internal_server_error.json.jbuilder (Duration: 2.2ms | Allocations: 530)
+
+ActiveRecord::RecordInvalid - Validation failed: First name can't be blank, Last name can't be blank, Mailing list can't be blank:
+	app/controllers/api/users_controller.rb:8:in `create'
+
+Completed 500 Internal Server Error in 209ms (Views: 10.4ms | ActiveRecord: 3.0ms | Allocations: 17542)
+
+

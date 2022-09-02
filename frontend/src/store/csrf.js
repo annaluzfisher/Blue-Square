@@ -22,7 +22,6 @@ export const restoreCurrentUser = (response) => {
 const csrfFetch = async (url, options = {}) => {
   options.method ||= "GET";
   options.headers ||= {};
-  console.log("let's see if this is first??");
   if (options.method.toUpperCase() !== "GET") {
     options.headers["Content-Type"] = "application/json";
     options.headers["Accept"] = "application/json";

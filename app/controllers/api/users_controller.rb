@@ -1,6 +1,6 @@
 class Api::UsersController < ApplicationController
 
-wrap_parameters include: User.attribute_names + ['password']
+before_action wrap_parameters include: User.attribute_names + ['password']
 
   def create
     # debugger
@@ -16,7 +16,7 @@ wrap_parameters include: User.attribute_names + ['password']
   private
 
   def user_params
-    params.require(:user).permit(:email, :password)
+    params.require(:user).permit(:email, :password, :first_name, :last_name, :company_name, :mailing_list)
   end
   
 end
