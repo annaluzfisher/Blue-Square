@@ -13,7 +13,7 @@ class User < ApplicationRecord
   presence: true
 
   validates :mailing_list,
-  presence: true,
+  # presence: true,
   inclusion: { in: [true, false] }
 
   validates :email, 

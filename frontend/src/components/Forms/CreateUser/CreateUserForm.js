@@ -2,6 +2,7 @@ import "./createuserform.css";
 import { React, useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { createUser } from "../../../store/user";
+import SubmitButton from "../../Buttons/SubmitButton";
 
 
 function CreateUserForm() {
@@ -12,7 +13,7 @@ function CreateUserForm() {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [companyName, setCompanyName] = useState("");
-  const [mailingList, setMailingList] = useState(false);
+  const [mailingList, setMailingList] = useState('false');
 
   const [user, setUser] = useState({});
 
@@ -22,7 +23,6 @@ function CreateUserForm() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('user upon submit', user)
     dispatch(createUser(user));
   };
 
@@ -35,7 +35,7 @@ function CreateUserForm() {
   // setMailingList("");
 
   return (
-    <div className="user-form-wrapper">
+    <div className="create-user-form-wrapper">
       <form onSubmit={handleSubmit}>
         <input
           type="text"
@@ -63,7 +63,7 @@ function CreateUserForm() {
         />
         <input
           type="checkbox"
-          checked={mailingList}
+          // checked="false"
           onChange={(e) => setMailingList(e.target.value)}
         />
 
@@ -74,7 +74,7 @@ function CreateUserForm() {
           onChange={(e) => setPassword(e.target.value)}
         />
 
-        <input type="submit" value='Submit' />
+        <SubmitButton />
       </form>
     </div>
   );

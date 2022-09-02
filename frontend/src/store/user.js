@@ -14,20 +14,14 @@ export const deleteUser = (userId) => ({
 });
 
 export const createUser = (user) => async (dispatch) => {
-  console.log('increate',user)
+  console.log('in createUser pre-fetch:',user)
   const res = await csrfFetch("/api/users", {
     method: "POST",
-    body: JSON.stringify({"user":{user}}),
+    body: JSON.stringify({user}),
   })
     .then((result) => result.json())
     .then((newUser) => dispatch(receiveUser(newUser)))
     .catch((error) => console.log('error from createUser action:',error));
-  // if (res.ok) {
-  //   const newUser = await res.json();
-  //   ;
-  // } else {
-  //   alert("error");
-  // }
 };
 
 const userReducer = (state = {}, action) => {
