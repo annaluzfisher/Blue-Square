@@ -5,6 +5,8 @@
   "main": "index.js",
   "directories": {
     "lib": "lib"
+  }, "engines" : {
+    "node": "16.x"
   },
   "scripts": {
     "build": "npm install --prefix frontend && npm run build --prefix frontend"
