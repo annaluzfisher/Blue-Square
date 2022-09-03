@@ -3,7 +3,7 @@ import SubmitButton from "../../Buttons/SubmitButton";
 import { useDispatch } from "react-redux";
 import { loginUser } from "../../../store/session";
 import { useState, useEffect } from "react";
-import LinkButton from "../../Buttons/LinkButton/LinkButton";
+import  LinkButton from "../../Buttons/LinkButton/LinkButton";
 
 function LogInForm() {
   const dispatch = useDispatch();

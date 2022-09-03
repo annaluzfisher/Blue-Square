@@ -17,7 +17,9 @@ function UserInfo() {
       <div className="user-info-wrapper">
         <span>USER NAME</span>
       </div>
-      <div onClick={handleClick}>Log Out</div>
+      <div onClick={handleClick}>
+        <span>Log Out</span>
+      </div>
     </>
   );
 }
