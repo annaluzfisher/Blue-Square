@@ -1,21 +1,28 @@
-import "./LogInForm.css";
+import "./loginform.css";
 import SubmitButton from "../../Buttons/SubmitButton";
-import { useDispatch, useEffect } from "react-redux";
+import { useDispatch } from "react-redux";
 import { loginUser } from "../../../store/session";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import LinkButton from "../../Buttons/LinkButton/LinkButton";
 
 function LogInForm() {
-
   const dispatch = useDispatch();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [user, setUser] = useState({});
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    console.log("user in submit", user);
     dispatch(loginUser(user));
   };
 
+  useEffect(() => {
+    setUser({email, password});
+  }, [email, password]);
+
   return (
+    <>
     <div className="login-form-wrapper">
       <form onSubmit={handleSubmit}>
         <input
@@ -34,6 +41,8 @@ function LogInForm() {
         <SubmitButton name={"Log In"} />
       </form>
     </div>
+    <LinkButton localPath="Create-Account" name="Create Account"/>
+    </>
   );
 }
 

@@ -980,3 +980,330 @@ Processing by Api::SessionsController#show as JSON
 Completed 200 OK in 14ms (Views: 0.1ms | ActiveRecord: 7.2ms | Allocations: 3796)
 
 
+Started POST "/api/session" for 127.0.0.1 at 2022-09-02 18:54:25 -0700
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"session"=>{}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/models/user.rb:28:in `find_by_credentials'
+Completed 422 Unprocessable Entity in 16ms (Views: 0.2ms | ActiveRecord: 7.2ms | Allocations: 3883)
+
+
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Started POST "/api/session" for 127.0.0.1 at 2022-09-02 19:27:57 -0700
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"session"=>{}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/models/user.rb:28:in `find_by_credentials'
+Completed 422 Unprocessable Entity in 18ms (Views: 0.2ms | ActiveRecord: 7.7ms | Allocations: 6059)
+
+
+Started POST "/api/session" for 127.0.0.1 at 2022-09-02 19:29:25 -0700
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"_json"=>"test@email.com", "session"=>{"_json"=>"test@email.com"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/models/user.rb:28:in `find_by_credentials'
+Completed 422 Unprocessable Entity in 2ms (Views: 0.1ms | ActiveRecord: 0.2ms | Allocations: 972)
+
+
+Started POST "/api/session" for 127.0.0.1 at 2022-09-02 19:32:20 -0700
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"_json"=>"test@email.com", "session"=>{"_json"=>"test@email.com"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/models/user.rb:28:in `find_by_credentials'
+Completed 422 Unprocessable Entity in 2ms (Views: 0.1ms | ActiveRecord: 0.3ms | Allocations: 921)
+
+
+Started POST "/api/session" for 127.0.0.1 at 2022-09-02 19:32:41 -0700
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"_json"=>"test@email.com", "session"=>{"_json"=>"test@email.com"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/models/user.rb:28:in `find_by_credentials'
+Completed 422 Unprocessable Entity in 2ms (Views: 0.1ms | ActiveRecord: 0.2ms | Allocations: 935)
+
+
+Started POST "/api/session" for 127.0.0.1 at 2022-09-02 19:33:05 -0700
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"_json"=>"test@email.com", "session"=>{"_json"=>"test@email.com"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/models/user.rb:28:in `find_by_credentials'
+Completed 422 Unprocessable Entity in 2ms (Views: 0.1ms | ActiveRecord: 0.2ms | Allocations: 930)
+
+
+Started POST "/api/session" for 127.0.0.1 at 2022-09-02 19:33:14 -0700
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"_json"=>"test@email.com", "session"=>{"_json"=>"test@email.com"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/models/user.rb:28:in `find_by_credentials'
+Completed 422 Unprocessable Entity in 2ms (Views: 0.1ms | ActiveRecord: 0.2ms | Allocations: 924)
+
+
+Started POST "/api/session" for 127.0.0.1 at 2022-09-02 19:34:18 -0700
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"email"=>"test@email.com", "password"=>"[FILTERED]", "session"=>{"email"=>"test@email.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "test@email.com"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:28:in `find_by_credentials'
+Completed 422 Unprocessable Entity in 4ms (Views: 0.1ms | ActiveRecord: 0.7ms | Allocations: 1000)
+
+
+Started POST "/api/session" for 127.0.0.1 at 2022-09-02 19:36:24 -0700
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"user"=>{"email"=>"test@email.com", "password"=>"[FILTERED]"}, "session"=>{"user"=>{"email"=>"test@email.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/models/user.rb:28:in `find_by_credentials'
+Completed 422 Unprocessable Entity in 2ms (Views: 0.1ms | ActiveRecord: 0.2ms | Allocations: 905)
+
+
+Started POST "/api/session" for 127.0.0.1 at 2022-09-02 19:36:54 -0700
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"email"=>"test@email.com", "password"=>"[FILTERED]", "session"=>{"email"=>"test@email.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "test@email.com"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:28:in `find_by_credentials'
+Completed 422 Unprocessable Entity in 2ms (Views: 0.2ms | ActiveRecord: 0.3ms | Allocations: 793)
+
+
+Started POST "/api/session" for 127.0.0.1 at 2022-09-02 19:37:59 -0700
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"email"=>"test@email.com", "password"=>"[FILTERED]", "session"=>{"email"=>"test@email.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "test@email.com"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:28:in `find_by_credentials'
+Completed 422 Unprocessable Entity in 97447ms (Views: 0.2ms | ActiveRecord: 3.4ms | Allocations: 143919)
+
+
+Started POST "/api/session" for 127.0.0.1 at 2022-09-02 19:39:36 -0700
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"email"=>"test@email.com", "password"=>"[FILTERED]", "session"=>{"email"=>"test@email.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (4.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "test@email.com"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:28:in `find_by_credentials'
+Completed 422 Unprocessable Entity in 3765ms (Views: 0.2ms | ActiveRecord: 5.6ms | Allocations: 98597)
+
+
+Started POST "/api/session" for 127.0.0.1 at 2022-09-02 19:39:44 -0700
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"email"=>"test@email.com", "password"=>"[FILTERED]", "session"=>{"email"=>"test@email.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "test@email.com"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:28:in `find_by_credentials'
+Completed 422 Unprocessable Entity in 25476ms (Views: 0.2ms | ActiveRecord: 0.2ms | Allocations: 97643)
+
+
+Started POST "/api/session" for 127.0.0.1 at 2022-09-02 19:40:15 -0700
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"user"=>{"email"=>"test@email.com", "password"=>"[FILTERED]"}, "session"=>{"user"=>{"email"=>"test@email.com", "password"=>"[FILTERED]"}}}
+[31mUnpermitted parameter: :user. Context: { controller: Api::SessionsController, action: create, request: #<ActionDispatch::Request:0x0000000112532830>, params: {"user"=>{"email"=>"test@email.com", "password"=>"[FILTERED]"}, "format"=>:json, "controller"=>"api/sessions", "action"=>"create", "session"=>{"user"=>{"email"=>"test@email.com", "password"=>"[FILTERED]"}}} }[0m
+[31mUnpermitted parameter: :user. Context: { controller: Api::SessionsController, action: create, request: #<ActionDispatch::Request:0x0000000112532830>, params: {"user"=>{"email"=>"test@email.com", "password"=>"[FILTERED]"}, "format"=>:json, "controller"=>"api/sessions", "action"=>"create", "session"=>{"user"=>{"email"=>"test@email.com", "password"=>"[FILTERED]"}}} }[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/models/user.rb:28:in `find_by_credentials'
+[31mUnpermitted parameter: :user. Context: { controller: Api::SessionsController, action: create, request: #<ActionDispatch::Request:0x0000000112532830>, params: {"user"=>{"email"=>"test@email.com", "password"=>"[FILTERED]"}, "format"=>:json, "controller"=>"api/sessions", "action"=>"create", "session"=>{"user"=>{"email"=>"test@email.com", "password"=>"[FILTERED]"}}} }[0m
+Completed 422 Unprocessable Entity in 62303ms (Views: 0.2ms | ActiveRecord: 0.2ms | Allocations: 105039)
+
+
+Started POST "/api/session" for 127.0.0.1 at 2022-09-02 19:41:34 -0700
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"user"=>{"email"=>"test@email.com", "password"=>"[FILTERED]"}, "session"=>{"user"=>{"email"=>"test@email.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/models/user.rb:28:in `find_by_credentials'
+Completed 422 Unprocessable Entity in 169241ms (Views: 0.2ms | ActiveRecord: 0.9ms | Allocations: 104942)
+
+
+Started POST "/api/session" for 127.0.0.1 at 2022-09-02 19:44:32 -0700
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"user"=>{"email"=>"test@email.com", "password"=>"[FILTERED]"}, "session"=>{"user"=>{"email"=>"test@email.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/models/user.rb:28:in `find_by_credentials'
+Completed 422 Unprocessable Entity in 34073ms (Views: 0.3ms | ActiveRecord: 1.6ms | Allocations: 102399)
+
+
+Started POST "/api/session" for 127.0.0.1 at 2022-09-02 19:45:10 -0700
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"user"=>{"email"=>"test@email.com", "password"=>"[FILTERED]"}, "session"=>{"user"=>{"email"=>"test@email.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "test@email.com"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:28:in `find_by_credentials'
+Completed 422 Unprocessable Entity in 107311ms (Views: 0.3ms | ActiveRecord: 1.4ms | Allocations: 117619)
+
+
+Started POST "/api/session" for 127.0.0.1 at 2022-09-02 19:46:57 -0700
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"email"=>"test@email.com", "password"=>"[FILTERED]", "session"=>{"email"=>"test@email.com", "password"=>"[FILTERED]"}}
+  Rendering api/errors/internal_server_error.json.jbuilder
+  Rendered api/errors/internal_server_error.json.jbuilder (Duration: 1.6ms | Allocations: 517)
+
+ActionController::ParameterMissing - param is missing or the value is empty: user:
+	app/controllers/api/sessions_controller.rb:35:in `session_params'
+	app/controllers/api/sessions_controller.rb:14:in `create'
+
+Completed 500 Internal Server Error in 12ms (Views: 11.2ms | ActiveRecord: 0.0ms | Allocations: 3594)
+
+
+Started POST "/api/session" for 127.0.0.1 at 2022-09-02 19:47:02 -0700
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"email"=>"test@email.com", "password"=>"[FILTERED]", "session"=>{"email"=>"test@email.com", "password"=>"[FILTERED]"}}
+  Rendering api/errors/internal_server_error.json.jbuilder
+  Rendered api/errors/internal_server_error.json.jbuilder (Duration: 0.2ms | Allocations: 113)
+
+ActionController::ParameterMissing - param is missing or the value is empty: user:
+	app/controllers/api/sessions_controller.rb:35:in `session_params'
+	app/controllers/api/sessions_controller.rb:14:in `create'
+
+Completed 500 Internal Server Error in 2ms (Views: 0.7ms | ActiveRecord: 0.0ms | Allocations: 1046)
+
+
+Started POST "/api/session" for 127.0.0.1 at 2022-09-02 19:49:01 -0700
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"user"=>{"email"=>"test@email.com", "password"=>"[FILTERED]"}, "session"=>{"user"=>{"email"=>"test@email.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "test@email.com"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:28:in `find_by_credentials'
+Completed 422 Unprocessable Entity in 48983ms (Views: 0.4ms | ActiveRecord: 1.6ms | Allocations: 145777)
+
+
+Started POST "/api/session" for 127.0.0.1 at 2022-09-02 19:49:55 -0700
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"user"=>{"email"=>"test@email.com", "password"=>"[FILTERED]"}, "session"=>{"user"=>{"email"=>"test@email.com", "password"=>"[FILTERED]"}}}
+[31mUnpermitted parameters: :user, :format, :session. Context: { controller: Api::SessionsController, action: create, request: #<ActionDispatch::Request:0x0000000113150338>, params: {"user"=>{"email"=>"test@email.com", "password"=>"[FILTERED]"}, "format"=>:json, "controller"=>"api/sessions", "action"=>"create", "session"=>{"user"=>{"email"=>"test@email.com", "password"=>"[FILTERED]"}}} }[0m
+[31mUnpermitted parameters: :user, :format, :session. Context: { controller: Api::SessionsController, action: create, request: #<ActionDispatch::Request:0x0000000113150338>, params: {"user"=>{"email"=>"test@email.com", "password"=>"[FILTERED]"}, "format"=>:json, "controller"=>"api/sessions", "action"=>"create", "session"=>{"user"=>{"email"=>"test@email.com", "password"=>"[FILTERED]"}}} }[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/models/user.rb:28:in `find_by_credentials'
+Completed 422 Unprocessable Entity in 5380ms (Views: 0.2ms | ActiveRecord: 1.1ms | Allocations: 98756)
+
+
+Started POST "/api/session" for 127.0.0.1 at 2022-09-02 19:50:04 -0700
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"user"=>{"email"=>"test@email.com", "password"=>"[FILTERED]"}, "session"=>{"user"=>{"email"=>"test@email.com", "password"=>"[FILTERED]"}}}
+[31mUnpermitted parameters: :user, :format, :session. Context: { controller: Api::SessionsController, action: create, request: #<ActionDispatch::Request:0x0000000112a73420>, params: {"user"=>{"email"=>"test@email.com", "password"=>"[FILTERED]"}, "format"=>:json, "controller"=>"api/sessions", "action"=>"create", "session"=>{"user"=>{"email"=>"test@email.com", "password"=>"[FILTERED]"}}} }[0m
+[31mUnpermitted parameters: :user, :format, :session. Context: { controller: Api::SessionsController, action: create, request: #<ActionDispatch::Request:0x0000000112a73420>, params: {"user"=>{"email"=>"test@email.com", "password"=>"[FILTERED]"}, "format"=>:json, "controller"=>"api/sessions", "action"=>"create", "session"=>{"user"=>{"email"=>"test@email.com", "password"=>"[FILTERED]"}}} }[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/models/user.rb:28:in `find_by_credentials'
+[31mUnpermitted parameters: :user, :format, :session. Context: { controller: Api::SessionsController, action: create, request: #<ActionDispatch::Request:0x0000000112a73420>, params: {"user"=>{"email"=>"test@email.com", "password"=>"[FILTERED]"}, "format"=>:json, "controller"=>"api/sessions", "action"=>"create", "session"=>{"user"=>{"email"=>"test@email.com", "password"=>"[FILTERED]"}}} }[0m
+Completed 422 Unprocessable Entity in 37376ms (Views: 0.2ms | ActiveRecord: 0.2ms | Allocations: 103844)
+
+
+Started POST "/api/session" for 127.0.0.1 at 2022-09-02 19:50:42 -0700
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"user"=>{"email"=>"test@email.com", "password"=>"[FILTERED]"}, "session"=>{"user"=>{"email"=>"test@email.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "test@email.com"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:28:in `find_by_credentials'
+Completed 422 Unprocessable Entity in 26918ms (Views: 0.2ms | ActiveRecord: 1.3ms | Allocations: 116172)
+
+
+Started POST "/api/session" for 127.0.0.1 at 2022-09-02 19:53:06 -0700
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"session"=>{"email"=>"test@email.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "test@email.com"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:28:in `find_by_credentials'
+Completed 422 Unprocessable Entity in 35163ms (Views: 0.3ms | ActiveRecord: 1.7ms | Allocations: 144722)
+
+
+Started POST "/api/session" for 127.0.0.1 at 2022-09-02 19:53:52 -0700
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"session"=>{"email"=>"test@email.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/models/user.rb:28:in `find_by_credentials'
+Completed 422 Unprocessable Entity in 147916ms (Views: 24.1ms | ActiveRecord: 1.4ms | Allocations: 597406)
+
+
+Started POST "/api/session" for 127.0.0.1 at 2022-09-02 19:57:23 -0700
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"user"=>{"email"=>"test@email.com", "password"=>"[FILTERED]"}, "session"=>{"user"=>{"email"=>"test@email.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/models/user.rb:28:in `find_by_credentials'
+Completed 422 Unprocessable Entity in 76887ms (Views: 0.2ms | ActiveRecord: 1.3ms | Allocations: 102945)
+
+
+Started POST "/api/session" for 127.0.0.1 at 2022-09-02 19:58:43 -0700
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"user"=>{"email"=>"test@email.com", "password"=>"[FILTERED]"}, "session"=>{"user"=>{"email"=>"test@email.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "test@email.com"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:28:in `find_by_credentials'
+Completed 422 Unprocessable Entity in 87930ms (Views: 0.2ms | ActiveRecord: 0.9ms | Allocations: 116604)
+
+
+Started POST "/api/session" for 127.0.0.1 at 2022-09-02 20:00:17 -0700
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"user"=>{"email"=>"test@email.com", "password"=>"[FILTERED]"}, "session"=>{"user"=>{"email"=>"test@email.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "test@email.com"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:29:in `find_by_credentials'
+Completed 422 Unprocessable Entity in 91820ms (Views: 0.2ms | ActiveRecord: 1.2ms | Allocations: 207155)
+
+
+Started POST "/api/session" for 127.0.0.1 at 2022-09-02 20:02:18 -0700
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"user"=>{"email"=>"test@gmail.com", "password"=>"[FILTERED]"}, "session"=>{"user"=>{"email"=>"test@gmail.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "test@gmail.com"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:29:in `find_by_credentials'
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "[FILTERED]"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:44:in `generate_unique_session_token'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:35:in `reset_session_token!'
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "test@gmail.com"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:35:in `reset_session_token!'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."session_token" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["session_token", "[FILTERED]"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:35:in `reset_session_token!'
+  [1m[36mUser Update (0.3ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["session_token", "[FILTERED]"], ["updated_at", "2022-09-03 03:02:18.570722"], ["id", 1]]
+  ↳ app/models/user.rb:35:in `reset_session_token!'
+  [1m[36mTRANSACTION (8.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:35:in `reset_session_token!'
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/show.json.jbuilder (Duration: 2.7ms | Allocations: 643)
+Completed 200 OK in 223ms (Views: 10.2ms | ActiveRecord: 13.2ms | Allocations: 16667)
+
+
+Started POST "/api/session" for 127.0.0.1 at 2022-09-02 20:07:32 -0700
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"user"=>{"email"=>"test@email.com", "password"=>"[FILTERED]"}, "session"=>{"user"=>{"email"=>"test@email.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "test@email.com"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:29:in `find_by_credentials'
+Completed 422 Unprocessable Entity in 2ms (Views: 0.1ms | ActiveRecord: 0.2ms | Allocations: 1011)
+
+
+Started POST "/api/session" for 127.0.0.1 at 2022-09-02 20:20:40 -0700
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"user"=>{"email"=>"test@gmail.com", "password"=>"[FILTERED]"}, "session"=>{"user"=>{"email"=>"test@gmail.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "test@gmail.com"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:29:in `find_by_credentials'
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "[FILTERED]"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:44:in `generate_unique_session_token'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:35:in `reset_session_token!'
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "test@gmail.com"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:35:in `reset_session_token!'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."session_token" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["session_token", "[FILTERED]"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:35:in `reset_session_token!'
+  [1m[36mUser Update (0.4ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["session_token", "[FILTERED]"], ["updated_at", "2022-09-03 03:20:40.957339"], ["id", 1]]
+  ↳ app/models/user.rb:35:in `reset_session_token!'
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:35:in `reset_session_token!'
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/show.json.jbuilder (Duration: 0.5ms | Allocations: 212)
+Completed 200 OK in 252ms (Views: 1.1ms | ActiveRecord: 27.8ms | Allocations: 8413)
+
+
+Started POST "/api/session" for 127.0.0.1 at 2022-09-02 20:33:23 -0700
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"user"=>{"email"=>"test@email.com", "password"=>"[FILTERED]"}, "session"=>{"user"=>{"email"=>"test@email.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "test@email.com"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:29:in `find_by_credentials'
+Completed 422 Unprocessable Entity in 12ms (Views: 0.2ms | ActiveRecord: 4.9ms | Allocations: 3794)
+
+
+Started POST "/api/session" for 127.0.0.1 at 2022-09-02 20:33:29 -0700
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"user"=>{"email"=>"test@gmail.com", "password"=>"[FILTERED]"}, "session"=>{"user"=>{"email"=>"test@gmail.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "test@gmail.com"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:29:in `find_by_credentials'
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "[FILTERED]"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:44:in `generate_unique_session_token'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:35:in `reset_session_token!'
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "test@gmail.com"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:35:in `reset_session_token!'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."session_token" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["session_token", "[FILTERED]"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:35:in `reset_session_token!'
+  [1m[36mUser Update (0.6ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["session_token", "[FILTERED]"], ["updated_at", "2022-09-03 03:33:29.301687"], ["id", 1]]
+  ↳ app/models/user.rb:35:in `reset_session_token!'
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:35:in `reset_session_token!'
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/show.json.jbuilder (Duration: 0.3ms | Allocations: 212)
+Completed 200 OK in 195ms (Views: 0.8ms | ActiveRecord: 3.3ms | Allocations: 5134)
+
+

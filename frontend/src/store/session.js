@@ -14,9 +14,10 @@ export const removeCurrentUser = (user) => ({
 });
 
 export const loginUser = (user) => async (dispatch) => {
+  console.log('user-pre-fetch',user)
     csrfFetch("/api/session", {
     method: "POST",
-    body: JSON.stringify(user),
+    body: JSON.stringify({user}),
   })
     .then((res) => res.json())
     .then((res) => dispatch(receiveCurrentUser(res)))

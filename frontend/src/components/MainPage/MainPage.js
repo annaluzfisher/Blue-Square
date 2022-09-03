@@ -1,6 +1,6 @@
 import './mainpage.css'
 import NavBar from "../NavBar/NavBar";
-import Navigation from "../Modals/Navigation/Navigation"
+import Navigation from "../Modals/NavigationComponents/Navigation/Navigation"
 // import Shop from '../Modals/Shop/Shop'
 function MainPage() {
   return (
