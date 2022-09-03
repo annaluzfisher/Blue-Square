@@ -2,6 +2,7 @@ import { toggleModal } from "../../store/ui";
 import "./navbar.css"
 import { useDispatch, useSelector } from "react-redux";
 import Navigation from "../Modals/NavigationComponents/Navigation/Navigation";
+import { Link } from "react-router-dom";
 
 function NavBar() {
  const NAVIGATION_ID = 1
@@ -12,7 +13,9 @@ function NavBar() {
   return (
     <>
       <nav className="nav-bar">
-        <div className="nav-left"></div>
+        <div className="nav-left">
+          <Link to="/">Home</Link>
+        </div>
         <div className="nav-right">
           <div
             className="hamburger-icon-wrapper"

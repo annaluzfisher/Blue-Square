@@ -4,9 +4,11 @@
   border:2px solid blue;
   display:flex;
   justify-content: space-between;
+  background: transparent;
+  z-index: 1;
 }
 
-.nav-right{
+.nav-bar div {
   margin: 5%;
-
+  background: transparent;
 }
