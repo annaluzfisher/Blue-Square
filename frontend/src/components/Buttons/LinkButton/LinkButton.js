@@ -1,9 +1,11 @@
-import './linkbutton.css'
+import '../button.css'
+import { Link } from 'react-router-dom'
 
-
-function LinkButton() {
+function LinkButton(props) {
   return (
-    <div>LinkButton</div>
+    <Link to={props.localPath}>
+      <button className='button'>{props.name}</button>
+    </Link>
   )
 }
 

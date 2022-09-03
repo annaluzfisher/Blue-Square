@@ -1,11 +1,11 @@
-import "./createuserform.css";
+import "./createaccountform.css";
 import { React, useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { createUser } from "../../../store/user";
 import SubmitButton from "../../Buttons/SubmitButton";
 
 
-function CreateUserForm() {
+function CreateAccountForm() {
   const dispatch = useDispatch();
 
   const [password, setPassword] = useState("");
@@ -80,4 +80,4 @@ function CreateUserForm() {
   );
 }
 
-export default CreateUserForm;
+export default CreateAccountForm;

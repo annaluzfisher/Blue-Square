@@ -30,10 +30,18 @@ export const preloadedModals = {
         id: 1,
         visible: false,
       },
+      2: {
+        id: 2,
+        visible: false,
+      },
+      2: {
+        id: 2,
+        visible: false,
+      }
     },
   },
 };
-
+// 1 is navigation/burger   2 is shop  3 is searchpage
 const uiReducer = combineReducers({
   modals: modalsReducer,
 });
