@@ -4,15 +4,17 @@ import { useDispatch, useSelector } from "react-redux";
 
 
 function NavBar() {
-
+ const NAVIGATION_ID = 1
+ const SHOP_ID = 2
+ const SEARCH_ID = 3
   const dispatch = useDispatch();
-  
+
   return (
     <nav className="nav-bar">
       <div className="nav-left"></div>
       <div className="nav-right">
-        <div id="1" className="hamburger-icon-wrapper"
-        onClick={(e)=>dispatch(toggleModal(e.target.id))}>
+        <div className="hamburger-icon-wrapper"
+        onClick={()=>dispatch(toggleModal(NAVIGATION_ID))}>
           <i className="fa-solid fa-bars"></i>
         </div>
       </div>

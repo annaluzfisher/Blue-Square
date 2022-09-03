@@ -3,6 +3,10 @@
   height: 10%;
   border:2px solid blue;
   display:flex;
-  align-items: space-between;
-  justify-content: center;
+  justify-content: space-between;
+}
+
+.nav-right{
+  margin: 5%;
+
 }

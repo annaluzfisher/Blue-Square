@@ -2,7 +2,7 @@
   position:absolute;
   height: 100%;
   width: 100vw;
-  margin: 0;
+  margin: 0px;
   background-color: rgb(255, 255, 255);
   z-index: 2;
   overflow-y:scroll;

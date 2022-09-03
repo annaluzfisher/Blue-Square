@@ -2,14 +2,15 @@ import '../modals.css'
 import { useDispatch, useSelector } from "react-redux";
 import { toggleModal } from "../../../store/ui";
 import  LinkButton from '../../Buttons/LinkButton/LinkButton'
+import LogInForm from '../../Forms/LogIn/LogInForm'
 
 function Navigation() {
-    const ABOUT_KEY = 1;
-    const visible = useSelector((state) => state.ui.modals[ABOUT_KEY].visible);
+    const NAVIGATION_ID = 1;
+    const visible = useSelector((state) => state.ui.modals[NAVIGATION_ID].visible);
     const dispatch = useDispatch();
 
     const handleClick = () => {
-      dispatch(toggleModal(ABOUT_KEY));
+      dispatch(toggleModal(NAVIGATION_ID));
     };
 
   return (
@@ -17,7 +18,10 @@ function Navigation() {
       <div className="x-icon" onClick={handleClick}>
         <i className="fa-solid fa-xmark"></i>
       </div>
+
+
       <div>NAVIGATION</div>
+      <LogInForm />
       <LinkButton localPath="Create-Account" name="Create Account"/>
     </div>
   );
