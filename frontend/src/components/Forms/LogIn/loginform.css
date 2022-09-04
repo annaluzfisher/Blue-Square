@@ -1,8 +1,8 @@
 
 
 .login-form-wrapper{
-  height:35rem;
-  width:27rem;
+  height:520px;
+  width:370px;
   border: 2px solid rgb(0, 255, 81);
   /* background-color: aquamarine; */
 }
@@ -32,4 +32,21 @@
   margin-top: 5px;
   height:40px;
   width:90%;
+}
+.login-form-wrapper .button{
+  margin-top: 60px;
+}
+
+.lower-form {
+  border-top: 2px solid rgb(193, 191, 191);
+  height: 120px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+
+.login-form-wrapper > .lower-form  .button {
+  margin-top: 10px;
+
 }
