@@ -4,7 +4,6 @@ body, html {
   width: 100vw;
   overflow-x: hidden;
   overflow-y: hidden;
-  background-image: linear-gradient(rgb(187, 246, 254), rgb(248, 219, 224));
 }
 #root{
   position: absolute;

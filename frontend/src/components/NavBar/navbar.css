@@ -1,14 +1,72 @@
-.nav-bar{
+.nav-bar {
   width: 100vw;
   height: 10%;
-  border:2px solid blue;
-  display:flex;
-  justify-content: space-between;
+  border: 2px solid blue;
+  display: flex;
+  align-items: center;
   background: transparent;
   z-index: 1;
 }
 
-.nav-bar div {
-  margin: 5%;
-  background: transparent;
+.nav-right {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  border:1px solid red;
+  height:100%;
+  width: 100%;
+}
+/* .nav-middle{
+  width:50%;
+  border:1px solid green;
+} */
+
+.nav-right div {
+  border: 1px solid black;
+  height: 50%;
+  width: 5%;
+  margin-left: 2%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.nav-right div:hover{
+  cursor: pointer;
+}
+.nav-right :nth-child(4){
+ margin-right:13%;
+}
+.nav-right div :first-child{
+  font-size: 1rem;
+}
+.nav-right :nth-child(1){
+ margin: 3%;
+padding-left: 2%;
+padding-right: 2%;
+}
+.nav-left{
+    display: flex;
+  align-items: center;
+    height:100%;
+  width:100%;
+  border:1px solid rgb(251, 66, 232);
+}
+
+.nav-left div{
+    border: 1px solid black;
+  height: 70%;
+  width: fit-content;
+  margin-right: 2%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.logo-icon-wrapper{
+  color: rgb(0, 0, 0);
+  font-size: 3rem;
+  margin-left:13%;
+}
+.title-wrapper {
+  font-size: 2rem;
+  display:inline-block;
 }
