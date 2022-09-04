@@ -23,25 +23,31 @@ function LogInForm() {
 
   return (
     <>
-    <div className="login-form-wrapper">
-      <form onSubmit={handleSubmit}>
-        <input
-          type="email"
-          placeholder="your_email@internet.com..."
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
-        <input
-          type="password"
-          placeholder="password..."
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
+      <div className="login-form-wrapper">
+        <span>Login To Your Account</span>
+        <form onSubmit={handleSubmit}>
+          <label>Email Address*</label>
+          <input
+            type="email"
+            placeholder="your_email@internet.com..."
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+          <label>Password*</label>
+          <input
+            type="password"
+            placeholder="password..."
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
 
-        <SubmitButton name={"Log In"} />
-      </form>
-    </div>
-    <LinkButton localPath="Create-Account" name="Create Account"/>
+          <SubmitButton name={"Submit"} />
+        </form>
+        <div className="lower-form">
+          <span>Haven't been down this trail before?</span>
+          <LinkButton localPath="Create-Account" name="Register" />
+        </div>
+      </div>
     </>
   );
 }

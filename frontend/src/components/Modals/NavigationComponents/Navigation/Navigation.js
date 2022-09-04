@@ -1,27 +1,23 @@
 import '../../modals.css'
-import { useDispatch, useSelector } from "react-redux";
-import { toggleModal } from "../../../../store/ui";
+import { useSelector } from "react-redux";
+
 import LogInForm from '../../../Forms/LogIn/LogInForm'
 import UserInfo from '../UserInfo/UserInfo'
+import ModalNavBar from '../../ModalNavBar/ModalNavBar';
 function Navigation() {
     const NAVIGATION_ID = 1;
     const visible = useSelector((state) => state.ui.modals[NAVIGATION_ID].visible);
     const currentUser = useSelector((state)=> state.session.user)
-    const dispatch = useDispatch();
+ 
 
-    // const useEffect(()=>{
-    // },[currentUser])
-    const handleClick = () => {
-      dispatch(toggleModal(NAVIGATION_ID));
-    };
+  
 
   return (
     <div className={`navigation-modal modal ${visible ? "" : "hidden"}`}>
-      <div className="x-icon" onClick={handleClick}>
-        <i className="fa-solid fa-xmark"></i>
-      </div>
+      <div className=''></div>
+      
+      <ModalNavBar modalId={NAVIGATION_ID}/>
 
-      <div>NAVIGATION</div>
       <div className="master-form-wrapper">
         {currentUser ? <UserInfo /> : <LogInForm />}
       </div>

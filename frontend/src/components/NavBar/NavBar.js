@@ -3,6 +3,7 @@ import "./navbar.css";
 import { useDispatch, useSelector } from "react-redux";
 import Navigation from "../Modals/NavigationComponents/Navigation/Navigation";
 import { Link } from "react-router-dom";
+import Logo from '../Buttons/Logo/Logo'
 
 function NavBar() {
   const NAVIGATION_ID = 1;
@@ -14,9 +15,7 @@ function NavBar() {
     <>
       <nav className="nav-bar">
         <div className="nav-left">
-          <div className="logo-icon-wrapper">
-            <i className="fa-regular fa-circle-stop"></i>
-          </div>
+            <Logo />
           <div className="title-wrapper">
             <span>Blue Square</span>
           </div>
