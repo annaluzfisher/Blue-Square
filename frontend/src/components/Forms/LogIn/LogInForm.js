@@ -1,9 +1,8 @@
 import "./loginform.css";
-import SubmitButton from "../../Buttons/SubmitButton";
 import { useDispatch } from "react-redux";
 import { loginUser } from "../../../store/session";
 import { useState, useEffect } from "react";
-import  LinkButton from "../../Buttons/LinkButton/LinkButton";
+import  Button from '../../Buttons/Button/Button'
 
 function LogInForm() {
   const dispatch = useDispatch();
@@ -41,11 +40,11 @@ function LogInForm() {
             onChange={(e) => setPassword(e.target.value)}
           />
 
-          <SubmitButton name={"Submit"} />
+          <Button name={"Submit"} type={'submit'} color={'primary'} />
         </form>
         <div className="lower-form">
           <span>Haven't been down this trail before?</span>
-          <LinkButton localPath="Create-Account" name="Register" />
+          <Button localPath="Create-Account" name={"REGISTER"} />
         </div>
       </div>
     </>

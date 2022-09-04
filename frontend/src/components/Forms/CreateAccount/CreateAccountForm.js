@@ -2,7 +2,7 @@ import "./createaccountform.css";
 import { React, useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { createUser } from "../../../store/user";
-import SubmitButton from "../../Buttons/SubmitButton";
+import Button from "../../Buttons/Button";
 
 
 function CreateAccountForm() {
@@ -26,13 +26,6 @@ function CreateAccountForm() {
     dispatch(createUser(user));
   };
 
-  // setEmail("");
-  // setUser("");
-  // setPassword("");
-  // setCompanyName("");
-  // setFirstName("");
-  // setLastName("");
-  // setMailingList("");
 
   return (
     <div className="create-user-form-wrapper">
@@ -74,7 +67,7 @@ function CreateAccountForm() {
           onChange={(e) => setPassword(e.target.value)}
         />
 
-        <SubmitButton />
+        <Button type={'SUBMIT'} />
       </form>
     </div>
   );

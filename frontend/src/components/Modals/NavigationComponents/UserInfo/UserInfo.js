@@ -1,6 +1,5 @@
 import "./userinfo.css";
-import LinkButton from "../../../Buttons/LinkButton/LinkButton";
-import { logoutUser, removeCurrentUser } from "../../../../store/session";
+import { logoutUser } from "../../../../store/session";
 import { useDispatch, useSelector } from "react-redux";
 import { toggleModal } from "../../../../store/ui";
 

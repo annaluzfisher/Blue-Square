@@ -18,7 +18,7 @@
 .login-form-wrapper span{
   font-family: 'nunito', sans-serif;
   font-weight: 700;
-  font-size: 1.2rem;
+  font-size: 20px;
   margin-top: 1rem;
 }
 .login-form-wrapper > form > label{

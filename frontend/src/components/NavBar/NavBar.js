@@ -3,7 +3,7 @@ import "./navbar.css";
 import { useDispatch, useSelector } from "react-redux";
 import Navigation from "../Modals/NavigationComponents/Navigation/Navigation";
 import { Link } from "react-router-dom";
-import Logo from '../Buttons/Logo/Logo'
+import Logo from "../Buttons/Logo/Logo";
 
 function NavBar() {
   const NAVIGATION_ID = 1;
@@ -15,12 +15,10 @@ function NavBar() {
     <>
       <nav className="nav-bar">
         <div className="nav-left">
-            <Logo />
+          <Logo />
           <div className="title-wrapper">
             <span>Blue Square</span>
           </div>
-
-          <Link to="/">Home</Link>
         </div>
         {/* <div className="nav-middle"></div> */}
         <div className="nav-right">
@@ -39,9 +37,7 @@ function NavBar() {
           >
             <i className="fa-solid fa-bars"></i>
           </div>
-          <div
-            className="shopping-bag-icon-wrapper"
-          >
+          <div className="shopping-bag-icon-wrapper">
             <i className="fa-solid fa-bag-shopping"></i>
           </div>
         </div>
