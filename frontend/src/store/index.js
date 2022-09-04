@@ -7,8 +7,8 @@ import uiReducer from "./ui";
 
 const rootReducer = combineReducers({
   ui: uiReducer,
+  user: userReducer,
   session: sessionReducer,
-  user: userReducer
 });
 
 let enhancer;

@@ -1,5 +1,8 @@
+import { storageUser } from "../index";
+
 export const restoreCSRF = async () => {
-  console.log('in restorecsrf')
+  console.log("in restorecsrf");
+  console.log(storageUser);
   try {
     const result = await csrfFetch("/api/session");
     const token = result.headers.get("X-CSRF-Token");
@@ -11,14 +14,16 @@ export const restoreCSRF = async () => {
     console.log("error in restoreCSRF:", error);
   }
 };
-
+export let tempCurrentUser;
 export const restoreCurrentUser = (response) => {
-  console.log('do we make it here on refresh',response)
+  console.log("do we make it here on refresh", response);
+  console.log("status of storge pre-setting", storageUser);
   if (response.user) {
     sessionStorage.setItem("currentUser", JSON.stringify(response.user.id));
   } else {
     sessionStorage.setItem("currentUser", null);
   }
+  tempCurrentUser = response;
 };
 
 const csrfFetch = async (url, options = {}) => {

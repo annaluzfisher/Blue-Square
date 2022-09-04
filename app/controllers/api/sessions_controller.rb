@@ -3,6 +3,7 @@ class Api::SessionsController < ApplicationController
   def show
   
     @user = User.find_by(session_token: session[:session_token])
+    # debugger
   if   @user
    render "/api/users/show"
     else

@@ -8,21 +8,30 @@ import { Provider } from "react-redux";
 import configureStore from "./store/index";
 import { preloadedModals } from "./store/ui";
 
-const store = configureStore(preloadedModals);
+export const storageToken = sessionStorage.getItem("X-CSRF-Token");
+   export const storageUser = sessionStorage.getItem("currentUser");
+console.log('on load user', storageUser)
+
+const store =  configureStore(preloadedModals);
 
 if (
-  sessionStorage.getItem("X-CSRF-Token") === null ||
-  sessionStorage.getItem("currentUser") === null
-) {
-  restoreCSRF()
+  storageToken === null || storageUser === 'null'
+  ) {
+    restoreCSRF()
     .then(initializeApp)
     .catch((err) => console.log(err));
-} else {
-  initializeApp();
-}
+  } else {
+    initializeApp();
+  }
+  
 
-function initializeApp() {
-  ReactDOM.render(
+
+  
+  
+  function initializeApp() {
+    console.log('initialize app store',store.getState());
+    console.log("initialize app storageUser", storageUser);
+    ReactDOM.render(
     <React.StrictMode>
       <BrowserRouter>
         <Provider store={store}>
@@ -34,3 +43,4 @@ function initializeApp() {
   );
 }
 window.store = store;
+window.storageUser = storageUser;
