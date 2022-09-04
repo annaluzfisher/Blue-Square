@@ -10,7 +10,7 @@ import { preloadedModals } from "./store/ui";
 
 export const storageToken = sessionStorage.getItem("X-CSRF-Token");
    export const storageUser = sessionStorage.getItem("currentUser");
-console.log('on load user', storageUser)
+
 
 const store =  configureStore(preloadedModals);
 
@@ -29,8 +29,6 @@ if (
   
   
   function initializeApp() {
-    console.log('initialize app store',store.getState());
-    console.log("initialize app storageUser", storageUser);
     ReactDOM.render(
     <React.StrictMode>
       <BrowserRouter>

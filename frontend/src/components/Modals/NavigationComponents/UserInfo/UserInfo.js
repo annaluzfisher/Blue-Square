@@ -9,9 +9,9 @@ function UserInfo() {
   const userId = useSelector((state) => state.session.user);
   const currentUser = sessionStorage.getItem("currentUser");
   const handleClick = () => {
-    console.log("we clicked and are going to dispatch logout user");
+
     sessionStorage.setItem("currentUser", null);
-    console.log("should be null after log out", currentUser);
+   
     dispatch(logoutUser());
   };
   return (

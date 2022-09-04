@@ -14,7 +14,7 @@ export const deleteUser = (userId) => ({
 });
 
 export const createUser = (user) => async (dispatch) => {
-  console.log('in createUser pre-fetch:',user)
+ 
   const res = await csrfFetch("/api/users", {
     method: "POST",
     body: JSON.stringify({user}),

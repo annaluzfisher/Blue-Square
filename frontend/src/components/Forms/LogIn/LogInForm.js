@@ -13,7 +13,7 @@ function LogInForm() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("user in submit", user);
+
     dispatch(loginUser(user));
   };
 
