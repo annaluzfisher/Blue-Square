@@ -1,6 +1,6 @@
 import '../../modals.css'
 import { useSelector } from "react-redux";
-
+import './navigation.css'
 import LogInForm from '../../../Forms/LogIn/LogInForm'
 import UserInfo from '../UserInfo/UserInfo'
 import ModalNavBar from '../../ModalNavBar/ModalNavBar';
@@ -14,12 +14,13 @@ function Navigation() {
 
   return (
     <div className={`navigation-modal modal ${visible ? "" : "hidden"}`}>
-      <div className=''></div>
-      
-      <ModalNavBar modalId={NAVIGATION_ID}/>
+      <ModalNavBar modalId={NAVIGATION_ID} />
+      <div className="navigation-modal-page">
+        <span>CUSTOMER SUPPORT</span>
 
-      <div className="master-form-wrapper">
-        {currentUser ? <UserInfo /> : <LogInForm />}
+        <div className="master-form-wrapper">
+          {currentUser ? <UserInfo /> : <LogInForm />}
+        </div>
       </div>
     </div>
   );

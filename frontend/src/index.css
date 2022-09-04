@@ -18,5 +18,8 @@ body, html {
   top: 0px;
   left: 0px;
   position: absolute;
-  border: 1px solid salmon;
+  --orange: #CD4C1D;
+}
+a{
+  text-decoration: none;
 }

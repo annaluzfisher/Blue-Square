@@ -1,0 +1,1 @@
+export const orange = '#CD4C1D'

@@ -23,11 +23,7 @@ if (
   } else {
     initializeApp();
   }
-  
-
-
-  
-  
+ 
   function initializeApp() {
     ReactDOM.render(
     <React.StrictMode>

@@ -40,7 +40,7 @@ function LogInForm() {
             onChange={(e) => setPassword(e.target.value)}
           />
 
-          <Button name={"Submit"} type={'submit'} color={'primary'} />
+          <Button name={"SUBMIT"} type={'submit'} color={'primary'} />
         </form>
         <div className="lower-form">
           <span>Haven't been down this trail before?</span>
