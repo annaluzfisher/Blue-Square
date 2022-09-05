@@ -3,8 +3,7 @@
 .login-form-wrapper{
   height:520px;
   width:370px;
-  /* border: 2px solid rgb(0, 255, 81); */
-  /* background-color: aquamarine; */
+  margin-left: -40px;
 }
 
 .login-form-wrapper > form{
@@ -38,7 +37,7 @@
 }
 
 .lower-form {
-  border-top: 2px solid rgb(193, 191, 191);
+  border-top: 1px solid rgb(193, 191, 191);
   height: 120px;
   display: flex;
   flex-direction: column;

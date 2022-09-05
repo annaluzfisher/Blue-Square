@@ -1,11 +1,12 @@
 .nav-bar {
   width: 100vw;
   height: 10%;
-  /* border: 2px solid blue; */
+margin-top: 1%;
   display: flex;
   align-items: center;
   background: transparent;
   z-index: 1;
+  color: white;
 }
 
 .nav-right {
@@ -59,18 +60,10 @@
   /* border: 1px solid rgb(251, 66, 232); */
 }
 
-.nav-left div {
-  /* border: 1px solid black; */
-  height: 70%;
-  width: fit-content;
-  margin-right: 2%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
 
 .title-wrapper {
   font-size: 2rem;
   display: inline-block;
   font-family: "Roboto", sans-serif;
+  margin-left: min(180px,40%);
 }

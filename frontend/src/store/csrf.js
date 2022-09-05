@@ -16,7 +16,7 @@ export const restoreCSRF = async () => {
 export let tempCurrentUser;
 export const restoreCurrentUser = (response) => {
   if (response.user) {
-    sessionStorage.setItem("currentUser", JSON.stringify(response.user.id));
+    sessionStorage.setItem("currentUser", JSON.stringify(response.user));
   } else {
     sessionStorage.setItem("currentUser", null);
   }

@@ -1,14 +1,16 @@
 import "./loginform.css";
-import { useDispatch } from "react-redux";
+import { useDispatch , useSelector} from "react-redux";
 import { loginUser } from "../../../store/session";
 import { useState, useEffect } from "react";
 import  Button from '../../Buttons/Button/Button'
+import { toggleModal } from "../../../store/ui";
 
 function LogInForm() {
   const dispatch = useDispatch();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [user, setUser] = useState({});
+  const NAVIDATION_ID = 1;
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -44,7 +46,7 @@ function LogInForm() {
         </form>
         <div className="lower-form">
           <span>Haven't been down this trail before?</span>
-          <Button localPath="Create-Account" name={"REGISTER"} />
+          <Button localPath="Create-Account" name={"REGISTER"} color={'black'} />
         </div>
       </div>
     </>

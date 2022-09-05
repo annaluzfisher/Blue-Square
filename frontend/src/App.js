@@ -1,4 +1,4 @@
-import CreateAccountForm from "./components/Forms/CreateAccount/CreateAccountForm";
+import CreateAccount from "../src/components/CreateAccount/CreateAccount";
 import { Routes, Route } from "react-router-dom";
 import MainPage from "./components/MainPage";
 import NavBar from "./components/NavBar/NavBar";
@@ -9,6 +9,7 @@ import { removeCurrentUser,receiveCurrentUser } from "./store/session";
 import { useDispatch } from 'react-redux'
 import { tempCurrentUser } from "./store/csrf";
 import { useState } from 'react'
+// import { addCurrentUser } from "./store/user";
 
 function App() {
   const dispatch = useDispatch();
@@ -18,7 +19,7 @@ function App() {
     if (storageUser === null){
       dispatch(removeCurrentUser())
     } else{
-      dispatch(receiveCurrentUser(tempCurrentUser))
+      dispatch(receiveCurrentUser(tempCurrentUser));
     }
   },[currentUser])
   return (
@@ -26,9 +27,11 @@ function App() {
       <div className="app">
         <NavBar/>
         <Routes>
-          <Route path="Create-Account" element={<CreateAccountForm />} />
+          <Route path="Create-Account" element={<CreateAccount />} />
           <Route path="/" element={<MainPage />} />
         </Routes>
+   
+      
       </div>
     </>
   );
