@@ -12,6 +12,10 @@ import { useState } from 'react'
 // import { addCurrentUser } from "./store/user";
 
 function App() {
+  // document.addEventListener('scroll',(e) => {
+  //   e.stopPropagation();
+  // });
+
   const dispatch = useDispatch();
   const [currentUser, setCurrentUser] = useState(tempCurrentUser);
 
@@ -24,7 +28,7 @@ function App() {
   },[currentUser])
   return (
     <>
-      <div className="app">
+      <div className="app" id='app'>
         <NavBar/>
         <Routes>
           <Route path="Create-Account" element={<CreateAccount />} />

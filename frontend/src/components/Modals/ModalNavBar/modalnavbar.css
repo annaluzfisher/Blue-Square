@@ -23,3 +23,7 @@ transform: translatey(20px);
     box-shadow: 0 0 5px 2px rgb(219, 217, 217);
  
 }
+
+.x-icon:hover{
+  cursor: pointer;
+}

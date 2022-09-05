@@ -1,16 +1,17 @@
 .modal{
-  position: absolute;
+  position: fixed;
   height: 100%;
   width: 100vw;
-  margin: 0px;
+  margin: 0;
   background-color: rgb(255, 255, 255);
-  z-index: 2;
+  z-index: 10;
   overflow-y:scroll;
   overflow-x: hidden;
   opacity: 1;
   transition: all .3s ease-in-out;
-  top: 0;
-  left: 0;
+  /* top: 0;
+  left: 0; */
+
 
 }
 
