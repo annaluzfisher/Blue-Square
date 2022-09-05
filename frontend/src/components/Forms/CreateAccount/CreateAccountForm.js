@@ -36,66 +36,62 @@ function CreateAccountForm() {
               First Name*
               <input
                 type="text"
-           
                 value={firstName}
                 onChange={(e) => setFirstName(e.target.value)}
               />
             </label>
           </div>
           <div className="input-container">
-          <label>
-            Last Name*
-            <input
-              type="text"
-           
-              value={lastName}
-              onChange={(e) => setLastName(e.target.value)}
-            />
-          </label>
+            <label>
+              Last Name*
+              <input
+                type="text"
+                value={lastName}
+                onChange={(e) => setLastName(e.target.value)}
+              />
+            </label>
           </div>
         </div>
         <div className="input-container">
-        <label>
-          Email Address*
-          <input
-            type="email"
-      
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-        </label>
+          <label>
+            Email Address*
+            <input
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+          </label>
         </div>
         <div className="input-container">
-        <label>
-          Company Name
-          <input
-            type="text"
-        
-            value={companyName}
-            onChange={(e) => setCompanyName(e.target.value)}
-          />
-        </label>
+          <label>
+            Company Name
+            <input
+              type="text"
+              value={companyName}
+              onChange={(e) => setCompanyName(e.target.value)}
+            />
+          </label>
         </div>
-        
-        <div className="input-container">
-        <label>
-          Password*
-          <input
-            type="password"
-          
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-        </label>
-        </div>
-        <input
-          type="checkbox"
-          // checked="false"
-          onChange={(e) => setMailingList(e.target.value)}
-        />
-        <label>I wish to receive Blue Square emails</label>
 
-        <Button type={"SUBMIT"} />
+        <div className="input-container">
+          <label>
+            Password*
+            <input
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+          </label>
+        </div>
+        <div id="checkbox">
+          <input
+            type="checkbox"
+            // checked="false"
+            onChange={(e) => setMailingList(e.target.value)}
+          />
+          <div>I wish to receive Blue Square emails</div>
+        </div>
+        <Button type={"SUBMIT"} name={"SUBMIT"} />
       </form>
     </div>
   );
