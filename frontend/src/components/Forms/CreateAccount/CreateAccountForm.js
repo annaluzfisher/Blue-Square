@@ -38,6 +38,7 @@ function CreateAccountForm() {
                 type="text"
                 value={firstName}
                 onChange={(e) => setFirstName(e.target.value)}
+                required
               />
             </label>
           </div>
@@ -48,6 +49,7 @@ function CreateAccountForm() {
                 type="text"
                 value={lastName}
                 onChange={(e) => setLastName(e.target.value)}
+                required
               />
             </label>
           </div>
@@ -59,6 +61,7 @@ function CreateAccountForm() {
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
+              required
             />
           </label>
         </div>
@@ -80,6 +83,7 @@ function CreateAccountForm() {
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
+              required
             />
           </label>
         </div>

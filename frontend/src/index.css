@@ -1,25 +1,29 @@
 /* TODO Add site wide styles */
-body, html {
+body, html, .app, #root {
   height: 100vh;
+  top: 0px;
+  left: 0px;
+  bottom: 0;
   width: 100vw;
   overflow-x: hidden;
   overflow-y: scroll;
+    --orange: #CD4C1D;
 }
-#root{
+/* #root{
   position: absolute;
   height: 100%;
   width: 100vw;
-  top: 0px;
-  left: 0px;
+
 }
 .app{
   height: inherit;
+    min-height: fit-content;
   width: 100vw;
   top: 0px;
   left: 0px;
   position: absolute;
   --orange: #CD4C1D;
-}
+} */
 a{
   text-decoration: none;
 }

@@ -7380,3 +7380,169 @@ Processing by Api::SessionsController#show as JSON
 Completed 200 OK in 3ms (Views: 0.1ms | ActiveRecord: 0.3ms | Allocations: 879)
 
 
+Started GET "/favicon.ico" for 127.0.0.1 at 2022-09-05 12:44:53 -0700
+Started GET "/api/session" for 127.0.0.1 at 2022-09-05 12:44:53 -0700
+  [1m[36mActiveRecord::SchemaMigration Pluck (2.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+Processing by Api::SessionsController#show as JSON
+  [1m[36mUser Load (12.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/api/sessions_controller.rb:5:in `show'
+Completed 200 OK in 51ms (Views: 0.2ms | ActiveRecord: 22.7ms | Allocations: 24783)
+
+
+Started GET "/api/session" for 127.0.0.1 at 2022-09-05 12:58:38 -0700
+Processing by Api::SessionsController#show as JSON
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/api/sessions_controller.rb:5:in `show'
+Completed 200 OK in 22ms (Views: 0.2ms | ActiveRecord: 8.6ms | Allocations: 4141)
+
+
+Started GET "/api/session" for 127.0.0.1 at 2022-09-05 13:00:37 -0700
+Processing by Api::SessionsController#show as JSON
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/api/sessions_controller.rb:5:in `show'
+Completed 200 OK in 3ms (Views: 0.1ms | ActiveRecord: 0.4ms | Allocations: 916)
+
+
+Started GET "/api/session" for 127.0.0.1 at 2022-09-05 13:01:44 -0700
+Processing by Api::SessionsController#show as JSON
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/api/sessions_controller.rb:5:in `show'
+Completed 200 OK in 2ms (Views: 0.1ms | ActiveRecord: 0.4ms | Allocations: 897)
+
+
+Started GET "/api/session" for 127.0.0.1 at 2022-09-05 13:10:53 -0700
+Processing by Api::SessionsController#show as JSON
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/api/sessions_controller.rb:5:in `show'
+Completed 200 OK in 15ms (Views: 0.1ms | ActiveRecord: 5.9ms | Allocations: 3789)
+
+
+Started GET "/api/session" for 127.0.0.1 at 2022-09-05 13:17:44 -0700
+Processing by Api::SessionsController#show as JSON
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/api/sessions_controller.rb:5:in `show'
+Completed 200 OK in 31ms (Views: 0.1ms | ActiveRecord: 5.7ms | Allocations: 3814)
+
+
+Started GET "/api/session" for 127.0.0.1 at 2022-09-05 13:19:10 -0700
+Processing by Api::SessionsController#show as JSON
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/api/sessions_controller.rb:5:in `show'
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.3ms | Allocations: 894)
+
+
+Started GET "/api/session" for 127.0.0.1 at 2022-09-05 13:19:33 -0700
+Processing by Api::SessionsController#show as JSON
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/api/sessions_controller.rb:5:in `show'
+Completed 200 OK in 2ms (Views: 0.1ms | ActiveRecord: 0.2ms | Allocations: 882)
+
+
+Started GET "/api/session" for 127.0.0.1 at 2022-09-05 13:20:08 -0700
+Processing by Api::SessionsController#show as JSON
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/api/sessions_controller.rb:5:in `show'
+Completed 200 OK in 4ms (Views: 0.1ms | ActiveRecord: 0.4ms | Allocations: 897)
+
+
+Started GET "/api/session" for 127.0.0.1 at 2022-09-05 13:22:32 -0700
+Processing by Api::SessionsController#show as JSON
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/api/sessions_controller.rb:5:in `show'
+Completed 200 OK in 3ms (Views: 0.1ms | ActiveRecord: 0.4ms | Allocations: 888)
+
+
+Started GET "/api/session" for 127.0.0.1 at 2022-09-05 13:23:56 -0700
+Processing by Api::SessionsController#show as JSON
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/api/sessions_controller.rb:5:in `show'
+Completed 200 OK in 3ms (Views: 0.1ms | ActiveRecord: 0.6ms | Allocations: 888)
+
+
+Started GET "/api/session" for 127.0.0.1 at 2022-09-05 13:25:07 -0700
+Processing by Api::SessionsController#show as JSON
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/api/sessions_controller.rb:5:in `show'
+Completed 200 OK in 2ms (Views: 0.1ms | ActiveRecord: 0.1ms | Allocations: 888)
+
+
+Started GET "/api/session" for 127.0.0.1 at 2022-09-05 13:25:27 -0700
+Processing by Api::SessionsController#show as JSON
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/api/sessions_controller.rb:5:in `show'
+Completed 200 OK in 3ms (Views: 0.1ms | ActiveRecord: 0.3ms | Allocations: 897)
+
+
+Started GET "/api/session" for 127.0.0.1 at 2022-09-05 13:25:51 -0700
+Processing by Api::SessionsController#show as JSON
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/api/sessions_controller.rb:5:in `show'
+Completed 200 OK in 4ms (Views: 0.1ms | ActiveRecord: 0.5ms | Allocations: 903)
+
+
+Started GET "/api/session" for 127.0.0.1 at 2022-09-05 13:26:11 -0700
+Processing by Api::SessionsController#show as JSON
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/api/sessions_controller.rb:5:in `show'
+Completed 200 OK in 2ms (Views: 0.1ms | ActiveRecord: 0.2ms | Allocations: 906)
+
+
+Started GET "/api/session" for 127.0.0.1 at 2022-09-05 13:26:28 -0700
+Processing by Api::SessionsController#show as JSON
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/api/sessions_controller.rb:5:in `show'
+Completed 200 OK in 2ms (Views: 0.1ms | ActiveRecord: 0.2ms | Allocations: 897)
+
+
+Started GET "/api/session" for 127.0.0.1 at 2022-09-05 13:26:52 -0700
+Processing by Api::SessionsController#show as JSON
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/api/sessions_controller.rb:5:in `show'
+Completed 200 OK in 2ms (Views: 0.1ms | ActiveRecord: 0.2ms | Allocations: 927)
+
+
+Started GET "/api/session" for 127.0.0.1 at 2022-09-05 13:26:55 -0700
+Processing by Api::SessionsController#show as JSON
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/api/sessions_controller.rb:5:in `show'
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.2ms | Allocations: 900)
+
+
+Started GET "/api/session" for 127.0.0.1 at 2022-09-05 13:30:22 -0700
+Processing by Api::SessionsController#show as JSON
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/api/sessions_controller.rb:5:in `show'
+Completed 200 OK in 2ms (Views: 0.1ms | ActiveRecord: 0.2ms | Allocations: 906)
+
+
+Started GET "/api/session" for 127.0.0.1 at 2022-09-05 13:31:49 -0700
+Processing by Api::SessionsController#show as JSON
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/api/sessions_controller.rb:5:in `show'
+Completed 200 OK in 8ms (Views: 0.1ms | ActiveRecord: 0.4ms | Allocations: 906)
+
+
+Started GET "/api/session" for 127.0.0.1 at 2022-09-05 13:32:05 -0700
+Processing by Api::SessionsController#show as JSON
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/api/sessions_controller.rb:5:in `show'
+Completed 200 OK in 2ms (Views: 0.1ms | ActiveRecord: 0.3ms | Allocations: 882)
+
+
+Started GET "/api/session" for 127.0.0.1 at 2022-09-05 13:33:17 -0700
+Processing by Api::SessionsController#show as JSON
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/api/sessions_controller.rb:5:in `show'
+Completed 200 OK in 2ms (Views: 0.1ms | ActiveRecord: 0.2ms | Allocations: 900)
+
+
+Started GET "/api/session" for 127.0.0.1 at 2022-09-05 13:33:24 -0700
+Processing by Api::SessionsController#show as JSON
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/api/sessions_controller.rb:5:in `show'
+Completed 200 OK in 3ms (Views: 0.2ms | ActiveRecord: 0.2ms | Allocations: 894)
+
+
