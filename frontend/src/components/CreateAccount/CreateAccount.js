@@ -7,7 +7,7 @@ function CreateAccount() {
     <div className="create-account">
       <Banner
         pageTitle={"CREATE ACCOUNT"}
-        imgUrl={"BannerImages/Banner1.jpg"}
+        imgUrl={"BannerImages/banner1.jpg"}
       />
       <div className='ca-page'>
       <CreateAccountForm />
