@@ -5,4 +5,9 @@
   left: 0px;
   position: absolute;
   z-index: -1;
+
+}
+.ca-page{
+  display: flex;
+  justify-content: center;
 }

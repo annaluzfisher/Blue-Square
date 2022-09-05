@@ -9,7 +9,9 @@ function CreateAccount() {
         pageTitle={"CREATE ACCOUNT"}
         imgUrl={"BannerImages/Banner1.jpg"}
       />
+      <div className='ca-page'>
       <CreateAccountForm />
+      </div>
     </div>
   );
 }
