@@ -1,18 +1,18 @@
 .banner{
   width: 100vw;
-height: 67%;
+  height: 67%;
   margin-top: 0px;
-  /* display: flex;
-  align-items: center;
-  text-align: center; */
+  overflow: hidden;
   z-index: -1;
 }
 .banner img {
   position: absolute;
   width: 100%;
+  height:inherit;
   opacity: .75;
- background: transparent no-repeat center;
+
  background-size: cover;
+ object-fit: cover;
 }
 
 .page-title{
@@ -21,7 +21,7 @@ height: 67%;
   font-weight: 900;
   font-size: 60px;
   position: absolute;
-  top:30%;
+  top:35%;
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 1;

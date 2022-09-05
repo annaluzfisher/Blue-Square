@@ -1,0 +1,44 @@
+.masthead {
+  width: inherit;
+  height: inherit;
+  margin-top: 0px;
+  overflow: hidden;
+  z-index: -1;
+}
+.masthead img {
+  position: absolute;
+  width: 100%;
+  height: inherit;
+  opacity: 0.7;
+  background-size: cover;
+  object-fit: cover;
+  object-position: 0px 0px;
+}
+
+.overlay {
+  background-image: radial-gradient(black, black);
+  position: absolute;
+  height: inherit;
+  width: inherit;
+}
+
+.masthead-content-wrapper{
+  color: white;
+  top: 40%;
+  left: 10%;
+  border: 2px solid black;
+  position: absolute;
+  width: 40%;
+  height: 50%;
+
+}
+
+.page-title {
+  font-family: "roboto", sans-serif;
+  font-weight: 900;
+  font-size: 60px;
+  white-space: nowrap;
+
+}
+
+

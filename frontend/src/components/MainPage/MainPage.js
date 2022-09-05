@@ -1,11 +1,12 @@
 import './mainpage.css'
-
+import Masthead from '../Masthead/Masthead';
 function MainPage() {
   return (
     <div className="main-page">
-
-      hi from home page
-     
+      <Masthead
+        promoTitle={"SKI & SNOW SALE"}
+        imgUrl={"/BannerImages/masthead1.jpg"}
+      />
     </div>
   );
 }

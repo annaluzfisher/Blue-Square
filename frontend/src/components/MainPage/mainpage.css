@@ -5,5 +5,5 @@
   left: 0px;
   bottom: 0px;
   position: absolute;
-  background-color: rgb(80, 56, 255);
+  z-index: -1;
 }
