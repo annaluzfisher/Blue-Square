@@ -8,6 +8,7 @@ import { Provider } from "react-redux";
 import configureStore from "./store/index";
 import { preloadedModals } from "./store/ui";
 
+
 export const storageToken = sessionStorage.getItem("X-CSRF-Token");
    export const storageUser = sessionStorage.getItem("currentUser");
 

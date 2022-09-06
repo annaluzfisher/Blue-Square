@@ -1,11 +1,13 @@
 import './masthead.css'
 import Button from '../Buttons/Button/Button'
 
+export let LOADED = false;
+
 function Masthead({promoTitle,imgUrl}) {
   return (
     <div className="masthead">
       <div className="overlay"></div>
-      <img src={process.env.PUBLIC_URL + imgUrl} />
+      <img src={process.env.PUBLIC_URL + imgUrl} onLoadedData={()=> LOADED = true}/>
       <div className="masthead-content-wrapper">
         <h1 className="page-title">{promoTitle}</h1>
         <div className="promo-details">

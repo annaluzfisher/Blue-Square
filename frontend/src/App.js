@@ -12,6 +12,8 @@ import React from "react";
 import CreateAccount from "../src/components/CreateAccount/CreateAccount";
 import CartPage from "./components/CartPage";
 import ItemShowPage from "./components/ItemShowPage";
+import { LOADED } from "../src/components/Masthead/Masthead"
+
 // const CreateAccount = React.lazy(() =>
 //   import("../src/components/CreateAccount/CreateAccount")
 // );
@@ -20,9 +22,9 @@ import ItemShowPage from "./components/ItemShowPage";
 // import { addCurrentUser } from "./store/user";
 
 function App() {
-  // document.addEventListener('scroll',(e) => {
-  //   e.stopPropagation();
-  // });
+
+
+  
 
   const dispatch = useDispatch();
   const [currentUser, setCurrentUser] = useState(tempCurrentUser);
@@ -34,19 +36,25 @@ function App() {
       dispatch(receiveCurrentUser(tempCurrentUser));
     }
   }, [currentUser]);
-  return (
-    <>
-      <div className="app" id="app">
-        <NavBar />
-        <Routes>
-          <Route path="Create-Account" element={<CreateAccount />} />
-          <Route path="/" element={<MainPage />} />
-          <Route path="Items/:itemId" element={<ItemShowPage />} />
-          <Route path="Cart" element={<CartPage />} />
-        </Routes>
-      </div>
-    </>
-  );
+
+    if (!LOADED) {
+      return "loading";
+    } else {
+      
+      return (
+        <>
+          <div className="app" id="app">
+            <NavBar />
+            <Routes>
+              <Route path="Create-Account" element={<CreateAccount />} />
+              <Route path="/" element={<MainPage />} />
+              <Route path="Items/:itemId" element={<ItemShowPage />} />
+              <Route path="Cart" element={<CartPage />} />
+            </Routes>
+          </div>
+        </>
+      );
+    }
 }
 
 export default App;

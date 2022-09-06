@@ -42,8 +42,30 @@ export const preloadedModals = {
   },
 };
 // 1 is navigation/burger   2 is shop  3 is searchpage
+
+const RECEIVE_STATUS = "RECEIVE_STATUS";
+
+export const receiveStatus = (status) => ({
+  type: RECEIVE_STATUS,
+  status,
+});
+
+const loadingReducer = (state={}, action)=>{
+  Object.freeze(state);
+    const newState = { ...state };
+  switch(action.type){
+    case receiveStatus:
+          // newState[action.loading].loaded
+          //   ? (newState[action.id].loaded = false)
+          //   : (newState[action.id].loaded = true);
+      return newState
+    default:
+      return newState;
+  }
+}
 const uiReducer = combineReducers({
   modals: modalsReducer,
+  loading: loadingReducer,
 });
 
 export default uiReducer;
