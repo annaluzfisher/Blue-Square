@@ -21,6 +21,7 @@ function Button({ localPath = "/", name, type, color = orange}) {
           style={{ backgroundColor: "#CD4C1D" }}
           type="submit"
           value={name}
+        
         />
       </div>
     );

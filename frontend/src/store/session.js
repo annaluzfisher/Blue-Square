@@ -14,14 +14,19 @@ export const removeCurrentUser = () => ({
 });
 
 export const loginUser = (user) => async (dispatch) => {
-  
+  try {
   const res = await csrfFetch("/api/session", {
     method: "POST",
     body: JSON.stringify({ user }),
   })
+  if (res.ok){
     const userData = await res.json()
-
     dispatch(receiveCurrentUser(userData))
+    return false
+  } }
+  catch {
+   return true
+  }
 
 };
 
