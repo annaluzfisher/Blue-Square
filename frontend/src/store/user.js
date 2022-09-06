@@ -14,17 +14,23 @@ export const deleteUser = (userId) => ({
 });
 
 export const createUser = (user) => async (dispatch) => {
-  console.log('we in the reducer??')
-  const res = await csrfFetch("/api/users", {
+
+  const result = await csrfFetch("/api/users", {
     method: "POST",
-    body: JSON.stringify({user}),
+    body: JSON.stringify({user})
   })
-    .then((result) => result.json())
-    .then((newUser) => dispatch(addCurrentUser(newUser)))
-    .catch((error) => console.log('error from createUser action:',error));
+  if (result.ok){
+   const newUser = await result.json()
+   dispatch(addCurrentUser(newUser))
+  }else{
+    const errors = await result.json();
+    console.log('result', errors)
+
+  }
+    
 };
 export const reStoreUser = (userId) => async (dispatch) => {
-  const res = await csrfFetch(`/api/users/${userId}`, {
+  const res = await csrfFetch(`/api/users/${userId}`,{
     method: "GET",
   })
     .then((result) => result.json())

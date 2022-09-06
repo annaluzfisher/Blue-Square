@@ -3,6 +3,7 @@ import { React, useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { createUser } from "../../../store/user";
 import Button from "../../Buttons/Button";
+import { Navigate, useNavigate } from 'react-router-dom'
 
 
 function CreateAccountForm() {
@@ -16,13 +17,16 @@ function CreateAccountForm() {
   const [mailingList, setMailingList] = useState('false');
 
   const [user, setUser] = useState({});
-  
-  const allFilled = () =>{
-    user.values.forEach(value =>{
-      console.log(value)
-    })
-  }
-
+  const navigate = useNavigate();
+  // const [enabled, setEnabled] = useState(false)
+  // useEffect(() => {
+  //      const required =  [email, password, firstName, lastName]
+  //      required.forEach((field)=>{
+  //       if(field.length > 0 ){
+  //         setEnabled(true);
+  //       }
+  //      })
+  // }, [email, password, firstName, lastName]);
 
   useEffect(() => {
     setUser({ email, password, firstName, lastName, companyName, mailingList });
@@ -31,6 +35,7 @@ function CreateAccountForm() {
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(createUser(user));
+    navigate('/')
   };
 
 
@@ -102,7 +107,7 @@ function CreateAccountForm() {
           />
           <div>I wish to receive Blue Square emails</div>
         </div>
-        <Button type={"submit"} name={"SUBMIT"}/>
+        <Button type={"submit"} name={"SUBMIT"} />
       </form>
     </div>
   );
