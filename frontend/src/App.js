@@ -9,11 +9,14 @@ import { useDispatch } from "react-redux";
 import { tempCurrentUser } from "./store/csrf";
 import { useState } from "react";
 import React from "react";
-const CreateAccount = React.lazy(() =>
-  import("../src/components/CreateAccount/CreateAccount")
-);
-const CartPage = React.lazy(()=> import("./components/CartPage"));
-const ItemShowPage = React.lazy(() => import("./components/ItemShowPage"));
+import CreateAccount from "../src/components/CreateAccount/CreateAccount";
+import CartPage from "./components/CartPage";
+import ItemShowPage from "./components/ItemShowPage";
+// const CreateAccount = React.lazy(() =>
+//   import("../src/components/CreateAccount/CreateAccount")
+// );
+// const CartPage = React.lazy(()=> import("./components/CartPage"));
+// const ItemShowPage = React.lazy(() => import("./components/ItemShowPage"));
 // import { addCurrentUser } from "./store/user";
 
 function App() {
@@ -38,7 +41,7 @@ function App() {
         <Routes>
           <Route path="Create-Account" element={<CreateAccount />} />
           <Route path="/" element={<MainPage />} />
-          <Route path="Items/:1" element={<ItemShowPage />} />
+          <Route path="Items/:itemId" element={<ItemShowPage />} />
           <Route path="Cart" element={<CartPage />} />
         </Routes>
       </div>

@@ -1,6 +1,6 @@
 import "./shop.css";
 import "../modals.css"
-import "../ModalNavBar/ModalNavBar";
+
 import ModalNavBar from "../ModalNavBar/ModalNavBar";
 import { useSelector } from "react-redux";
 import { useEffect } from "react";
@@ -10,7 +10,6 @@ function Shop() {
   const SHOP_ID = 2;
 
   const visible = useSelector((state) => state.ui.modals[SHOP_ID].visible);
-  console.log('rendering?')
 
   useEffect(() => {
     if (visible) {
@@ -20,7 +19,7 @@ function Shop() {
       if (typeof document.getElementById("app") === null) {
       } else {
         const app = document.getElementById("app").childNodes;
-        console.log("here", app);
+    
         app[2].style.position = "absolute";
       }
     }

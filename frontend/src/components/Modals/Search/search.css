@@ -1,0 +1,6 @@
+.search-modal-page{
+  display: flex;
+  flex-direction: row;
+  height: inherit;
+  width:inherit;
+}

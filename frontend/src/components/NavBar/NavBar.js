@@ -5,6 +5,8 @@ import Navigation from "../Modals/NavigationComponents/Navigation/Navigation";
 import { Link } from "react-router-dom";
 import Logo from "../Buttons/Logo/Logo";
 import Shop from "../Modals/Shop/Shop"
+import Search from '../Modals/Search/Search';
+
 function NavBar() {
   const NAVIGATION_ID = 1;
   const SHOP_ID = 2;
@@ -32,7 +34,7 @@ function NavBar() {
             className="search-icon-wrapper"
             onClick={() => dispatch(toggleModal(SEARCH_ID))}
           >
-            <i className="fa-solid fa-magnifying-glass"></i>
+            <i className="fa-solid fa-magnifying-glass hover-icon"></i>
           </div>
           <div
             className="hamburger-icon-wrapper"
@@ -40,14 +42,17 @@ function NavBar() {
           >
             <i className="fa-solid fa-bars"></i>
           </div>
-          <div className="shopping-bag-icon-wrapper">
-            <i className="fa-solid fa-bag-shopping"></i>
+          <div className="shopping-bag-icon-wrapper hover-icon">
+            <Link to="Cart">
+              {" "}
+              <i className="fa-solid fa-bag-shopping"></i>
+            </Link>
           </div>
         </div>
       </nav>
       <Navigation />
       <Shop />
-      {/* <Shop /> */}
+      <Search />
     </>
   );
 }

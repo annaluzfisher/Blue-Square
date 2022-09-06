@@ -15,4 +15,5 @@ body, html, .app, #root {
 
 a{
   text-decoration: none;
+  color:inherit;
 }

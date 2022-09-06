@@ -68,4 +68,9 @@ margin-top: 1%;
   font-family: "Roboto", sans-serif;
   margin-left: min(180px,40%);
 }
-
+.hover-icon:hover{
+  color: var(--orange)
+}
+i {
+  transition: color .3s ease-in-out;
+}

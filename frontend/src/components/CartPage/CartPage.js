@@ -2,7 +2,8 @@ import './cartpage.css'
 
 function CartPage() {
   return (
-    <div>CartPage</div>
+    <div color='black'>CartPage</div>
+
   )
 }
 
