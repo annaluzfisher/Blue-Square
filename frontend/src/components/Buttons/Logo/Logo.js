@@ -15,7 +15,7 @@ function Logo({color = 'white'}) {
     };
     
   return (
-    <div className="logo">
+    <div className="logo" id='logo'>
       <Link to="/" onClick={handleClick}>
           <i className="fa-regular fa-circle-stop" style={{ color: color }}></i>
       </Link>

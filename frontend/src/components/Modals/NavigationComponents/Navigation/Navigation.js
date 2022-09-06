@@ -5,6 +5,8 @@ import "./navigation.css";
 import LogInForm from "../../../Forms/LogIn/LogInForm";
 import UserInfo from "../UserInfo/UserInfo";
 import ModalNavBar from "../../ModalNavBar/ModalNavBar";
+import NavTierLabel
+ from "../../NavTierLabel/NavTierLabel";
 function Navigation() {
   const NAVIGATION_ID = 1;
   const visible = useSelector(
@@ -31,8 +33,8 @@ function Navigation() {
   return (
     <div className={`navigation-modal modal ${visible ? "" : "hidden"}`}>
       <ModalNavBar modalId={NAVIGATION_ID} />
-      <div className="navigation-modal-page">
-        <span id="customer-support">CUSTOMER SUPPORT</span>
+        <NavTierLabel name="CUSTOMER SUPPORT"/>
+      <div className="navigation modal-page">
 
         <div className="master-form-wrapper">
           {currentUser ? <UserInfo /> : <LogInForm />}

@@ -4,7 +4,7 @@ import "../modals.css"
 import ModalNavBar from "../ModalNavBar/ModalNavBar";
 import { useSelector } from "react-redux";
 import { useEffect } from "react";
-
+import NavTierLabel from "../NavTierLabel/NavTierLabel"; 
 function Shop() {
 
   const SHOP_ID = 2;
@@ -29,7 +29,9 @@ function Shop() {
     <>
       <div className={`shop-modal modal ${visible ? "" : "hidden"}`}>
         <ModalNavBar modalId={SHOP_ID} />
-        <div className="shop-modal-page"> SHOP PAGE</div>
+          <NavTierLabel name={'SHOP'} />
+        <div className="shop modal-page">
+        </div>
       </div>
     </>
   );

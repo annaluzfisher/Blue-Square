@@ -1,0 +1,9 @@
+.nav-tier-label {
+   transform: rotate(270deg);
+   /* border: 1px solid red; */
+   position:absolute;
+   margin-top: 6%;
+   margin-left: 3%;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 600;
+}

@@ -1,6 +1,6 @@
 import './search.css'
 import "../modals.css"
-
+import NavTierLabel from '../NavTierLabel/NavTierLabel';
 import ModalNavBar from "../ModalNavBar/ModalNavBar";
 import { useSelector } from "react-redux";
 import { useEffect } from "react";
@@ -28,7 +28,10 @@ function Search() {
     <>
       <div className={`search-modal modal ${visible ? "" : "hidden"}`}>
         <ModalNavBar modalId={SEARCH_ID} />
-        <div className="search-modal-page"> SEARCH PAGE</div>
+        <NavTierLabel name={'SEARCH'}/>
+        <div className="search modal-page"> 
+
+        </div>
       </div>
     </>
   );

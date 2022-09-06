@@ -22,3 +22,9 @@
   z-index: -1;
   transform : translatey(10%)
 }
+.modal-page{
+  position: absolute;
+  /* border: 1px solid blue; */
+  margin-left: 12%;
+  margin-right:5%;
+}

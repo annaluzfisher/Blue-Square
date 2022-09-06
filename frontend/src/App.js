@@ -37,9 +37,15 @@ function App() {
     }
   }, [currentUser]);
 
-    if (!LOADED) {
-      return "loading";
-    } else {
+
+    // if (!LOADED) {
+    //   return (
+    //     <>
+    //       <h1>"loading"</h1>
+    //       <MainPage />
+    //     </>
+    //   );
+    // } else {
       
       return (
         <>
@@ -54,7 +60,7 @@ function App() {
           </div>
         </>
       );
-    }
+    
 }
 
 export default App;

@@ -3,7 +3,7 @@
 .login-form-wrapper{
   height:520px;
   width:370px;
-  margin-left: -40px;
+  margin-left:0;
 }
 
 .login-form-wrapper > form{
