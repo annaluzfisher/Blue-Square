@@ -1,7 +1,6 @@
-import CreateAccount from "../src/components/CreateAccount/CreateAccount";
+
 import { Routes, Route } from "react-router-dom";
 import MainPage from "./components/MainPage";
-import CartPage from "./components/CartPage";
 import NavBar from "./components/NavBar/NavBar";
 import { useEffect } from "react";
 import { storageUser } from ".";
@@ -9,8 +8,12 @@ import { removeCurrentUser, receiveCurrentUser } from "./store/session";
 import { useDispatch } from "react-redux";
 import { tempCurrentUser } from "./store/csrf";
 import { useState } from "react";
-import ItemShowPage from "./components/ItemShowPage";
-
+import React from "react";
+const CreateAccount = React.lazy(() =>
+  import("../src/components/CreateAccount/CreateAccount")
+);
+const CartPage = React.lazy(()=> import("./components/CartPage"));
+const ItemShowPage = React.lazy(() => import("./components/ItemShowPage"));
 // import { addCurrentUser } from "./store/user";
 
 function App() {
