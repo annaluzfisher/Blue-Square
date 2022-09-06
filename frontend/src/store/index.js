@@ -4,11 +4,13 @@ import thunk from "redux-thunk";
 import sessionReducer  from "./session";
 import userReducer from "./user";
 import uiReducer from "./ui";
+import itemReducer from "./item";
 
 const rootReducer = combineReducers({
   ui: uiReducer,
   user: userReducer,
   session: sessionReducer,
+  items: itemReducer
 });
 
 let enhancer;

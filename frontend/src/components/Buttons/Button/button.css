@@ -14,6 +14,8 @@
   outline:inherit;
   border: none;
   font-size: 15px;
+  position: relative;
+  z-index: 10;
  
 }
 .button:hover{

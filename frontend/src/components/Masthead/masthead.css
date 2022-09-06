@@ -3,7 +3,8 @@
   height: inherit;
   margin-top: 0px;
   overflow: hidden;
-  z-index: -1;
+  position: absolute;
+  z-index: 2;
 }
 .masthead img {
   position: absolute;
@@ -59,6 +60,8 @@ position: relative;
 .buttons-container{
   display: flex;
   justify-content: space-around;
-  margin-top: 0;
+  margin-top: 20px;
+  position: relative;
+  z-index: 10;
 }
 

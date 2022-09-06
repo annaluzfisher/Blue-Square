@@ -14,7 +14,7 @@ function Masthead({promoTitle,imgUrl}) {
           <span>Valid through 10/5/22</span>
         </div>
         <div className='buttons-container'>
-        <Button name={'SHOP WINTER GEAR'} /> <Button name={"SHOP SKI & RIDE"}/> <Button name={'SHOP MOUNTAIN'} />
+        <Button name={'SHOP WINTER GEAR'} type={''}/> <Button name={"SHOP SKI & RIDE"}/> <Button name={'SHOP MOUNTAIN'} />
         </div>
       </div>
     </div>

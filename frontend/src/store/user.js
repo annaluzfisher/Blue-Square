@@ -45,7 +45,6 @@ const userReducer = (state = {}, action) => {
   const newState = { ...state };
   switch (action.type) {
     case RECEIVE_USER:
-      console.log('arewehere',action.user)
       return { ...newState, ...action.user };
     case DELETE_USER:
       delete newState[action.userId];
