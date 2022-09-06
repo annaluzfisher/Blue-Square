@@ -3,26 +3,24 @@ import { useDispatch, useSelector } from "react-redux";
 import { loginUser } from "../../../store/session";
 import { useState, useEffect } from "react";
 import Button from "../../Buttons/Button/Button";
-import { toggleModal } from "../../../store/ui";
 import Errors from "../../Errors";
+import { toggleModal } from "../../../store/ui";
 
 function LogInForm() {
   const dispatch = useDispatch();
-  const [email, setEmail] = useState({ email: "", error: true });
-  const [password, setPassword] = useState({ password: "", error: true });
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [user, setUser] = useState({});
   const [errors, setErrors] = useState("");
 
   const NAVIDATION_ID = 1;
 
   const areValid = (email, password) => {
-    console.log("email", email, "password", password);
     if (email.length < 5) {
       setErrors("Please Enter a valid email address");
- 
-    } if (password.length < 6) {
+    }
+    if (password.length < 6) {
       setErrors("Password must be at least 6 characters");
- 
     } else {
       return true;
     }
@@ -30,23 +28,23 @@ function LogInForm() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (areValid(email.email, password.password)) {
+    if (areValid(email, password)) {
       console.log("in the if");
 
       let errors;
       errors = dispatch(loginUser(user));
       if (errors) {
-        setTimeout(()=>{
-          setErrors("Incorrect Email or Password. Please try again.")},
-          1000
-        );
+        setTimeout(() => {
+          setErrors("Incorrect Email or Password. Please try again.");
+        }, 1000);
       }
     }
   };
 
   useEffect(() => {
-    setUser({ email: email.email, password: password.password });
+    setUser({ email, password });
   }, [email, password]);
+
 
   return (
     <>
@@ -58,16 +56,14 @@ function LogInForm() {
             type="email"
             placeholder="your_email@internet.com..."
             value={email.email}
-            onChange={(e) => setEmail({ email: e.target.value, error: true })}
+            onChange={(e) => setEmail(e.target.value)}
           />
           <label>Password*</label>
           <input
             type="password"
             placeholder="password..."
             value={password.password}
-            onChange={(e) =>
-              setPassword({ password: e.target.value, error: true })
-            }
+            onChange={(e) => setPassword(e.target.value)}
           />
           {errors && <Errors errors={errors} />}
 
@@ -79,6 +75,7 @@ function LogInForm() {
             localPath="Create-Account"
             name={"REGISTER"}
             color={"black"}
+   
           />
         </div>
       </div>

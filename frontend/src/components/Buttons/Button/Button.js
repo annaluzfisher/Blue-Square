@@ -4,7 +4,7 @@ import { orange } from '../../../Util/Styles'
 import { useDispatch, useSelector } from 'react-redux'
 import { toggleModal } from '../../../store/ui'
 
-function Button({ localPath = "/", name, type, color = orange}) {
+function Button({ localPath = "/", name, type, color = orange }) {
   const dispatch = useDispatch();
   const modals = useSelector((state) => Object.values(state.ui.modals))
   const handleClick = ()=>{
@@ -12,6 +12,7 @@ function Button({ localPath = "/", name, type, color = orange}) {
       if (modal.visible) dispatch(toggleModal(modal.id))
     });
   }
+
 
   if (type === "submit") {
     return (

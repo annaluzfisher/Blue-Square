@@ -14,13 +14,13 @@ export const deleteUser = (userId) => ({
 });
 
 export const createUser = (user) => async (dispatch) => {
- 
+  console.log('we in the reducer??')
   const res = await csrfFetch("/api/users", {
     method: "POST",
     body: JSON.stringify({user}),
   })
     .then((result) => result.json())
-    .then((newUser) => dispatch(receiveUser(newUser)))
+    .then((newUser) => dispatch(addCurrentUser(newUser)))
     .catch((error) => console.log('error from createUser action:',error));
 };
 export const reStoreUser = (userId) => async (dispatch) => {
@@ -32,13 +32,13 @@ export const reStoreUser = (userId) => async (dispatch) => {
     .catch((error) => console.log("error from createUser action:", error));
 };
 
-// export const addCurrentUser = (user) => {
-//     return dispatch => {
-//       console.log(user)
-//        dispatch(receiveCurrentUser(user));
-//        dispatch(reStoreUser(user));
-//     }
-// }
+export const addCurrentUser = (user) => {
+    return dispatch => {
+      console.log(user)
+       dispatch(receiveUser(user));
+       dispatch(receiveCurrentUser(user));
+    }
+}
 
 const userReducer = (state = {}, action) => {
   Object.freeze(state);

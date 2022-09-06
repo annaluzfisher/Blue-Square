@@ -12,10 +12,17 @@ function CreateAccountForm() {
   const [email, setEmail] = useState("");
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
-  const [companyName, setCompanyName] = useState("");
+  const [companyName, setCompanyName] = useState("  ");
   const [mailingList, setMailingList] = useState('false');
 
   const [user, setUser] = useState({});
+  
+  const allFilled = () =>{
+    user.values.forEach(value =>{
+      console.log(value)
+    })
+  }
+
 
   useEffect(() => {
     setUser({ email, password, firstName, lastName, companyName, mailingList });
@@ -95,7 +102,7 @@ function CreateAccountForm() {
           />
           <div>I wish to receive Blue Square emails</div>
         </div>
-        <Button type={"SUBMIT"} name={"SUBMIT"} />
+        <Button type={"submit"} name={"SUBMIT"}/>
       </form>
     </div>
   );
