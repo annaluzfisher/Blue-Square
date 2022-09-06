@@ -6,25 +6,27 @@
   z-index: -1;
 }
 .banner img {
+  left:0;
   position: absolute;
   width: 100%;
   height:inherit;
-  opacity: .75;
-
+  opacity: .73;
  background-size: cover;
  object-fit: cover;
+ object-position: 0px 0px;
 }
 
-.page-title{
-  color: white;
+.banner-title{
+  color: rgb(255, 255, 255);
   font-family: 'roboto',sans-serif;
   font-weight: 900;
   font-size: 60px;
   position: absolute;
-  top:35%;
+  top: 35%;
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 1;
+
 }
 .banner > div {
 background-image: radial-gradient(black,black);
