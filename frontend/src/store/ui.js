@@ -34,8 +34,8 @@ export const preloadedModals = {
         id: 2,
         visible: false,
       },
-      2: {
-        id: 2,
+      3: {
+        id: 3,
         visible: false,
       }
     },

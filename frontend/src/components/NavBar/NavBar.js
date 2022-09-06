@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import Navigation from "../Modals/NavigationComponents/Navigation/Navigation";
 import { Link } from "react-router-dom";
 import Logo from "../Buttons/Logo/Logo";
-
+import Shop from "../Modals/Shop/Shop"
 function NavBar() {
   const NAVIGATION_ID = 1;
   const SHOP_ID = 2;
@@ -22,7 +22,10 @@ function NavBar() {
         </div>
         {/* <div className="nav-middle"></div> */}
         <div className="nav-right">
-          <div className="shop-wrapper">
+          <div
+            className="shop-wrapper"
+            onClick={() => dispatch(toggleModal(SHOP_ID))}
+          >
             <span>SHOP</span>
           </div>
           <div
@@ -43,6 +46,7 @@ function NavBar() {
         </div>
       </nav>
       <Navigation />
+      <Shop />
       {/* <Shop /> */}
     </>
   );
