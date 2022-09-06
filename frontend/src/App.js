@@ -1,5 +1,5 @@
 
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route , Navigate} from "react-router-dom";
 import MainPage from "./components/MainPage";
 import NavBar from "./components/NavBar/NavBar";
 import { useEffect } from "react";
@@ -12,6 +12,7 @@ import React from "react";
 import CreateAccount from "../src/components/CreateAccount/CreateAccount";
 import CartPage from "./components/CartPage";
 import ItemShowPage from "./components/ItemShowPage";
+import NotFound from "./components/NotFound";
 import { LOADED } from "../src/components/Masthead/Masthead"
 
 // const CreateAccount = React.lazy(() =>
@@ -45,7 +46,7 @@ function App() {
     //       <MainPage />
     //     </>
     //   );
-    // } else {
+    // } else {   caffeione for heroku 
       
       return (
         <>
@@ -56,6 +57,15 @@ function App() {
               <Route path="/" element={<MainPage />} />
               <Route path="Items/:itemId" element={<ItemShowPage />} />
               <Route path="Cart" element={<CartPage />} />
+              <Route
+                path="404"
+                element={
+                  <NotFound
+                    imgUrl={"BannerImages/notfound.jpg"}
+                  />
+                }
+              />
+              <Route path="*" element={<Navigate to="/404" replace />} />
             </Routes>
           </div>
         </>

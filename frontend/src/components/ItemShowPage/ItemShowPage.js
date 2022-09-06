@@ -1,27 +1,34 @@
 import "./itemshowpage.css";
-import { addItem } from "../../store/item";
+import { fetchItem, getItem } from "../../store/item";
 import { useDispatch, useSelector } from "react-redux";
-import { useEffect } from "react";
+import { useEffect,useState } from "react";
 import { useParams } from "react-router-dom";
 
 function ItemShowPage() {
   const { itemId } = useParams();
-  console.log(itemId);
-  const item = useSelector((state) => state.items[itemId]);
   const dispatch = useDispatch();
+  const fetchedItem = useSelector(getItem(itemId));
+  const [item, setItem] = useState({name:' ',description:' '});
+
   useEffect(() => {
-    dispatch(addItem(1));
-  }, [itemId]);
+    dispatch(fetchItem(itemId));
+    setItem(fetchedItem);
+  }, [item]);
+  //two use effects 
+
+  
+
+  console.log('item',item)
   return (
     <div className="item-show-page">
       <div className="product-hero">
         <div className="item-scroller"></div>
         <div className="hero-img-container"></div>
-        <div className="item-buy-box">{item.name}</div>
+        <div className="item-buy-box">{item? item.name : ''}</div>
       </div>
       <div className="description"></div>
       <div className="reviews">REVIEWS</div>
-    </div>
+    </div> 
   );
 }
 

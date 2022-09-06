@@ -21,7 +21,7 @@ function LogInForm() {
   useEffect(() => {
     setUser({email, password});
   }, [email, password]);
-
+  const errors = 'oh no'
   return (
     <>
       <div className="login-form-wrapper">
@@ -41,6 +41,11 @@ function LogInForm() {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
+          {errors && 
+          <div className="errors-container">
+            <div>{errors}</div>
+          </div>
+          }
 
           <Button name={"SUBMIT"} type={'submit'} color={'primary'} />
         </form>

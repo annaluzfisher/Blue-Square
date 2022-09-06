@@ -32,6 +32,9 @@
 .input-container{
   width: 90%;
   margin-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: left;
 }
 
 .create-user-form-wrapper label{

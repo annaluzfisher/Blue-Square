@@ -7,11 +7,19 @@ export const receiveItem = (item) => ({
   item,
 });
 
-export const addItem = (itemId) => async (dispatch) => {
+export const getItem = (itemId) => (state) => {
+  if (!state) return null;
+  else if (!state.items) return null;
+  else {
+    return state.items[itemId];
+  }
+};
+
+export const fetchItem = (itemId) => async (dispatch) => {
   csrfFetch(`/api/items/${itemId}`)
     .then((res) => res.json())
     .then((item) => dispatch(receiveItem(item)))
-    .catch((error) => console.log("error in add item fetch"));
+    .catch((error) => console.log("error in add item fetch",error));
 };
 
 const itemReducer = (state = {}, action) => {
