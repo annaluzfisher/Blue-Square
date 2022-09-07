@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_09_06_235253) do
+ActiveRecord::Schema[7.0].define(version: 2022_09_07_000920) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -18,15 +18,22 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_06_235253) do
     t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "collection_id"
-    t.index ["collection_id"], name: "index_categories_on_collection_id"
+  end
+
+  create_table "collection_categories", force: :cascade do |t|
+    t.bigint "collections_id"
+    t.bigint "categories_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["categories_id"], name: "index_collection_categories_on_categories_id"
+    t.index ["collections_id"], name: "index_collection_categories_on_collections_id"
   end
 
   create_table "collections", force: :cascade do |t|
     t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.boolean "activity"
+    t.boolean "activity", default: false
   end
 
   create_table "items", force: :cascade do |t|
@@ -52,4 +59,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_06_235253) do
     t.index ["session_token"], name: "index_users_on_session_token", unique: true
   end
 
+  add_foreign_key "collection_categories", "categories", column: "categories_id"
+  add_foreign_key "collection_categories", "collections", column: "collections_id"
 end
