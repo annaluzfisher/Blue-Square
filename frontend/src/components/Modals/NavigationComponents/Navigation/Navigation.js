@@ -25,7 +25,7 @@ function Navigation() {
       }
       else{
         const app = document.getElementById("app").childNodes;
-        console.log('here',app)
+    
         app[2].style.position = "absolute";
       }
     }

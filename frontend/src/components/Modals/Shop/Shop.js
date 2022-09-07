@@ -1,19 +1,20 @@
 import "./shop.css";
 import "../modals.css"
-
+import  React  from 'react'
 import ModalNavBar from "../ModalNavBar/ModalNavBar";
 import { useSelector , useDispatch} from "react-redux";
 import { useEffect, useState } from "react";
 import NavTierLabel from "../NavTierLabel/NavTierLabel"; 
-import { fetchCollections, getCategories, getCollections } from "../../../store/collections";
+import { fetchCollections, getCollections } from "../../../store/collections";
+const ExpandableCollection = React.lazy(()=> import ("./ExpandableCollection/ExpandableCollection"));
 
 function Shop() {
   const dispatch = useDispatch();
   const SHOP_ID = 2;
   const visible = useSelector((state) => state.ui.modals[SHOP_ID].visible);
-  const storeCategories = useSelector(getCategories());
+ 
   const storeCollections = useSelector(getCollections());
-  const [categories, setCategories] = useState('');
+
   const [collections, setCollections] = useState('');
 
   useEffect(() => {
@@ -45,9 +46,13 @@ function Shop() {
       <div className={`shop-modal modal ${visible ? "" : "hidden"}`}>
         <ModalNavBar modalId={SHOP_ID} />
           <NavTierLabel name={'SHOP'} />
-        <div className="shop modal-page">
-     
+        <div className="shop-modal-page">
+        {/* {storeCollections.collections[1] && Object.keys(storeCollections.collections).map((collection)=>{
+        return <ExpandableCollection collectionId={collection.id}/> }) */}
+    
+
         </div>
+       
       </div>
     </>
   );
@@ -55,15 +60,3 @@ function Shop() {
 
 export default Shop;
 
-
-    //  {
-    //    categories ? (
-    //      <ul>
-    //        {categories.values.forEach((category) => {
-    //          return <li> {category}</li>;
-    //        })}
-    //      </ul>
-    //    ) : (
-    //      ""
-    //    );
-    //  }

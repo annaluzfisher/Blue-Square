@@ -1,8 +1,10 @@
 json.categories do
+  # debugger
   @collections.each do |col| 
     col.categories.each do |cat|
-      json.set! cat.id
+      json.set! cat.id do
       json.extract! cat, :id, :name, :parent_id
+      end
     end
   end
 end
@@ -15,4 +17,6 @@ json.collections do
         end
       end
 end
+
+#.includes
 

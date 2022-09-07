@@ -1,6 +1,15 @@
-.shop-modal-page{
-  display: flex;
-  flex-direction: row;
+.shop-modal{
+
   height: inherit;
   width:inherit;
+}
+
+.shop-modal-page{
+    display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  border: 2px solid red;
+  height: fit-content;
+  margin-left: 10%;
+  margin-right: 10%;
 }

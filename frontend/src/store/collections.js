@@ -26,11 +26,29 @@ export const getCategories = () => (state) => {
     return state.collections.categories;
   }
 };
+
+export const getCategory = (categoryId) => (state) => {
+  if (!state) return null;
+  else if (!state.collections.categories) return null;
+  else {
+    return state.collections.categories[categoryId];
+  }
+};
+
+
 export const getCollections = () => (state) => {
   if (!state) return null;
   else if (!state.collections) return null;
   else {
     return state.collections;
+  }
+};
+
+export const getCollection = (collectionId) => (state) => {
+  if (!state) return null;
+  else if (!state.collections) return null;
+  else {
+    return state.collections.collections[collectionId];
   }
 };
 
@@ -43,7 +61,6 @@ export const fetchCollections = () => async dispatch =>{
 
 export const addPayload = (payload) => {
   return (dispatch) => {
-    console.log(payload);
     dispatch(receiveCategories(payload.categories));
     dispatch(receiveCollections(payload.collections));
   };
