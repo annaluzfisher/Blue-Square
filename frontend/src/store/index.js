@@ -5,12 +5,14 @@ import sessionReducer  from "./session";
 import userReducer from "./user";
 import uiReducer from "./ui";
 import itemReducer from "./item";
+import collectionsReducer from "./collections";
 
 const rootReducer = combineReducers({
   ui: uiReducer,
   user: userReducer,
   session: sessionReducer,
-  items: itemReducer
+  items: itemReducer,
+  collections: collectionsReducer
 });
 
 let enhancer;

@@ -7,14 +7,18 @@ import { useParams } from "react-router-dom";
 function ItemShowPage() {
   const { itemId } = useParams();
   const dispatch = useDispatch();
-  const fetchedItem = useSelector(getItem(itemId));
+  const storeItem = useSelector(getItem(itemId));
   const [item, setItem] = useState({name:' ',description:' '});
 
   useEffect(() => {
     dispatch(fetchItem(itemId));
-    setItem(fetchedItem);
-  }, [item]);
+  }, [itemId]);
   //two use effects 
+
+  useEffect(() => {
+    dispatch(getItem(itemId));
+    setItem(storeItem);
+  }, [storeItem]);
 
   
 

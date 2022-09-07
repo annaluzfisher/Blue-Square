@@ -2,14 +2,16 @@ import "./shop.css";
 import "../modals.css"
 
 import ModalNavBar from "../ModalNavBar/ModalNavBar";
-import { useSelector } from "react-redux";
+import { useSelector , useDispatch} from "react-redux";
 import { useEffect } from "react";
 import NavTierLabel from "../NavTierLabel/NavTierLabel"; 
+import { fetchCategories } from "../../../store/collections";
+
 function Shop() {
-
+  const dispatch = useDispatch();
   const SHOP_ID = 2;
-
   const visible = useSelector((state) => state.ui.modals[SHOP_ID].visible);
+  useEffect(()=>{},[])
 
   useEffect(() => {
     if (visible) {
