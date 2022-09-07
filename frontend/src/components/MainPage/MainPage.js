@@ -1,6 +1,8 @@
 import './mainpage.css'
 import Masthead from '../Masthead/Masthead';
 import Button from '../Buttons/Button';
+import ThemeComponent from'../ThemeComponent/ThemeComponenet'
+import AngledCallout from '../AngledCallout';
 
 function MainPage() {
   const id = 1
@@ -11,14 +13,10 @@ function MainPage() {
           promoTitle={"SKI & SNOW SALE"}
           imgUrl={"/BannerImages/masthead1.jpg"}
         />
-
-        {/* <Button
-          className="test"
-          localPath={`Items/${id}`}
-          name={"take me to the skis"}
-        /> */}
       </div>
-      {/* <div className="safety-alert"></div> */}
+      <div className="safety-alert"></div>
+      <ThemeComponent />
+      <AngledCallout/>
     </>
   );
 }

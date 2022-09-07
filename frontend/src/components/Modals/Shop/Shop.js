@@ -3,15 +3,26 @@ import "../modals.css"
 
 import ModalNavBar from "../ModalNavBar/ModalNavBar";
 import { useSelector , useDispatch} from "react-redux";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import NavTierLabel from "../NavTierLabel/NavTierLabel"; 
-import { fetchCategories } from "../../../store/collections";
+import { fetchCategories, getCategories } from "../../../store/collections";
 
 function Shop() {
   const dispatch = useDispatch();
   const SHOP_ID = 2;
   const visible = useSelector((state) => state.ui.modals[SHOP_ID].visible);
-  useEffect(()=>{},[])
+  // const storeCategories = useSelector(getCategories());
+  // const [categories, setCategories] = useState('');
+
+  // useEffect(() => {
+  //   dispatch(fetchCategories());
+  // }, []);
+  // //two use effects
+
+  // useEffect(() => {
+  //   dispatch(getCategories());
+  //   setCategories(storeCategories);
+  // }, [storeCategories]);
 
   useEffect(() => {
     if (visible) {
@@ -33,6 +44,7 @@ function Shop() {
         <ModalNavBar modalId={SHOP_ID} />
           <NavTierLabel name={'SHOP'} />
         <div className="shop modal-page">
+     
         </div>
       </div>
     </>
@@ -40,3 +52,16 @@ function Shop() {
 }
 
 export default Shop;
+
+
+    //  {
+    //    categories ? (
+    //      <ul>
+    //        {categories.values.forEach((category) => {
+    //          return <li> {category}</li>;
+    //        })}
+    //      </ul>
+    //    ) : (
+    //      ""
+    //    );
+    //  }

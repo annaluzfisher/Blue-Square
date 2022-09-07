@@ -13,8 +13,8 @@ import CreateAccount from "../src/components/CreateAccount/CreateAccount";
 import CartPage from "./components/CartPage";
 import ItemShowPage from "./components/ItemShowPage";
 import NotFound from "./components/NotFound";
-import { LOADED } from "../src/components/Masthead/Masthead"
 
+import Footer from "./components/Footers/Footer/Footer";
 // const CreateAccount = React.lazy(() =>
 //   import("../src/components/CreateAccount/CreateAccount")
 // );
@@ -67,6 +67,7 @@ function App() {
               />
               <Route path="*" element={<Navigate to="/404" replace />} />
             </Routes>
+            <Footer />
           </div>
         </>
       );

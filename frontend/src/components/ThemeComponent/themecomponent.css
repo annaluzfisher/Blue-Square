@@ -1,0 +1,11 @@
+.theme-component{
+  height: 60%;
+  width: 100vw;
+  min-height:60vh;
+  min-width: 550px;
+  position: relative;
+  border: 2px solid blue;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
