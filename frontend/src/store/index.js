@@ -12,7 +12,7 @@ const rootReducer = combineReducers({
   user: userReducer,
   session: sessionReducer,
   items: itemReducer,
-  // collections: collectionsReducer
+  collections: collectionsReducer
 });
 
 let enhancer;

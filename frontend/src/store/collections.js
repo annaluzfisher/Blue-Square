@@ -2,13 +2,13 @@ import  csrfFetch  from './csrf'
 import { combineReducers } from 'redux';
 
 const RECEIVE_COLLECTIONS ='RECEIVE_COLLECTIONS'
-const RECEIVE_CATEGORY ='RECEIVE_CATEGORY'
+// const RECEIVE_CATEGORY ='RECEIVE_CATEGORY'
 const RECEIVE_CATEGORIES = "RECEIVE_CATEGORIES";
 
-const receiveCategory = (category) => ({
-  type: RECEIVE_CATEGORY,
-  category
-})
+// const receiveCategory = (category) => ({
+//   type: RECEIVE_CATEGORY,
+//   category
+// })
 const receiveCategories = (categories) => ({
   type: RECEIVE_CATEGORIES,
   categories
@@ -24,6 +24,13 @@ export const getCategories = () => (state) => {
   else if (!state.collections.categories) return null;
   else {
     return state.collections.categories;
+  }
+};
+export const getCollections = () => (state) => {
+  if (!state) return null;
+  else if (!state.collections) return null;
+  else {
+    return state.collections;
   }
 };
 
@@ -44,7 +51,7 @@ export const addPayload = (payload) => {
 
 const categoriesReducer = (state ={}, action) =>{
   Object.freeze(state);
- const newState = {...state}
+ let newState = {...state}
   switch(action.type){
     case(RECEIVE_CATEGORIES):
     newState = {...state, ...action.categories}
@@ -56,7 +63,7 @@ const categoriesReducer = (state ={}, action) =>{
 
 const collectionReducer = (state = {}, action) => {
   Object.freeze(state);
-  const nextState = {...state}
+  let nextState = {...state}
   switch (action.type) {
     case RECEIVE_COLLECTIONS:
       nextState = { ...state, ...action.collections };

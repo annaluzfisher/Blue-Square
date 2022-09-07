@@ -5,24 +5,26 @@ import ModalNavBar from "../ModalNavBar/ModalNavBar";
 import { useSelector , useDispatch} from "react-redux";
 import { useEffect, useState } from "react";
 import NavTierLabel from "../NavTierLabel/NavTierLabel"; 
-import { fetchCategories, getCategories } from "../../../store/collections";
+import { fetchCollections, getCategories, getCollections } from "../../../store/collections";
 
 function Shop() {
   const dispatch = useDispatch();
   const SHOP_ID = 2;
   const visible = useSelector((state) => state.ui.modals[SHOP_ID].visible);
-  // const storeCategories = useSelector(getCategories());
-  // const [categories, setCategories] = useState('');
+  const storeCategories = useSelector(getCategories());
+  const storeCollections = useSelector(getCollections());
+  const [categories, setCategories] = useState('');
+  const [collections, setCollections] = useState('');
 
-  // useEffect(() => {
-  //   dispatch(fetchCategories());
-  // }, []);
-  // //two use effects
+  useEffect(() => {
+    dispatch(fetchCollections());
+  }, []);
+  //two use effects
 
-  // useEffect(() => {
-  //   dispatch(getCategories());
-  //   setCategories(storeCategories);
-  // }, [storeCategories]);
+  useEffect(() => {
+    dispatch(getCollections());
+    setCollections(storeCollections);
+  }, [storeCollections]);
 
   useEffect(() => {
     if (visible) {
