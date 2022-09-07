@@ -1,7 +1,9 @@
 json.categories do
   @collections.each do |col| 
-    json.set! col.categories.ids
-    json.extract! col.categories :id, :name
+    col.categories.each do |cat|
+      json.set! cat.id
+      json.extract! cat, :id, :name, :parent_id
+    end
   end
 end
 json.collections do
@@ -13,6 +15,4 @@ json.collections do
         end
       end
 end
-
-#json.collections
 
