@@ -1,7 +1,7 @@
 json.categories do
   @collections.each do |col| 
     json.set! col.categories.ids
-    # json.extract! col.categories :id, :name
+    json.extract! col.categories :id, :name
   end
 end
 json.collections do
