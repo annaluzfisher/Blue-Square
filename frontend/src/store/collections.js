@@ -14,9 +14,9 @@ const receiveCategories = (categories) => ({
   categories
 })
 
-const receiveCollection = (collection) => ({
-  type: RECEIVE_COLLECTION,
-  collection
+const receiveCollections = (collections) => ({
+  type: RECEIVE_COLLECTIONS,
+  collections
 });
 
 export const getCategories = () => (state) => {
@@ -30,7 +30,7 @@ export const getCategories = () => (state) => {
 export const fetchCollections = () => async dispatch =>{
   csrfFetch("/api/collections")
     .then((res) => res.json())
-    .then((payload) => dispatch(addAll(payload)))
+    .then((payload) => dispatch(addPayload(payload)))
     .catch((error) => console.log("error in add collection fetch", error));
 }
 
@@ -56,13 +56,13 @@ const categoriesReducer = (state ={}, action) =>{
 
 const collectionReducer = (state = {}, action) => {
   Object.freeze(state);
-  const newState = { ...state };
+  const nextState = {...state}
   switch (action.type) {
     case RECEIVE_COLLECTIONS:
-      newState = { ...state, ...action.collections };
-      return newState;
+      nextState = { ...state, ...action.collections };
+      return nextState;
     default:
-      return newState;
+      return nextState;
   }
 };
 
