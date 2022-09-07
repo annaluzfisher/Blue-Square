@@ -14,10 +14,10 @@ const receiveCategories = (categories) => ({
   categories
 })
 
-// const receiveCollection = (collection) => ({
-//   type: RECEIVE_COLLECTION,
-//   collection,
-// });
+const receiveCollection = (collection) => ({
+  type: RECEIVE_COLLECTION,
+  collection
+});
 
 export const getCategories = () => (state) => {
   if (!state) return null;
@@ -27,24 +27,32 @@ export const getCategories = () => (state) => {
   }
 };
 
-export const fetchCategories = () => async dispatch =>{
-  csrfFetch("/api/categories")
+export const fetchCollections = () => async dispatch =>{
+  csrfFetch("/api/collections")
     .then((res) => res.json())
-    .then((categories) => dispatch(receiveCategories(categories)))
-    .catch((error) => console.log("error in add category fetch", error));
+    .then((payload) => dispatch(addAll(payload)))
+    .catch((error) => console.log("error in add collection fetch", error));
 }
 
-// const categoriesReducer = (state ={}, action) =>{
-//   Object.freeze(state);
-//  const newState = {...state}
-//   switch(action.type){
-//     case(RECEIVE_CATEGORIES):
-//     newState = {...state, ...action.categories}
-//     return newState;
-//     default:
-//       return newState;
-//   }
-// }
+export const addPayload = (payload) => {
+  return (dispatch) => {
+    console.log(payload);
+    dispatch(receiveCategories(payload.categories));
+    dispatch(receiveCollections(payload.collections));
+  };
+};
+
+const categoriesReducer = (state ={}, action) =>{
+  Object.freeze(state);
+ const newState = {...state}
+  switch(action.type){
+    case(RECEIVE_CATEGORIES):
+    newState = {...state, ...action.categories}
+    return newState;
+    default:
+      return newState;
+  }
+}
 
 const collectionReducer = (state = {}, action) => {
   Object.freeze(state);
@@ -53,9 +61,6 @@ const collectionReducer = (state = {}, action) => {
     case RECEIVE_COLLECTIONS:
       newState = { ...state, ...action.collections };
       return newState;
-    case RECEIVE_CATEGORIES:
-      newState = { ...state, ...action.categories };
-      return newState;
     default:
       return newState;
   }
@@ -63,8 +68,8 @@ const collectionReducer = (state = {}, action) => {
 
 
 const collectionsReducer = combineReducers({
-  collection: collectionReducer,
-  // categories: categoriesReducer,
+  collections: collectionReducer,
+  categories: categoriesReducer,
 });
 
 export default collectionsReducer;

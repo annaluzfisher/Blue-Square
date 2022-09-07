@@ -17,6 +17,7 @@ function MainPage() {
       <div className="safety-alert"></div>
       <ThemeComponent />
       <AngledCallout/>
+      <ThemeComponent/>
     </>
   );
 }

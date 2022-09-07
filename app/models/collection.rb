@@ -9,8 +9,8 @@
 #  activity   :boolean          default(FALSE)
 #
 class Collection < ApplicationRecord
-  has_many :collection_categories, dependent: :destroy
-  #has__many :categories, through: collection_categories, source: Category
+  has_many :collection_categories, foreign_key: :collections_id, dependent: :destroy
+  has_many :categories, through: :collection_categories, source: :category
   #has_many :items, through: categories, source: items
 
 end

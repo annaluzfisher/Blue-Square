@@ -1,9 +1,12 @@
 class Api::CollectionsController < ApplicationController
 
   def index
-    @collections = Collections.all
-    render json: @collections
+    @collections = Collection.all
+    render :index
   end
+
+  #view with jbuilder
+
 
 
 end

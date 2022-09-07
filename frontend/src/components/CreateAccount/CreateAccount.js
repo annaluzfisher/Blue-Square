@@ -4,15 +4,17 @@ import  Banner  from '../Banner/Banner'
 
 function CreateAccount() {
   return (
-    <div className="create-account">
-      <Banner
-        pageTitle={"CREATE ACCOUNT"}
-        imgUrl={"BannerImages/banner1.jpg"}
-      />
-      <div className='ca-page'>
-      <CreateAccountForm />
+    <>
+      <div className="create-account">
+        <Banner
+          pageTitle={"CREATE ACCOUNT"}
+          imgUrl={"BannerImages/banner1.jpg"}
+        />
       </div>
-    </div>
+      <div className="ca-page">
+        <CreateAccountForm />
+      </div>
+    </>
   );
 }
 

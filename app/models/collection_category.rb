@@ -9,6 +9,6 @@
 #  updated_at     :datetime         not null
 #
 class CollectionCategory < ApplicationRecord
-  belongs_to :category 
-  belongs_to :collection
+  belongs_to :category, foreign_key: :categories_id, class_name: :Category
+  belongs_to :collection, foreign_key: :collections_id
 end

@@ -12,7 +12,7 @@ function LogInForm() {
   const [password, setPassword] = useState("");
   const [user, setUser] = useState({});
   const [errors, setErrors] = useState("");
-
+  const demoUser = {email: 'demo@email.com', password: 'password' }
   const NAVIDATION_ID = 1;
 
   const areValid = (email, password) => {
@@ -45,7 +45,10 @@ function LogInForm() {
     setUser({ email, password });
   }, [email, password]);
 
-
+ const demoSubmit = (e) => {
+  e.preventDefault();
+  dispatch(loginUser(demoUser))
+ }
   return (
     <>
       <div className="login-form-wrapper">
@@ -71,12 +74,16 @@ function LogInForm() {
         </form>
         <div className="lower-form">
           <span>Haven't been down this trail before?</span>
-          <Button
-            localPath="Create-Account"
-            name={"REGISTER"}
-            color={"black"}
-   
-          />
+          <div className="login-buttons-container">
+            <Button
+              localPath="Create-Account"
+              name={"REGISTER"}
+              color={"black"}
+            />
+            <form onSubmit={demoSubmit}>
+              <Button name={"DEMO USER"} type={"submit"} color={"primary"} />
+            </form>
+          </div>
         </div>
       </div>
     </>
