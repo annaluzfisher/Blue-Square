@@ -8,25 +8,28 @@
 demo = User.create!(email: 'demo@email.com', password: 'password', first_name: 'Lynn', last_name: 'Hill', company_name: 'App Academy' )
 
 climb = Category.create!(name:'Climb')
-ski = Category.create!(name: 'Ski')
-snowboard = Category.create!(name: 'Snowboard')
+ski = Category.create!(name: 'Ski & Ride')
+snowhelmets = Category.create!(name: 'Snow Helmets', parent_id: ski.id)
 rock_protection = Category.create!(name: 'Rock Protection', parent_id: climb.id)
 shoes = Category.create!(name: 'Shoes', parent_id: climb.id)
 helmets = Category.create!(name: 'Helmets', parent_id: climb.id)
 ice_and_alpine = Category.create!(name: 'Ice & Alpine', parent_id: climb.id)
-jackets = Category.create!(name: 'Jackets', parent_id: ice_and_alpine.id)
+jackets = Category.create!(name: 'Jackets', parent_id: ski.id)
+cpacks = Category.create!(name: 'Climbing Packs & Packpacks', parent_id: climb.id)
 packs = Category.create!(name: 'Packs', parent_id: climb.id)
-accesories = Category.create!(name: 'Accessories')
+
+
+accesories = Category.create!(name: 'Accessories', parent_id: ski.id)
 tents = Category.create!(name: 'Tents')
 harnesses = Category.create!(name: 'Harnesses', parent_id: climb.id)
 footware = Category.create!(name: 'Footware')
 
-winter = Collection.create!(name: 'Winter')
-CollectionCategory.create!(collections_id: winter.id, categories_id: snowboard.id)
+winter = Collection.create!(name: 'Winter',activity: true)
 CollectionCategory.create!(collections_id: winter.id, categories_id: ski.id)
 CollectionCategory.create!(collections_id: winter.id, categories_id: ice_and_alpine.id)
-CollectionCategory.create!(collections_id: winter.id, categories_id: jackets.id)
-climbing = Collection.create!(name: 'Climbing')
+# CollectionCategory.create!(collections_id: winter.id, categories_id: jackets.id)
+
+climbing = Collection.create!(name: 'Climbing', activity: true)
 CollectionCategory.create!(collections_id: climbing.id, categories_id: rock_protection.id)
 CollectionCategory.create!(collections_id: climbing.id, categories_id: shoes.id)
 CollectionCategory.create!(collections_id: climbing.id, categories_id: helmets.id)
@@ -35,9 +38,11 @@ equipment = Collection.create!(name: 'Equipment')
 CollectionCategory.create!(collections_id: equipment.id, categories_id: climb.id)
 CollectionCategory.create!(collections_id: equipment.id, categories_id: ice_and_alpine.id)
 CollectionCategory.create!(collections_id: equipment.id, categories_id: ski.id)
-CollectionCategory.create!(collections_id: equipment.id, categories_id: snowboard.id)
+
 CollectionCategory.create!(collections_id: equipment.id, categories_id: tents.id)
 CollectionCategory.create!(collections_id: equipment.id, categories_id: footware.id)
+CollectionCategory.create!(collections_id: equipment.id, categories_id: cpacks.id)
+CollectionCategory.create!(collections_id: equipment.id, categories_id: harnesses.id)
 
 mens = Collection.create!(name: "Men's")
 CollectionCategory.create!(collections_id: mens.id, categories_id: harnesses.id)
@@ -57,7 +62,7 @@ camping = Collection.create!(name: "Camping")
 CollectionCategory.create!(categories_id: tents.id, collections_id: camping.id)
 CollectionCategory.create!(categories_id: packs.id, collections_id: camping.id)
 CollectionCategory.create!(categories_id: footware.id, collections_id: camping.id)
-CollectionCategory.create!(categories_id: jackets.id, collections_id: camping.id)
+
 
 
 

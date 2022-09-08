@@ -1,11 +1,13 @@
 import { toggleModal } from "../../store/ui";
 import "./navbar.css";
+import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Navigation from "../Modals/NavigationComponents/Navigation/Navigation";
 import { Link } from "react-router-dom";
 import Logo from "../Buttons/Logo/Logo";
-import Shop from "../Modals/Shop/Shop"
 import Search from '../Modals/Search/Search';
+import Shop from "../Modals/Shop/Shop"
+// const Shop = React.lazy(() => import("../Modals/Shop/Shop"));
 
 function NavBar() {
   const NAVIGATION_ID = 1;

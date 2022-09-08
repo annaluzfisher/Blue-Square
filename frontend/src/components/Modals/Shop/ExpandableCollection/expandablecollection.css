@@ -10,3 +10,7 @@
 .expandable{
   display: flex;
 }
+.sub-cat-container{
+  border: 2px solid blue;
+  width: 60px;
+}

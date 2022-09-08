@@ -53,13 +53,14 @@ export const getCollection = (collectionId) => (state) => {
 };
 
 export const fetchCollections = () => async dispatch =>{
-  csrfFetch("/api/collections")
+   csrfFetch("/api/collections")
     .then((res) => res.json())
     .then((payload) => dispatch(addPayload(payload)))
     .catch((error) => console.log("error in add collection fetch", error));
 }
 
 export const addPayload = (payload) => {
+  console.log('payload',payload)
   return (dispatch) => {
     dispatch(receiveCategories(payload.categories));
     dispatch(receiveCollections(payload.collections));
