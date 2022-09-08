@@ -32,6 +32,7 @@ export const getCategory = (categoryId) => (state) => {
   else if (!state.collections.categories) return null;
   else {
     return state.collections.categories[categoryId];
+    console.log('in the get category')
   }
 };
 

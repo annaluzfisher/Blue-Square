@@ -22,11 +22,15 @@
   flex-direction: column;
 }
 .sub-cat-container{
-  border: 2px solid blue;
+  /* border: 2px solid blue; */
   width: inherit;
   display: flex;
   flex-direction: column;
   transition: all .3s ease-in-out;
+}
+
+.sub-cat-container  a{
+  padding: 10px;
 }
 .expandable-title{
   display: flex;
@@ -42,4 +46,8 @@
   opacity: 0;
   
  transform: translatey(-30px);
+}
+
+.sub-cat-container  a:hover{
+  cursor: pointer;
 }

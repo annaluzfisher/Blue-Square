@@ -15,6 +15,7 @@ import ItemShowPage from "./components/ItemShowPage";
 import NotFound from "./components/NotFound";
 
 import Footer from "./components/Footers/Footer/Footer";
+import CategoryShowPage from "./components/CategoryShowPage";
 // const CreateAccount = React.lazy(() =>
 //   import("../src/components/CreateAccount/CreateAccount")
 // );
@@ -55,15 +56,13 @@ function App() {
             <Routes>
               <Route path="Create-Account" element={<CreateAccount />} />
               <Route path="/" element={<MainPage />} />
-              <Route path="Items/:itemId" element={<ItemShowPage />} />
               <Route path="Cart" element={<CartPage />} />
+              <Route path="Items/:itemId" element={<ItemShowPage />} />
+              <Route path="Category/:categogryId" element={<CategoryShowPage />} />
+              {/* <Route path=":collectionId/:categogryId" element={<CategoryShowPage />} /> */}
               <Route
                 path="404"
-                element={
-                  <NotFound
-                    imgUrl={"BannerImages/notfound.jpg"}
-                  />
-                }
+                element={<NotFound imgUrl={"BannerImages/notfound.jpg"} />}
               />
               <Route path="*" element={<Navigate to="/404" replace />} />
             </Routes>
