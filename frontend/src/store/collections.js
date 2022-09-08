@@ -28,11 +28,11 @@ export const getCategories = () => (state) => {
 };
 
 export const getCategory = (categoryId) => (state) => {
-  if (!state) return null;
+  if (!state.collections) return null;
   else if (!state.collections.categories) return null;
   else {
+    console.log('in the get category',state.collections.categories)
     return state.collections.categories[categoryId];
-    console.log('in the get category')
   }
 };
 

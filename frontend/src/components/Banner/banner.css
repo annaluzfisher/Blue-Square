@@ -1,3 +1,11 @@
+  .banner-container{
+    height: 80vh;
+  width: 100%;
+  top: 0px;
+  left: 0px;
+  position: relative;
+
+  } 
 .banner{
   width: 100vw;
   height: 100%;
@@ -22,7 +30,7 @@
   font-weight: 900;
   font-size: 60px;
   position: absolute;
-  top: 35%;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 1;

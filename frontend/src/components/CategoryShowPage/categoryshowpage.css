@@ -1,0 +1,9 @@
+.results{
+  height: 7%;
+  min-height: 25px;
+  width: 100vw;
+}
+
+.cat-page-images-container{
+  border: 2px solid red;
+}

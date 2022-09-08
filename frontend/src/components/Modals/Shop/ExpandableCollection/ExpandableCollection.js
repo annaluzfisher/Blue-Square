@@ -1,14 +1,14 @@
 import { getCollection, getCategories } from "../../../../store/collections";
 import "./expandablecollection.css";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
-
+import { toggleModal } from "../../../../store/ui";
 function ExpandableCollection({ collectionId }) {
   const collection = useSelector(getCollection(collectionId));
   const categories = useSelector(getCategories());
-
+  const dispatch = useDispatch();
   const categoryIds = collection.categoryIds;
-
+  const SHOP_ID = 2;
   const childCategories = [];
   const soloCategories = [];
 
@@ -41,6 +41,10 @@ function ExpandableCollection({ collectionId }) {
       final.push(key);
     }
   });
+
+  const handleToggle = ()=>{
+    dispatch(toggleModal(SHOP_ID))
+  }
   // const handleToggle= (subCatArr) =>{
   //   return <div className="sub-cat-container">
   //      {subCatArr.map((sub) => {
@@ -51,20 +55,24 @@ function ExpandableCollection({ collectionId }) {
   if (collection.id) {
     return (
       <div className="ec-container">
-        {collection && <h3>{collection.name}</h3>}
+        {collection && <h3 key={collection.id}>{collection.name}</h3>}
         {final.map((catId) => {
           if (categories[catId]) {
-            return <div>{categories[catId].name}</div>;
+            return (
+              <Link to={`Category/${catId}`}>
+                <div onClick={handleToggle} key={catId}>{categories[catId].name}</div>
+              </Link>
+            );
           } else {
             return (
               <div className="expandable">
                 <div className="expandable-title">
                   <div className="plus">+</div>
-                  <span>{categories[catId[0]].name}</span>
+                  <span key={catId[0]}>{categories[catId[0]].name}</span>
                 </div>
                 <div className="sub-cat-container">
                   {catId[1].map((sub) => {
-                    return <Link to={`Category/${sub}`}><span >{categories[sub].name}</span></Link>
+                    return <Link to={`Category/${sub}`}><span onClick={handleToggle} key={sub}>{categories[sub].name}</span></Link>
                   })}
                 </div>
               </div>
