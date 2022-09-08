@@ -52,7 +52,7 @@ if (storeCollections){
           <div className="shop-modal-page">
             
             {mainCollectionIds.map((collection) => {
-              return <ExpandableCollection collectionId={3} />;
+              return <ExpandableCollection collectionId={collection} />;
             })}
           </div>
         </div>

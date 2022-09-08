@@ -43,6 +43,7 @@ CollectionCategory.create!(collections_id: equipment.id, categories_id: tents.id
 CollectionCategory.create!(collections_id: equipment.id, categories_id: footware.id)
 CollectionCategory.create!(collections_id: equipment.id, categories_id: cpacks.id)
 CollectionCategory.create!(collections_id: equipment.id, categories_id: harnesses.id)
+CollectionCategory.create!(collections_id: equipment.id, categories_id: snowhelmets.id)
 
 mens = Collection.create!(name: "Men's")
 CollectionCategory.create!(collections_id: mens.id, categories_id: harnesses.id)
@@ -67,7 +68,34 @@ CollectionCategory.create!(categories_id: footware.id, collections_id: camping.i
 
 
 
-Item.create(name:'Impulse-112-Skis',description:'Built for freeriders who love playful, deep-snow performance yet demand control when launching down steep, aggressive lines, the Impulse 112’s are the big guns you want on a storm day. Wide-waisted at 112-mm, these skis are floaty for deep conditions, while the playful turning radius keeps them nimble for lines that require confidence and accuracy. Their flat, solid-core construction adds torsional stiffness and provides premium power transmission, dampness and stability to hold fast while charging on harder snow. Austrian-made with pre-preg fiberglass and an engineered poplar core, The Impulse 112 is built for the progressive freerider looking to get after it.',price:799.95)
+impulse= Item.create(name:'Impulse 112 Skis',
+description:'Built for freeriders who love playful, deep-snow performance yet demand control when launching down steep, aggressive lines, the Impulse 112’s are the big guns you want on a storm day. Wide-waisted at 112-mm, these skis are floaty for deep conditions, while the playful turning radius keeps them nimble for lines that require confidence and accuracy. Their flat, solid-core construction adds torsional stiffness and provides premium power transmission, dampness and stability to hold fast while charging on harder snow. Austrian-made with pre-preg fiberglass and an engineered poplar core, The Impulse 112 is built for the progressive freerider looking to get after it.',
+price:799.95)
+
+c4_0_3 = Item.create!(name: 'C4 #0.3',
+description:'The world’s best-selling, most trusted cam just got better. The new, redesigned Camalot C4 has now upped the ante, considering it’s 10% lighter yet just as durable as before. Plus, it features a modern design that improves on the old tried-and-true Camalots. The cam’s lobes are lighter and more sculpted, optimized for strength to weight, while the slings have a visual update for easier differentiation when racking. And speaking of racking, we’re introducing a new innovative trigger keeper on sizes #4, #5, #6, #7, and #8 that keeps the big guys contracted for compact racking and immediately release when you’re ready to place. We’ve also widened the trigger as well for better handling.',
+price:79.95)
+file1 = URI.open('https://bluesquarebucket.s3.us-west-1.amazonaws.com/c4/C4-0.3.webp')
+c4_0_3.photo.attatch(io: file1, filename:'C4-0.3.webp')
+
+c4_0_4 = Item.create!(name: 'C4 #0.4',
+description:'The world’s best-selling, most trusted cam just got better. The new, redesigned Camalot C4 has now upped the ante, considering it’s 10% lighter yet just as durable as before. Plus, it features a modern design that improves on the old tried-and-true Camalots. The cam’s lobes are lighter and more sculpted, optimized for strength to weight, while the slings have a visual update for easier differentiation when racking. And speaking of racking, we’re introducing a new innovative trigger keeper on sizes #4, #5, #6, #7, and #8 that keeps the big guys contracted for compact racking and immediately release when you’re ready to place. We’ve also widened the trigger as well for better handling.',
+price:79.95)
+file1 = URI.open('https://bluesquarebucket.s3.us-west-1.amazonaws.com/c4/C4-0.4.webp')
+c4_0_4.photo.attatch(io: file1, filename:'C4-0.4.webp')
+
+c4_0_5 = Item.create!(name: 'C4 #0.5',
+description:'The world’s best-selling, most trusted cam just got better. The new, redesigned Camalot C4 has now upped the ante, considering it’s 10% lighter yet just as durable as before. Plus, it features a modern design that improves on the old tried-and-true Camalots. The cam’s lobes are lighter and more sculpted, optimized for strength to weight, while the slings have a visual update for easier differentiation when racking. And speaking of racking, we’re introducing a new innovative trigger keeper on sizes #4, #5, #6, #7, and #8 that keeps the big guys contracted for compact racking and immediately release when you’re ready to place. We’ve also widened the trigger as well for better handling.',
+price:79.95)
+file1 = URI.open('https://bluesquarebucket.s3.us-west-1.amazonaws.com/c4/C4-0.5.webp')
+c4_0_5.photo.attatch(io: file1, filename:'C4-0.5.webp')
+
+c4_0_75 = Item.create!(name: 'C4 #0.75',
+description:'The world’s best-selling, most trusted cam just got better. The new, redesigned Camalot C4 has now upped the ante, considering it’s 10% lighter yet just as durable as before. Plus, it features a modern design that improves on the old tried-and-true Camalots. The cam’s lobes are lighter and more sculpted, optimized for strength to weight, while the slings have a visual update for easier differentiation when racking. And speaking of racking, we’re introducing a new innovative trigger keeper on sizes #4, #5, #6, #7, and #8 that keeps the big guys contracted for compact racking and immediately release when you’re ready to place. We’ve also widened the trigger as well for better handling.',
+price:79.95)
+file1 = URI.open('https://bluesquarebucket.s3.us-west-1.amazonaws.com/c4/C4-0.75.webp')
+c4_0_75.photo.attatch(io: file1, filename:'C4-0.75.webp')
+
 
 
 # make demo kuser in seeds

@@ -5,12 +5,41 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: left;
+  font-family: 'Raleway',sans-serif;
+  font-weight: 500;
+}
+.ec-container > div{
+  margin-bottom: 20px;
 }
 
+.ec-container h3{
+  margin-bottom: 35px;
+  font-family: 'Raleway',sans-serif;
+  font-weight: 600;
+}
 .expandable{
   display: flex;
+  flex-direction: column;
 }
 .sub-cat-container{
   border: 2px solid blue;
-  width: 60px;
+  width: inherit;
+  display: flex;
+  flex-direction: column;
+  transition: all .3s ease-in-out;
+}
+.expandable-title{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.expandable-title > div{
+  padding-right: 8px;
+  font-size: 30px;
+}
+
+.hidden-sub-cat{
+  opacity: 0;
+  
+ transform: translatey(-30px);
 }
