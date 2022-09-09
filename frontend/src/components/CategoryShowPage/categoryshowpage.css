@@ -1,9 +1,26 @@
 .results{
-  height: 7%;
-  min-height: 25px;
+  height:10%;
+  min-height: 10px;
   width: 100vw;
+  display: flex;
+  flex-direction: column;
+  margin-left: 5%;
+  margin-top: 3%;
+  position: relative;
+  border: 4px solid salmon;
+}
+.results span{
+  font-family: 'Raleway',sans-serif;
+  font-weight: 600;
+  font-size: 180%;
+
 }
 
 .cat-page-images-container{
-  border: 2px solid red;
+  border: 4px solid rgb(255, 0, 234);
+  position: relative;
+padding-top: 10px;
+display: flex;
+flex-wrap: wrap;
+justify-content: center;
 }

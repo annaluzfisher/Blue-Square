@@ -9,8 +9,9 @@
 #  discount    :decimal(, )      default(0.0)
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
+#  image_url   :string
 #
 class Item < ApplicationRecord
   validates :name, :description, :price, presence: true
-  has_one_attached :photo
+
 end

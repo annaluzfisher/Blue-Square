@@ -22,17 +22,17 @@ function ItemShowPage() {
 
   
 
-  console.log('item',item)
+
   return (
     <div className="item-show-page">
       <div className="product-hero">
         <div className="item-scroller"></div>
-        <div className="hero-img-container"></div>
-        <div className="item-buy-box">{item? item.name : ''}</div>
+        <div className="hero-img-container"><img src={item.imageUrl}/></div>
+        <div className="item-buy-box">{item ? item.name : ""}</div>
       </div>
       <div className="description"></div>
       <div className="reviews">REVIEWS</div>
-    </div> 
+    </div>
   );
 }
 

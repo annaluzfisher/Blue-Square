@@ -58,7 +58,7 @@ function App() {
               <Route path="/" element={<MainPage />} />
               <Route path="Cart" element={<CartPage />} />
               <Route path="Items/:itemId" element={<ItemShowPage />} />
-              <Route path="Category/:categogryId" element={<CategoryShowPage />} />
+              <Route path="Category/:categoryId" element={<CategoryShowPage />} />
               {/* <Route path=":collectionId/:categogryId" element={<CategoryShowPage />} /> */}
               <Route
                 path="404"
