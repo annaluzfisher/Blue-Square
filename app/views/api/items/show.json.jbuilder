@@ -1,3 +1,3 @@
 json.item do 
-  json.extract! @item, :id, :name, :description, :price, :discount, :image_url
+  json.extract! @item, :id, :name, :description, :price, :discount, :image_url, :size
 end

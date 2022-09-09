@@ -2,7 +2,7 @@
   background-color: #F1F1F1;
 }
 .spacer{
-  height: 20vh;
+  height: 17vh;
 }
 
 .product-hero{
@@ -23,7 +23,8 @@ border: 2px solid blue;
 .hero-img-container img{
     left:0;
   position: relative;
-  width: 100%;
+  width: auto;
+  min-height: 500px;
   height:100%;
    background-size: cover;
  object-fit: cover;
@@ -36,11 +37,19 @@ border: 2px solid blue;
 .item-buy-box{
   border: 3px solid greenyellow;
   width: 30%;
+  min-width:330px;
+  margin-right: 1%;
 
 }
 
-.item-buy-box span{
+.item-buy-box > div > span{
   font-family: 'Raleway',sans-serif;
   font-weight: 700;
-  font-size: 2em;
+  font-size: 1.8em;
+  /* border: 2px solid red; */
+
+}
+.item-buy-box > div {
+  padding-top: 15px;
+
 }

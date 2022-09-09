@@ -3,6 +3,7 @@ import { fetchItem, getItem } from "../../store/item";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect,useState } from "react";
 import { useParams } from "react-router-dom";
+import SizeBox from "./SizeBox/SizeBox";
 
 function ItemShowPage() {
   const { itemId } = useParams();
@@ -25,19 +26,24 @@ function ItemShowPage() {
 
   return (
     <>
-      <div className="item-show-page">
-        <div className="spacer"></div>
-        <div className="product-hero">
-          <div className="item-scroller"></div>
-          <div className="hero-img-container">
-            <img src={item ? item.imageUrl : ""} />
-          </div>
-          <div className="item-buy-box">
-            <div className="spacer"></div>
-            <span>{item ? item.name : ""}</span>
+      {item && (
+        <div className="item-show-page">
+          <div className="spacer"></div>
+          <div className="product-hero">
+            <div className="item-scroller"></div>
+            <div className="hero-img-container">
+              <img src={item.imageUrl} />
+            </div>
+            <div className="item-buy-box">
+              <div>
+                {item.new && <div>NEW</div>}
+                <span> {item.name}</span>
+                {item.size ? <SizeBox item={item} /> : <></>}
+              </div>
+            </div>
           </div>
         </div>
-      </div>
+      )}
       <div className="description"></div>
       <div className="reviews">REVIEWS</div>
     </>

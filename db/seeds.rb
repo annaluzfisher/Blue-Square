@@ -177,16 +177,17 @@ screwup = Item.create!(name: 'Ice Screw Up',
 description:"Protect and organize your winter rack with the Blue Square Ice ScrewUp. This lightweight, convenient roll-up pouch protects the threads and teeth of your ice screws and saves space when they're stored in your pack.",
 price:21.95,
 image_url:'https://bluesquarebucket.s3.us-west-1.amazonaws.com/iceandalpine/IceAlpine/IceScrewUp.webp')
-CategoryItem.create!(items_id: screwup.id, categories_id: rock_protection.id)
-CategoryItem.create!(items_id: screwup.id, categories_id: climb.id)
 
+CategoryItem.create!(items_id: screwup.id, categories_id: climb.id)
+CategoryItem.create!(items_id: screwup.id, categories_id: ice_and_alpine.id)
 
 sabre = Item.create!(name: 'Sabretooth Crampons',
 description:"From moderate local ice flows to classic mountaineering routes and technical alpine faces, the Blue Square Sabretooth Crampon is our best all-around crampon for the spectrum of frozen objectives. The Sabretooth’s redesigned stainless steel construction incorporates a strong, yet light design with durable horizontal front points and increased rocker in the front rail to accommodate modern mountain boots. The dual secondary points are optimized for technical precision, while still maintaining a balanced, stable platform on descents and lower angle terrain.",
 price:199.95,
 image_url:'https://bluesquarebucket.s3.us-west-1.amazonaws.com/iceandalpine/IceAlpine/SabretoothCramons.webp')
-CategoryItem.create!(items_id: sabre.id, categories_id: rock_protection.id)
+
 CategoryItem.create!(items_id: sabre.id, categories_id: climb.id)
+CategoryItem.create!(items_id: sabre.id, categories_id: ice_and_alpine.id)
 
 
 
@@ -196,28 +197,31 @@ price:29.95,
 image_url:'https://bluesquarebucket.s3.us-west-1.amazonaws.com/iceandalpine/IceAlpine/SlingerLeash.webp')
 CategoryItem.create!(items_id: slinger.id, categories_id: rock_protection.id)
 CategoryItem.create!(items_id: slinger.id, categories_id: climb.id)
-
+CategoryItem.create!(items_id: slinger.id, categories_id: ice_and_alpine.id)
 
 swift = Item.create!(name: 'Swift Ice Axe',
 description:"With an adjustable pommel and a T rating, the Blue Square Swift takes mountaineering piolets into the 21st century. One-piece hot forged stainless steel head construction, ergonomic shaft and technical profile for performance in technical snow sections and the FlickLock™ pommel adds adjustability for varying terrain.",
 price:199.95,
 image_url:'https://bluesquarebucket.s3.us-west-1.amazonaws.com/iceandalpine/IceAlpine/SwiftIceAxe.webp')
-CategoryItem.create!(items_id: swift.id, categories_id: rock_protection.id)
+
 CategoryItem.create!(items_id: swift.id, categories_id: climb.id)
+CategoryItem.create!(items_id: swift.id, categories_id: ice_and_alpine.id)
 
 ulice = Item.create!(name: 'Ultralight Ice Screw',
 description:"Designed for ski mountaineering, glacial travel and high-end alpinism, the Ultralight Ice Screw says it all in the name. Weighing in at 45% lighter than our Express Screws, the Ultralight Screw combines a steel tip with an aluminum body and forged aluminum hanger that features two clip-in points. The innovative wire-gate Express handle shaves more weight and also clicks open and closed. The Ultralights are also easily identified by length with the classic BD color scheme.",
 price:84.95,
 image_url:'https://bluesquarebucket.s3.us-west-1.amazonaws.com/iceandalpine/IceAlpine/ULIce.webp')
-CategoryItem.create!(items_id: ulice.id, categories_id: rock_protection.id)
+
 CategoryItem.create!(items_id: ulice.id, categories_id: climb.id)
+CategoryItem.create!(items_id: ulice.id, categories_id: ice_and_alpine.id)
 
 viperice = Item.create!(name: 'Viper Ice Tool',
 description:"A durable, easy-to-swing tool built for a full season of winter climbing objectives, the redesigned Blue Square Viper Ice Tool provides all-around performance for the ice and alpine climber. The Viper’s hydroformed shaft extends through the grip for maximum rigidity and a responsive feel, and our Natural Pick is included to beef up durability on scrappy mountain terrain. The adjustable FlickLock® pommel acts as a secondary grip position for ice climbing and cragging and easily slides up the shaft for choking up on low-angle snow slopes. The modular head allows for easy changing of picks and swapping between hammer and adze.",
 price:259.95,
 image_url:'https://bluesquarebucket.s3.us-west-1.amazonaws.com/iceandalpine/IceAlpine/ViperIceTool.webp')
-CategoryItem.create!(items_id: viperice.id, categories_id: rock_protection.id)
+
 CategoryItem.create!(items_id: viperice.id, categories_id: climb.id)
+CategoryItem.create!(items_id: viperice.id, categories_id: ice_and_alpine.id)
 
 impulse112 = Item.create!(name: 'IMPULSE 112 SKIS',
 description: 'Built for freeriders who love playful, deep-snow performance yet demand control when launching down steep, aggressive lines, the Impulse 112’s are the big guns you want on a storm day. Wide-waisted at 112-mm, these skis are floaty for deep conditions, while the playful turning radius keeps them nimble for lines that require confidence and accuracy. Their flat, solid-core construction adds torsional stiffness and provides premium power transmission, dampness and stability to hold fast while charging on harder snow. Austrian-made with pre-preg fiberglass and an engineered poplar core, The Impulse 112 is built for the progressive freerider looking to get after it.',
@@ -305,6 +309,7 @@ CategoryItem.create!(items_id: ahwa.id, categories_id: tents.id)
 mensvisionhybrid = Item.create!(name:"VISION HYBRID HOODY - MEN'S",
 description: "Optimized for movement in the mountains, the Vision Hybrid Hoody is an active insulation layer that breathes and moves with you while keeping you warm. Featuring Japanese liquid crystal polymer ripstop construction in high abrasion areas, this hoody is ultra-durable, while the body-mapped construction adds breathability and stretch to the underarms and back panels. The 60g PrimaLoft Gold Insulation with Cross Core technology includes NASA-developed Aerogel, which is used in space suits and remains hyper-light while maintaining the industry’s best warmth-to-weight ratio. Two harness-compatible zippered hand pockets are combined with a right-hand stow pocket and zippered chest pocket to stash essentials while adventuring. It also features an internal drop pocket which provides warm shelter for gloves or beanies. An integrated hem gasket and elastic cuffs keeps drafts out while the helmet-compatible hood adds extra protection from wind and snow.",
 price: 295.00,
+size: true,
 image_url:"https://bluesquarebucket.s3.us-west-1.amazonaws.com/mensjackets/visionhybridmens.webp")
 CategoryItem.create!(items_id: mensvisionhybrid.id, categories_id: jackets.id)
 CategoryItem.create!(items_id: mensvisionhybrid.id, categories_id: mensjackets.id)
@@ -313,6 +318,7 @@ CategoryItem.create!(items_id: mensvisionhybrid.id, categories_id: mensjackets.i
 approach = Item.create!(name: "APPROACH DOWN VEST - MEN'S",
 description: "The Approach Down Vest easily layers over a hoody on brisk multi-pitch rock routes or under a shell on ice climbs and alpine missions. The vest’s ultralight nylon ripstop shell features Green Theme Technology’s Empel revolutionary Breathable Water Protection Technology—an environmentally friendly, PFC-free DWR that’s superior in performance and substantially more durable than other DWR solutions. Inside, premium 800-fill, RDS-certified HyperDRY™ goose down insulation offers high-lofting, incredibly packable warmth that resists inclement weather.",
 price: 240.00,
+size: true,
 image_url:"https://bluesquarebucket.s3.us-west-1.amazonaws.com/mensjackets/approach.webp")
 CategoryItem.create!(items_id: approach.id, categories_id: mensjackets.id)
 CategoryItem.create!(items_id: approach.id, categories_id: jackets.id)
@@ -320,6 +326,7 @@ CategoryItem.create!(items_id: approach.id, categories_id: jackets.id)
 recon = Item.create!(name:"RECON STRETCH SKI SHELL - MEN'S",
 description:"Designed for the skier who demands performance and comfort, the Recon Strech Ski Shell combines a durable 4-way stretch fabric with our waterproof/breathable solution, BD.dry™, to deliver a jacket ready for both in and out-of-bounds missions. With one chest pocket to hold essentials and two mesh internal drop pockets for skins or extra layers, the Recon features ample storage, while the jacket’s removable powder skirt adds versatility for variable conditions. The Recon also has pit zip vents for easy temperature regulation on the skin-track, a waterproof front zipper and a ski-helmet compatible hood for added protection on storm days.",
 price:300.00,
+size: true,
 image_url:"https://bluesquarebucket.s3.us-west-1.amazonaws.com/mensjackets/receon.webp")
 CategoryItem.create!(items_id: recon.id, categories_id: mensjackets.id)
 CategoryItem.create!(items_id: recon.id, categories_id: jackets.id)
@@ -328,6 +335,7 @@ CategoryItem.create!(items_id:recon.id, categories_id: winter.id )
 parka = Item.create!(name:"VISION DOWN PARKA - MEN'S",
 description:"The Vision Down Parka is our warmest insulated jacket, stuffed with high-lofting 800-fill, RDS-certified HyperDRY™ goose down insulation that resists moisture and offers sleeping bag-level warmth in seriously cold conditions. The Vision Down Parka's ultralight shell fabric features a proprietary Japanese fabric made ultra-tear resistant thanks to its liquid crystal polymer ripstop construction, which has been proven to be tough as nails in our Vision Harness. The adjustable insulated hood seals in warmth while wearing a helmet, while the two-way front zipper allows access to your belay device. Oversized hand, chest and internal drop pockets store gloves, water bottles and other on-route essentials.",
 price:465.00,
+size: true,
 image_url:"https://bluesquarebucket.s3.us-west-1.amazonaws.com/mensjackets/parka.webp")
 CategoryItem.create!(items_id: recon.id, categories_id: mensjackets.id)
 CategoryItem.create!(items_id: recon.id, categories_id: jackets.id)
@@ -336,6 +344,7 @@ CategoryItem.create!(items_id:recon.id, categories_id: winter.id )
 alpine = Item.create!(name:"ALPINE START HOODY - MEN'S",
   description: "An ultralight softshell designed to shield weight-conscious climbers from ridgeline gusts and light weather, the Blue Square Alpine Start Hoody features Schoeller stretch-woven fabric to provide highly breathable and highly packable weather resistance. A gusseted construction offers unrestricted freedom of movement, while the adjustable hood fits over a climbing helmet. The jacket also stuffs into its own chest pocket, which features an internal carabiner clip loop for attaching to your harness.",
   price:165.00,
+  size: true,
   image_url:"https://bluesquarebucket.s3.us-west-1.amazonaws.com/mensjackets/alpine.webp")
 CategoryItem.create!(items_id: alpine.id, categories_id: mensjackets.id)
 CategoryItem.create!(items_id: alpine.id, categories_id: jackets.id)
@@ -344,6 +353,7 @@ CategoryItem.create!(items_id:alpine.id, categories_id: winter.id )
 belay = Item.create!(name:"BELAY PARKA - MEN'S",
   description:"Redesigned for 2019 to endure bail-worthy belay conditions on single-pitch winter routes and huge alpine faces alike, the Blue Square Belay Parka lets you hunker down while your partner battles it out on the sharp end. Our warmest synthetic jacket, the updated Stance features a new, more durable shell fabric with a PFC-free DWR finish and two layers of lofty ThermoLite® insulation that provides serious warmth even when wet. A two-way zipper allows access to your belay device, and oversized hand, chest and internal drop pockets store gloves, water bottles and other on-route essentials.",
   price:199.95,
+  size: true,
   image_url:"https://bluesquarebucket.s3.us-west-1.amazonaws.com/mensjackets/belay.webp")
 CategoryItem.create!(items_id: belay.id, categories_id: mensjackets.id)
 CategoryItem.create!(items_id: belay.id, categories_id: jackets.id)
@@ -352,6 +362,7 @@ CategoryItem.create!(items_id:belay.id, categories_id: winter.id)
 wvision = Item.create!(name:"VISION HYBRID HOODY - WOMEN'S",
   description:"Optimized for movement in the mountains, the Vision Hybrid Hoody is an active insulation layer that breathes and moves with you while keeping you warm. Featuring Japanese liquid crystal polymer ripstop construction in high abrasion areas, this hoody is ultra-durable, while the body-mapped construction adds breathability and stretch to the underarms and back panels. The 60g PrimaLoft Gold Insulation with Cross Core technology includes NASA-developed Aerogel, which is used in space suits and remains hyper-light while maintaining the industry’s best warmth-to-weight ratio. Two harness-compatible zippered hand pockets are combined with a right-hand stow pocket and zippered chest pocket to stash essentials while adventuring. It also features an internal drop pocket which provides warm shelter for gloves or beanies. An integrated hem gasket and elastic cuffs keep drafts out while the helmet-compatible hood adds extra protection from wind and snow.",
   price:295.00,
+  size: true,
   image_url:"https://bluesquarebucket.s3.us-west-1.amazonaws.com/wjackets/wvision.webp")
   CategoryItem.create!(items_id: wvision.id, categories_id: womensjackets.id)
 CategoryItem.create!(items_id: wvision.id, categories_id: jackets.id)
@@ -360,6 +371,7 @@ CategoryItem.create!(items_id:wvision.id, categories_id: winter.id)
  approach = Item.create!(name:"APPROACH DOWN HOODY - WOMEN'S",
   description:"Inspired by “no pack and a pared down rack” kind of days, the Approach Down Hoody easily layers over a sun hoody on brisk multi-pitch rock routes or under a shell on ice climbs and alpine missions. The Approach Hoody’s ultralight nylon ripstop shell features Green Theme Technology’s revolutionary Empel DWR—an environmentally friendly, PFC-free DWR that’s superior in performance and substantially more durable than other DWR solutions. Inside, premium 800-fill, RDS-certified HyperDRY™ goose down insulation offers high-lofting, incredibly packable warmth that resists inclement weather. A feminine cut with stylish baffle lines and longer length make the jacket stylish when not charging in the mountains, and when it’s time to move, the jacket stuffs into its hand pocket and secures to your harness with a carabiner clip loop.",
   price:360.00,
+  size: true,
   image_url:"https://bluesquarebucket.s3.us-west-1.amazonaws.com/wjackets/approach.webp")
     CategoryItem.create!(items_id: approach.id, categories_id: womensjackets.id)
 CategoryItem.create!(items_id: approach.id, categories_id: jackets.id)
@@ -367,6 +379,7 @@ CategoryItem.create!(items_id: approach.id, categories_id: jackets.id)
 wparka =  Item.create!(name:"BELAY PARKA - WOMEN'S",
   description:"From frigid belays at the ice park to big multi-day climbs on alpine peaks, the Blue Square Belay Parka lets you hunker down while your partner battles it out on the sharp end. Our warmest insulated jacket, the Stance features two layers of lofty ThermoLite insulation that provides serious warmth even when wet. A two-way zipper allows access to your belay device, and oversized hand, chest and internal drop pockets store gloves, water bottles and other on-route essentials.",
   price:300.00,
+  size: true,
   image_url:"https://bluesquarebucket.s3.us-west-1.amazonaws.com/wjackets/parka.webp")
   CategoryItem.create!(items_id: wparka.id, categories_id: womensjackets.id)
 CategoryItem.create!(items_id: wparka.id, categories_id: jackets.id)
@@ -375,6 +388,7 @@ CategoryItem.create!(items_id:wparka.id, categories_id: winter.id)
   distance =  Item.create!(name:"DISTANCE WIND SHELL - WOMEN'S",
     description:"Engineered to provide ultimate lightweight weather protection in the mountains, the Distance Wind Shell combines superior weather resistance and breathability with an ultralight design, so you are always ready for what the mountains throw at you. Launching in partnership with Green Theme International, the Distance Wind Shell features GTI’s revolutionary Breathable Water Protection Technology, an environmentally friendly PFC-free water-repellant finish that is superior in performance compared to any other C-6, C-8, or C-0 DWR. This performance is only exceeded by its durability, as the GTI technology is permanently hyper-fused to the individual fabric fibers, and there is no need to ever refresh the jacket with an additional spray or wash-in finish. The Distance Wind Shell is ultra-packable, making it a perfect emergency piece for mountain missions with a chest pocket that doubles as a stuff sack and clips to a harness with a carabiner clip loop. With its air permeable qualities designed for high-output activities, and robust weather resistance, the Distance Wind Shell is tailor-made for fast and light mountain adventures.",
     price:140.00,
+    size: true,
     image_url:"https://bluesquarebucket.s3.us-west-1.amazonaws.com/wjackets/distance.webp") 
     CategoryItem.create!(items_id: distance.id, categories_id: womensjackets.id)
     CategoryItem.create!(items_id: distance.id, categories_id: jackets.id)
@@ -382,6 +396,7 @@ CategoryItem.create!(items_id:wparka.id, categories_id: winter.id)
   wrecon  = Item.create!(name:"RECON STRETCH SKI SHELL - WOMEN'S",
   description:"Designed for the skier who demands performance and comfort, the Recon Stretch Ski Shell combines a durable 4-way stretch fabric with our waterproof/breathable solution, BD.dry™, to deliver a jacket ready for both in and out-of-bounds missions. With one chest pocket to hold essentials and two mesh internal drop pockets for skins or extra layers, the Recon features ample storage, while the jacket’s removable powder skirt adds versatility for variable conditions. The Recon also has pit zip vents for easy temperature regulation on the skin-track, a waterproof front zipper and a ski-helmet compatible hood for added protection on storm days.",
 price:300.00,
+size: true,
 image_url:"https://bluesquarebucket.s3.us-west-1.amazonaws.com/wjackets/14945_source_1655877736.png")
   CategoryItem.create!(items_id: wrecon.id, categories_id: womensjackets.id)
 CategoryItem.create!(items_id: wrecon.id, categories_id: jackets.id)

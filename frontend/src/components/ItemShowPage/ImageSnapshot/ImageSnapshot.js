@@ -27,7 +27,7 @@ function ImageSnapshot({itemId}) {
   
           <div className="snapshot-image-container">
             {/* <div> */}
-              <img scr={item ? item.imageUrl : ""} />
+              <img src={item ? item.imageUrl : ""} />
             {/* </div> */}
           </div>
         <div className="lower-snapshot-container">

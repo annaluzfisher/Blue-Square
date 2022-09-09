@@ -1,0 +1,22 @@
+.size-box{
+  width: 100%;
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
+.size-box > span{
+  font-size: 17px;
+  font-family: 'Raleway';
+  font-weight: 200;
+}
+
+.sizes{
+  height: 35px;
+  width: 55px;
+  background-color: white;
+  border: 1px solid black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Roboto';
+  font-weight: 300;
+}
