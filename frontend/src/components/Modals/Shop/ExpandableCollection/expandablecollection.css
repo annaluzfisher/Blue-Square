@@ -8,7 +8,7 @@
   font-family: 'Raleway',sans-serif;
   font-weight: 500;
 }
-.ec-container > div{
+.ec-container > div, .ec-container p{
   margin-bottom: 20px;
 }
 

@@ -54,6 +54,7 @@ border: 2px solid greenyellow;
 }
 
 .fa-star{
+
   font-size: .8em;
 }
 
@@ -65,5 +66,5 @@ border: 2px solid greenyellow;
    background-size: cover;
  object-fit: cover;
  object-position: 0px 0px;
- /* z-index: 4; */
+ z-index: 100;
 }

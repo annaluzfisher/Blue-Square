@@ -60,7 +60,7 @@ function ExpandableCollection({ collectionId }) {
           if (categories[catId]) {
             return (
               <Link to={`Category/${catId}`}>
-                <div onClick={handleToggle} key={catId}>{categories[catId].name}</div>
+                <p onClick={handleToggle} key={catId}>{categories[catId].name}</p>
               </Link>
             );
           } else {

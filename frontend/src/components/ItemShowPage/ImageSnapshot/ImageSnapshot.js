@@ -26,20 +26,20 @@ function ImageSnapshot({itemId}) {
       <div className="snapshot-container">
   
           <div className="snapshot-image-container">
-            <div>
-              <img scr={item ? `${item.imageUrl}` : ""} />
-            </div>
+            {/* <div> */}
+              <img scr={item ? item.imageUrl : ""} />
+            {/* </div> */}
           </div>
         <div className="lower-snapshot-container">
           <div>{item ? item.name : ""}</div>
           <div>$ {item ? item.price : ""}</div>
           <div className="star-ratings-container">
             <div className="stars-container">
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-regular fa-star"></i>
+              <i className="fa-solid fa-star"></i>
+              <i className="fa-solid fa-star"></i>
+              <i className="fa-solid fa-star"></i>
+              <i className="fa-solid fa-star"></i>
+              <i className="fa-regular fa-star"></i>
             </div>
             <div className="line"></div>
           </div>

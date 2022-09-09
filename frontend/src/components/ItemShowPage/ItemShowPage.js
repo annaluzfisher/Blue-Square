@@ -24,16 +24,29 @@ function ItemShowPage() {
 
 
   return (
-    <div className="item-show-page">
-      <div className="product-hero">
-        <div className="item-scroller"></div>
-        <div className="hero-img-container"><img src={item.imageUrl}/></div>
-        <div className="item-buy-box">{item ? item.name : ""}</div>
+    <>
+      <div className="item-show-page">
+        <div className="spacer"></div>
+        <div className="product-hero">
+          <div className="item-scroller"></div>
+          <div className="hero-img-container">
+            <img src={item ? item.imageUrl : ""} />
+          </div>
+          <div className="item-buy-box">
+            <div className="spacer"></div>
+            <span>{item ? item.name : ""}</span>
+          </div>
+        </div>
       </div>
       <div className="description"></div>
       <div className="reviews">REVIEWS</div>
-    </div>
+    </>
   );
 }
 
 export default ItemShowPage;
+
+//revierws will have out of 5 stars
+// product show will fetch each item we will add key value pair to j builder avg rating and num ratings
+// product model helper page. 
+
