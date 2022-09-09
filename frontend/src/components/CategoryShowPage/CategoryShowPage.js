@@ -25,11 +25,13 @@ function CategoryShowPage() {
     }, [storeCategory]);
  
   if (!storeCategory) return null;
+  let count = storeCategory.itemIds.length;
   return (
     <>
       <Banner pageTitle={storeCategory.name} imgUrl={storeCategory.imageUrl} />
       <div className="results">
         <span>{`${storeCategory.name} product results`}</span>
+        <div>{`${count} results`}</div>
       </div>
       <div className="cat-page-images-container">
         { storeCategory.itemIds.map(itemId =>{

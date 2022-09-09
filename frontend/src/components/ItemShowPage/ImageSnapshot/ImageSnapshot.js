@@ -24,16 +24,15 @@ function ImageSnapshot({itemId}) {
     <Link to={`/Items/${itemId}`}>
       {" "}
       <div className="snapshot-container">
-        <div className="test">
+  
           <div className="snapshot-image-container">
             <div>
-              <img scr={item ? item.imageUrl : ""} />
+              <img scr={item ? `${item.imageUrl}` : ""} />
             </div>
           </div>
-        </div>
         <div className="lower-snapshot-container">
-          <span>{item ? item.name : ""}</span>
-          <span>$ {item ? item.price : ""}</span>
+          <div>{item ? item.name : ""}</div>
+          <div>$ {item ? item.price : ""}</div>
           <div className="star-ratings-container">
             <div className="stars-container">
               <i class="fa-solid fa-star"></i>
@@ -45,7 +44,8 @@ function ImageSnapshot({itemId}) {
             <div className="line"></div>
           </div>
         </div>
-      </div>
+
+        </div>
     </Link>
   );
 }

@@ -4,7 +4,6 @@
   width:80%;
   padding-bottom: 80%;
   border: 2px solid blue;
-
   transition: all .2s ease-in-out;
   }
   .snapshot-container:hover{
@@ -14,11 +13,13 @@
   }
   .snapshot-container{
     width: fit-content;
-    height:30vh;
-    border: 2px solid purple;
+    height:fit-content;
+    border: 4px solid purple;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    align-items: center;
+    /* justify-content: space-between; */
+    margin: 40px;
   }
 
   .lower-snapshot-container{
@@ -26,12 +27,43 @@
     min-width: 35px;
     border: 2px solid red;
     margin-bottom: 0;
-    font-family: 'Roboto',sans-serif;
-    font-weight: 200;
-    font-size: 150%;
+    font-family: 'Raleway',sans-serif;
+    font-weight: 500;
+    font-size: 1em;
+    padding-top: 1rem;
   }
-.test{
+
+  .lower-snapshot-container >div {
+    padding-left: 2%;
+  }
+
+.star-ratings-container{
+  display: flex;
+align-items: center;
+justify-content: space-between;
+width: 100%;
+border: 2px solid greenyellow;
+}
+.star-container{
+  width: fit-content;
+
+}
+.line{
+  border-top: 1px solid rgb(186, 186, 186);
+  width:60%;
+}
+
+.fa-star{
+  font-size: .8em;
+}
+
+.snapshot-image-container img{
+  left:0;
+  position: absolute;
   width: 100%;
-  border: 4px solid greenyellow;
-  height: 100%;
+  height:inherit;
+   background-size: cover;
+ object-fit: cover;
+ object-position: 0px 0px;
+ /* z-index: 4; */
 }
