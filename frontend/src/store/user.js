@@ -1,3 +1,4 @@
+import { createCart } from "./cart";
 import csrfFetch from "./csrf";
 import { receiveCurrentUser } from "./session";
 const RECEIVE_USER = "RECEIVE_USER";
@@ -43,6 +44,7 @@ export const addCurrentUser = (user) => {
       console.log(user)
        dispatch(receiveUser(user));
        dispatch(receiveCurrentUser(user));
+       dispatch(createCart(user));
     }
 }
 

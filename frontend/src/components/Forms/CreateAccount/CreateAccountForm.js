@@ -1,9 +1,10 @@
 import "./createaccountform.css";
 import { React, useState, useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { createUser } from "../../../store/user";
 import Button from "../../Buttons/Button";
 import { Navigate, useNavigate } from 'react-router-dom'
+
 
 
 function CreateAccountForm() {
@@ -18,19 +19,13 @@ function CreateAccountForm() {
 
   const [user, setUser] = useState({});
   const navigate = useNavigate();
-  // const [enabled, setEnabled] = useState(false)
-  // useEffect(() => {
-  //      const required =  [email, password, firstName, lastName]
-  //      required.forEach((field)=>{
-  //       if(field.length > 0 ){
-  //         setEnabled(true);
-  //       }
-  //      })
-  // }, [email, password, firstName, lastName]);
+
 
   useEffect(() => {
     setUser({ email, password, firstName, lastName, companyName, mailingList });
   }, [email, password, firstName, lastName, companyName, mailingList]);
+
+
 
   const handleSubmit = (e) => {
     e.preventDefault();

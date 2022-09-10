@@ -23,7 +23,8 @@ class User < ApplicationRecord
 
   has_one :cart, dependent: :destroy
   has_many :cart_items, dependent: :destroy
-    has_many :items, through: :cart_items, source: :item 
+  has_many :items, through: :cart_items, source: :item 
+  
   validates :first_name,
   presence: true
 

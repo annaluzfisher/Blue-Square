@@ -13,6 +13,7 @@ import CreateAccount from "../src/components/CreateAccount/CreateAccount";
 import CartPage from "./components/CartPage";
 import ItemShowPage from "./components/ItemShowPage";
 import NotFound from "./components/NotFound";
+import RequireLogin from './components/CartPage/RequireLogin/RequireLogin'
 
 import Footer from "./components/Footers/Footer/Footer";
 import CategoryShowPage from "./components/CategoryShowPage";
@@ -56,7 +57,8 @@ function App() {
             <Routes>
               <Route path="Create-Account" element={<CreateAccount />} />
               <Route path="/" element={<MainPage />} />
-              <Route path="Cart" element={<CartPage />} />
+              <Route path="Cart/:userId" element={<CartPage />} />
+              <Route path="Cart" element={<RequireLogin/>} />
               <Route path="Items/:itemId" element={<ItemShowPage />} />
               <Route path="Category/:categoryId" element={<CategoryShowPage />} />
               {/* <Route path=":collectionId/:categogryId" element={<CategoryShowPage />} /> */}

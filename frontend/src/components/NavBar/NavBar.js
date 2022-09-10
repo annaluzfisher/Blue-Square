@@ -1,12 +1,12 @@
 import { toggleModal } from "../../store/ui";
 import "./navbar.css";
-import { useEffect, React , useState } from "react";
-import { useDispatch} from "react-redux";
+import { useEffect, React, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import Navigation from "../Modals/NavigationComponents/Navigation/Navigation";
-import { Link,useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import Logo from "../Buttons/Logo/Logo";
-import Search from '../Modals/Search/Search';
-import Shop from "../Modals/Shop/Shop"
+import Search from "../Modals/Search/Search";
+import Shop from "../Modals/Shop/Shop";
 // const Shop = React.lazy(() => import("../Modals/Shop/Shop"));
 
 function NavBar() {
@@ -15,13 +15,11 @@ function NavBar() {
   const SEARCH_ID = 3;
   const dispatch = useDispatch();
   let location = useLocation();
-  const [color, setColor] = useState('white')
-
-  useEffect(()=>{
-  location.pathname.includes("Items") ? setColor('black') : setColor('white');
-  },[location])
-
-  console.log('location', location)
+  const [color, setColor] = useState("white");
+  const currentUser = useSelector((state) => state.session.user);
+  useEffect(() => {
+    location.pathname.includes("Items") ? setColor("black") : setColor("white");
+  }, [location]);
 
 
   return (
@@ -54,10 +52,17 @@ function NavBar() {
             <i className="fa-solid fa-bars"></i>
           </div>
           <div className="shopping-bag-icon-wrapper hover-icon">
-            <Link to="Cart">
-              {" "}
-              <i className="fa-solid fa-bag-shopping"></i>
-            </Link>
+            {!currentUser ? (
+              <Link to="Cart">
+                {" "}
+                <i className="fa-solid fa-bag-shopping"></i>
+              </Link>
+            ) : (
+              <Link to={`Cart/${currentUser.id}`}>
+                {" "}
+                <i className="fa-solid fa-bag-shopping"></i>
+              </Link>
+            )}
           </div>
         </div>
       </nav>

@@ -12,6 +12,6 @@
 class Collection < ApplicationRecord
   has_many :collection_categories, foreign_key: :collections_id, dependent: :destroy
   has_many :categories, through: :collection_categories, source: :category
-  #has_many :items, through: categories, source: items
+  has_many :items, through: :categories, source: :items
 
 end

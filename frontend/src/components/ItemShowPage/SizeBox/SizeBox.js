@@ -7,6 +7,7 @@ function SizeBox({item}) {
   const  [quantity, setQuantity] = useState('1');
    const [size, setSize] = useState("");
 
+
   useEffect(()=>{
         let input = parseInt(quantity);
            if (input < 1) input = 1;
@@ -27,6 +28,7 @@ function SizeBox({item}) {
 
   const addToCart= (e)=>{
     e.preventDefault();
+  //need to dispatch addCartItem
   }
   return (
     <form className="size-box-form" onSubmit={addToCart}>

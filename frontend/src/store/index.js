@@ -6,13 +6,15 @@ import userReducer from "./user";
 import uiReducer from "./ui";
 import itemReducer from "./item";
 import collectionsReducer from "./collections";
+import cartReducer from "./cart";
 
 const rootReducer = combineReducers({
   ui: uiReducer,
   user: userReducer,
   session: sessionReducer,
   items: itemReducer,
-  collections: collectionsReducer
+  collections: collectionsReducer,
+  // cart: cartReducer
 });
 
 let enhancer;
