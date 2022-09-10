@@ -10,8 +10,10 @@
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #  image_url   :string
+#  size        :boolean          default(FALSE)
 #
 class Item < ApplicationRecord
   validates :name, :description, :price, presence: true
-
+  has_many :cart_items, dependent: :destroy 
+  belongs_to :user, through: :cart_items, source: :user
 end

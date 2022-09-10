@@ -2,14 +2,17 @@
   width: 100%;
   margin-top: 5%;
   margin-bottom: 5%;
+    overflow: hidden;
 }
 .size-box > span{
-  font-size: 17px;
+  font-size: 15px;
   font-family: 'Raleway';
-  font-weight: 200;
+  font-weight: 300;
+  white-space: nowrap;
+
 }
 
-.sizes{
+/* .sizes-container div{
   height: 35px;
   width: 55px;
   background-color: white;
@@ -19,4 +22,107 @@
   justify-content: center;
   font-family: 'Roboto';
   font-weight: 300;
+  margin: 10px;
+  position: relative;
+} */
+.sizes-container label{
+    height: 35px;
+  width: 60px;
+  background-color: white;
+  border: 1px solid black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Roboto';
+  font-weight: 300;
+  margin: 10px;
+  position: relative;
 }
+.sizes-container input{
+  display: none;
+}
+
+.sizes-container > input:checked + label{
+  color:white;
+  background-color: black;
+}
+
+.sizes-container{
+  display: flex;
+  flex-wrap: wrap;
+  z-index: 9;
+}
+
+.sizes-container label:hover{
+  background-color: black;
+  color: white;
+  cursor: pointer;
+}
+
+.sb-price{
+  font-family: 'Roboto';
+  padding-top: 20px;
+    padding-bottom: 20px;
+}
+.sb-price :nth-child(1){
+  font-size: 2em;
+}
+.sb-price :nth-child(2){
+  font-size: .7em;
+}
+
+.size-box-form  input:focus, 
+.size-box-form  select:focus,
+.size-box-form  textarea:focus{
+  outline: none;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.sb-qty{
+  height: 60px;
+  width: 60px;
+  background-color: var(--bggray);
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-right: 20px;
+
+}
+.sb-qty input{
+  background-color: var(--bggray);
+  border: none;
+  width:55px;
+  height:35px;
+  padding: none;
+  margin: none;
+  text-align: center;
+}
+.sb-qty label{
+    position: relative;
+    top: .3em;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: .75rem;
+    font-family: 'Roboto';
+}
+.sb-button-container{
+  display: flex;
+  width: 100%;
+  align-items: center;
+border: 2px solid blue;
+padding-bottom: 10px;
+}
+
+.sb-button-container .button{
+ height: 63px;
+ width: 210px;
+ position: relative;
+}  

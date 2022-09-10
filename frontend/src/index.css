@@ -7,6 +7,7 @@ body, html, .app, #root {
   overflow-x: hidden;
   overflow-y: scroll;
     --orange: #CD4C1D;
+    --bggray: #F1F1F1
 }
 
 .app{

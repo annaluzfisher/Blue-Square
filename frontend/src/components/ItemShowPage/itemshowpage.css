@@ -29,6 +29,7 @@ border: 2px solid blue;
    background-size: cover;
  object-fit: cover;
  object-position: 0px 0px;
+ z-index: 1;
 }
 .item-scroller{
   width: 10%;
@@ -38,7 +39,9 @@ border: 2px solid blue;
   border: 3px solid greenyellow;
   width: 30%;
   min-width:330px;
-  margin-right: 1%;
+  margin-right: 3%;
+  position: relative;
+  z-index: 3;
 
 }
 
@@ -52,4 +55,19 @@ border: 2px solid blue;
 .item-buy-box > div {
   padding-top: 15px;
 
+}
+
+.description{
+  width: 100vw;
+  height: 45vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Raleway';
+  font-weight: 300;
+  font-size: 18px;;
+}
+.description > p{
+  margin: 10%;
+  line-height: 170%;
 }

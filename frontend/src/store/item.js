@@ -27,7 +27,8 @@ const itemReducer = (state = {}, action) => {
   const newState = { ...state };
   switch (action.type) {
     case RECEIVE_ITEM:
-     newState[action.item.item.id] = action.item.item
+      action.item.item.price = (Math.round(action.item.item.price * 100) / 100).toFixed(2);
+      newState[action.item.item.id] = action.item.item
      return newState
     default:
       return newState;

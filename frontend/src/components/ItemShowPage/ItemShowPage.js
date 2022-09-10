@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect,useState } from "react";
 import { useParams } from "react-router-dom";
 import SizeBox from "./SizeBox/SizeBox";
+import ReviewsComponent from "../Reviews/ReviewsComponent";
 
 function ItemShowPage() {
   const { itemId } = useParams();
@@ -44,8 +45,10 @@ function ItemShowPage() {
           </div>
         </div>
       )}
-      <div className="description"></div>
-      <div className="reviews">REVIEWS</div>
+      <div className="description">
+        <p >{item? item.description:''}</p>
+      </div>
+      <ReviewsComponent item={item}/>
     </>
   );
 }

@@ -1,0 +1,11 @@
+.reviews-header{
+  width: 85%;
+  height: 10%;
+  min-height: 80px;
+  border: 2px solid blue;
+  position: relative;
+  margin-left:8%
+}
+.reviews-header > h2{
+  
+}
