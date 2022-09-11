@@ -14,7 +14,7 @@ const rootReducer = combineReducers({
   session: sessionReducer,
   items: itemReducer,
   collections: collectionsReducer,
-  // cart: cartReducer
+  cart: cartReducer
 });
 
 let enhancer;

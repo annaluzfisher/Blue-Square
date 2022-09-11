@@ -21,7 +21,6 @@ export const receiveCart = (payload) =>({
   };
 
 export const createCart = (user) => async (dispatch) => {
-
    const res = await csrfFetch(`/api/carts`,{
     method: 'POST',
     body: JSON.stringify({user})
@@ -31,13 +30,13 @@ export const createCart = (user) => async (dispatch) => {
     dispatch(receiveCart(cart))
   } }
 
-  // export const fetchCart = (userId) => async (dispatch) => {
-  //    const res = await csrfFetch(`/api/users/${userId}/carts`)
-  //      if (res.ok) {
-  //        const cart = await res.json();
-  //        dispatch(receiveCart(cart));
-  //      }
-  // }
+  export const fetchCart = (userId,cartId) => async (dispatch) => {
+     const res = await csrfFetch(`/api/users/${userId}/carts/${cartId}`);
+       if (res.ok) {
+         const cart = await res.json();
+         dispatch(receiveCart(cart));
+       }
+  }
 
 
 
@@ -46,8 +45,9 @@ export const createCart = (user) => async (dispatch) => {
     const newState = { ...state };
     switch (action.type) {
       case RECEIVE_CART:
-   return { ...newState, ...action.cart };
-        return newState;
+        console.log('in the reducer cart/payload', action.cart)
+   return { ...newState, ...action.payload };
+       
       default:
         return newState;
     }

@@ -2,9 +2,9 @@ class Api::CartsController < ApplicationController
 
 
   def show
-    debugger
-      #  @user = User.find_by(session_token: session[:session_token])
-       @cart = Cart.find(id: params[:id])
+    # debugger
+  
+       @cart = Cart.find(params[:id])
        if @cart
         render :show
        else

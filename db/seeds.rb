@@ -8,6 +8,7 @@
 require 'open-uri'
 
 demo = User.create!(email: 'demo@email.com', password: 'password', first_name: 'Lynn', last_name: 'Hill', company_name: 'App Academy' )
+democart = Cart.create!(user_id: demo.id)
 
 climb = Category.create!(name:'Climb', image_url:'https://bluesquarebucket.s3.us-west-1.amazonaws.com/climb.jpg')
 
