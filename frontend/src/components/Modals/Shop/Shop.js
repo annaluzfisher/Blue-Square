@@ -8,7 +8,7 @@ import NavTierLabel from "../NavTierLabel/NavTierLabel";
 import { fetchCollections, getCollections } from "../../../store/collections";
 // const ExpandableCollection = React.lazy(() => import("./ExpandableCollection/ExpandableCollection"));
 import ExpandableCollection from "./ExpandableCollection";
-
+import ExpandableActivities from "./ExpandableCollection/ExpandableActivities";
 function Shop() {
   const dispatch = useDispatch();
   const SHOP_ID = 2;
@@ -41,8 +41,18 @@ function Shop() {
       }
     }
   }, [visible]);
- const collectionIds = Object.keys(storeCollections.collections);
-    const mainCollectionIds = collectionIds.splice(2)
+ const allCollectionIds = Object.keys(storeCollections.collections);
+ let collectionIds = []
+ let activityIds = []
+ allCollectionIds.map((id) => {
+   if (storeCollections.collections[id].activity){
+     activityIds.push(id)
+   }else{
+     collectionIds.push(id)
+   }
+ })
+
+
 if (storeCollections){
     return (
       <>
@@ -50,9 +60,24 @@ if (storeCollections){
           <ModalNavBar modalId={SHOP_ID} />
           <NavTierLabel name={"SHOP"} />
           <div className="shop-modal-page">
-            
-            {mainCollectionIds.map((collection) => {
-              return <ExpandableCollection collectionId={collection} key={collection}/>;
+            <div className="activities-holder">
+              <h2>Activities</h2>
+              {activityIds.map((collection) => {
+                return (
+                  <ExpandableActivities
+                    collectionId={collection}
+                    key={collection}
+                  />
+                );
+              })}
+            </div>
+            {collectionIds.map((collection) => {
+              return (
+                <ExpandableCollection
+                  collectionId={collection}
+                  key={collection}
+                />
+              );
             })}
           </div>
         </div>

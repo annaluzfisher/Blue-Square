@@ -12,7 +12,7 @@ end
 json.collections do
       @collections.each do |col|
         json.set! col.id do
-          json.extract! col, :id, :name, :image_url
+          json.extract! col, :id, :name, :image_url, :activity
           json.category_ids col.category_ids
 
         end

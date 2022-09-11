@@ -17,31 +17,33 @@ function CartPage() {
     if (!currentUser) navigate("/Cart");
 
 
-  console.log("currentUser ffrom state", currentUser);
-  console.log("cart id of user",cartId);
-  console.log('store cart should be an id and an empty array', storeCart)
+  // console.log("currentUser ffrom state", currentUser);
+  // console.log("cart id of user",cartId);
+  // console.log('store cart should be an id and an empty array', storeCart)
 
   useEffect(() => {
-    console.log("are we here?");
+    // console.log("are we here?");
     if (currentUser){
-      console.log('how many times do we pass the if statement')
+
      dispatch(fetchCart(currentUser.id, cartId))
     }
   }, [currentUser]);
 
-   useEffect(() => {
+   useEffect(() => { 
+          console.log("how many times we re-rendering", cart);
      dispatch(getCart());
      setCart(storeCart);
-   }, [storeCart]);
-
+   }, [cart,storeCart, currentUser]);
+if (!cart) return null;
   return (
     <>
       <div className="cart-page">
         <div color="black">cart page</div>
-        {cart && <div>{cart.cart.id}</div> }
+        {cart && <div>{storeCart.cart.id}</div> }
       </div>
     </>
   );
+
 }
 
 export default CartPage;

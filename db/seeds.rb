@@ -27,11 +27,12 @@ womensjackets = Category.create!(name: 'Jackets',  image_url:'https://bluesquare
 mensjackets = Category.create!(name: 'Jackets',  image_url:'https://bluesquarebucket.s3.us-west-1.amazonaws.com/climbhike.JPG')
 accesories = Category.create!(name: 'Accessories', image_url:'https://bluesquarebucket.s3.us-west-1.amazonaws.com/bannerimages/image3.jpg')
 tents = Category.create!(name: 'Tents', image_url: 'https://bluesquarebucket.s3.us-west-1.amazonaws.com/bannerimages/image18.jpg')
-harnesses = Category.create!(name: 'Harnesses', parent_id: climb.id, image_url:'https://bluesquarebucket.s3.us-west-1.amazonaws.com/bannerimages/image9.JPG')
+mharnesses = Category.create!(name: 'Harnesses', parent_id: climb.id, image_url:'https://bluesquarebucket.s3.us-west-1.amazonaws.com/bannerimages/image9.JPG')
 headlamps = Category.create!(name: 'Lighting', image_url:'https://bluesquarebucket.s3.us-west-1.amazonaws.com/category7.JPG')
 menspacks  = Category.create!(name: 'Packs',  image_url:'https://bluesquarebucket.s3.us-west-1.amazonaws.com/bannerimages/image5.jpg')
 jackets = Category.create!(name: 'Jackets')
 winter = Category.create!(name: 'Winter')
+wharnesses = Category.create!(name: 'Harnesses', image_url:'https://bluesquarebucket.s3.us-west-1.amazonaws.com/bannerimages/image9.JPG')
 
 winter = Collection.create!(name: 'Winter',activity: true, image_url:'https://bluesquarebucket.s3.us-west-1.amazonaws.com/sunset.jpg')
 CollectionCategory.create!(collections_id: winter.id, categories_id: ski.id)
@@ -42,7 +43,10 @@ climbing = Collection.create!(name: 'Climbing', activity: true, image_url:'https
 CollectionCategory.create!(collections_id: climbing.id, categories_id: rock_protection.id)
 
 CollectionCategory.create!(collections_id: climbing.id, categories_id: helmets.id)
-CollectionCategory.create!(collections_id: climbing.id, categories_id: harnesses.id)
+CollectionCategory.create!(collections_id: climbing.id, categories_id: mharnesses.id)
+CollectionCategory.create!(collections_id: climbing.id, categories_id: wharnesses.id)
+
+
 equipment = Collection.create!(name: 'Equipment')
 CollectionCategory.create!(collections_id: equipment.id, categories_id: climb.id)
 CollectionCategory.create!(collections_id: equipment.id, categories_id: ice_and_alpine.id)
@@ -51,23 +55,23 @@ CollectionCategory.create!(collections_id: equipment.id, categories_id: ski.id)
 CollectionCategory.create!(collections_id: equipment.id, categories_id: tents.id)
 
 CollectionCategory.create!(collections_id: equipment.id, categories_id: cpacks.id)
-CollectionCategory.create!(collections_id: equipment.id, categories_id: harnesses.id)
+CollectionCategory.create!(collections_id: equipment.id, categories_id: mharnesses.id)
 
 
 mens = Collection.create!(name: "Men's")
-CollectionCategory.create!(collections_id: mens.id, categories_id: harnesses.id)
+CollectionCategory.create!(collections_id: mens.id, categories_id: mharnesses.id)
 CollectionCategory.create!(collections_id: mens.id, categories_id: mensjackets.id)
 
 CollectionCategory.create!(collections_id: mens.id, categories_id: menspacks.id)
 
 womens = Collection.create!(name: "Women's")
-CollectionCategory.create!(collections_id: womens.id, categories_id: harnesses.id)
+CollectionCategory.create!(collections_id: womens.id, categories_id: wharnesses.id)
 CollectionCategory.create!(collections_id: womens.id, categories_id: womensjackets.id)
 
 CollectionCategory.create!(collections_id: womens.id, categories_id: womenspacks.id)
 
 
-camping = Collection.create!(name: "Camping")
+camping = Collection.create!(name: "Camping", activity: true)
 
 CollectionCategory.create!(categories_id: tents.id, collections_id: camping.id)
 CollectionCategory.create!(categories_id: menspacks.id, collections_id: camping.id)
@@ -447,6 +451,15 @@ tadapter = Item.create!(name: "DISTANCE TENT UNIV. ADAPTER",
 
 CategoryItem.create!(items_id:tadapter.id, categories_id: accesories.id)
 CategoryItem.create!(items_id:tadapter.id, categories_id: tents.id)
+
+menmomentum = Item.create!(name: "MOMENTUM HARNESS - MEN'S",
+description: "For all-around climbers who know that time spent fiddling with leg loops and adjusting a pinching waistbelt is time wasted, the Black Diamond Momentum delivers a time-saving design for all styles of climbing. A pre-threaded Speed Adjust waistbelt buckle saves time and eliminates error when tying in, while Dual Core Construction™ puts an emphasis on comfort, even when you're posted up at a hanging belay. TrakFIT leg-loops easily adjust for cool fall days at the crag or blazing summer days on long multi-pitches, and four pressure-molded gear loops and a haul loop make this our most popular all-rounder.",
+price: 64.95,
+size: true,
+image_url: "")
+
+CategoryItem.create!(items_id: menmomentum.id, categories_id: mens.id)
+CategoryItem.create!(items_id: menmomentum.id, categories_id: rock_protection.id)
 
 
 

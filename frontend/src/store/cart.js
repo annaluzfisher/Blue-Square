@@ -41,7 +41,9 @@ export const createCart = (user) => async (dispatch) => {
   export const addCartItem = (payload) => async (dispatch) =>{
     const res = await csrfFetch(`/api/users/${payload.userId}/carts/${payload.cartId}`,{
       method: 'PATCH',
-      
+      body: JSON.stringify({payload}),
+      headers: { 'Accept' : 'Application/json', 
+    'content-type' : 'application/json'}
     })
        if (res.ok) {
          const cart = await res.json();
@@ -56,7 +58,7 @@ export const createCart = (user) => async (dispatch) => {
     const newState = { ...state };
     switch (action.type) {
       case RECEIVE_CART:
-        console.log('in the reducer cart/payload', action.cart)
+        console.log('in the reducer cart/payload', action.payload)
    return { ...newState, ...action.payload };
        
       default:

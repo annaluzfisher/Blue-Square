@@ -10,7 +10,7 @@ function SizeBox({item}) {
   const dispatch = useDispatch();
   const  [quantity, setQuantity] = useState('1');
    const [size, setSize] = useState("");
-   const currentUser = useSelector((state) => state.session.user);
+  //  const currentUser = useSelector((state) => state.session.user);
    const [itemPayload, setItemPayload] = useState({itemId: item.id, userId: currentUser.id, cartId: currentUser.cart})
   const ADDED_ID = 4
 
