@@ -22,7 +22,7 @@ class User < ApplicationRecord
   has_secure_password
 
   has_one :cart, dependent: :destroy
-  has_many :cart_items, dependent: :destroy
+  has_many :cart_items, through: :cart, source: :cart_items, dependent: :destroy
   has_many :items, through: :cart_items, source: :item 
   
   validates :first_name,

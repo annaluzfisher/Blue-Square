@@ -14,6 +14,6 @@
 #
 class Item < ApplicationRecord
   validates :name, :description, :price, presence: true
-  has_many :cart_items, dependent: :destroy 
-  belongs_to :user
+  
+
 end
