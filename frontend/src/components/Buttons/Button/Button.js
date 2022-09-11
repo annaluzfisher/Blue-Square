@@ -6,12 +6,16 @@ import { toggleModal } from '../../../store/ui'
 
 function Button({ localPath = "/", name, type, color = orange }) {
   const dispatch = useDispatch();
+  const ADDED_ID = 4;
   const modals = useSelector((state) => Object.values(state.ui.modals))
   const handleClick = ()=>{
+
       modals.map((modal) => {
       if (modal.visible) dispatch(toggleModal(modal.id))
-    });
+    })
   }
+ 
+  
 
 
   if (type === "submit") {
@@ -22,14 +26,18 @@ function Button({ localPath = "/", name, type, color = orange }) {
           style={{ backgroundColor: "#CD4C1D" }}
           type="submit"
           value={name}
-        
+      
         />
       </div>
     );
   } else {
     return (
       <Link to={localPath}>
-        <div className="button" style={{backgroundColor : color}} onClick={handleClick}>
+        <div
+          className="button"
+          style={{ backgroundColor: color }}
+          onClick={handleClick}
+        >
           {name}{" "}
         </div>
       </Link>

@@ -37,11 +37,15 @@ export const preloadedModals = {
       3: {
         id: 3,
         visible: false,
+      },
+         4: {
+        id: 4,
+        visible: false,
       }
     },
   },
 };
-// 1 is navigation/burger   2 is shop  3 is searchpage
+// 1 is navigation/burger   2 is shop  3 is searchpage 4 is you bought
 
 const RECEIVE_STATUS = "RECEIVE_STATUS";
 

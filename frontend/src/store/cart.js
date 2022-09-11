@@ -38,6 +38,17 @@ export const createCart = (user) => async (dispatch) => {
        }
   }
 
+  export const addCartItem = (payload) => async (dispatch) =>{
+    const res = await csrfFetch(`/api/users/${payload.userId}/carts/${payload.cartId}`,{
+      method: 'PATCH',
+      
+    })
+       if (res.ok) {
+         const cart = await res.json();
+         dispatch(receiveCart(cart));
+       }
+  }
+
 
 
   const cartReducer = (state = {}, action) => {

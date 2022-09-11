@@ -2,33 +2,43 @@ import React from 'react';
 import './sizebox.css'
 import { useEffect, useState} from 'react'
 import Button from '../../Buttons/Button';
+import { toggleModal } from '../../../store/ui';
+import { useDispatch, useSelector } from 'react-redux'
+import { addCartItem } from '../../../store/cart';
 
 function SizeBox({item}) {
+  const dispatch = useDispatch();
   const  [quantity, setQuantity] = useState('1');
    const [size, setSize] = useState("");
-
+   const currentUser = useSelector((state) => state.session.user);
+   const [itemPayload, setItemPayload] = useState({itemId: item.id, userId: currentUser.id, cartId: currentUser.cart})
+  const ADDED_ID = 4
 
   useEffect(()=>{
         let input = parseInt(quantity);
            if (input < 1) input = 1;
            else if(!input) input = '';
           setQuantity(parseInt(input));
-   
-  },[quantity])
+      setItemPayload({...itemPayload,size : size, quantity: quantity});
+  },[quantity,size])
 
   const adjustSize = (e,newSize) =>{
     setSize(newSize);
     if(e.currenTarget) e.currentTarget.style={ backgroundColor: 'black', color: 'white'};
   
-      console.log("size",size);
-      console.log('target',e.currentTarget)
-      console.log("target value", e.target.value);
+      // console.log("size",size);
+      // console.log('target',e.currentTarget)
+      // console.log("target value", e.target.value);
   }
+ 
 
 
   const addToCart= (e)=>{
     e.preventDefault();
-  //need to dispatch addCartItem
+   dispatch(toggleModal(ADDED_ID));
+
+    console.log('item_payload',itemPayload)
+ dispatch(addCartItem(itemPayload))
   }
   return (
     <form className="size-box-form" onSubmit={addToCart}>
@@ -89,7 +99,7 @@ function SizeBox({item}) {
             </label>
           </div>
           {size ? (
-            <Button type="submit" name="ADD TO BAG"></Button>
+            <Button type="submit" name="ADD TO BAG" ></Button>
           ) : (
             <Button
               type="submit"
@@ -105,4 +115,4 @@ function SizeBox({item}) {
   );
 }
 
-export default SizeBox
+export default SizeBox;

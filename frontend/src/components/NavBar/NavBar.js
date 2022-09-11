@@ -7,12 +7,14 @@ import { Link, useLocation } from "react-router-dom";
 import Logo from "../Buttons/Logo/Logo";
 import Search from "../Modals/Search/Search";
 import Shop from "../Modals/Shop/Shop";
+import AddedToBag from "../Modals/AddedToBag";
 // const Shop = React.lazy(() => import("../Modals/Shop/Shop"));
 
 function NavBar() {
   const NAVIGATION_ID = 1;
   const SHOP_ID = 2;
   const SEARCH_ID = 3;
+  const ADDED_ID = 4
   const dispatch = useDispatch();
   let location = useLocation();
   const [color, setColor] = useState("white");
@@ -69,6 +71,7 @@ function NavBar() {
       <Navigation />
       <Shop />
       <Search />
+      <AddedToBag />
     </>
   );
 }
