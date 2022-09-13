@@ -9,12 +9,12 @@
   height:100vh;
   width: 100vw;
   display: flex;
-border: 2px solid blue;
+/* border: 2px solid blue; */
 
 }
 .hero-img-container{
   width: 65%;
-  border: 2px solid pink;
+  /* border: 2px solid pink; */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -36,7 +36,7 @@ border: 2px solid blue;
 }
 
 .item-buy-box{
-  border: 3px solid greenyellow;
+  /* border: 3px solid greenyellow; */
   width: 30%;
   min-width:330px;
   margin-right: 3%;

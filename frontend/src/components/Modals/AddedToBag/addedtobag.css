@@ -1,0 +1,20 @@
+.a-hero-img-container{
+  width: 65%;
+  /* border: 2px solid pink; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: black;
+}
+
+.a-hero-img-container img{
+    left:0;
+  position: relative;
+  width: auto;
+  min-height: 500px;
+  height:100%;
+   background-size: cover;
+ object-fit: cover;
+ object-position: 0px 0px;
+ z-index: 1;
+}

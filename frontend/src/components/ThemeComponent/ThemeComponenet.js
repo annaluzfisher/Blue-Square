@@ -25,10 +25,18 @@ function ThemeComponenet() {
 
   return (
     <div className="theme-component">
-      <LazyImage text={"ROCK"} />
-      <LazyImage imageUrl="/BannerImages/camping.jpg" text={"CAMPING"} collectionId={6}/>
-      <LazyImage text={"HELMETS"} />
-      <LazyImage text={"FOOTWARE"} />
+      <LazyImage imageUrl="/BannerImages/image6.jpg" text={"Climbing"} />
+      <LazyImage
+        imageUrl="/BannerImages/camping.jpg"
+        text={"CAMPING"}
+        collectionId={6}
+      />
+      <LazyImage imageUrl="/BannerImages/snow.jpg" text={"SNOW"} />
+      <LazyImage
+        imageUrl="/BannerImages/accessories.jpg"
+        text={"ACCESSORIES"}
+        collectionId={12}
+      />
     </div>
   );
 }

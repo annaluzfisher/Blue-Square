@@ -16,6 +16,7 @@ export const getItem = (itemId) => (state) => {
 };
 
 export const fetchItem = (itemId) => async (dispatch) => {
+
   csrfFetch(`/api/items/${itemId}`)
     .then((res) => res.json())
     .then((item) => dispatch(receiveItem(item)))
