@@ -36,6 +36,8 @@ export const getCategory = (categoryId) => (state) => {
 };
 
 
+
+
 export const getCollections = () => (state) => {
   if (!state) return null;
   else if (!state.collections) return null;

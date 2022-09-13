@@ -17,6 +17,7 @@ import RequireLogin from './components/CartPage/RequireLogin/RequireLogin'
 
 import Footer from "./components/Footers/Footer/Footer";
 import CategoryShowPage from "./components/CategoryShowPage";
+import CollectionShowPage from "./components/CollectionShowPage";
 // const CreateAccount = React.lazy(() =>
 //   import("../src/components/CreateAccount/CreateAccount")
 // );
@@ -58,9 +59,16 @@ function App() {
               <Route path="Create-Account" element={<CreateAccount />} />
               <Route path="/" element={<MainPage />} />
               <Route path="Cart/:userId" element={<CartPage />} />
-              <Route path="Cart" element={<RequireLogin/>} />
+              <Route path="Cart" element={<RequireLogin />} />
               <Route path="Items/:itemId" element={<ItemShowPage />} />
-              <Route path="Category/:categoryId" element={<CategoryShowPage />} />
+              <Route
+                path="Category/:categoryId"
+                element={<CategoryShowPage />}
+              />
+              {/* <Route
+                path="Collection/:collectionId"
+                element={<CollectionShowPage />}
+              /> */}
               {/* <Route path=":collectionId/:categogryId" element={<CategoryShowPage />} /> */}
               <Route
                 path="404"

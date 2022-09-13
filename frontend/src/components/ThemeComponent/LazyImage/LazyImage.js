@@ -1,11 +1,15 @@
 import "./lazyimage.css";
+import { Link } from "react-router-dom";
 
-function LazyImage({ imgUrl, text }) {
+function LazyImage({ imageUrl, text ,collectionId}) {
   return (
     <div className="lazy-image-wrapper">
       <div>
         <span>SHOP {text}</span>
-        <img />
+        <Link to={`Category/${collectionId}`}>
+          {" "}
+          <img src={imageUrl} />
+        </Link>
       </div>
     </div>
   );

@@ -20,7 +20,6 @@ function CategoryShowPage() {
     // //two use effects
 
     useEffect(() => {
-      dispatch(getCategory(categoryId));
       setCategory(storeCategory);
     }, [storeCategory]);
  

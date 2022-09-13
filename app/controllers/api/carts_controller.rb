@@ -3,8 +3,8 @@ class Api::CartsController < ApplicationController
 
   def show
     # debugger
-  
-       @cart = Cart.find(params[:id])
+  #where returns an array. cant use includes if it's not a collection
+       @cart = Cart.where(user_id: params[:id]).includes(:items).first
        if @cart
         render :show
        else
@@ -12,8 +12,9 @@ class Api::CartsController < ApplicationController
        end
   end
 
-  def update
-  end
+  # def update
+
+  # end
 
   def create
     # debugger

@@ -32,7 +32,7 @@ headlamps = Category.create!(name: 'Lighting', image_url:'https://bluesquarebuck
 menspacks  = Category.create!(name: 'Packs',  image_url:'https://bluesquarebucket.s3.us-west-1.amazonaws.com/bannerimages/image5.jpg')
 jackets = Category.create!(name: 'Jackets')
 winter = Category.create!(name: 'Winter')
-wharnesses = Category.create!(name: 'Harnesses', image_url:'https://bluesquarebucket.s3.us-west-1.amazonaws.com/bannerimages/image9.JPG')
+wharnesses = Category.create!(name: "Harnesses", image_url:'https://bluesquarebucket.s3.us-west-1.amazonaws.com/womanclimmb.JPG')
 
 winter = Collection.create!(name: 'Winter',activity: true, image_url:'https://bluesquarebucket.s3.us-west-1.amazonaws.com/sunset.jpg')
 CollectionCategory.create!(collections_id: winter.id, categories_id: ski.id)
@@ -456,12 +456,69 @@ menmomentum = Item.create!(name: "MOMENTUM HARNESS - MEN'S",
 description: "For all-around climbers who know that time spent fiddling with leg loops and adjusting a pinching waistbelt is time wasted, the Black Diamond Momentum delivers a time-saving design for all styles of climbing. A pre-threaded Speed Adjust waistbelt buckle saves time and eliminates error when tying in, while Dual Core Construction™ puts an emphasis on comfort, even when you're posted up at a hanging belay. TrakFIT leg-loops easily adjust for cool fall days at the crag or blazing summer days on long multi-pitches, and four pressure-molded gear loops and a haul loop make this our most popular all-rounder.",
 price: 64.95,
 size: true,
-image_url: "")
-
-CategoryItem.create!(items_id: menmomentum.id, categories_id: mens.id)
-CategoryItem.create!(items_id: menmomentum.id, categories_id: rock_protection.id)
+image_url: "https://bluesquarebucket.s3.us-west-1.amazonaws.com/harnesses/momentum.webp")
 
 
+CategoryItem.create!(items_id: menmomentum.id, categories_id: mharnesses.id)
+CategoryItem.create!(items_id: menmomentum.id, categories_id: climb.id)
+
+wmentum = Item.create(name: "MOMENTUM HARNESS - WOMEN'S", description: "For all-around female climbers who know that time spent fiddling with leg loops and adjusting a pinching waistbelt is time wasted, the Women's Black Diamond Momentum Harness delivers a time-saving design for all styles of climbing. A pre-threaded Speed Adjust waistbelt buckle saves time and eliminates error when tying in, while Dual Core Construction™ puts an emphasis on comfort, even when you're posted up at a hanging belay. TrakFIT leg-loops easily adjust for cool fall days at the crag or blazing summer days on long multi-pitches, and four pressure-molded gear loops and a haul loop make this our most popular all-rounder.",
+  price:64.95,
+  size: true,
+  image_url:"https://bluesquarebucket.s3.us-west-1.amazonaws.com/harnesses/momentumw.webp"
+)
+
+CategoryItem.create!(items_id: wmentum.id, categories_id: wharnesses.id)
+CategoryItem.create!(items_id: wmentum.id, categories_id: climb.id)
+
+wmentum2 = Item.create(name: "MOMENTUM HARNESS - WOMEN'S PACKAGE", description: "With everything you need to get started in the gym or at the crag, the Women's Black Diamond Momentum Package is a complete, convenient package for all-around female climbers, featuring our most popular harness for all-around use.",
+  price:99.95,
+  size: true,
+  image_url:"https://bluesquarebucket.s3.us-west-1.amazonaws.com/harnesses/package.webp"
+)
+
+CategoryItem.create!(items_id: wmentum2.id, categories_id: wharnesses.id)
+CategoryItem.create!(items_id: wmentum2.id, categories_id: climb.id)
+
+menmomentum2 = Item.create!(name: "MOMENTUM HARNESS - MEN'S PACKAGE",
+description: "With everything you need to get started in the gym or at the crag, the Black Diamond Momentum Package is a complete, convenient package for all-around climbers, featuring our most popular harness for all-around use, the Momentum.",
+price: 99.95,
+size: true,
+image_url: "https://bluesquarebucket.s3.us-west-1.amazonaws.com/harnesses/7453_source_1647584436.webp")
+
+
+CategoryItem.create!(items_id: menmomentum2.id, categories_id: mharnesses.id)
+CategoryItem.create!(items_id: menmomentum2.id, categories_id: climb.id)
+
+wzone = Item.create(name: "ZONE HARNESS - WOMEN'S", description: "Designed for the lightweight sport climbing redpoint ice route or alpine mission, the Black Diamond Zone Harness is a versatile powerhouse. High performance, lightweight and breathable, the redesigned Zone now features our patented seamless Infinity Belay Loop, which is durable, low profile, and eliminates the dreaded belay-loop-shift when the loop-seam catches while dogging a route. Fusion Comfort Technology ensures that you'll have ample support when on the wall, while the stretch woven outer fabric adds breathability. Finally, the contoured, women’s specific fit maximizes comfort for the inevitable big whips that come from pushing your limits.",
+  price:99.95,
+  size: true,
+  image_url:"https://bluesquarebucket.s3.us-west-1.amazonaws.com/harnesses/zonew.webp"
+)
+
+CategoryItem.create!(items_id: wzone.id, categories_id: wharnesses.id)
+CategoryItem.create!(items_id: wzone.id, categories_id: climb.id)
+
+mzone = Item.create(name: "ZONE HARNESS - MEN'S", description: "Designed for the lightweight sport climbing redpoint ice route or alpine mission, the Black Diamond Zone Harness is a versatile powerhouse. High performance, lightweight and breathable, the redesigned Zone now features our patented seamless Infinity Belay Loop, which is durable, low profile, and eliminates the dreaded belay-loop-shift when the loop-seam catches while dogging a route. Fusion Comfort Technology ensures that you'll have ample support when on the wall, while the stretch woven outer fabric adds breathability. Finally, the contoured, women’s specific fit maximizes comfort for the inevitable big whips that come from pushing your limits.",
+  price:99.95,
+  size: true,
+  image_url:"https://bluesquarebucket.s3.us-west-1.amazonaws.com/harnesses/zmone.webp"
+)
+
+CategoryItem.create!(items_id: mzone.id, categories_id: mharnesses.id)
+CategoryItem.create!(items_id: mzone.id, categories_id: climb.id)
+
+couloir = Item.create(name: "COULOIR LT", description: "Designed as a minimalistic mountaineering, and ski-mo racing harness, the Couloir LT combines a techy and breathable monofilament Dynex waist and leg webbing construction with low-profile fixed leg loops that are streamlined for weight and mobility. One adjustable speed buckle on the waist dials in the fit, and the dedicated Dynex single tie-in point makes roping up simple. The Couloir LT also has two gear loops for taking the bare essentials of your rack into the mountains.",
+  price:79.95,
+  size: true,
+  image_url:"https://bluesquarebucket.s3.us-west-1.amazonaws.com/harnesses/culoir.webp"
+)
+
+CategoryItem.create!(items_id: couloir.id, categories_id: wharnesses.id)
+CategoryItem.create!(items_id: couloir.id, categories_id: climb.id)
+
+CategoryItem.create!(items_id: couloir.id, categories_id: mharnesses.id)
+CategoryItem.create!(items_id: couloir.id, categories_id: ice_and_alpine.id)
 
 
 

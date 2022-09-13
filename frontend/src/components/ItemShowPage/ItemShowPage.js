@@ -12,13 +12,14 @@ function ItemShowPage() {
   const storeItem = useSelector(getItem(itemId));
   const [item, setItem] = useState({name:' ',description:' '});
 
+
+
   useEffect(() => {
     dispatch(fetchItem(itemId));
   }, [itemId]);
   //two use effects 
 
   useEffect(() => {
-    dispatch(getItem(itemId));
     setItem(storeItem);
   }, [storeItem]);
 

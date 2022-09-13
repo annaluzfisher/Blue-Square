@@ -1,22 +1,36 @@
 import csrfFetch from "./csrf";
 
 const RECEIVE_CART = "RECEIVE_CART";
-const DELETE_CART = "DELETE_CART";
+const DELETE_ITEM = "DELETE_ITEM";
 
-const currentUser = sessionStorage.getItem("currentUser");
-// need a fetch on refresh to see if a user has a cart
-//using user form session stroage
-// need a create cart that fetchees a post to back end and then a receive cart to state
+
 export const receiveCart = (payload) =>({
   type: RECEIVE_CART,
   payload
 })
 
+const deleteItem = (cartItemId) =>({
+  type: DELETE_ITEM,
+  cartItemId
+})
+export const deleteCartItem = (cartItemId) => async (dispatch)=> {
+ const res =  await csrfFetch(`/api/cart_items/${cartItemId}`,{
+    method: 'DELETE'
+  })
+  if (res.ok){
+  dispatch(deleteItem(cartItemId))
+  } else{
+    console.log('error in delete cart item', res)
+
+  }
+}
+
+
   export const getCart = () => (state) => {
     if (!state) return null;
     else if (!state.cart) return null;
     else {
-      return state.cart;
+      return state.cart.items;
     }
   };
 
@@ -30,18 +44,19 @@ export const createCart = (user) => async (dispatch) => {
     dispatch(receiveCart(cart))
   } }
 
-  export const fetchCart = (userId,cartId) => async (dispatch) => {
-     const res = await csrfFetch(`/api/users/${userId}/carts/${cartId}`);
+  export const fetchCart = (userId) => async (dispatch) => {
+     const res = await csrfFetch(`/api/carts/${userId}`);
        if (res.ok) {
          const cart = await res.json();
          dispatch(receiveCart(cart));
        }
   }
 
-  export const addCartItem = (payload) => async (dispatch) =>{
-    const res = await csrfFetch(`/api/users/${payload.userId}/carts/${payload.cartId}`,{
-      method: 'PATCH',
-      body: JSON.stringify({payload}),
+  export const addCartItem = (cart_item) => async (dispatch) =>{
+
+    const res = await csrfFetch(`/api/cart_items/`,{
+      method: 'POST',
+      body: JSON.stringify({cart_item}),
       headers: { 'Accept' : 'Application/json', 
     'content-type' : 'application/json'}
     })
@@ -51,6 +66,23 @@ export const createCart = (user) => async (dispatch) => {
        }
   }
 
+    export const updateCartItem = (cartItemId,quantity) => async (dispatch) => {
+
+      const res = await csrfFetch(`/api/cart_items/${cartItemId}`, {
+        method: "PATCH",
+        body: JSON.stringify( {quantity: quantity}),
+        headers: {
+          Accept: "Application/json",
+          "content-type": "application/json",
+        },
+      });
+      if (res.ok) {
+        const cart = await res.json();
+        dispatch(receiveCart(cart));
+      }
+    };
+
+
 
 
   const cartReducer = (state = {}, action) => {
@@ -58,9 +90,11 @@ export const createCart = (user) => async (dispatch) => {
     const newState = { ...state };
     switch (action.type) {
       case RECEIVE_CART:
-        console.log('in the reducer cart/payload', action.payload)
    return { ...newState, ...action.payload };
-       
+       case DELETE_ITEM:
+  
+       delete newState.items[action.cartItemId]
+       return newState
       default:
         return newState;
     }

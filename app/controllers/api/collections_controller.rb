@@ -1,7 +1,7 @@
 class Api::CollectionsController < ApplicationController
 
   def index
-    @collections = Collection.all.includes(:categories)
+    @collections = Collection.all.includes(:items)
     render :index
   end
 
