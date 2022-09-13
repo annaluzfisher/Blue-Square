@@ -10,20 +10,21 @@ function Search() {
   const visible = useSelector((state) => state.ui.modals[SEARCH_ID].visible);
  
 
-  useEffect(() => {
-    if (visible) {
-      const app = document.getElementById("app").childNodes;
-      app[2].style.position = "fixed";
-    } else {
-      if (typeof document.getElementById("app") === null) {
-      } else {
-        const app = document.getElementById("app").childNodes;
+  // useEffect(() => {
+  //   if (visible) {
+  //     const app = document.getElementById("app").childNodes;
+  //     app[2].style.position = "fixed";
+  //   } else {
+  //     if (typeof document.getElementById("app") === null) {
+  //     } else {
+  //       const app = document.getElementById("app").childNodes;
       
-        app[2].style.position = "absolute";
-      }
-    }
-  }, [visible]);
-
+  //       app[2].style.position = "absolute";
+  //     }
+  //   }
+  // }, [visible]);
+  
+  if (!visible) return null;
   return (
     <>
       <div className={`search-modal modal ${visible ? "" : "hidden"}`}>

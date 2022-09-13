@@ -415,6 +415,13 @@ image_url:"https://bluesquarebucket.s3.us-west-1.amazonaws.com/wjackets/14945_so
 CategoryItem.create!(items_id: wrecon.id, categories_id: jackets.id)
 CategoryItem.create!(items_id:wrecon.id, categories_id: winter.id)
 
+Review.create!(title:'Love this Jacket!',
+  content: "I've gone through so many ski jackets This is my abosolute favourite.",
+  rating: 5,
+  user_id: demo.id,
+  item_id: wrecon.id)
+
+
 strap = Item.create!(name: "SKI STRAP 15 IN",
 description: "The Blue Square Ski Strap has always been a tried-and-true BD classic; effectively holding together any pair of skis. This stretchy strap now has a facelift, and is still likely our most versatile piece of gear—use it to strap a camera tripod to the outside of your pack, or lash skis and poles together for a makeshift backcountry emergency sled. Snag a few and stash them in your ski packs and in your car. Trust us: they always come in handy.",
 price: 5.95,

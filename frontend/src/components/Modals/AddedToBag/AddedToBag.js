@@ -3,7 +3,7 @@ import {useEffect, useState} from 'react';
 import "../modals.css";
 import { useSelector ,useDispatch} from "react-redux";
 import ModalNavBar from '../ModalNavBar/ModalNavBar';
-import {useLocation } from 'react-router-dom'
+import {NavLink, useLocation } from 'react-router-dom'
 import { getCart } from '../../../store/cart';
 import { getItem, fetchItem } from '../../../store/item';
 import { getCategories } from '../../../store/collections';
@@ -15,50 +15,54 @@ function AddedToBag() {
     (state) => state.ui.modals[ADDED_ID].visible
   );
     const dispatch = useDispatch();
-    const [item, setItem] = useState();
+    const [item, setItem] = useState({name: 'empty'});
     const cart = useSelector(getCart())
-    const cat = useSelector(getCategories)
     const location = useLocation();
-    let itemId;
+    let itemId = 0;
     const storeItem = useSelector(getItem(itemId));
 
     useEffect(()=>{
       let sliceIndex = location.pathname.lastIndexOf('/')
       itemId = location.pathname.slice(sliceIndex+1)
-      console.log(itemId)
+      console.log('id in modal',itemId)
       dispatch(fetchItem(itemId))
       setItem(storeItem)
- 
-    },[location,itemId,storeItem,item]) 
-
-
+    },[location.pathname,visible]) 
+    
+    
     useEffect(() => {
-      if (visible) {
-        const app = document.getElementById("app").childNodes;
-        app[2].style.position = "fixed";
-        setItem(storeItem);
-      } else {
-        if (typeof document.getElementById("app") === null) {
-          setItem(storeItem);
-        } else {
-          const app = document.getElementById("app").childNodes;
+      setItem(storeItem);
+    }, [location.pathname, visible]); 
 
-          app[2].style.position = "absolute";
-          setItem(storeItem);
-        }
-      }
-    }, [visible]);
+// change on location.pathname. when the id changes. get the item and ren
+    // useEffect(() => {
+    //   if (visible) {
+    //     const app = document.getElementById("app").childNodes;
+    //     app[2].style.position = "fixed";
+      
+    //   } else {
+    //     if (typeof document.getElementById("app") === null) {
+          
+    //     } else {
+    //       const app = document.getElementById("app").childNodes;
+
+    //       app[2].style.position = "absolute";
+        
+    //     }
+    //   }
+    // }, [visible]);
 
 
-
-if (!item) return console.log('how many indefined');
+  if (!visible) return null;
+if ( !item) return null;
   return (
     <div className={`added-modal modal ${visible ? "" : "hidden"}`}>
     <ModalNavBar modalId={ADDED_ID} /> 
       <div className='a-hero-img-container'>
-     <img scr={item.name}/> 
+     {/* <img scr={item.name}/>  */}
       </div>
       <div>AddedToBag</div>
+      {/* <div>{item.name}</div> */}
       
     </div> 
   );

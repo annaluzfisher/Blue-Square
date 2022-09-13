@@ -16,4 +16,11 @@ class Item < ApplicationRecord
   validates :name, :description, :price, presence: true
   has_many :reviews, dependent: :destroy
 
+  def average
+    ratings = self.reviews.pluck(:rating)
+  
+  ratings.length == 0 ? 0 : (ratings.sum/reviews.length).round(1)
+  end
+
+
 end

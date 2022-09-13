@@ -14,22 +14,23 @@ function Navigation() {
   );
   const currentUser = useSelector((state) => state.session.user);
 
-  useEffect(()=>{
+  // useEffect(()=>{
 
-    if (visible) {
-      const app = document.getElementById("app").childNodes;
-      app[2].style.position = "fixed";
-    } else {
-      if ( typeof document.getElementById("app") === null ){
+  //   if (visible) {
+  //     const app = document.getElementById("app").childNodes;
+  //     app[2].style.position = "fixed";
+  //   } else {
+  //     if ( typeof document.getElementById("app") === null ){
         
-      }
-      else{
-        const app = document.getElementById("app").childNodes;
+  //     }
+  //     else{
+  //       const app = document.getElementById("app").childNodes;
     
-        app[2].style.position = "absolute";
-      }
-    }
-  },[visible])
+  //       app[2].style.position = "absolute";
+  //     }
+  //   }
+  // },[visible])
+    if  (!visible) return null;
   return (
     <div className={`navigation-modal modal ${visible ? "" : "hidden"}`}>
       <ModalNavBar modalId={NAVIGATION_ID} />

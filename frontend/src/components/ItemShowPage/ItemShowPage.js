@@ -5,13 +5,15 @@ import { useEffect,useState } from "react";
 import { useParams } from "react-router-dom";
 import SizeBox from "./SizeBox/SizeBox";
 import ReviewsComponent from "../Reviews/ReviewsComponent";
+import { getReviews } from "../../store/reviews";
 
 function ItemShowPage() {
   const { itemId } = useParams();
   const dispatch = useDispatch();
   const storeItem = useSelector(getItem(itemId));
+  const storeReviews = useSelector(getReviews(itemId))
   const [item, setItem] = useState({name:' ',description:' '});
-  
+  const [reviews, setReviews] = useState();
 
 
   useEffect(() => {
@@ -21,9 +23,9 @@ function ItemShowPage() {
 
   useEffect(() => {
     setItem(storeItem);
+    setReviews(storeReviews);
   }, [storeItem]);
 
-  
 
 
   return (

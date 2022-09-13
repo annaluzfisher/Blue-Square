@@ -20,11 +20,11 @@ function NavBar() {
   const [color, setColor] = useState("white");
   const currentUser = useSelector((state) => state.session.user);
   useEffect(() => {
-    console.log('the location', location)
+    // console.log('the location', location)
     console.log("does it include cART", location.pathname.includes("Cart"));
     location.pathname.includes("Cart") ? setColor("black") : setColor("white");
     location.pathname.includes("Items") ? setColor("black") : setColor("white");
-  }, [location,color]);
+  }, [location.pathname,color]);
 
 
   return (

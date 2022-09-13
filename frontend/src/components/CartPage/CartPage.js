@@ -10,63 +10,80 @@ function CartPage() {
    const { userId } = useParams();
   const currentUser = useSelector((state) => state.session.user);
 
-  const storeCart = useSelector(getCart());
   const navigate = useNavigate();
+  if (!currentUser) navigate("/Cart");
+
   const dispatch = useDispatch();
+  
+  const storeCart = useSelector(getCart());
+
+  // if (!storeCart){
+  //  dispatch(fetchCart(currentUser.id));
+  // }
+    
+
+  const numItems = useSelector((state) => {
+    if (!state.cart.numItems){
+      return null;
+    }else {
+      return state.cart.numItems.numItems
+    }
+  });
   const [cart, setCart] = useState(storeCart);
   const [subtotal, setSubtotal] = useState('')
+  const [shipping, setShipping] = useState();
+  const [total, setTotal ] = useState();
 
-  if (!currentUser) navigate("/Cart");
-  let numItems =0;
-  let allItems;
+
+console.log('numItems', numItems)
+  let allItems = [];
   let subTotalV = 0;
 
   useEffect(()=>{
       if (storeCart) {
-        setSubtotal();
-       
-        allItems = Object.values(storeCart);
-     
+       let allItems = Object.values(storeCart);
         allItems.map((item)=>{
          subTotalV += parseFloat((((item.price * item.quantity)/100)*100).toFixed(2));
         })
-        console.log('the subtotal how many?',subTotalV)
         setSubtotal(subTotalV)
+        setShipping((subtotal * 0.09).toFixed(2))
+        // console.log('math', subtotal, shipping)
+        // setTotal(parseFloat((subtotal+shipping).toFixed(2)))
+        setCart(storeCart)
       }
-  },[storeCart])
+  },[numItems])
 
-
+//need to check length in some way 
 
   useEffect(() => {
-    // console.log("are we here?");
     if (currentUser){
      dispatch(fetchCart(currentUser.id))
     }
-  }, [userId]);
+  }, [currentUser,cart]);
   
   useEffect(() => { 
     setCart(storeCart);
-    if(storeCart){
-           allItems = Object.values(storeCart).length;
-           numItems = allItems.length;
-    }
-   }, [cart,storeCart, currentUser]);
-if (!cart) return null;
+
+   }, [numItems, currentUser]);
+
+if (!numItems) return null;
 // if (cart.items === 'empty') return null;
+
+
   return (
     <>
       <div className="cart-page">
         <div>
           <div className="title-holder">
             <h1>{"SHOPPING BAG"}</h1>
-            <span>{Object.values(storeCart).length} Items</span>
+            <span>{numItems} Items</span>
           </div>
       
          <div className="snapshot-holder">
-            {Object.values(cart).map((item, i) => {
+            {Object.values(storeCart).map((item, i) => {
               return <CartItemSnapshot key={i} item={item} />;
             })}
-          </div> : 
+          </div> 
           <h1>Looks like your cart is empty</h1>
         </div>
         <div className="order-summary">

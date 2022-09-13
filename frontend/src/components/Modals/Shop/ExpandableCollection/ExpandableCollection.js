@@ -45,13 +45,7 @@ function ExpandableCollection({ collectionId }) {
   const handleToggle = ()=>{
     dispatch(toggleModal(SHOP_ID))
   }
-  // const handleToggle= (subCatArr) =>{
-  //   return <div className="sub-cat-container">
-  //      {subCatArr.map((sub) => {
-  //        return <span>{categories[sub].name}</span>;
-  //      })}
-  //    </div>
-  // }
+
   if (collection.id) {
     return (
       <div className="ec-container">

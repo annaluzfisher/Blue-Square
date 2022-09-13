@@ -13,7 +13,7 @@ export const receiveReviews = (reviews) => ({
   reviews,
 });
 
-const getReviews = (itemId) => (state) => {
+export const getReviews = (itemId) => (state) => {
   if (!state.items[itemId]) return null;
   else if (!state.reviews[itemId]) return null;
   else {

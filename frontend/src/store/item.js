@@ -25,7 +25,7 @@ export const fetchItem = (itemId) => async (dispatch) => {
 };
 
 export const addItemPayload = (payload) => {
-  console.log("payload", payload);
+
   return (dispatch) => {
     dispatch(receiveItem(payload.item));
     dispatch(receiveReviews(payload.reviews));
@@ -38,7 +38,6 @@ const itemReducer = (state = {}, action) => {
   const newState = { ...state };
   switch (action.type) {
     case RECEIVE_ITEM:
-      console.log('action.item', action.item.price)
       action.item.price = (Math.round(action.item.price * 100) / 100).toFixed(2);
       newState[action.item.id] = action.item
      return newState

@@ -21,7 +21,6 @@ export const deleteCartItem = (cartItemId) => async (dispatch)=> {
   dispatch(deleteItem(cartItemId))
   } else{
     console.log('error in delete cart item', res)
-
   }
 }
 
@@ -33,6 +32,8 @@ export const deleteCartItem = (cartItemId) => async (dispatch)=> {
       return state.cart.items;
     }
   };
+
+
 
 export const createCart = (user) => async (dispatch) => {
    const res = await csrfFetch(`/api/carts`,{
@@ -62,6 +63,7 @@ export const createCart = (user) => async (dispatch) => {
     })
        if (res.ok) {
          const cart = await res.json();
+          console.log("WHAT IS THE BACK END SENDING PATCH", cart);
          dispatch(receiveCart(cart));
        }
   }
@@ -78,6 +80,7 @@ export const createCart = (user) => async (dispatch) => {
       });
       if (res.ok) {
         const cart = await res.json();
+        console.log('WHAT IS THE BACK END SENDING PATCH', cart)
         dispatch(receiveCart(cart));
       }
     };
@@ -85,12 +88,18 @@ export const createCart = (user) => async (dispatch) => {
 
 
 
-  const cartReducer = (state = {}, action) => {
+  const cartReducer = (state = {items: {}}, action) => {
     Object.freeze(state);
     const newState = { ...state };
     switch (action.type) {
       case RECEIVE_CART:
-   return { ...newState, ...action.payload };
+        console.log('payload in cart reducer',action.payload)
+        newState['items'] = action.payload.items
+        newState['numItems'] = action.payload.numItems
+   return { ...newState };
+  //  case RECEIVE_ITEM:
+  //     newState['items'] =action.payload
+  //     return{...newState}
        case DELETE_ITEM:
        delete newState.items[action.cartItemId]
        return newState
