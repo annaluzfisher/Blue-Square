@@ -1,7 +1,7 @@
 import "./cartpage.css";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
-import { useParams, Navigate, useNavigate } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import {fetchCart, getCart} from '../../store/cart'
 import CartItemSnapshot from "./CartItemSnapshot";
 import Button from "../Buttons/Button";
