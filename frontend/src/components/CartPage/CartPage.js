@@ -5,6 +5,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import {fetchCart, getCart} from '../../store/cart'
 import CartItemSnapshot from "./CartItemSnapshot";
 import Button from "../Buttons/Button";
+import ThemeComponenet from "../ThemeComponent/ThemeComponenet";
 
 function CartPage() {
    const { userId } = useParams();
@@ -66,10 +67,10 @@ console.log('numItems', numItems)
 
    }, [numItems, currentUser]);
 
-if (!numItems) return null;
-// if (cart.items === 'empty') return null;
-
-
+   // if (cart.items === 'empty') return null;
+   
+   if (!currentUser) return null;
+   
   return (
     <>
       <div className="cart-page">
@@ -78,14 +79,20 @@ if (!numItems) return null;
             <h1>{"SHOPPING BAG"}</h1>
             <span>{numItems} Items</span>
           </div>
-      
-         <div className="snapshot-holder">
-            {Object.values(storeCart).map((item, i) => {
-              return <CartItemSnapshot key={i} item={item} />;
-            })}
-          </div> 
-          <h1>Looks like your cart is empty</h1>
+          {numItems > 0 ? (
+            <div className="snapshot-holder">
+              {Object.values(storeCart).map((item, i) => {
+                return <CartItemSnapshot key={i} item={item} />;
+              })}
+            </div>
+          ) : (
+            <div className="empty-holder">
+              <h1>Looks like your cart is empty</h1>
+              <Button localPath="/" color="black" name={"KEEP SHOPPING"} />
+            </div>
+          )}
         </div>
+
         <div className="order-summary">
           <h2>{"Order Summary"}</h2>
           <div>
@@ -98,14 +105,38 @@ if (!numItems) return null;
           </div>
           <div>
             <span>Total</span>
-            <span>$ {(subtotal * 0.09).toFixed(2)+parseFloat(subtotal)}</span>
+            <span>$ {(subtotal * 0.09).toFixed(2) + parseFloat(subtotal)}</span>
           </div>
-          <Button name={'CHECK OUT NOW'}/>
+          <Button name={"CHECK OUT NOW"} />
         </div>
       </div>
+
+      <h1 className="theme-title">You might be interested in</h1>
+      <ThemeComponenet />
     </>
   );
 
 }
 
 export default CartPage;
+
+
+
+
+//  <div className="order-summary">
+//           <h2>{"Order Summary"}</h2>
+//           <div>
+//             <span>Order Subtotal</span>
+//             <span>$ {subtotal}</span>
+//           </div>
+//           <div>
+//             <span>Estimated Shipping</span>
+//             <span>$ {(subtotal * 0.09).toFixed(2)}</span>
+//           </div>
+//           <div>
+//             <span>Total</span>
+//             <span>$ {(subtotal * 0.09).toFixed(2)+parseFloat(subtotal)}</span>
+//           </div>
+//           <Button name={'CHECK OUT NOW'}/>
+//         </div>
+   

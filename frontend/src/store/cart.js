@@ -102,6 +102,7 @@ export const createCart = (user) => async (dispatch) => {
   //     return{...newState}
        case DELETE_ITEM:
        delete newState.items[action.cartItemId]
+       newState['numItems'] -= 1
        return newState
       default:
         return newState;
