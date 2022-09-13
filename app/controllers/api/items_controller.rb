@@ -1,7 +1,9 @@
 class Api::ItemsController < ApplicationController
 
   def show
-    @item = Item.find(params[:id])
+    # debugger
+    @item = Item.find_by(id: params[:id])
+    @reviews = Review.where(item_id: params[:id])
     render :show
   end
 

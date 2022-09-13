@@ -373,6 +373,7 @@ wvision = Item.create!(name:"VISION HYBRID HOODY - WOMEN'S",
 CategoryItem.create!(items_id: wvision.id, categories_id: jackets.id)
 CategoryItem.create!(items_id:wvision.id, categories_id: winter.id)
 
+
  approach = Item.create!(name:"APPROACH DOWN HOODY - WOMEN'S",
   description:"Inspired by “no pack and a pared down rack” kind of days, the Approach Down Hoody easily layers over a sun hoody on brisk multi-pitch rock routes or under a shell on ice climbs and alpine missions. The Approach Hoody’s ultralight nylon ripstop shell features Green Theme Technology’s revolutionary Empel DWR—an environmentally friendly, PFC-free DWR that’s superior in performance and substantially more durable than other DWR solutions. Inside, premium 800-fill, RDS-certified HyperDRY™ goose down insulation offers high-lofting, incredibly packable warmth that resists inclement weather. A feminine cut with stylish baffle lines and longer length make the jacket stylish when not charging in the mountains, and when it’s time to move, the jacket stuffs into its hand pocket and secures to your harness with a carabiner clip loop.",
   price:360.00,
@@ -397,6 +398,13 @@ CategoryItem.create!(items_id:wparka.id, categories_id: winter.id)
     image_url:"https://bluesquarebucket.s3.us-west-1.amazonaws.com/wjackets/distance.webp") 
     CategoryItem.create!(items_id: distance.id, categories_id: womensjackets.id)
     CategoryItem.create!(items_id: distance.id, categories_id: jackets.id)
+
+Review.create!(title:'This is the best shell!',
+  content: "I've gone through so many light-weight jackets that either don't do the job or that aren't breathable. This is actually the only one I've found that does both!",
+  rating: 5,
+  user_id: demo.id,
+  item_id: distance.id)
+
 
   wrecon  = Item.create!(name:"RECON STRETCH SKI SHELL - WOMEN'S",
   description:"Designed for the skier who demands performance and comfort, the Recon Stretch Ski Shell combines a durable 4-way stretch fabric with our waterproof/breathable solution, BD.dry™, to deliver a jacket ready for both in and out-of-bounds missions. With one chest pocket to hold essentials and two mesh internal drop pockets for skins or extra layers, the Recon features ample storage, while the jacket’s removable powder skirt adds versatility for variable conditions. The Recon also has pit zip vents for easy temperature regulation on the skin-track, a waterproof front zipper and a ski-helmet compatible hood for added protection on storm days.",

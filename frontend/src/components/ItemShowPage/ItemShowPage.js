@@ -11,7 +11,7 @@ function ItemShowPage() {
   const dispatch = useDispatch();
   const storeItem = useSelector(getItem(itemId));
   const [item, setItem] = useState({name:' ',description:' '});
-
+  
 
 
   useEffect(() => {

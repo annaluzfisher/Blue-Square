@@ -92,7 +92,6 @@ export const createCart = (user) => async (dispatch) => {
       case RECEIVE_CART:
    return { ...newState, ...action.payload };
        case DELETE_ITEM:
-  
        delete newState.items[action.cartItemId]
        return newState
       default:

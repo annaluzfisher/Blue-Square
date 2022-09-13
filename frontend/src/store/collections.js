@@ -62,7 +62,7 @@ export const fetchCollections = () => async dispatch =>{
 }
 
 export const addPayload = (payload) => {
-  console.log('payload',payload)
+
   return (dispatch) => {
     dispatch(receiveCategories(payload.categories));
     dispatch(receiveCollections(payload.collections));
