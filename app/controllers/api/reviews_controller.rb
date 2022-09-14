@@ -4,7 +4,7 @@ class Api::ReviewsController < ApplicationController
     debugger
     @review = Review.new(review_params)
     if @review.save!
-      render json: 'succes'
+      render json: @review
     else
        render "api/errors/internal_server_error", status: :internal_server_error
     end
@@ -14,7 +14,7 @@ class Api::ReviewsController < ApplicationController
   def destroy
       review = Review.find(params[:id])
      if review && review.delete
-      render json: 'success'
+      render json: review
     else
        render "api/errors/internal_server_error", status: :internal_server_error
     end
@@ -24,7 +24,7 @@ class Api::ReviewsController < ApplicationController
     debugger
     @review = Review.find(params[:id])
     if @review && @review.update(review_params)
-  
+      render json: @review
     else
       render "api/errors/internal_server_error", status: :internal_server_error
     end

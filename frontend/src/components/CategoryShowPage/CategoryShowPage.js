@@ -16,12 +16,11 @@ function CategoryShowPage() {
     const dispatch = useDispatch();
     const storeCategory = useSelector(getCategory(categoryId));
     const [category, setCategory] = useState({name:''});
-      // console.log('whiy is this undefined',storeCategory)
-      // console.log('THE CATEGORY ', category)
+   
     useEffect(() => {
       dispatch(fetchCollections());
     }, [categoryId]);
-    // //two use effects
+
 
     useEffect(() => {
       setCategory(storeCategory);

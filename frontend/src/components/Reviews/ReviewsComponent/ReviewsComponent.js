@@ -24,22 +24,32 @@ function ReviewsComponent({ item }) {
       }
     }
   }, [item]);
+// let reviewIds = []
+//   useEffect(()=>{
+//     if ( storeReviews) {
+//       storeReviews.forEach(review =>{
+//         reviewIds.push(review.id)
+//         console.log(review)
+//         console.log(review.id)
+//       })
+//     }
+//   },[currentUser,numReviews])
+//   console.log(reviewIds)
+  // useEffect(() => {
+  //   if (!storeReviews) return {};
+  //   if (storeReviews && currentUser) {
+  //     setEdit(false);
+  //     console.log("in the map", storeReviews);
+  //     storeReviews.map((review) => {
+  //       console.log("review", review);
+  //       if (review.userId && review.userId === currentUser.id) {
+  //         setEditableReview(review);
+  //         setEdit(true);
+  //       }
+  //     });
+  //   }
 
-  useEffect(() => {
-    if (!storeReviews) return {};
-    if (storeReviews && currentUser) {
-      setEdit(false);
-      console.log("in the map", storeReviews);
-      storeReviews.map((review) => {
-        console.log("review", review);
-        if (review.userId && review.userId === currentUser.id) {
-          setEditableReview(review);
-          setEdit(true);
-        }
-      });
-    }
-
-  }, [currentUser,storeReviews]);
+  // }, [currentUser,storeReviews]);
 
   if (!item) return null;
   return (

@@ -5,6 +5,11 @@ class Api::CollectionsController < ApplicationController
     render :index
   end
 
+  def show
+    @collection.find(params[:id])
+    render :show
+  end
+  
 end
 
 ##for items. remember to check how many times higttin db

@@ -11,6 +11,20 @@ function ExpandableCollection({ collectionId }) {
   const SHOP_ID = 2;
   const childCategories = [];
   const soloCategories = [];
+  // let hidden = 'hidden'
+
+  // const toggleSubCat=(i) =>{
+  //    <div className={`sub-cat-container`}>
+  //      {i.map((sub) => {
+  //        return (
+  //          <Link to={`Category/${sub}`}>
+  //            <span onClick={handleToggle} key={sub}>
+  //              {categories[sub].name}
+  //            </span>
+  //          </Link>
+  //        );
+  //      })}
+  //    </div>;
 
   categoryIds.map((id) => {
     if (!categories[id].parentId) {
@@ -50,7 +64,7 @@ function ExpandableCollection({ collectionId }) {
     return (
       <div className="ec-container">
         {collection && <h3 key={collection.id}>{collection.name}</h3>}
-        {final.map((catId) => {
+        {final.map((catId,i) => {
           if (categories[catId]) {
             return (
               <Link to={`Category/${catId}`}>
@@ -59,19 +73,25 @@ function ExpandableCollection({ collectionId }) {
             );
           } else {
             return (
-              <div className="expandable">
+              <div key={i} className="expandable">
                 <div className="expandable-title">
                   <div className="plus">+</div>
                   <span key={catId[0]}>{categories[catId[0]].name}</span>
                 </div>
-                <div className="sub-cat-container">
+                <div className={`sub-cat-container`}>
                   {catId[1].map((sub) => {
-                    return <Link to={`Category/${sub}`}><span onClick={handleToggle} key={sub}>{categories[sub].name}</span></Link>
+                    return (
+                      <Link to={`Category/${sub}`}>
+                        <span onClick={handleToggle} key={sub}>
+                          {categories[sub].name}
+                        </span>
+                      </Link>
+                    );
                   })}
                 </div>
               </div>
             );
-          }
+                }
         })}
       </div>
     );

@@ -1,62 +1,63 @@
-// import './collectionshowpage.css'
-// import { useDispatch, useSelector } from "react-redux";
-// import { useEffect, useState } from "react";
-// import { useParams } from "react-router-dom";
-// import {fetchCollections, getCollection, getCategory} from '../../store/collections'
-// import Banner from '../Banner/Banner';
-// import ImageSnapshot from '../ItemShowPage/ImageSnapshot';
+import './collectionshowpage.css'
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import {fetchCollections, getCollections, getCategory} from '../../store/collections'
+import Banner from '../Banner/Banner';
+import ImageSnapshot from '../ItemShowPage/ImageSnapshot';
 
-// function CollectionShowPage() {
+function CollectionShowPage() {
+  const { collectionId } = useParams();
+  const dispatch = useDispatch();
+  const storeCollections = useSelector(getCollections());
+  const [collection, setCollection] = useState();
+  // const [categoryIds, setCategoryIds] = useState([])
+  // const categoryImages = useSelector()
 
-//     const { collectionId } = useParams();
-//     const dispatch = useDispatch();
-//     const storeCollection = useSelector(getCollection(collectionId));
-//     const [collection, setCollection] = useState({name:''});
-//   const categoryImages = useSelector()
-//   categoryId = 1
-//         const storeCategory = useSelector(getCategory(categoryId));
-//         const [category, setCategory] = useState({ name: "" });
+  // const storeCategory = useSelector(getCategory(categoryId));
+  // const [category, setCategory] = useState();
 
-//     useEffect(() => {
-//       dispatch(fetchCollections());
-//     }, [collectionId]);
+  useEffect(() => {
+    dispatch(fetchCollections());
+    setCollection(storeCollections.collections[collectionId]);
+    // console.log('collection', storeCollections.collections[collectionId])
+  }, [collectionId]);
+
+ useEffect(() => {
+   setCollection(storeCollections.collections[collectionId]);
+ }, [storeCollections]);
 
 
-//     useEffect(() => {
-//       dispatch(getCategory(collectionId));
-//       setCollection(storeCollection);
-//     }, [storeCollection]);
+  if (!collection) return null;
+  return (
+    <>
+      <Banner pageTitle={collection.name} imgUrl={collection.imageUrl} />
+      <div className="results">
+        <span>{`${collection.name} product results`}</span>
+        <div>{`${collection.itemIds.length} results`}</div>
+      </div>
+      <div className="cat-page-images-container">
+        {collection.itemIds.map((itemId) => {
+          return <ImageSnapshot itemId={itemId} />;
+        })}
+      </div>
+    </>
+  );
+}
 
-//        useEffect(() => {
-//         storeCollection.categoryIds.map((categoryId)=>{
+export default CollectionShowPage
 
-//           dispatch(getCategory(categoryId));
-//           setCategory(storeCategory);
-//         })
-//        }, [storeCollection]);
+// let imageIds = []
+//   useEffect(() => {
+//     imageIds = collection.itemIds
+//   }, [collection]);
 
-//     let collectionItemIds = [];
- 
-//   if (!storeCategory) return null;
+  //    useEffect(() => {
+  //     storeCollection.categoryIds.map((categoryId)=>{
 
-//   let count = storeCategory.itemIds.length;
-//   return (
-//     <>
-//       <Banner pageTitle={storeCollection.name} imgUrl={storeCollection.imageUrl} />
-//       <div className="results">
-//         <span>{`${storeCollection.name} product results`}</span>
-//         <div>{`${count} results`}</div>
-//       </div>
-//       <div className="cat-page-images-container">
-//         { collectionItemIds.map(itemId =>{
-//          return <ImageSnapshot itemId={itemId}/>
+  //       dispatch(getCategory(categoryId));
+  //       setCategory(storeCategory);
+  //     })
+  //    }, [storeCollection]);
 
-//         })}
-//       </div>
-//     </>
-//   );
-
-// }
-
-// export default CollectionShowPage
-
+  // let collectionItemIds = [];

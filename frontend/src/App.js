@@ -65,10 +65,10 @@ function App() {
                 path="Category/:categoryId"
                 element={<CategoryShowPage />}
               />
-              {/* <Route
+              <Route
                 path="Collection/:collectionId"
                 element={<CollectionShowPage />}
-              /> */}
+              />
               {/* <Route path=":collectionId/:categogryId" element={<CategoryShowPage />} /> */}
               <Route
                 path="404"

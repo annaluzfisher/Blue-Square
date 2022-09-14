@@ -1,13 +1,16 @@
-import { useSelector } from 'react-redux';
+
 import './reviewshow.css'
 import { useEffect, useState } from "react";
-import { getReview } from '../../../store/reviews';
+import { deleteReview, getReview } from '../../../store/reviews';
 import Star from '../../Star';
+import { useDispatch, useSelector } from "react-redux";
+
 
 function ReviewShow({reviewId}) {
   const [review, setReview] = useState();
 const storeReview = useSelector(getReview(reviewId));
   const currentUser = useSelector((state) => state.session.user);
+  const dispatch = useDispatch();
 
 useEffect(()=>{
   setReview(storeReview)
@@ -35,18 +38,18 @@ if(!review) return null;
         </div>
         <h2>{review.title}</h2>
         <p>{review.content}</p>
-        {/* {currentUser.id === review.userId ? (
-          <div className="bottom-bar">
+        {currentUser.id === review.userId ? (
+          <div className="bottom-bar review">
             <div>
               <i className="fa-regular fa-pen-to-square"></i>
-              </div>
-              <div>
+            </div>
+            <div onClick={() => dispatch(deleteReview(reviewId))}>
               <i className="fa-regular fa-trash-can"></i>
             </div>
           </div>
         ) : (
           <></>
-        )} */}
+        )}
       </div>
     </div>
   );
