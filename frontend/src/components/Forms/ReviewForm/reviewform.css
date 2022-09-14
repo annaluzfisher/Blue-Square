@@ -1,5 +1,5 @@
 .review-form-container{
-  height: 70%;
+  height: 77%;
   width: 85%;
     border-bottom: 1px solid rgb(157, 157, 157);
   position: relative;
@@ -17,9 +17,9 @@ color: #88260f;
   padding: 2%;
 }
 
-.review-form-container > form > div {
-  margin-left: 30%;
-}
+
+
+
 input[type='text']{
   height: 30px;
 }
@@ -28,6 +28,20 @@ input[type='textarea']{
   height: 60px;
 }
 
-.review-form-container p{
+.review-form-container > form :last-child{
  align-self: center;
+}
+.form-stars-container{
+  display: flex;
+
+margin-left: none;
+font-size: 20px;
+}
+.name-box{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+
+  height: 15%;
 }

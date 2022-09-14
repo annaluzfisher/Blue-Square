@@ -1,5 +1,5 @@
 
-
+import csrfFetch from "./csrf";
 //need an array of review_ids when i fetch an item
 //need to also dispatch fetchReviews(itemId when i fetch a single item on the show page
 
@@ -13,6 +13,13 @@ export const receiveReviews = (reviews) => ({
   reviews,
 });
 
+const receiveReview = (review) => ({
+  type: RECEIVE_REVIEW,
+  review,
+});
+
+
+
 export const getReviews = (itemId) => (state) => {
   if (!state.items[itemId]) return null;
   else if (!state.reviews[itemId]) return null;
@@ -21,15 +28,17 @@ export const getReviews = (itemId) => (state) => {
   }
 }
 
-// export const fetchReviews = (itemId) => async (dispatch) => {
+export const createReview = (review) => async (dispatch) => {
+  const res = await csrfFetch(`/api/reviews`, {
+    method: "POST",
+    body: JSON.stringify({ review }),
+  });
+  if (res.ok) {
+    const review = await res.json();
+    dispatch(receiveReview(review));
+  }
+};
 
-//      const res = await csrfFetch(`/api/carts/${userId}`);
-//        if (res.ok) {
-//          const cart = await res.json();
-//          dispatch(receiveReviews(reviews));
-//        }
-  
-// }
 const reviewsReducer = (state = {}, action) => {
   Object.freeze(state);
   let newState = { ...state };

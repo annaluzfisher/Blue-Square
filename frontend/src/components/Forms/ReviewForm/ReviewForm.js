@@ -2,19 +2,29 @@ import "./reviewform.css";
 import { React, useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Button from "../../Buttons/Button";
+import Star from "../../Star";
+import { createReview } from "../../../store/reviews";
+
 
 function ReviewForm({ itemId }) {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
   const [name, setName] = useState('');
   const [userId, setUserId] = useState();
+  const [rating, setRating] = useState(1);
+  const currentUser = useSelector((state) => state.session.user);
+  const dispatch = useDispatch();
 
-  // const currentUser = useSelector((state) => state.session.user);
+  if (currentUser) setUserId(currentUser.id);
+  
 
-  // if (currentUser) setUserId(currentUser.id);
+  const handleClick=(i)=>{
+    setRating(i);
+  }
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    dispatch(createReview({title,rating,content,name,userId,itemId}))
   };
 
   return (
@@ -28,7 +38,15 @@ function ReviewForm({ itemId }) {
           <span>{"*"}</span>
           <label>Score</label>
         </label>
-        <div className="form-stars-container"></div>
+        <div className="form-stars-container">
+          {[1,2,3,4,5].map(i => {
+            if (i <= rating) {
+             return <Star filled={true} value={i} onClick={() => handleClick(i)} />
+            } else {
+             return <Star filled={false} value={i} onClick={() => handleClick(i)} />
+             }
+          })}
+        </div>
         <label>
           <span>{"*"}</span>
           <label>Title</label>
@@ -49,22 +67,10 @@ function ReviewForm({ itemId }) {
           onChange={(e) => setContent(e.target.value)}
           required
         />
-        <div>
-          <label>
-            <span>{"*"}</span>
-            <span>Use your name:</span>
-          </label>
-          <input
-            type="text"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            required
-          />
-        </div>
-        <p>
-          {" "}
+  
+      
           <Button color={"black"} type={"submit"} name={"POST"} />{" "}
-        </p>
+    
       </form>
     </div>
   );
