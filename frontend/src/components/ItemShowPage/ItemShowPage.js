@@ -6,6 +6,7 @@ import { useParams } from "react-router-dom";
 import SizeBox from "./SizeBox/SizeBox";
 import ReviewsComponent from "../Reviews/ReviewsComponent";
 import { getReviews } from "../../store/reviews";
+import NoSizeBox from "./NoSizeBox";
 
 function ItemShowPage() {
   const { itemId } = useParams();
@@ -42,7 +43,7 @@ function ItemShowPage() {
               <div>
                 {item.new && <div>NEW</div>}
                 <span> {item.name}</span>
-                {item.size ? <SizeBox item={item} /> : <></>}
+                {item.size ? <SizeBox item={item} /> : <NoSizeBox item={item}/>}
               </div>
             </div>
           </div>

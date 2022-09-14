@@ -1,0 +1,33 @@
+.review-form-container{
+  height: 70%;
+  width: 85%;
+    border-bottom: 1px solid rgb(157, 157, 157);
+  position: relative;
+  margin-left:8%;
+
+}
+.review-form-container > form  label :first-child{
+color: #88260f;
+}
+.review-form-container > form {
+    display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 90%;
+  padding: 2%;
+}
+
+.review-form-container > form > div {
+  margin-left: 30%;
+}
+input[type='text']{
+  height: 30px;
+}
+
+input[type='textarea']{
+  height: 60px;
+}
+
+.review-form-container p{
+ align-self: center;
+}

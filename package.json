@@ -5,7 +5,8 @@
   "main": "index.js",
   "directories": {
     "lib": "lib"
-  }, "engines" : {
+  },
+  "engines": {
     "node": "16.x"
   },
   "scripts": {
@@ -21,5 +22,8 @@
   "bugs": {
     "url": "https://github.com/annaluzfisher/Blue-Square/issues"
   },
-  "homepage": "https://github.com/annaluzfisher/Blue-Square#readme"
+  "homepage": "https://github.com/annaluzfisher/Blue-Square#readme",
+  "dependencies": {
+    "react-icons": "^4.4.0"
+  }
 }

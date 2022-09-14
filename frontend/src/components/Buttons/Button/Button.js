@@ -6,7 +6,7 @@ import { toggleModal } from '../../../store/ui'
 //
 //primary interpolared iojt button class
 
-function Button({ localPath = "/", name, type, color = orange }) {
+function Button({ localPath = "/", name, type, color = '#CD4C1D' }) {
   const dispatch = useDispatch();
   const ADDED_ID = 4;
   const modals = useSelector((state) => Object.values(state.ui.modals))
@@ -25,10 +25,10 @@ function Button({ localPath = "/", name, type, color = orange }) {
       <div>
         <input
           className="button"
-          style={{ backgroundColor: "#CD4C1D" }}
+          style={{ backgroundColor: color }}
           type="submit"
           value={name}
-      
+       
         />
       </div>
     );
