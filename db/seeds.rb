@@ -402,7 +402,7 @@ CategoryItem.create!(items_id:wparka.id, categories_id: winter.id)
 Review.create!(title:'This is the best shell!',
   content: "I've gone through so many light-weight jackets that either don't do the job or that aren't breathable. This is actually the only one I've found that does both!",
   rating: 5,
-  user_id: demo.id,
+  name: 'Sarah K.',
   item_id: distance.id)
 
 
@@ -419,6 +419,7 @@ Review.create!(title:'Love this Jacket!',
   content: "I've gone through so many ski jackets This is my abosolute favourite.",
   rating: 5,
   user_id: demo.id,
+  name: demo.first_name,
   item_id: wrecon.id)
 
 

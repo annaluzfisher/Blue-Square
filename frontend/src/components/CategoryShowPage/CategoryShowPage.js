@@ -7,10 +7,10 @@ import Banner from '../Banner/Banner';
 import ImageSnapshot from '../ItemShowPage/ImageSnapshot';
 
 function CategoryShowPage() {
-    // useEffect(() => {
+    useEffect(() => {
    
-    //   window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
-    // }, []);
+      window.scrollTo({ top: 300, left: 100, behavior: "smooth" });
+    }, []);
 
     const { categoryId } = useParams();
     const dispatch = useDispatch();

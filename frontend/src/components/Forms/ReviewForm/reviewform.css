@@ -45,3 +45,13 @@ font-size: 20px;
 
   height: 15%;
 }
+
+.rf-button-container{
+display: flex;
+width: 30%;
+justify-content: space-between;
+
+}
+.rf-button-container .button {
+  margin: 20px;
+}

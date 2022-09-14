@@ -70,7 +70,7 @@ function LogInForm() {
           />
           {errors && <Errors errors={errors} />}
 
-          <Button name={"SUBMIT"} type={"submit"} color={"primary"} />
+          <Button name={"SUBMIT"} type={"submit"}  />
         </form>
         <div className="lower-form">
           <span>Haven't been down this trail before?</span>
@@ -81,7 +81,7 @@ function LogInForm() {
               color={"black"}
             />
             <form onSubmit={demoSubmit}>
-              <Button name={"DEMO USER"} type={"submit"} color={"primary"} />
+              <Button name={"DEMO USER"} type={"submit"}  />
             </form>
           </div>
         </div>

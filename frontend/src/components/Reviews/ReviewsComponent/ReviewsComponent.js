@@ -1,22 +1,45 @@
 import { useEffect, useState } from "react";
 import "./reviewscomponent.css";
 import ReviewForm from "../../Forms/ReviewForm";
+import ThemeComponenet from "../../ThemeComponent/ThemeComponenet";
+import ReviewShow from "../ReviewShow/ReviewShow";
+import Star from "../../Star";
+import { useSelector } from "react-redux";
+// import  Stars  from "../../Star";
+import { getReviews } from "../../../store/reviews";
 
-function ReviewsComponent( {item} ) {
-  console.log("item in reviews", item);
- const  [numReviews, setNumReviews] = useState(0)
-  const [formVisible , setFormVisible] = useState(false);
+function ReviewsComponent({ item }) {
+  const [numReviews, setNumReviews] = useState(0);
+  const [formVisible, setFormVisible] = useState(false);
+  const currentUser = useSelector((state) => state.session.user);
+  const storeReviews = useSelector(getReviews(item.id));
+  const [edit, setEdit] = useState(false);
+  const [editableReview, setEditableReview] = useState();
+
   useEffect(() => {
-  if (item){
-    if (typeof item.reviewIds === "undefined") {
-      console.log("here");
-      
-    } else if (item.reviewIds.length > 0){
-      console.log("SHOULD NOT BE HERE");
-     setNumReviews(item.reviewIds.length);
-    }}
+    if (item) {
+      if (typeof item.reviewIds === "undefined") {
+      } else if (item.reviewIds.length > 0) {
+        setNumReviews(item.reviewIds.length);
+      }
+    }
   }, [item]);
-  
+
+  useEffect(() => {
+    if (!storeReviews) return {};
+    if (storeReviews && currentUser) {
+      setEdit(false);
+      console.log("in the map", storeReviews);
+      storeReviews.map((review) => {
+        console.log("review", review);
+        if (review.userId && review.userId === currentUser.id) {
+          setEditableReview(review);
+          setEdit(true);
+        }
+      });
+    }
+
+  }, [currentUser,storeReviews]);
 
   if (!item) return null;
   return (
@@ -28,22 +51,39 @@ function ReviewsComponent( {item} ) {
         <p>{item.average}</p>
         <div>
           <div className="stars-container-reviews">
-            <i className="fa-regular fa-star"></i>{" "}
-            <i className="fa-regular fa-star"></i>{" "}
-            <i className="fa-regular fa-star"></i>{" "}
-            <i className="fa-regular fa-star"></i>{" "}
-            <i className="fa-regular fa-star"></i>
+            {[1, 2, 3, 4, 5].map((i) => {
+              if (i <= item.average) {
+                return <Star filled={true} />;
+              } else {
+                return <Star filled={false} />;
+              }
+            })}
           </div>
         </div>
         <span>{numReviews} Reviews</span>
         <div className="bottom-bar">
           <div>
-            <i class="fa-regular fa-pen-to-square"></i>
-            <span onClick={()=>setFormVisible(!formVisible)}>Write a Review</span>
+            <i className="fa-regular fa-pen-to-square"></i>
+            {!edit ? (
+              <span onClick={() => setFormVisible(!formVisible)}>
+                Write a Review
+              </span>
+            ) : (
+              <span onClick={() => setFormVisible(!formVisible)}>
+                Edit Review
+              </span>
+            )}
           </div>
         </div>
       </div>
-      {formVisible && <ReviewForm item={item.id}/> }
+      {formVisible && (
+        <ReviewForm item={item.id} review={editableReview} patch={edit} />
+      )}
+      {item.reviewIds &&
+        item.reviewIds.map((reviewId) => {
+          return <ReviewShow reviewId={reviewId} />;
+        })}
+      <ThemeComponenet />
     </>
   );
 }

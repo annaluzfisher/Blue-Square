@@ -29,7 +29,7 @@
   height: 40px;
   /* border: 1px solid red; */
 }
-.stars-container-reviews .fa-star{
+.stars-container-reviews > svg{
 font-size: 30px;
 position: relative;
 z-index: 40;
@@ -38,7 +38,7 @@ color: var(--orange)
 
 .ratings-header p {
   font-family: 'Nunito';
-  font-size: 40px;
+  font-size: 38px;
   font-weight: 600;
   margin: 0;
 }
@@ -64,4 +64,9 @@ margin-top: 2%;
 
 .bottom-bar  div:hover{
   cursor: pointer;
+}
+
+.show  div{
+  transform: scale(.8);
+ margin-bottom: 1%;
 }

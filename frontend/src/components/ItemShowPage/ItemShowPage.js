@@ -15,12 +15,14 @@ function ItemShowPage() {
   const storeReviews = useSelector(getReviews(itemId))
   const [item, setItem] = useState({name:' ',description:' '});
   const [reviews, setReviews] = useState();
-
+  useEffect(() => {
+    window.scrollTo({ top: 300, left: 100, behavior: "smooth" });
+  }, []);
 
   useEffect(() => {
     dispatch(fetchItem(itemId));
   }, [itemId]);
-  //two use effects 
+ 
 
   useEffect(() => {
     setItem(storeItem);
@@ -28,7 +30,7 @@ function ItemShowPage() {
   }, [storeItem]);
 
 
-
+// if (!reviews) return null;
   return (
     <>
       {item && (
@@ -52,7 +54,7 @@ function ItemShowPage() {
       <div className="description">
         <p >{item? item.description:''}</p>
       </div>
-      <ReviewsComponent item={item}/>
+    {item &&  <ReviewsComponent item={item}/> }
     </>
   );
 }

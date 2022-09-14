@@ -18,14 +18,36 @@ const receiveReview = (review) => ({
   review,
 });
 
+const removeReview = (reviewId) => ({
+  type: DELETE_REVIEW,
+  reviewId
+})
+
+export const getReview = (reviewId) => (state) => {
+  if (!state.reviews) return null;
+  else if (!state.reviews[reviewId]) return null;
+  else {
+    return state.reviews[reviewId];
+  }
+};
+
 
 
 export const getReviews = (itemId) => (state) => {
-  if (!state.items[itemId]) return null;
-  else if (!state.reviews[itemId]) return null;
-  else {
-    return state.reviews[itemId];
-  }
+  // console.log('in store', state.reviews)
+  // console.log('in store', itemId)
+  if (!state) return null;
+  else if (!state.items) return null;
+  else if (!state.reviews) return null;
+  else if (!state.items[itemId]) return null;
+  else if (!state.items[itemId].reviewIds) return null;
+    let reviewIds= state.items[itemId].reviewIds
+    if (reviewIds.length > 0) {
+    reviewIds.map(id => {
+     return state.reviews[id]
+    })
+    }
+
 }
 
 export const createReview = (review) => async (dispatch) => {
@@ -39,13 +61,40 @@ export const createReview = (review) => async (dispatch) => {
   }
 };
 
+export const updateReview = (review,reviewId) => async (dispatch) => {
+  const res = await csrfFetch(`/api/reviews/${reviewId}`, {
+    method: "PATCH",
+    body: JSON.stringify({ review }),
+  });
+  if (res.ok) {
+    const review = await res.json();
+    dispatch(receiveReview(review));
+  }
+};
+export const deleteReview = (reviewId) => async (dispatch) => {
+  const res = await csrfFetch(`/api/reviews/${reviewId}`, {
+    method: "DELETE",
+  });
+  if (res.ok) {
+    dispatch(removeReview(reviewId));
+  } else {
+    console.log("error in delete review", res);
+  }
+};
 const reviewsReducer = (state = {}, action) => {
   Object.freeze(state);
   let newState = { ...state };
+  console.log('newstate in reviews reduce', newState)
   switch (action.type) {
     case RECEIVE_REVIEWS:
       newState = { ...state, ...action.reviews };
       return newState;
+    case RECEIVE_REVIEW:
+      newState[action.id] = action.review
+      return {...newState,}
+    case DELETE_REVIEW:
+        delete newState.reviews[action.reviewId]
+        return newState
     default:
       return newState;
   }

@@ -11,11 +11,23 @@ class Api::ReviewsController < ApplicationController
   end
 
 
-  ## {"review"=>{"title"=>"A good set", "rating"=>4, "content"=>"Pretty happy with this set, although I think I prefer liquid chalk actually. Not a bad combo though! ", "name"=>"Josh F."}}
   def destroy
+      review = Review.find(params[:id])
+     if review && review.delete
+      render json: 'success'
+    else
+       render "api/errors/internal_server_error", status: :internal_server_error
+    end
   end
 
   def update
+    debugger
+    @review = Review.find(params[:id])
+    if @review && @review.update(review_params)
+  
+    else
+      render "api/errors/internal_server_error", status: :internal_server_error
+    end
   end
 
   def show
@@ -24,6 +36,6 @@ class Api::ReviewsController < ApplicationController
 
   private
   def review_params
-    params.require(:review).permit(:user_id,:title,:content,:item_id,:rating)
+    params.require(:review).permit(:user_id,:title,:content,:item_id,:rating,:name)
   end
 end
