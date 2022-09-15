@@ -1,5 +1,5 @@
 class Review < ApplicationRecord
-  belongs_to :user
+  belongs_to :user, optional: true
   belongs_to :item
   validates :rating, inclusion: { in: 1..5 }
   validates :title, presence: true

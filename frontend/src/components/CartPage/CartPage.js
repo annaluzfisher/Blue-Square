@@ -6,6 +6,7 @@ import {fetchCart, getCart} from '../../store/cart'
 import CartItemSnapshot from "./CartItemSnapshot";
 import Button from "../Buttons/Button";
 import ThemeComponenet from "../ThemeComponent/ThemeComponenet";
+import NavBar from "../NavBar/NavBar";
 
 function CartPage() {
    const { userId } = useParams();
@@ -73,6 +74,7 @@ console.log('numItems', numItems)
    
   return (
     <>
+
       <div className="cart-page">
         <div>
           <div className="title-holder">

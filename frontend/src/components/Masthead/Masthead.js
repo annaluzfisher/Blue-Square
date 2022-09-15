@@ -7,7 +7,10 @@ function Masthead({promoTitle,imgUrl}) {
   return (
     <div className="masthead">
       <div className="overlay"></div>
-      <img src={process.env.PUBLIC_URL + imgUrl} onLoadedData={()=> LOADED = true}/>
+      <img
+        src={process.env.PUBLIC_URL + imgUrl}
+        onLoadedData={() => (LOADED = true)}
+      />
       <div className="masthead-content-wrapper">
         <h1 className="page-title">{promoTitle}</h1>
         <div className="promo-details">
@@ -15,8 +18,10 @@ function Masthead({promoTitle,imgUrl}) {
           <span>and 25% Off Selected Apparel</span>
           <span>Valid through 10/5/22</span>
         </div>
-        <div className='buttons-container'>
-        <Button name={'SHOP WINTER GEAR'} type={''}/> <Button name={"SHOP SKI & RIDE"}/> <Button name={'SHOP MOUNTAIN'} />
+        <div className="buttons-container">
+          <Button name={"SHOP WINTER GEAR"} localPath={"/Collection/1"} />{" "}
+          <Button name={"SHOP SKI & RIDE"} localPath={"/Category/2"} />{" "}
+          <Button localPath={"/Category/10"} name={"SHOP JACKETS"} />
         </div>
       </div>
     </div>

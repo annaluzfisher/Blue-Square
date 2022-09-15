@@ -5,7 +5,7 @@ function LazyImage({ imageUrl, text ,collectionId}) {
   return (
     <div className="lazy-image-wrapper" style={{backgroundImage : imageUrl}}>
       <div>
-        <Link to={`Category/${collectionId}`}>
+        <Link to={`/Collection/${collectionId}`}>
           {" "}
           <img src={imageUrl} />
         </Link>

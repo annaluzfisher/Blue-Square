@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import Button from "../../Buttons/Button";
 import Star from "../../Star";
 import { createReview, updateReview, deleteReview } from "../../../store/reviews";
-
+import Errors from "../../Errors";
 
 
 function ReviewForm({ item, review = {} ,patch} ) {
@@ -13,10 +13,11 @@ function ReviewForm({ item, review = {} ,patch} ) {
   const [name, setName] = useState(review.name);
   const [userId, setUserId] = useState(review.userId);
    const [itemId, setItemId] = useState(item);
-  const [rating, setRating] = useState(review.rating);
+  const [rating, setRating] = useState(review.rating||5);
   const [reviewId, setReviewId] = useState(review.id)
   const currentUser = useSelector((state) => state.session.user);
   const dispatch = useDispatch();
+  const [errors, setErrors] = useState('')
 
   useEffect(()=>{
     if (currentUser){
@@ -29,14 +30,34 @@ function ReviewForm({ item, review = {} ,patch} ) {
   const handleClick=(i)=>{
     setRating(i);
   }
+     const validate = (string) => {
+      if (string.length > 50){
+        return true
+      } else{
+        setErrors('Make sure all required fields are filled out... Review must be at least 50 characters')
+        return false
+      }
+     }
+  
+
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!patch){
-    dispatch(createReview({title,rating,content,name,userId,itemId}))
-    }else {
+   if (validate(content)) {
+      
+      if (!patch){
+      dispatch(createReview({title,rating,content,name,userId,itemId}))
+      }else {
       dispatch(updateReview({title,rating,content,name,userId,itemId},reviewId))
-    }
+      }
+
+    setTitle('')
+    setContent('')
+    setRating(5)
+    setName('')
+     } else{
+        setErrors('Something went wrong')
+  }
   };
 
   return (
@@ -90,16 +111,17 @@ function ReviewForm({ item, review = {} ,patch} ) {
         <input
           type="text"
           value={name}
-          onChange={(e) => setTitle(e.target.value)}
+          onChange={(e) => setName(e.target.value)}
         />
         {patch ? (
           <div className="rf-button-container">
             <Button type={"submit"} name={"UPDATE"} />
-            <Button color={"black"}  name={"Delete"} onClick={()=>dispatch(deleteReview(reviewId))} />
+            <div color={"black"}  name={"Delete"} onClick={()=>dispatch(deleteReview(reviewId))}>DELETE</div>
           </div>
         ) : (
-          <Button color={"black"} type={"submit"} name={"POST"} />
+          <Button className='post' color={"black"} type={"submit"} name={"POST"} />
         )}
+        {errors && <Errors errors={errors} />}
       </form>
     </div>
   );

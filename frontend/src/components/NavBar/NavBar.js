@@ -3,7 +3,7 @@ import "./navbar.css";
 import { useEffect, React, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Navigation from "../Modals/NavigationComponents/Navigation/Navigation";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useParams } from "react-router-dom";
 import Logo from "../Buttons/Logo/Logo";
 import Search from "../Modals/Search/Search";
 import Shop from "../Modals/Shop/Shop";
@@ -19,12 +19,12 @@ function NavBar() {
   let location = useLocation();
   const [color, setColor] = useState("white");
   const currentUser = useSelector((state) => state.session.user);
+  const params = useParams();
   useEffect(() => {
-    // console.log('the location', location)
-    console.log("does it include cART", location.pathname.includes("Cart"));
+
     location.pathname.includes("Cart") ? setColor("black") : setColor("white");
     location.pathname.includes("Items") ? setColor("black") : setColor("white");
-  }, [location.pathname,color]);
+  }, [location.pathname,params]);
 
 
   return (

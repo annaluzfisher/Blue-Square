@@ -22,5 +22,7 @@ class Item < ApplicationRecord
   ratings.length == 0 ? 0 : (ratings.sum/reviews.length).round(1)
   end
 
-
+  def reviewers
+    self.reviews.pluck(:user_id)
+  end
 end

@@ -16,7 +16,7 @@
   min-width: fit-content;
   padding: 20px;
   background-color: var(--bggray);
-  /* margin-left: 30%; */
+  margin-left: 10%;
   margin-right: 3%;
   display: flex;
   flex-direction: column;

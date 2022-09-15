@@ -5,6 +5,7 @@
   position: relative;
   margin-left:8%;
 
+
 }
 .review-form-container > form  label :first-child{
 color: #88260f;
@@ -21,19 +22,26 @@ color: #88260f;
 
 
 input[type='text']{
+  margin-top: -15px;
   height: 30px;
 }
 
 input[type='textarea']{
   height: 60px;
+    margin-top: -15px;
 }
 
+.post{
+  align-self: center;
+  transition: 1.5s ease;
+}
 .review-form-container > form :last-child{
  align-self: center;
+ 
 }
 .form-stars-container{
   display: flex;
-
+ margin-top: -15px;
 margin-left: none;
 font-size: 20px;
 }
@@ -52,6 +60,27 @@ width: 30%;
 justify-content: space-between;
 
 }
-.rf-button-container .button {
-  margin: 20px;
+.rf-button-container .button{
+  margin: 30px;
+}
+
+.rf-button-container :nth-child(2){
+  font-family: 'Raleway';
+  font-weight: 700;
+  font-size: 1.2rem;
+  border: 1px solid black;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+ 
+}
+
+
+.rf-button-container :nth-child(2):hover{
+  cursor: pointer;
+}
+
+.review-form-container .errors{
+  transform: scale(.6);
 }

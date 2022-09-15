@@ -12,26 +12,24 @@ function ThemeComponenet() {
     
 
 
-    // useEffect(() => {
-    //   dispatch(fetchCollections());
-    // }, []);
-
-
-    // useEffect(() => {
-    //   dispatch(getCategory(categoryId));
-    //   setCategory(storeCategory);
-    // }, [storeCategory]);
-
 
   return (
     <div className="theme-component">
-      <LazyImage imageUrl="/BannerImages/image6.jpg" text={"Climbing"} />
+      <LazyImage
+        imageUrl="/BannerImages/image6.jpg"
+        text={"Climbing"}
+        collectionId={2}
+      />
       <LazyImage
         imageUrl="/BannerImages/camping.jpg"
         text={"CAMPING"}
-        collectionId={6}
+        collectionId={3}
       />
-      <LazyImage imageUrl="/BannerImages/snow.jpg" text={"SNOW"} />
+      <LazyImage
+        imageUrl="/BannerImages/snow.jpg"
+        text={"SNOW"}
+        collectionId={1}
+      />
       <LazyImage
         imageUrl="/BannerImages/accessories.jpg"
         text={"ACCESSORIES"}

@@ -87,13 +87,13 @@ const reviewsReducer = (state = {}, action) => {
   console.log('newstate in reviews reduce', newState)
   switch (action.type) {
     case RECEIVE_REVIEWS:
-      newState = { ...state, ...action.reviews };
+      newState = {...action.reviews };
       return newState;
     case RECEIVE_REVIEW:
-      newState[action.id] = action.review
-      return {...newState,}
+      
+      return {...newState,...action.review}
     case DELETE_REVIEW:
-        delete newState.reviews[action.reviewId]
+        delete newState[action.reviewId]
         return newState
     default:
       return newState;

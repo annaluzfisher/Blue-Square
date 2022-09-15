@@ -25,7 +25,7 @@ if(!review) return null;
             <span>{review.userName || "Anonymous"}</span>{" "}
             {review.userId && <span>Verfied Buyer</span>}
           </div>
-          <span>{review.createdAt.slice(0, 10)}</span>
+          <span>{review?.createdAt.slice(0, 10)}</span>
         </div>
         <div className="stars-container">
           {[1, 2, 3, 4, 5].map((i) => {
@@ -38,18 +38,7 @@ if(!review) return null;
         </div>
         <h2>{review.title}</h2>
         <p>{review.content}</p>
-        {currentUser.id === review.userId ? (
-          <div className="bottom-bar review">
-            <div>
-              <i className="fa-regular fa-pen-to-square"></i>
-            </div>
-            <div onClick={() => dispatch(deleteReview(reviewId))}>
-              <i className="fa-regular fa-trash-can"></i>
-            </div>
-          </div>
-        ) : (
-          <></>
-        )}
+       
       </div>
     </div>
   );
