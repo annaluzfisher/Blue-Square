@@ -10,6 +10,7 @@ import NoSizeBox from "./NoSizeBox";
 import SuggestedItems from "../SuggestedItems";
 
 
+
 function ItemShowPage() {
   const { itemId } = useParams();
   const dispatch = useDispatch();
@@ -17,9 +18,7 @@ function ItemShowPage() {
   const storeReviews = useSelector(getReviews(itemId))
   const [item, setItem] = useState({name:' ',description:' '});
   const [colId, setColId] = useState();
-  useEffect(() => {
-    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
-  });
+
 
   useEffect(() => {
     dispatch(fetchItem(itemId));
@@ -34,7 +33,7 @@ function ItemShowPage() {
     }
   }, [storeItem]);
 
-// if (!reviews) return null;
+
   return (
     <>
       {item && (

@@ -3,72 +3,103 @@ import { useEffect, useState } from "react";
 import "../modals.css";
 import { useSelector, useDispatch } from "react-redux";
 import ModalNavBar from "../ModalNavBar/ModalNavBar";
-import { NavLink, useLocation } from "react-router-dom";
-import { getCart } from "../../../store/cart";
+import {  useLocation, useNavigate, useParams } from "react-router-dom";
+import { getCart,fetchCart } from "../../../store/cart";
 import { getItem, fetchItem } from "../../../store/item";
-import { getCategories } from "../../../store/collections";
+
 
 function AddedToBag() {
-  const ADDED_ID = 4;
-  const visible = useSelector((state) => state.ui.modals[ADDED_ID].visible);
-  const dispatch = useDispatch();
-  const cart = useSelector(getCart());
-  const location = useLocation();
-  let itemId = 0;
-  const storeItem = useSelector(getItem(itemId));
-  const [item, setItem] = useState(storeItem);
 
-  const numItems = useSelector((state) => {
-    if (!state.cart.numItems) {
-      return null;
-    } else {
-      return state.cart.numItems.numItems;
-    }
-  });
+  const { itemId } = useParams();
+   const ADDED_ID = 4;
+   const visible = useSelector((state) => state.ui.modals[ADDED_ID].visible);
 
-  useEffect(() => {
-    let sliceIndex = location.pathname.lastIndexOf("/");
-    itemId = location.pathname.slice(sliceIndex + 1);
-    console.log("id in modal", itemId);
-    dispatch(fetchItem(itemId));
-    setItem(storeItem);
-  }, [location.pathname, visible,numItems]);
+   const currentUser = useSelector((state) => state.session.user);
+  console.log('itemId', itemId)
+   const storeItem = useSelector(getItem(itemId));
+    const userId = currentUser?.id
 
-  useEffect(() => {
-    setItem(storeItem);
-  }, [location.pathname, visible, numItems]);
 
-  // change on location.pathname. when the id changes. get the item and ren
-  // useEffect(() => {
-  //   if (visible) {
-  //     const app = document.getElementById("app").childNodes;
-  //     app[2].style.position = "fixed";
+   const dispatch = useDispatch();
 
-  //   } else {
-  //     if (typeof document.getElementById("app") === null) {
+   const storeCart = useSelector(getCart());
 
-  //     } else {
-  //       const app = document.getElementById("app").childNodes;
+   const numItems = useSelector((state) => {
+     if (!state.cart.numItems) {
+       return null;
+     } else {
+       return state.cart.numItems.numItems;
+     }
+   });
+   const [cart, setCart] = useState(storeCart);
+   const [subtotal, setSubtotal] = useState("");
+   const [shipping, setShipping] = useState();
+   const [total, setTotal] = useState();
 
-  //       app[2].style.position = "absolute";
+   let allItems = [];
+   let subTotalV = 0;
 
-  //     }
-  //   }
-  // }, [visible]);
+   useEffect(() => {
+     if (storeCart) {
+       let allItems = Object.values(storeCart);
+       allItems.map((item) => {
+         subTotalV += parseFloat(
+           (((item.price * item.quantity) / 100) * 100).toFixed(2)
+         );
+       });
+       setSubtotal(subTotalV);
+       setShipping((subtotal * 0.09).toFixed(2));
 
-  if (!visible) return null;
-  // if (!item) return (
-  //   <div>loading</div>
-  // ) 
-  // if (item)
+       setCart(storeCart);
+     }
+   }, [numItems]);
+
+   useEffect(() => {
+     if (currentUser) {
+       dispatch(fetchCart(currentUser?.id));
+     }
+   }, [currentUser, cart]);
+
+   useEffect(() => {
+     setCart(storeCart);
+   }, [numItems, currentUser]);
+
+
+const [item, setItem] = useState(storeItem);
+const [colId, setColId] = useState();
+useEffect(() => {
+  window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+});
+
+
+
+useEffect(() => {
+  setItem(storeItem);
+  if (storeItem) {
+    let id =
+      storeItem.collections[
+        Math.floor(Math.random() * storeItem.collections.length)
+      ];
+    setColId(id);
+  }
+}, [storeItem]);
+
+if (!visible) return null;
+if (!currentUser) return null;
+
+
+
+console.log('what is the itemn', item, itemId)
+
   return (
     <div className={`added-modal modal ${visible ? "" : "hidden"}`}>
       <ModalNavBar modalId={ADDED_ID} />
       <div className="a-hero-img-container">
-        {/* <img scr={item.imageUrl} /> */}
+        <img scr={item?.imageUrl} />
       </div>
       <div>AddedToBag</div>
-      {/* <div>{item.name}</div> */}
+      <div>{item?.name}</div>
+      <div>{subtotal}</div>
     </div>
   );
 }

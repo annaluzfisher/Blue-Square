@@ -25,6 +25,8 @@ export const deleteCartItem = (cartItemId) => async (dispatch)=> {
 }
 
 
+
+
   export const getCart = () => (state) => {
     if (!state) return null;
     else if (!state.cart) return null;
@@ -63,7 +65,7 @@ export const createCart = (user) => async (dispatch) => {
     })
        if (res.ok) {
          const cart = await res.json();
-          console.log("WHAT IS THE BACK END SENDING PATCH", cart);
+      
          dispatch(receiveCart(cart));
        }
   }
@@ -80,12 +82,10 @@ export const createCart = (user) => async (dispatch) => {
       });
       if (res.ok) {
         const cart = await res.json();
-        console.log('WHAT IS THE BACK END SENDING PATCH', cart)
+      
         dispatch(receiveCart(cart));
       }
     };
-
-
 
 
   const cartReducer = (state = {items: {}}, action) => {
@@ -93,8 +93,9 @@ export const createCart = (user) => async (dispatch) => {
     const newState = { ...state };
     switch (action.type) {
       case RECEIVE_CART:
-        console.log('payload in cart reducer',action.payload)
+    
         newState['items'] = action.payload.items
+
         newState['numItems'] = action.payload.numItems
    return { ...newState };
   //  case RECEIVE_ITEM:

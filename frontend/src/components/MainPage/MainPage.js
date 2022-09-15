@@ -10,13 +10,10 @@ import { useEffect, useState } from "react";
 
 function MainPage() {
   const dispatch = useDispatch();
- const category = useSelector(getCategory(11))
+
  const [itemIds , setItemIds] = useState([])
 
-    useEffect(() => {
-    dispatch(getCategory(11));
-    setItemIds(category.itemIds);
-  }, [category])
+
 
   return (
     <>

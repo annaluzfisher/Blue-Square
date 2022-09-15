@@ -11,13 +11,13 @@ function CollectionShowPage() {
   const dispatch = useDispatch();
   const storeCollections = useSelector(getCollections());
   const [collection, setCollection] = useState();
-  // const [categoryIds, setCategoryIds] = useState([])
+
 
 
   useEffect(() => {
     dispatch(fetchCollections());
     setCollection(storeCollections.collections[collectionId]);
-    // console.log('collection', storeCollections.collections[collectionId])
+    
   }, [collectionId]);
 
  useEffect(() => {

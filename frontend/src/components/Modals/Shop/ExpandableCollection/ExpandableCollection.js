@@ -100,11 +100,3 @@ function ExpandableCollection({ collectionId }) {
 
 export default ExpandableCollection;
 
-//  <div className="sub-cat-container">
-//    {catId[1].forEach((sub) => {
-//      {
-//        console.log("what is the sub?!:", sub);
-//      }
-//      return <span>{categories[sub].name}</span>;
-//    })}
-//  </div>;

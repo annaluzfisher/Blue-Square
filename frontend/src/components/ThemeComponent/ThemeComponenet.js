@@ -21,15 +21,14 @@ function ThemeComponenet({collectionIds}) {
     dispatch(fetchCollections());
     }
     setCollections(storeCollections.collections);
-    // console.log('collection', storeCollections.collections[collectionId])
+
   }, [collectionIds]);
     
  useEffect(() => {
    if (collections){
-    console.log('collections',collections)
+
    }
-  //  setCollection(storeCollections.collections[collectionId]);
-  //  // console.log('collection', storeCollections.collections[collectionId])
+
  }, [collectionIds]);
 
 

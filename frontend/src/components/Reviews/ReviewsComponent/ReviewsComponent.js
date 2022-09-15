@@ -20,7 +20,7 @@ function ReviewsComponent({ item }) {
   })
   const [edit, setEdit] = useState(false);
   const [editableReview, setEditableReview] = useState();
- 
+  const [reviews, setReviews] = useState();
 
   useEffect(() => {
     if (item) {
@@ -34,17 +34,20 @@ function ReviewsComponent({ item }) {
 
   useEffect(()=>{
 
-    if (typeof item.userIds !== 'undefined' && currentUser){
-     if ((item.userIds).includes(currentUser.id)){
-     setEdit(true)
-     }
+    if (typeof item.userIds !== "undefined" && currentUser) {
+      if (item.userIds.includes(currentUser.id)) {
+        setEdit(true);
+      }
+    } else {
+      setEdit(false);
     }
-  },[item.userIds])
+  },[item.userIds, currentUser])
 
     useEffect(() => {
         if (typeof storeReviews === "undefined" || !currentUser) {
-            console.log('store Reviews',storeReviews)
+
         }else{
+          setReviews(storeReviews)
          Object.values(storeReviews).map((review=>{
          if (review.userId === currentUser.id) setEditableReview(review);
          }))

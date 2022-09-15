@@ -12,12 +12,12 @@ function SuggestedItems({title, collectionId}) {
 
   useEffect(() => {
     setCollection(storeCollections.collections[collectionId]);
-    // console.log('collection', storeCollections.collections[collectionId])
+
   }, [collectionId]);
 
   useEffect(() => {
     setCollection(storeCollections.collections[collectionId]);
-      console.log( collection?.itemIds)
+   
   }, [storeCollections]);
  
 useEffect(()=>{
@@ -32,7 +32,7 @@ useEffect(()=>{
       <div className="si-snapshot-container">
  
           {itemIds && itemIds.map((itemId) => {
-            return <ImageSnapshot itemId={itemId} />;
+            return <ImageSnapshot key={itemId} itemId={itemId} />;
           })}
   
       </div>

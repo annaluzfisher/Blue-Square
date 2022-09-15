@@ -1,5 +1,5 @@
 
-import { Routes, Route , Navigate} from "react-router-dom";
+import { Routes, Route, Navigate, useLocation } from "react-router-dom";
 import MainPage from "./components/MainPage";
 import NavBar from "./components/NavBar/NavBar";
 import { useEffect } from "react";
@@ -18,16 +18,12 @@ import RequireLogin from './components/CartPage/RequireLogin/RequireLogin'
 import Footer from "./components/Footers/Footer/Footer";
 import CategoryShowPage from "./components/CategoryShowPage";
 import CollectionShowPage from "./components/CollectionShowPage";
-// const CreateAccount = React.lazy(() =>
-//   import("../src/components/CreateAccount/CreateAccount")
-// );
-// const CartPage = React.lazy(()=> import("./components/CartPage"));
-// const ItemShowPage = React.lazy(() => import("./components/ItemShowPage"));
-// import { addCurrentUser } from "./store/user";
+import ScrollToTop from "./Util/ScrollToTop";
+
 
 function App() {
 
-
+const location = useLocation();
   
 
   const dispatch = useDispatch();
@@ -42,42 +38,40 @@ function App() {
   }, [currentUser]);
 
 
-    // if (!LOADED) {
-    //   return (
-    //     <>
-    //       <h1>"loading"</h1>
-    //       <MainPage />
-    //     </>
-    //   );
-    // } else {   caffeione for heroku 
-      
+      React.useEffect(() => {
+        window.scrollTo(0, 0);
+      },[location.pathname]);
+
       return (
         <>
+       
           <div className="app" id="app">
             <NavBar />
-            <Routes>
-              <Route path="Create-Account" element={<CreateAccount />} />
-              <Route path="/" element={<MainPage />} />
-              <Route path="Cart/:userId" element={<CartPage />} />
-              <Route path="Cart" element={<RequireLogin />} />
-              <Route path="Items/:itemId" element={<ItemShowPage />} />
-              <Route
-                path="Category/:categoryId"
-                element={<CategoryShowPage />}
-              />
-              <Route
-                path="Collection/:collectionId"
-                element={<CollectionShowPage />}
-              />
-              {/* <Route path=":collectionId/:categogryId" element={<CategoryShowPage />} /> */}
-              <Route
-                path="404"
-                element={<NotFound imgUrl={"BannerImages/notfound.jpg"} />}
-              />
-              <Route path="*" element={<Navigate to="/404" replace />} />
-            </Routes>
+              <Routes>
+                <Route path="Create-Account" element={<CreateAccount />} />
+                <Route path="/" element={<MainPage />} />
+                <Route path="Cart/:userId" element={<CartPage />} />
+                <Route path="Cart" element={<RequireLogin />} />
+                <Route path="Items/:itemId" element={<ItemShowPage />} />
+                <Route
+                  path="Category/:categoryId"
+                  element={<CategoryShowPage />}
+                  />
+                <Route
+                  path="Collection/:collectionId"
+                  element={<CollectionShowPage />}
+                  />
+                {/* <Route path=":collectionId/:categogryId" element={<CategoryShowPage />} /> */}
+                <Route
+                  path="404"
+                  element={<NotFound imgUrl={"BannerImages/notfound.jpg"} />}
+                  />
+                <Route path="*" element={<Navigate to="/404" replace />} />
+              </Routes>
+         
             <Footer />
           </div>
+      
         </>
       );
     
