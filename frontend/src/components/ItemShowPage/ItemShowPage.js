@@ -7,6 +7,7 @@ import SizeBox from "./SizeBox/SizeBox";
 import ReviewsComponent from "../Reviews/ReviewsComponent";
 import { getReviews } from "../../store/reviews";
 import NoSizeBox from "./NoSizeBox";
+import SuggestedItems from "../SuggestedItems";
 
 
 function ItemShowPage() {
@@ -15,10 +16,10 @@ function ItemShowPage() {
   const storeItem = useSelector(getItem(itemId));
   const storeReviews = useSelector(getReviews(itemId))
   const [item, setItem] = useState({name:' ',description:' '});
-  const [reviews, setReviews] = useState();
+  const [colId, setColId] = useState();
   useEffect(() => {
-    window.scrollTo({ top: 300, left: 100, behavior: "smooth" });
-  }, []);
+    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+  });
 
   useEffect(() => {
     dispatch(fetchItem(itemId));
@@ -27,9 +28,11 @@ function ItemShowPage() {
 
   useEffect(() => {
     setItem(storeItem);
-    setReviews(storeReviews);
+    if (storeItem) {
+         let id=  storeItem.collections[Math.floor(Math.random()* storeItem.collections.length)]
+         setColId(id)
+    }
   }, [storeItem]);
-
 
 // if (!reviews) return null;
   return (
@@ -56,13 +59,13 @@ function ItemShowPage() {
         <p >{item? item.description:''}</p>
       </div>
     {item &&  <ReviewsComponent item={item}/> }
+   {item && <SuggestedItems title={'Check out similar items'} collectionId={colId}/> }
     </>
+
   );
 }
 
 export default ItemShowPage;
 
-//revierws will have out of 5 stars
-// product show will fetch each item we will add key value pair to j builder avg rating and num ratings
-// product model helper page. 
+
 

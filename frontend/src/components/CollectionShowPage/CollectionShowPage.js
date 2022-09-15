@@ -2,7 +2,7 @@ import './collectionshowpage.css'
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import {fetchCollections, getCollections, getCategory} from '../../store/collections'
+import {fetchCollections, getCollections} from '../../store/collections'
 import Banner from '../Banner/Banner';
 import ImageSnapshot from '../ItemShowPage/ImageSnapshot';
 
@@ -12,10 +12,7 @@ function CollectionShowPage() {
   const storeCollections = useSelector(getCollections());
   const [collection, setCollection] = useState();
   // const [categoryIds, setCategoryIds] = useState([])
-  // const categoryImages = useSelector()
 
-  // const storeCategory = useSelector(getCategory(categoryId));
-  // const [category, setCategory] = useState();
 
   useEffect(() => {
     dispatch(fetchCollections());
@@ -47,17 +44,3 @@ function CollectionShowPage() {
 
 export default CollectionShowPage
 
-// let imageIds = []
-//   useEffect(() => {
-//     imageIds = collection.itemIds
-//   }, [collection]);
-
-  //    useEffect(() => {
-  //     storeCollection.categoryIds.map((categoryId)=>{
-
-  //       dispatch(getCategory(categoryId));
-  //       setCategory(storeCategory);
-  //     })
-  //    }, [storeCollection]);
-
-  // let collectionItemIds = [];

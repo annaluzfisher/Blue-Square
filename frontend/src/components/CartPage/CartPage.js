@@ -7,6 +7,7 @@ import CartItemSnapshot from "./CartItemSnapshot";
 import Button from "../Buttons/Button";
 import ThemeComponenet from "../ThemeComponent/ThemeComponenet";
 import NavBar from "../NavBar/NavBar";
+import SuggestedItems from "../SuggestedItems";
 
 function CartPage() {
    const { userId } = useParams();
@@ -113,8 +114,9 @@ console.log('numItems', numItems)
         </div>
       </div>
 
-      <h1 className="theme-title">You might be interested in</h1>
-      <ThemeComponenet />
+     
+      <SuggestedItems title={'You might be interested in'} collectionId={3}/>
+    
     </>
   );
 

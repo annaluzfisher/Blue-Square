@@ -3,6 +3,8 @@ json.item do
   json.review_ids @item.review_ids
    json.average @item.average
    json.user_ids @item.reviewers
+  #  json.categories @item.category_ids
+   json.collections @item.collection_ids
 end
 
 json.reviews do

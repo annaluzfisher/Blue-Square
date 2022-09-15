@@ -95,7 +95,7 @@ function ReviewsComponent({ item }) {
         Object.values(storeReviews).map((review) => {
           return <ReviewShow reviewId={review.id} />;
         })}
-      <ThemeComponenet />
+  
     </>
   );
 }
