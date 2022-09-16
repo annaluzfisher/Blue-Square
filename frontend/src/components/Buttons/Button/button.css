@@ -22,3 +22,23 @@
   cursor: pointer;
 }
 
+.primary{
+  background-color: #CD4C1D;
+  transition: all 1s ease-out;
+}
+
+.primary:hover{
+  background-color: black;
+  animation: slide;
+  animation-duration: .7s;
+}
+
+
+.secondary{
+    background-color: black;
+     transition: all 1s ease-out;
+}
+
+.secondary:hover{
+    background-color: #CD4C1D;
+}
