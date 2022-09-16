@@ -58,7 +58,7 @@ function ReviewsComponent({ item }) {
   
  useEffect(()=>{
   setReviews(storeReviews)
- },[storeReviews,itemId])
+ },[storeReviews,itemId,item.reviewIds])
 
   if (!item) return null;
   return (
@@ -100,7 +100,11 @@ function ReviewsComponent({ item }) {
       )}
       {reviews &&
         Object.values(reviews).map((review) => {
-          return <ReviewShow reviewId={review.id} />;
+          item.reviewIds.includes(review.id) ?
+        <ReviewShow reviewId={review.id} />
+         :
+         <></>
+          
         })}
   
     </>
