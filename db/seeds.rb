@@ -33,6 +33,7 @@ menspacks  = Category.create!(name: 'Packs',  image_url:'https://bluesquarebucke
 jackets = Category.create!(name: 'Jackets')
 winter = Category.create!(name: 'Winter')
 wharnesses = Category.create!(name: "Harnesses", image_url:'https://bluesquarebucket.s3.us-west-1.amazonaws.com/womanclimmb.JPG')
+harnesses = Category.create!(name: "Harnesses", image_url:'https://bluesquarebucket.s3.us-west-1.amazonaws.com/womanclimmb.JPG')
 
 winter = Collection.create!(name: 'Winter',activity: true, image_url:'https://bluesquarebucket.s3.us-west-1.amazonaws.com/sunset.jpg')
 CollectionCategory.create!(collections_id: winter.id, categories_id: ski.id)
@@ -43,11 +44,11 @@ climbing = Collection.create!(name: 'Climbing', activity: true, image_url:'https
 CollectionCategory.create!(collections_id: climbing.id, categories_id: rock_protection.id)
 
 CollectionCategory.create!(collections_id: climbing.id, categories_id: helmets.id)
-CollectionCategory.create!(collections_id: climbing.id, categories_id: mharnesses.id)
-CollectionCategory.create!(collections_id: climbing.id, categories_id: wharnesses.id)
+CollectionCategory.create!(collections_id: climbing.id, categories_id: harnesses.id)
 
 
-equipment = Collection.create!(name: 'Equipment')
+
+equipment = Collection.create!(name: 'Equipment', image_url:'https://bluesquarebucket.s3.us-west-1.amazonaws.com/bannerimages/image3.jpg')
 CollectionCategory.create!(collections_id: equipment.id, categories_id: climb.id)
 CollectionCategory.create!(collections_id: equipment.id, categories_id: ice_and_alpine.id)
 CollectionCategory.create!(collections_id: equipment.id, categories_id: ski.id)
@@ -55,10 +56,10 @@ CollectionCategory.create!(collections_id: equipment.id, categories_id: ski.id)
 CollectionCategory.create!(collections_id: equipment.id, categories_id: tents.id)
 
 CollectionCategory.create!(collections_id: equipment.id, categories_id: cpacks.id)
-CollectionCategory.create!(collections_id: equipment.id, categories_id: mharnesses.id)
+CollectionCategory.create!(collections_id: equipment.id, categories_id: harnesses.id)
 
 
-mens = Collection.create!(name: "Men's")
+mens = Collection.create!(name: "Men's", image_url:'https://bluesquarebucket.s3.us-west-1.amazonaws.com/climb.jpg')
 CollectionCategory.create!(collections_id: mens.id, categories_id: mharnesses.id)
 CollectionCategory.create!(collections_id: mens.id, categories_id: mensjackets.id)
 
@@ -474,7 +475,7 @@ price: 64.95,
 size: true,
 image_url: "https://bluesquarebucket.s3.us-west-1.amazonaws.com/harnesses/momentum.webp")
 
-
+CategoryItem.create!(items_id: menmomentum.id, categories_id: harnesses.id)
 CategoryItem.create!(items_id: menmomentum.id, categories_id: mharnesses.id)
 CategoryItem.create!(items_id: menmomentum.id, categories_id: climb.id)
 
@@ -483,7 +484,7 @@ wmentum = Item.create(name: "MOMENTUM HARNESS - WOMEN'S", description: "For all-
   size: true,
   image_url:"https://bluesquarebucket.s3.us-west-1.amazonaws.com/harnesses/momentumw.webp"
 )
-
+CategoryItem.create!(items_id: wmentum.id, categories_id: harnesses.id)
 CategoryItem.create!(items_id: wmentum.id, categories_id: wharnesses.id)
 CategoryItem.create!(items_id: wmentum.id, categories_id: climb.id)
 
@@ -492,7 +493,7 @@ wmentum2 = Item.create(name: "MOMENTUM HARNESS - WOMEN'S PACKAGE", description: 
   size: true,
   image_url:"https://bluesquarebucket.s3.us-west-1.amazonaws.com/harnesses/package.webp"
 )
-
+CategoryItem.create!(items_id: wmentum2.id, categories_id: harnesses.id)
 CategoryItem.create!(items_id: wmentum2.id, categories_id: wharnesses.id)
 CategoryItem.create!(items_id: wmentum2.id, categories_id: climb.id)
 
@@ -501,7 +502,7 @@ description: "With everything you need to get started in the gym or at the crag,
 price: 99.95,
 size: true,
 image_url: "https://bluesquarebucket.s3.us-west-1.amazonaws.com/harnesses/7453_source_1647584436.webp")
-
+CategoryItem.create!(items_id: menmomentum2.id, categories_id: harnesses.id)
 
 CategoryItem.create!(items_id: menmomentum2.id, categories_id: mharnesses.id)
 CategoryItem.create!(items_id: menmomentum2.id, categories_id: climb.id)
@@ -511,7 +512,7 @@ wzone = Item.create(name: "ZONE HARNESS - WOMEN'S", description: "Designed for t
   size: true,
   image_url:"https://bluesquarebucket.s3.us-west-1.amazonaws.com/harnesses/zonew.webp"
 )
-
+CategoryItem.create!(items_id: wzone.id, categories_id: harnesses.id)
 CategoryItem.create!(items_id: wzone.id, categories_id: wharnesses.id)
 CategoryItem.create!(items_id: wzone.id, categories_id: climb.id)
 
@@ -520,7 +521,7 @@ mzone = Item.create(name: "ZONE HARNESS - MEN'S", description: "Designed for the
   size: true,
   image_url:"https://bluesquarebucket.s3.us-west-1.amazonaws.com/harnesses/zmone.webp"
 )
-
+CategoryItem.create!(items_id: mzone.id, categories_id: harnesses.id)
 CategoryItem.create!(items_id: mzone.id, categories_id: mharnesses.id)
 CategoryItem.create!(items_id: mzone.id, categories_id: climb.id)
 
@@ -529,10 +530,9 @@ couloir = Item.create(name: "COULOIR LT", description: "Designed as a minimalist
   size: true,
   image_url:"https://bluesquarebucket.s3.us-west-1.amazonaws.com/harnesses/culoir.webp"
 )
-
+CategoryItem.create!(items_id: couloir.id, categories_id: harnesses.id)
 CategoryItem.create!(items_id: couloir.id, categories_id: wharnesses.id)
 CategoryItem.create!(items_id: couloir.id, categories_id: climb.id)
-
 CategoryItem.create!(items_id: couloir.id, categories_id: mharnesses.id)
 CategoryItem.create!(items_id: couloir.id, categories_id: ice_and_alpine.id)
 

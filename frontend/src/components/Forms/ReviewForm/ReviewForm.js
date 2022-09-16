@@ -75,11 +75,11 @@ function ReviewForm({ item, review = {} ,patch} ) {
           {[1, 2, 3, 4, 5].map((i) => {
             if (i <= rating) {
               return (
-                <Star filled={true} value={i} onClick={() => handleClick(i)} />
+                <Star key={i} filled={true} value={i} onClick={() => handleClick(i)} />
               );
             } else {
               return (
-                <Star filled={false} value={i} onClick={() => handleClick(i)} />
+                <Star key={i} filled={false} value={i} onClick={() => handleClick(i)} />
               );
             }
           })}

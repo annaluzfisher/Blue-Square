@@ -7,6 +7,7 @@ import CartItemSnapshot from "./CartItemSnapshot";
 import Button from "../Buttons/Button";
 import ThemeComponenet from "../ThemeComponent/ThemeComponenet";
 import NavBar from "../NavBar/NavBar";
+import SuggestedItems from "../SuggestedItems";
 
 function CartPage() {
    const { userId } = useParams();
@@ -19,10 +20,6 @@ function CartPage() {
   
   const storeCart = useSelector(getCart());
 
-  // if (!storeCart){
-  //  dispatch(fetchCart(currentUser.id));
-  // }
-    
 
   const numItems = useSelector((state) => {
     if (!state.cart.numItems){
@@ -37,7 +34,7 @@ function CartPage() {
   const [total, setTotal ] = useState();
 
 
-console.log('numItems', numItems)
+
   let allItems = [];
   let subTotalV = 0;
 
@@ -49,13 +46,12 @@ console.log('numItems', numItems)
         })
         setSubtotal(subTotalV)
         setShipping((subtotal * 0.09).toFixed(2))
-        // console.log('math', subtotal, shipping)
-        // setTotal(parseFloat((subtotal+shipping).toFixed(2)))
+
         setCart(storeCart)
       }
   },[numItems])
 
-//need to check length in some way 
+
 
   useEffect(() => {
     if (currentUser){
@@ -68,7 +64,7 @@ console.log('numItems', numItems)
 
    }, [numItems, currentUser]);
 
-   // if (cart.items === 'empty') return null;
+ 
    
    if (!currentUser) return null;
    
@@ -107,14 +103,15 @@ console.log('numItems', numItems)
           </div>
           <div>
             <span>Total</span>
-            <span>$ {(subtotal * 0.09).toFixed(2) + parseFloat(subtotal)}</span>
+            <span>$ {parseFloat((subtotal * 0.09) + (subtotal)).toFixed(2)}</span>
           </div>
           <Button name={"CHECK OUT NOW"} />
         </div>
       </div>
 
-      <h1 className="theme-title">You might be interested in</h1>
-      <ThemeComponenet />
+     
+      <SuggestedItems title={'You might be interested in'} collectionId={3}/>
+    
     </>
   );
 
@@ -125,20 +122,3 @@ export default CartPage;
 
 
 
-//  <div className="order-summary">
-//           <h2>{"Order Summary"}</h2>
-//           <div>
-//             <span>Order Subtotal</span>
-//             <span>$ {subtotal}</span>
-//           </div>
-//           <div>
-//             <span>Estimated Shipping</span>
-//             <span>$ {(subtotal * 0.09).toFixed(2)}</span>
-//           </div>
-//           <div>
-//             <span>Total</span>
-//             <span>$ {(subtotal * 0.09).toFixed(2)+parseFloat(subtotal)}</span>
-//           </div>
-//           <Button name={'CHECK OUT NOW'}/>
-//         </div>
-   

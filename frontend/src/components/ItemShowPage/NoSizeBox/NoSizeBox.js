@@ -20,7 +20,6 @@ function NoSizeBox({ item }) {
   const [itemPayload, setItemPayload] = useState({});
   const ADDED_ID = 4;
 
-  // console.log('currentUser', currentUser)
 
   useEffect(() => {
     let input = parseInt(quantity);
@@ -47,12 +46,12 @@ function NoSizeBox({ item }) {
 
     if (!currentUser) {
       navigate("/Cart");
-      console.log("why");
+  
     } else {
+      dispatch(addCartItem(itemPayload));
       dispatch(toggleModal(ADDED_ID));
 
-      console.log("item_payload", itemPayload);
-      dispatch(addCartItem(itemPayload));
+   
     }
   };
   return (

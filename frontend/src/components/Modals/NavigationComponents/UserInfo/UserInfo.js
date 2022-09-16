@@ -20,7 +20,7 @@ function UserInfo() {
         <span>{user.email}</span>
         <span>{user.company}</span>
         <div>
-          <Button name={"MY ACCOUNT"} />
+          <Button name={"MY ACCOUNT"} localPath={'/Cart'}/>
           <div className="logout-button" onClick={handleClick}>
             <span>LOGOUT</span>
             <i className="fa-solid fa-angle-right"></i>

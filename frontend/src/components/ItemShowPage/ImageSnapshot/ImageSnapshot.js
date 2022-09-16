@@ -3,7 +3,7 @@ import { fetchItem, getItem } from "../../../store/item";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { Link } from 'react-router-dom'
-
+import Star from '../../Star';
 function ImageSnapshot({itemId}) {
 
   const dispatch = useDispatch();
@@ -24,28 +24,28 @@ function ImageSnapshot({itemId}) {
     <Link to={`/Items/${itemId}`}>
       {" "}
       <div className="snapshot-container">
-  
-          <div className="snapshot-image-container">
-            {/* <div> */}
-              <img src={item ? item.imageUrl : ""} />
-            {/* </div> */}
-          </div>
+        <div className="snapshot-image-container">
+          {/* <div> */}
+          <img src={item ? item.imageUrl : ""} />
+          {/* </div> */}
+        </div>
         <div className="lower-snapshot-container">
           <div>{item ? item.name : ""}</div>
           <div>$ {item ? item.price : ""}</div>
           <div className="star-ratings-container">
-            <div className="stars-container">
-              <i className="fa-solid fa-star"></i>
-              <i className="fa-solid fa-star"></i>
-              <i className="fa-solid fa-star"></i>
-              <i className="fa-solid fa-star"></i>
-              <i className="fa-regular fa-star"></i>
-            </div>
+     
+              {[1, 2, 3, 4, 5].map((i) => {
+                if (i <= item?.average) {
+                  return <Star key={i} filled={true} />;
+                } else {
+                  return <Star key={i} filled={false} />;
+                }
+              })}
+       
             <div className="line"></div>
           </div>
         </div>
-
-        </div>
+      </div>
     </Link>
   );
 }

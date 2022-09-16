@@ -34,8 +34,7 @@ export const getReview = (reviewId) => (state) => {
 
 
 export const getReviews = (itemId) => (state) => {
-  // console.log('in store', state.reviews)
-  // console.log('in store', itemId)
+
   if (!state) return null;
   else if (!state.items) return null;
   else if (!state.reviews) return null;
@@ -84,10 +83,11 @@ export const deleteReview = (reviewId) => async (dispatch) => {
 const reviewsReducer = (state = {}, action) => {
   Object.freeze(state);
   let newState = { ...state };
-  console.log('newstate in reviews reduce', newState)
+
   switch (action.type) {
     case RECEIVE_REVIEWS:
-      newState = {...action.reviews };
+   
+      newState = {...newState,...action.reviews };
       return newState;
     case RECEIVE_REVIEW:
       

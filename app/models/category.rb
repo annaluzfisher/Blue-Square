@@ -12,6 +12,7 @@
 #
 class Category < ApplicationRecord
   has_many :collection_categories,  foreign_key: :categories_id, dependent: :destroy
+  has_many :collections, through: :collection_categories, source: :collection
   has_many :category_items, foreign_key: :categories_id, dependent: :destroy
   has_many :items, through: :category_items, source: :item
   #has_many :category_items

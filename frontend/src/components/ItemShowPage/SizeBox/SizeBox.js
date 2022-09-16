@@ -13,14 +13,14 @@ function SizeBox({ item }) {
   const dispatch = useDispatch();
   const [quantity, setQuantity] = useState("1");
   const [size, setSize] = useState();
-    // const storeCart = useSelector((state) => state.cart);
+
 
   const currentUser = useSelector((state) => state.session.user);
 
   const [itemPayload, setItemPayload] = useState({});
   const ADDED_ID = 4;
 
-  // console.log('currentUser', currentUser)
+
 
   useEffect(() => {
     let input = parseInt(quantity);
@@ -28,13 +28,7 @@ function SizeBox({ item }) {
     else if (!input) input = "";
     setQuantity(parseInt(input));
     setSize(size);
-    // setItemPayload({
-    //   itemId: item.id,
-    //   userId: currentUser.id,
-    //   cartId: currentUser.cart,
-    //   size: size,
-    //   quantity: quantity,
-    // });
+
   }, [quantity, size]);
 
   const adjustSize = (e, newSize) => {
@@ -64,12 +58,12 @@ function SizeBox({ item }) {
 
     if (!currentUser) {
       navigate("/Cart");
-      console.log("why");
+
     } else {
       dispatch(toggleModal(ADDED_ID));
   
 
-      console.log("item_payload", itemPayload);
+
       dispatch(addCartItem(itemPayload));
     }
   };

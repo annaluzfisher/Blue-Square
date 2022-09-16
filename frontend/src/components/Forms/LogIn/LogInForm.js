@@ -29,7 +29,7 @@ function LogInForm() {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (areValid(email, password)) {
-      console.log("in the if");
+  
 
       let errors;
       errors = dispatch(loginUser(user));

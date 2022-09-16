@@ -14,7 +14,7 @@ const storeReview = useSelector(getReview(reviewId));
 
 useEffect(()=>{
   setReview(storeReview)
-  console.log(storeReview)
+
 },[reviewId])
 if(!review) return null;
   return (
@@ -22,7 +22,7 @@ if(!review) return null;
       <div>
         <div className="r-b-holder">
           <div>
-            <span>{review.userName || "Anonymous"}</span>{" "}
+            <span>{review.name || "Anonymous"}</span>{" "}
             {review.userId && <span>Verfied Buyer</span>}
           </div>
           <span>{review?.createdAt.slice(0, 10)}</span>
@@ -30,9 +30,9 @@ if(!review) return null;
         <div className="stars-container">
           {[1, 2, 3, 4, 5].map((i) => {
             if (i <= review.rating) {
-              return <Star filled={true} />;
+              return <Star key={i} filled={true} />;
             } else {
-              return <Star filled={false} />;
+              return <Star key={i} filled={false} />;
             }
           })}
         </div>

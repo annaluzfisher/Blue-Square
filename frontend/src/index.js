@@ -7,6 +7,7 @@ import { restoreCSRF } from "./store/csrf";
 import { Provider } from "react-redux";
 import configureStore from "./store/index";
 import { preloadedModals } from "./store/ui";
+import ScrollToTop from "./Util/ScrollToTop";
 
 
 export const storageToken = sessionStorage.getItem("X-CSRF-Token");
@@ -27,15 +28,17 @@ if (
  
   function initializeApp() {
     ReactDOM.render(
-    <React.StrictMode>
-      <BrowserRouter>
-        <Provider store={store}>
-          <App />
-        </Provider>
-      </BrowserRouter>
-    </React.StrictMode>,
-    document.getElementById("root")
-  );
+      <React.StrictMode>
+        <BrowserRouter>
+          <Provider store={store}>
+            <ScrollToTop/>
+              <App />
+         
+          </Provider>
+        </BrowserRouter>
+      </React.StrictMode>,
+      document.getElementById("root")
+    );
 }
 window.store = store;
 window.storageUser = storageUser;

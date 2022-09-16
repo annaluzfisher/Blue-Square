@@ -1,0 +1,22 @@
+
+.suggested-items-container{
+  /* border: 1px solid blue; */
+  width: 90vw;
+  margin:5%;
+
+}
+
+.si-snapshot-container{
+  width: 100%;
+  /* border: 2px solid salmon; */
+  display: flex;
+  flex-direction: row;
+   white-space: nowrap;
+  overflow: scroll;
+}
+
+.suggested-items-container h2{
+  font-family: 'Roboto';
+  font-size: 40px;
+  font-weight: 600;
+}

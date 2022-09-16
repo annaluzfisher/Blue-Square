@@ -28,19 +28,7 @@ function Shop() {
     setCollections(storeCollections);
   }, [storeCollections]);
 
-  // useEffect(() => {
-  //   if (visible) {
-  //     const app = document.getElementById("app").childNodes;
-  //     app[2].style.position = "fixed";
-  //   } else {
-  //     if (typeof document.getElementById("app") === null) {
-  //     } else {
-  //       const app = document.getElementById("app").childNodes;
 
-  //       app[2].style.position = "absolute";
-  //     }
-  //   }
-  // }, [visible]);
  const allCollectionIds = Object.keys(storeCollections.collections);
  let collectionIds = []
  let activityIds = []
