@@ -5,7 +5,7 @@ function Ridgeline() {
     <div className="ridgeline-container">
       <div className="image-container">
         <div className="image-cover"></div>
-        <img src="BannerImages/ridgeline.png" />
+        <img src="/BannerImages/ridgeline.png" />
       </div>
     </div>
   );
