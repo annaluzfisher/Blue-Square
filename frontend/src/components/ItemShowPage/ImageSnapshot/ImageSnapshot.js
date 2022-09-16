@@ -4,12 +4,20 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { Link } from 'react-router-dom'
 import Star from '../../Star';
+import { toggleModal } from '../../../store/ui';
+
 function ImageSnapshot({itemId}) {
 
   const dispatch = useDispatch();
   const storeItem = useSelector(getItem(itemId));
   const [item, setItem] = useState();
-
+  const ADDED_ID = 4;
+  const modals = useSelector((state) => Object.values(state.ui.modals));
+  const checkToggle =()=>{
+     modals.map((modal) => {
+       if (modal.visible) dispatch(toggleModal(modal.id));
+     });
+  }
   useEffect(() => {
     dispatch(fetchItem(itemId));
   }, [itemId]);
@@ -21,7 +29,7 @@ function ImageSnapshot({itemId}) {
   }, [storeItem]);
 
   return (
-    <Link to={`/Items/${itemId}`}>
+    <Link to={`/Items/${itemId}`} onClick={checkToggle}>
       {" "}
       <div className="snapshot-container">
         <div className="snapshot-image-container">

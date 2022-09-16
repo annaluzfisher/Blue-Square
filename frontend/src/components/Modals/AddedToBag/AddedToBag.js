@@ -95,7 +95,7 @@ console.log('what is the itemn', item, itemId)
   return (
     <>
       <div className={`added-modal modal ${visible ? "" : "hidden"}`}>
-        <ModalNavBar modalId={ADDED_ID} extra={true} />
+        <ModalNavBar modalId={ADDED_ID} extra={true} subtotal={subtotal}/>
         <div className="added-container">
           <div className="left-side">
             <h1 className="ad-title">Added to Bag</h1>
@@ -105,7 +105,7 @@ console.log('what is the itemn', item, itemId)
             </div>
             <div>{item?.name}</div>
             <div className="buttons-container-added">
-              <Button localPath={"/"} name={'KEEP SHOPPING'} color={'black'}/> 
+              <Button localPath={"/"} name={'KEEP SHOPPING'} primary={'secondary'}/> 
               <Button localPath={'/Cart'} name={'CHECKOUT'} />
             </div>
           </div>
