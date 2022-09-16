@@ -6,18 +6,20 @@ import ModalNavBar from "../ModalNavBar/ModalNavBar";
 import {  useLocation, useNavigate, useParams } from "react-router-dom";
 import { getCart,fetchCart } from "../../../store/cart";
 import { getItem, fetchItem } from "../../../store/item";
-
+import CartItemSnapshot from "../../CartPage/CartItemSnapshot";
+import SuggestedItems from "../../SuggestedItems";
+import Button from "../../Buttons/Button";
 
 function AddedToBag() {
 
-  const { itemId } = useParams();
+
+  const{ itemId } = useParams();
    const ADDED_ID = 4;
    const visible = useSelector((state) => state.ui.modals[ADDED_ID].visible);
 
    const currentUser = useSelector((state) => state.session.user);
-  console.log('itemId', itemId)
+
    const storeItem = useSelector(getItem(itemId));
-    const userId = currentUser?.id
 
 
    const dispatch = useDispatch();
@@ -67,9 +69,7 @@ function AddedToBag() {
 
 const [item, setItem] = useState(storeItem);
 const [colId, setColId] = useState();
-useEffect(() => {
-  window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
-});
+
 
 
 
@@ -81,8 +81,9 @@ useEffect(() => {
         Math.floor(Math.random() * storeItem.collections.length)
       ];
     setColId(id);
+  
   }
-}, [storeItem]);
+}, [storeItem, itemId]);
 
 if (!visible) return null;
 if (!currentUser) return null;
@@ -92,15 +93,31 @@ if (!currentUser) return null;
 console.log('what is the itemn', item, itemId)
 
   return (
-    <div className={`added-modal modal ${visible ? "" : "hidden"}`}>
-      <ModalNavBar modalId={ADDED_ID} />
-      <div className="a-hero-img-container">
-        <img scr={item?.imageUrl} />
+    <>
+      <div className={`added-modal modal ${visible ? "" : "hidden"}`}>
+        <ModalNavBar modalId={ADDED_ID} extra={true} />
+        <div className="added-container">
+          <div className="left-side">
+            <h1 className="ad-title">Added to Bag</h1>
+
+            <div className="a-hero">
+              <img src={item.imageUrl} />
+            </div>
+            <div>{item?.name}</div>
+            <div className="buttons-container-added">
+              <Button localPath={"/"} name={'KEEP SHOPPING'} color={'black'}/> 
+              <Button localPath={'/Cart'} name={'CHECKOUT'} />
+            </div>
+          </div>
+
+          <div className="right-side">
+            <h2> You might be interested in </h2>
+            <p>Take a peek at some of the favourites at Blue Square, tried and true pieces of gear we use all the time.</p>
+            <SuggestedItems collectionId={3}/>
+          </div>
+        </div>
       </div>
-      <div>AddedToBag</div>
-      <div>{item?.name}</div>
-      <div>{subtotal}</div>
-    </div>
+    </>
   );
 }
 

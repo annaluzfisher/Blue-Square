@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { deleteCartItem, updateCartItem, getCart } from "../../../store/cart";
 
-function CartItemSnapshot({ item }) {
+function CartItemSnapshot({ item ,fromModal = false}) {
   const dispatch = useDispatch();
   const [quantity, setQuantity] = useState(item.quantity)
   const [cartItem, setCartItem] = useState(item);

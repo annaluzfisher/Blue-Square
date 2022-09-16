@@ -5,9 +5,11 @@ import ThemeComponenet from "../../ThemeComponent/ThemeComponenet";
 import ReviewShow from "../ReviewShow/ReviewShow";
 import Star from "../../Star";
 import { useSelector } from "react-redux";
+import { useParams } from "react-router-dom";
 
 
 function ReviewsComponent({ item }) {
+   const {itemId } = useParams()
   const [numReviews, setNumReviews] = useState(0);
   const [formVisible, setFormVisible] = useState(false);
   const currentUser = useSelector((state) => state.session.user);
@@ -22,15 +24,15 @@ function ReviewsComponent({ item }) {
   const [editableReview, setEditableReview] = useState();
   const [reviews, setReviews] = useState();
 
-  useEffect(() => {
-    if (item) {
-      if (typeof item.reviewIds === "undefined") {
-      } else if (item.reviewIds.length > 0) {
-        setNumReviews(item.reviewIds.length);
-      }
-    }
+  // useEffect(() => {
+  //   if (item) {
+  //     if (typeof item.reviewIds === "undefined") {
+  //     } else if (item.reviewIds.length > 0) {
+  //       setNumReviews(item.reviewIds.length);
+  //     }
+  //   }
 
-  }, [item]);
+  // }, [item, itemId]);
 
   useEffect(()=>{
 
@@ -47,14 +49,16 @@ function ReviewsComponent({ item }) {
         if (typeof storeReviews === "undefined" || !currentUser) {
 
         }else{
-          setReviews(storeReviews)
+          // setReviews(storeReviews)
          Object.values(storeReviews).map((review=>{
          if (review.userId === currentUser.id) setEditableReview(review);
          }))
         }
     }, [item.reviewIds,numReviews]);
   
- 
+ useEffect(()=>{
+  setReviews(storeReviews)
+ },[storeReviews,itemId])
 
   if (!item) return null;
   return (
@@ -75,7 +79,7 @@ function ReviewsComponent({ item }) {
             })}
           </div>
         </div>
-        <span>{numReviews} Reviews</span>
+        <span>{item.reviewIds?.length} Reviews</span>
         <div className="bottom-bar">
           <div>
             <i className="fa-regular fa-pen-to-square"></i>
@@ -94,8 +98,8 @@ function ReviewsComponent({ item }) {
       {formVisible && (
         <ReviewForm item={item.id} review={editableReview} patch={edit} />
       )}
-      {item.reviewIds &&
-        Object.values(storeReviews).map((review) => {
+      {reviews &&
+        Object.values(reviews).map((review) => {
           return <ReviewShow reviewId={review.id} />;
         })}
   

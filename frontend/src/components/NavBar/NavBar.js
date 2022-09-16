@@ -17,14 +17,14 @@ function NavBar() {
   const ADDED_ID = 4
   const dispatch = useDispatch();
   let location = useLocation();
-  const [color, setColor] = useState('black');
+  const [color, setColor] = useState('white');
   const currentUser = useSelector((state) => state.session.user);
   const params = useParams();
   useEffect(() => {
-    // !location.pathname.includes("Cart/") ?  setColor("white"): setColor("black");
-    // !location.pathname.includes("Cart") ? setColor("white"): setColor("black");
 
-    location.pathname.includes("Items") ? setColor("black") : setColor("white");
+    location.pathname.includes("/Items/") || location.pathname.includes("Cart/")
+      ? setColor("black")
+      : setColor("white");
   }, [location.pathname,params,currentUser]);
 
 
@@ -75,7 +75,7 @@ function NavBar() {
       <Navigation />
       <Shop />
       <Search />
-      <AddedToBag />
+
     </>
   );
 }

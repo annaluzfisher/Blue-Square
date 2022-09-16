@@ -103,7 +103,7 @@ function CartPage() {
           </div>
           <div>
             <span>Total</span>
-            <span>$ {(subtotal * 0.09).toFixed(2) + parseFloat(subtotal)}</span>
+            <span>$ {parseFloat((subtotal * 0.09) + (subtotal)).toFixed(2)}</span>
           </div>
           <Button name={"CHECK OUT NOW"} />
         </div>

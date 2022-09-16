@@ -33,11 +33,15 @@
     font-size: 1em;
     padding-top: 1rem;
     padding-bottom: 1rem;
+   
   }
 
   .lower-snapshot-container >div {
     padding-left: 2%;
     margin-left: 0;
+
+   word-break: break-word;
+   white-space: pre-line;
   }
 
 .star-ratings-container{

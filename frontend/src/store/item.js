@@ -25,7 +25,7 @@ export const fetchItem = (itemId) => async (dispatch) => {
 };
 
 export const addItemPayload = (payload) => {
-
+console.log('payload', payload)
   return (dispatch) => {
     dispatch(receiveItem(payload.item));
     dispatch(receiveReviews(payload.reviews));

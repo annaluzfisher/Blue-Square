@@ -8,7 +8,7 @@ import ReviewsComponent from "../Reviews/ReviewsComponent";
 import { getReviews } from "../../store/reviews";
 import NoSizeBox from "./NoSizeBox";
 import SuggestedItems from "../SuggestedItems";
-
+import AddedToBag from "../Modals/AddedToBag";
 
 
 function ItemShowPage() {
@@ -48,19 +48,28 @@ function ItemShowPage() {
               <div>
                 {item.new && <div>NEW</div>}
                 <span> {item.name}</span>
-                {item.size ? <SizeBox item={item} /> : <NoSizeBox item={item}/>}
+                {item.size ? (
+                  <SizeBox item={item} />
+                ) : (
+                  <NoSizeBox item={item} />
+                )}
               </div>
             </div>
           </div>
         </div>
       )}
       <div className="description">
-        <p >{item? item.description:''}</p>
+        <p>{item ? item.description : ""}</p>
       </div>
-    {item &&  <ReviewsComponent item={item}/> }
-   {item && <SuggestedItems title={'Check out similar items'} collectionId={colId}/> }
+      {item && <ReviewsComponent item={item} />}
+      {item && (
+        <SuggestedItems
+          title={"Check out similar items"}
+          collectionId={colId}
+        />
+      )}
+      <AddedToBag />
     </>
-
   );
 }
 
