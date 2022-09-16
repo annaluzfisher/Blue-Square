@@ -78,10 +78,10 @@ function LogInForm() {
             <Button
               localPath="Create-Account"
               name={"REGISTER"}
-              color={"black"}
+              primary={'secondary'}
             />
             <form onSubmit={demoSubmit}>
-              <Button name={"DEMO USER"} type={"submit"}  />
+              <Button name={"DEMO USER"} type={"submit"}/>
             </form>
           </div>
         </div>

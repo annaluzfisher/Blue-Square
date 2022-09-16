@@ -35,14 +35,14 @@ ice_and_alpine = Category.create!(name: 'Ice & Alpine', parent_id: climb.id, ima
 jackets = Category.create!(name: 'Jackets', parent_id: ski.id, image_url: 'https://bluesquarebucket.s3.us-west-1.amazonaws.com/bannerimages/image4.jpg')
 # packs = Category.create!(name: 'Climbing Packs & Packpacks', parent_id: climb.id, image_url:'https://bluesquarebucket.s3.us-west-1.amazonaws.com/packs.jpg')
 packs = Category.create!(name: 'Packs', parent_id: climb.id, image_url:'https://bluesquarebucket.s3.us-west-1.amazonaws.com/bannerimages/image2.jpg')
-wbottoms = Category.create!(name: 'Packs',  image_url:'https://bluesquarebucket.s3.us-west-1.amazonaws.com/bannerimages/image5.jpg')
+wbottoms = Category.create!(name: 'Bottoms',  image_url:'https://bluesquarebucket.s3.us-west-1.amazonaws.com/bannerimages/image5.jpg')
 womensjackets = Category.create!(name: 'Jackets',  image_url:'https://bluesquarebucket.s3.us-west-1.amazonaws.com/bannerimages/image10.JPG')
 mensjackets = Category.create!(name: 'Jackets',  image_url:'https://bluesquarebucket.s3.us-west-1.amazonaws.com/climbhike.JPG')
 accesories = Category.create!(name: 'Accessories', image_url:'https://bluesquarebucket.s3.us-west-1.amazonaws.com/bannerimages/image3.jpg')
 tents = Category.create!(name: 'Tents', image_url: 'https://bluesquarebucket.s3.us-west-1.amazonaws.com/bannerimages/image18.jpg')
 mharnesses = Category.create!(name: 'Harnesses', parent_id: climb.id, image_url:'https://bluesquarebucket.s3.us-west-1.amazonaws.com/bannerimages/image9.JPG')
 headlamps = Category.create!(name: 'Lighting', image_url:'https://bluesquarebucket.s3.us-west-1.amazonaws.com/category7.JPG')
-mbottoms  = Category.create!(name: 'Packs',  image_url:'https://bluesquarebucket.s3.us-west-1.amazonaws.com/bannerimages/image5.jpg')
+mbottoms  = Category.create!(name: 'Bottoms',  image_url:'https://bluesquarebucket.s3.us-west-1.amazonaws.com/bannerimages/image5.jpg')
 jackets = Category.create!(name: 'Jackets')
 winter = Category.create!(name: 'Winter')
 wharnesses = Category.create!(name: "Harnesses", image_url:'https://bluesquarebucket.s3.us-west-1.amazonaws.com/womanclimmb.JPG')
@@ -75,13 +75,14 @@ CollectionCategory.create!(collections_id: equipment.id, categories_id: harnesse
 mens = Collection.create!(name: "Men's", image_url:'https://bluesquarebucket.s3.us-west-1.amazonaws.com/climb.jpg')
 CollectionCategory.create!(collections_id: mens.id, categories_id: mharnesses.id)
 CollectionCategory.create!(collections_id: mens.id, categories_id: mensjackets.id)
+CollectionCategory.create!(collections_id: mens.id, categories_id: mbottoms.id)
 
 
 
 womens = Collection.create!(name: "Women's")
 CollectionCategory.create!(collections_id: womens.id, categories_id: wharnesses.id)
 CollectionCategory.create!(collections_id: womens.id, categories_id: womensjackets.id)
-
+CollectionCategory.create!(collections_id: womens.id, categories_id: wbottoms.id)
 
 
 

@@ -9,7 +9,7 @@ function NotFound({imgUrl}) {
         <span id="four">404</span>
         <div> Oops! At least the landing is soft.</div>
         <p> The page you are looking for does not exist.</p>
-        <Button localPath={'/'} name={'Blue Square Home'} color={'black'}/>
+        <Button localPath={'/'} name={'Blue Square Home'} primary={'secondary'}/>
       </div>
     </div>
   );

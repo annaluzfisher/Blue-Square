@@ -10,7 +10,7 @@ function Button({
   localPath = "/",
   name,
   type,
-  color = "#CD4C1D",
+
   primary = "primary",
 }) {
   const dispatch = useDispatch();
