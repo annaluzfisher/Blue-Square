@@ -1,64 +1,58 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import "./reviewscomponent.css";
 import ReviewForm from "../../Forms/ReviewForm";
-import ThemeComponenet from "../../ThemeComponent/ThemeComponenet";
+
 import ReviewShow from "../ReviewShow/ReviewShow";
 import Star from "../../Star";
-import { useSelector } from "react-redux";
+import { useSelector} from "react-redux";
 import { useParams } from "react-router-dom";
+import { getItem } from "../../../store/item";
 
-
-function ReviewsComponent({ item }) {
-   const {itemId } = useParams()
+function ReviewsComponent({item}) {
+  const { itemId } = useParams();
+    const storeItem = useSelector(getItem(itemId));
+    // const [item, setItem] = useState(item);
   const [numReviews, setNumReviews] = useState(0);
   const [formVisible, setFormVisible] = useState(false);
+  const edit = useRef(false)
   const currentUser = useSelector((state) => state.session.user);
-  const storeReviews = useSelector((state)=> {
+  const storeReviews = useSelector((state) => {
     if (!state) return null;
     if (!state.reviews) return null;
     else {
-      return state.reviews
+      return state.reviews;
     }
-  })
-  const [edit, setEdit] = useState(false);
+  });
+  // const [edit, setEdit] = useState(false);
   const [editableReview, setEditableReview] = useState();
   const [reviews, setReviews] = useState();
 
-  // useEffect(() => {
-  //   if (item) {
-  //     if (typeof item.reviewIds === "undefined") {
-  //     } else if (item.reviewIds.length > 0) {
-  //       setNumReviews(item.reviewIds.length);
-  //     }
-  //   }
 
-  // }, [item, itemId]);
 
-  useEffect(()=>{
-
-    if (typeof item.userIds !== "undefined" && currentUser) {
-      if (item.userIds.includes(currentUser.id)) {
-        setEdit(true);
-      }
+  useEffect(() => {
+  //  if (storeItem) setItem(storeItem);
+      if (item.userIds?.includes(currentUser?.id)) {
+        edit.current = true
     } else {
-      setEdit(false);
+      setEditableReview()
+      edit.current = false
     }
-  },[item.userIds, currentUser])
+  }, [itemId, currentUser,storeItem, numReviews,formVisible]);
 
-    useEffect(() => {
-        if (typeof storeReviews === "undefined" || !currentUser) {
+  useEffect(() => {
+    if (typeof storeReviews === "undefined" || !currentUser) {
+    } else {
+      setReviews(storeReviews)
+      Object.values(storeReviews).map((review) => {
+        if (review.userId === currentUser.id) setEditableReview(review);
+      });
+    }
+  }, [item.reviewIds, numReviews]);
 
-        }else{
-          // setReviews(storeReviews)
-         Object.values(storeReviews).map((review=>{
-         if (review.userId === currentUser.id) setEditableReview(review);
-         }))
-        }
-    }, [item.reviewIds,numReviews]);
-  
- useEffect(()=>{
-  setReviews(storeReviews)
- },[storeReviews,itemId,item.reviewIds])
+  useEffect(() => {
+    setReviews(storeReviews);
+
+  }, [storeReviews, itemId, numReviews]);
 
   if (!item) return null;
   return (
@@ -81,32 +75,27 @@ function ReviewsComponent({ item }) {
         </div>
         <span>{item.reviewIds?.length} Reviews</span>
         <div className="bottom-bar">
-          <div>
+          <div
+            onClick={() =>
+              formVisible ? setFormVisible(false) : setFormVisible(true)
+            }
+          >
             <i className="fa-regular fa-pen-to-square"></i>
-            {!edit ? (
-              <span onClick={() => setFormVisible(!formVisible)}>
-                Write a Review
-              </span>
-            ) : (
-              <span onClick={() => setFormVisible(!formVisible)}>
-                Edit Review
-              </span>
-            )}
+            {!edit.current ? <span>Write a Review</span> : <span>Edit Review</span>}
           </div>
         </div>
       </div>
       {formVisible && (
-        <ReviewForm item={item.id} review={editableReview} patch={edit} />
+        <ReviewForm item={itemId} review={editableReview} patch={edit.current} />
       )}
       {reviews &&
         Object.values(reviews).map((review) => {
-          item.reviewIds.includes(review.id) ?
-        <ReviewShow reviewId={review.id} />
-         :
-         <></>
-          
+          return itemId === review.itemId ? (
+            <ReviewShow reviewId={review.id} test={numReviews}/>
+          ) : (
+            <></>
+          );
         })}
-  
     </>
   );
 }

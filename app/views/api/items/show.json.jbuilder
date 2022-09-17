@@ -1,9 +1,9 @@
 json.reviews do
-  @item.reviews.each do |review|
+
+    @item.reviews.each do |review|
     json.set! review.id do
     json.extract! review, :id, :title, :content, :title, :rating, :created_at,:user_id,:name,:item_id
     json.name review.name ? review.name : (review.user.first_name + " " + review.user.last_name[0])
-
     end
   end
 end

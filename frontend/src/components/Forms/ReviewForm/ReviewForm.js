@@ -1,18 +1,19 @@
 import "./reviewform.css";
-import { React, useState, useEffect } from "react";
+import { React, useState, useEffect} from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Button from "../../Buttons/Button";
 import Star from "../../Star";
 import { createReview, updateReview, deleteReview } from "../../../store/reviews";
 import Errors from "../../Errors";
+import {useParams} from 'react-router-dom' 
 
 
-function ReviewForm({ item, review = {} ,patch} ) {
+function ReviewForm({ item, review = {title: '',content: '', name: ''} ,patch} ) {
   const [title, setTitle] = useState(review.title);
   const [content, setContent] = useState(review.content);
   const [name, setName] = useState(review.name);
   const [userId, setUserId] = useState(review.userId);
-   const [itemId, setItemId] = useState(item);
+   const [itemId1, setItemId1] = useState(item);
   const [rating, setRating] = useState(review.rating||5);
   const [reviewId, setReviewId] = useState(review.id)
   const currentUser = useSelector((state) => state.session.user);
@@ -24,8 +25,19 @@ function ReviewForm({ item, review = {} ,patch} ) {
     setUserId(currentUser.id);
     setName(currentUser.firstName + ' ' + currentUser.lastName[0]+'.')
     }
-  },[currentUser])
+  },[currentUser,item])
   
+ const { itemId } = useParams();
+
+ useEffect(()=>{
+  console.log(itemId)
+  console.log('review',review)
+  setErrors('')
+    setTitle(review.title);
+    setContent(review.content);
+    setRating(5);
+    setName(review.name);
+ },[itemId,patch])
 
   const handleClick=(i)=>{
     setRating(i);
@@ -43,9 +55,11 @@ function ReviewForm({ item, review = {} ,patch} ) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-   if (validate(content)) {
+    if (validate(content)) {
+  
       
       if (!patch){
+        
       dispatch(createReview({title,rating,content,name,userId,itemId}))
       }else {
       dispatch(updateReview({title,rating,content,name,userId,itemId},reviewId))
@@ -56,7 +70,7 @@ function ReviewForm({ item, review = {} ,patch} ) {
     setRating(5)
     setName('')
      } else{
-        setErrors('Something went wrong')
+        setErrors('Something went wrong!')
   }
   };
 
@@ -119,7 +133,7 @@ function ReviewForm({ item, review = {} ,patch} ) {
             <div color={"black"}  name={"Delete"} onClick={()=>dispatch(deleteReview(reviewId))}>DELETE</div>
           </div>
         ) : (
-          <Button className='post' color={"black"} type={"submit"} name={"POST"} />
+          <Button className='post' color={"black"} type={"submit"} name={"POST"}/>
         )}
         {errors && <Errors errors={errors} />}
       </form>

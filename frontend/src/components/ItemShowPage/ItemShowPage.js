@@ -18,7 +18,23 @@ function ItemShowPage() {
   const storeReviews = useSelector(getReviews(itemId))
   const [item, setItem] = useState({name:' ',description:' '});
   const [colId, setColId] = useState();
+  const ADDED_ID = 4;
 
+  const modal = useSelector((state) => {
+    if (!state) return null;
+    if(!state.ui) return null;
+    if (!state.ui.modals) return null;
+    else{
+      return state.ui.modals[ADDED_ID]
+    }
+  })
+ 
+  const [ visible, setVisible ] = useState(false)
+
+useEffect(()=>{
+  setVisible(modal.visible)
+  modal ? setVisible(true) : setVisible(false)
+},[modal])
 
   useEffect(() => {
     dispatch(fetchItem(itemId));
@@ -36,7 +52,7 @@ function ItemShowPage() {
 
   return (
     <>  
-     <ScrollToTop />
+     {/* <ScrollToTop /> */}
       {item && (
         <div className="item-show-page">
           <div className="spacer"></div>
@@ -69,7 +85,7 @@ function ItemShowPage() {
           collectionId={colId}
         />
       )}
-      <AddedToBag />
+     {visible && <AddedToBag/> }
     </>
   );
 }

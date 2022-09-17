@@ -82,7 +82,7 @@ export const deleteReview = (reviewId) => async (dispatch) => {
 };
 const reviewsReducer = (state = {}, action) => {
   Object.freeze(state);
-  let newState = { ...state };
+ let newState = { ...state };
 
   switch (action.type) {
     case RECEIVE_REVIEWS:

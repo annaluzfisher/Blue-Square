@@ -13,12 +13,9 @@ function SuggestedItems({title, collectionId}) {
   useEffect(() => {
     setCollection(storeCollections.collections[collectionId]);
 
-  }, [collectionId]);
+  }, [collectionId, storeCollections]);
 
-  useEffect(() => {
-    setCollection(storeCollections.collections[collectionId]);
-   
-  }, [storeCollections]);
+
  
 useEffect(()=>{
   let sample = collection?.itemIds.slice(0, 11);
