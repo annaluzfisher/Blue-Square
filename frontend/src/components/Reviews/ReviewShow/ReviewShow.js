@@ -3,21 +3,23 @@ import './reviewshow.css'
 import { useEffect, useState } from "react";
 import { deleteReview, getReview } from '../../../store/reviews';
 import Star from '../../Star';
+import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from "react-redux";
 import { useRef } from 'react'
 
 function ReviewShow({reviewId}) {
   // const [review, setReview] = useState();
-  const review = useRef({})
+  const review = useRef()
 const storeReview = useSelector(getReview(reviewId));
+review.current = storeReview
   const currentUser = useSelector((state) => state.session.user);
   const dispatch = useDispatch();
-
+const {itemId} = useParams
 useEffect(()=>{
-  // setReview(storeReview)
+
   review.current = storeReview
 console.log('reviewsssss',review)
-},[reviewId,storeReview,currentUser])
+},[reviewId,storeReview,currentUser,itemId])
 
 if(!review.current) return null;
   return (
@@ -28,7 +30,7 @@ if(!review.current) return null;
             <span>{review.current.name || "Anonymous"}</span>{" "}
             {review.current.userId && <span>Verfied Buyer</span>}
           </div>
-          <span>{review.current.createdAt.slice(0, 10)}</span>
+       
         </div>
         <div className="stars-container">
           {[1, 2, 3, 4, 5].map((i) => {

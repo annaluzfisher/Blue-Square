@@ -11,7 +11,7 @@ import { getItem } from "../../../store/item";
 function ReviewsComponent({item}) {
   const { itemId } = useParams();
     const storeItem = useSelector(getItem(itemId));
-    // const [item, setItem] = useState(item);
+ 
   const [numReviews, setNumReviews] = useState(0);
   const [formVisible, setFormVisible] = useState(false);
   const edit = useRef(false)
@@ -23,14 +23,14 @@ function ReviewsComponent({item}) {
       return state.reviews;
     }
   });
-  // const [edit, setEdit] = useState(false);
+
   const [editableReview, setEditableReview] = useState();
-  const [reviews, setReviews] = useState();
+
 
 
 
   useEffect(() => {
-  //  if (storeItem) setItem(storeItem);
+
       if (item.userIds?.includes(currentUser?.id)) {
         edit.current = true
     } else {
@@ -42,17 +42,16 @@ function ReviewsComponent({item}) {
   useEffect(() => {
     if (typeof storeReviews === "undefined" || !currentUser) {
     } else {
-      setReviews(storeReviews)
+     
       Object.values(storeReviews).map((review) => {
         if (review.userId === currentUser.id) setEditableReview(review);
+
       });
     }
-  }, [item.reviewIds, numReviews]);
+  }, [item.reviewIds, numReviews,item]);
 
-  useEffect(() => {
-    setReviews(storeReviews);
 
-  }, [storeReviews, itemId, numReviews]);
+
 
   if (!item) return null;
   return (
@@ -81,21 +80,27 @@ function ReviewsComponent({item}) {
             }
           >
             <i className="fa-regular fa-pen-to-square"></i>
-            {!edit.current ? <span>Write a Review</span> : <span>Edit Review</span>}
+            {!edit.current ? (
+              <span>Write a Review</span>
+            ) : (
+              <span>Edit Review</span>
+            )}
           </div>
         </div>
       </div>
       {formVisible && (
-        <ReviewForm item={itemId} review={editableReview} patch={edit.current} />
+        <ReviewForm
+          item={itemId}
+          review={editableReview}
+          patch={edit.current}
+        />
       )}
-      {reviews &&
-        Object.values(reviews).map((review) => {
-          return itemId === review.itemId ? (
-            <ReviewShow reviewId={review.id} test={numReviews}/>
-          ) : (
-            <></>
-          );
-        })}
+      { item.reviewIds?.map((id)=>{
+        console.log('item isx', item.reviewIds)
+      return  <ReviewShow reviewId={id} />
+
+      })}
+   
     </>
   );
 }
