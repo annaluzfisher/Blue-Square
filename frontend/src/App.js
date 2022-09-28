@@ -39,42 +39,39 @@ const location = useLocation();
 
 
 
-      return (
-        <>
-          <div className="app" id="app">
-            <NavBar />
-            <Routes>
-        
-              <Route path="Create-Account" element={<CreateAccount />} />
-        
-              <Route path="/" element={<MainPage />} />
-        
-              <Route path="Cart/:userId" element={<CartPage />} />
-        
-              <Route path="Cart" element={<RequireLogin />} />
-        
-              <Route path="Items/:itemId" element={<ItemShowPage />} />
-        
-              <Route
-                path="Category/:categoryId"
-                element={<CategoryShowPage />}
-              />
-              <Route
-                path="Collection/:collectionId"
-                element={<CollectionShowPage />}
-              />
-              {/* <Route path=":collectionId/:categogryId" element={<CategoryShowPage />} /> */}
-              <Route
-                path="404"
-                element={<NotFound imgUrl={"BannerImages/notfound.jpg"} />}
-              />
-              <Route path="*" element={<Navigate to="/404" replace />} />
-            </Routes>
+  return (
+    <>
+      <div className="app" id="app">
+        <NavBar />
+        <Routes>
+          <Route path="Create-Account" element={<CreateAccount />} />
 
-            <Footer />
-          </div>
-        </>
-      );
+          <Route path="/" element={<MainPage />} />
+
+          <Route path="Cart/:userId" element={<CartPage />} />
+
+          <Route path="Cart" element={<RequireLogin />} />
+
+          <Route path="Items/:itemId" element={<ItemShowPage />} />
+
+          <Route path="Category/:categoryId" element={<CategoryShowPage />} />
+          <Route
+            path="Collection/:collectionId"
+            element={<CollectionShowPage />}
+          />
+          {/* <Route path=":collectionId/:categogryId" element={<CategoryShowPage />} /> */}
+          <Route
+            path="404"
+            element={<NotFound imgUrl={"BannerImages/notfound.jpg"} />}
+          />
+          <Route path="*" element={<Navigate to="/404" replace />} />
+        </Routes>
+
+        <Footer />
+      </div>
+    </>
+  );
+
     
 }
 

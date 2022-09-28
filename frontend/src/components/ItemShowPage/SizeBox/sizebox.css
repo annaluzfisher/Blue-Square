@@ -28,7 +28,7 @@
 .sizes-container label{
     height: 35px;
   width: 60px;
-  background-color: white;
+
   border: 1px solid black;
   display: flex;
   align-items: center;
@@ -42,10 +42,10 @@
   display: none;
 }
 
-.sizes-container > input:checked + label{
+/* .sizes-container > input:checked + label{
   color:white;
-  background-color: black;
-}
+  background-color: rgb(243, 12, 12);
+} */
 
 .sizes-container{
   display: flex;

@@ -25,7 +25,7 @@ function MainPage() {
       </div>
       <div className="safety-alert"></div>
       <ThemeComponent collectionIds={[1,2,3,4]} />
-      <AngledCallout/>
+      {/* <AngledCallout/> */}
       <SuggestedItems title={'SHOP ALL CAMPING'} collectionId={6}/>
     </>
   );

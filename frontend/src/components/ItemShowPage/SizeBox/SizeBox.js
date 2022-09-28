@@ -33,14 +33,20 @@ function SizeBox({ item }) {
 
   const adjustSize = (e, newSize) => {
     setSize(newSize);
-    if (e.currentTarget)
-      e.currentTarget.style = { backgroundColor: "black", color: "white" };
-
-    // console.log("size",size);
-    // console.log('target',e.currentTarget)
-    // console.log("target value", e.target.value);
+    if (e.currentTarget) {
+    console.log(e.currentTarget)
+    e.currentTarget.style.backgroundColor = 'black'
+        e.currentTarget.style.color = "white"
+    }
   };
 
+  const selectedSize = (input)=>{
+    if (size === input){
+      return {backgroundColor : 'black', color: 'white'}
+    } else{
+      return {backgroundColor : 'white', color: 'black'}
+    }
+  }
   useEffect(() => {
     if (currentUser) {
       setItemPayload({
@@ -74,32 +80,41 @@ function SizeBox({ item }) {
           Size: -------------------------------------------------------
         </span>
         <div className="sizes-container">
-          <label>
+          <label
+            onClick={(e) => adjustSize(e, "XS")}
+            style={selectedSize("XS")}
+          >
             {" "}
             <span>XS</span>
             <input type="radio" name="size" value={size} />
           </label>
-          <label onClick={(e) => adjustSize(e, "S")}>
+          <label onClick={(e) => adjustSize(e, "S")} style={selectedSize("S")}>
             {" "}
             <span>S</span>
             <input type="radio" name="size" value={size} />
           </label>
-          <label onClick={(e) => adjustSize(e, "M")}>
+          <label onClick={(e) => adjustSize(e, "M")} style={selectedSize("M")}>
             {" "}
             <span>M</span>
             <input type="radio" name="size" value={size} />
           </label>
-          <label onClick={(e) => adjustSize(e, "L")}>
+          <label onClick={(e) => adjustSize(e, "L")} style={selectedSize("L")}>
             {" "}
             <span>L</span>
             <input type="radio" name="size" value={size} />
           </label>
-          <label onClick={(e) => adjustSize(e, "XL")}>
+          <label
+            onClick={(e) => adjustSize(e, "XL")}
+            style={selectedSize("XL")}
+          >
             {" "}
             <span>XL</span>
             <input type="radio" name="size" value={size} />
           </label>
-          <label onClick={(e) => adjustSize(e, "XXL")}>
+          <label
+            onClick={(e) => adjustSize(e, "XXL")}
+            style={selectedSize("XXL")}
+          >
             <span>XXL</span>
             <input type="radio" name="size" value={size} />
           </label>
@@ -128,9 +143,8 @@ function SizeBox({ item }) {
           {size ? (
             <Button type="submit" name="ADD TO BAG"></Button>
           ) : (
-            <div className="button" id='holder'>
-            SELECT A SIZE
- 
+            <div className="button" id="holder">
+              SELECT A SIZE
             </div>
           )}
         </div>
