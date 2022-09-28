@@ -14,7 +14,7 @@ class Api::ReviewsController < ApplicationController
   def destroy
       review = Review.find(params[:id])
      if review && review.delete
-      render head :no_content
+      # render head :no_content
     else
        render "api/errors/internal_server_error", status: :internal_server_error
     end

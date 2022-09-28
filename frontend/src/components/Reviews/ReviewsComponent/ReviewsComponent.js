@@ -43,12 +43,12 @@ function ReviewsComponent({item}) {
     if (typeof storeReviews === "undefined" || !currentUser) {
     } else {
      
-      Object.values(storeReviews).map((review) => {
-        if (review.userId === currentUser.id) setEditableReview(review);
+      Object.values(storeReviews).map((sreview) => {
+        if (sreview.userId === currentUser.id && sreview.itemId === parseInt(itemId)) setEditableReview(sreview);
 
       });
     }
-  }, [item.reviewIds, numReviews,item]);
+  }, [item.reviewIds?.length, numReviews,item]);
 
 
 
@@ -95,12 +95,14 @@ function ReviewsComponent({item}) {
           patch={edit.current}
         />
       )}
-      { item.reviewIds?.map((id)=>{
-        console.log('item isx', item.reviewIds)
-      return  <ReviewShow reviewId={id} />
+      {storeItem?.reviewIds &&
+       Object.values(storeReviews).map((sreview) => {
+        if (sreview.itemId === parseInt(itemId)) 
+             return  <ReviewShow reviewId={sreview.id} /> 
+       }) }
 
-      })}
-   
+
+       
     </>
   );
 }

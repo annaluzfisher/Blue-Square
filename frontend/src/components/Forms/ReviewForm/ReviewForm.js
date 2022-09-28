@@ -6,6 +6,7 @@ import Star from "../../Star";
 import { createReview, updateReview, deleteReview } from "../../../store/reviews";
 import Errors from "../../Errors";
 import {useParams} from 'react-router-dom' 
+import { getCurrentUser } from "../../../store/session";
 
 
 function ReviewForm({ item, review = {title: '',content: '', name: ''} ,patch} ) {
@@ -16,7 +17,7 @@ function ReviewForm({ item, review = {title: '',content: '', name: ''} ,patch} )
    const [itemId1, setItemId1] = useState(item);
   const [rating, setRating] = useState(review.rating||5);
   const [reviewId, setReviewId] = useState(review.id)
-  const currentUser = useSelector((state) => state.session.user);
+  const currentUser = useSelector(getCurrentUser);
   const dispatch = useDispatch();
   const [errors, setErrors] = useState('')
 
@@ -30,8 +31,7 @@ function ReviewForm({ item, review = {title: '',content: '', name: ''} ,patch} )
  const { itemId } = useParams();
 
  useEffect(()=>{
-  console.log(itemId)
-  console.log('review',review)
+
   setErrors('')
     setTitle(review.title);
     setContent(review.content);
@@ -51,7 +51,14 @@ function ReviewForm({ item, review = {title: '',content: '', name: ''} ,patch} )
       }
      }
   
+const handleDelete = ()=>{
+  if (review.title === '' || review.content === ''){
 
+  }else{
+  dispatch(deleteReview(reviewId))
+  }
+
+}
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -70,7 +77,7 @@ function ReviewForm({ item, review = {title: '',content: '', name: ''} ,patch} )
     setRating(5)
     setName('')
      } else{
-        setErrors('Something went wrong!')
+        setErrors('Make sure all required fields are filled out... Review must be at least 50 characters')
   }
   };
 
@@ -130,7 +137,7 @@ function ReviewForm({ item, review = {title: '',content: '', name: ''} ,patch} )
         {patch ? (
           <div className="rf-button-container">
             <Button type={"submit"} name={"UPDATE"} />
-            <div color={"black"}  name={"Delete"} onClick={()=>dispatch(deleteReview(reviewId))}>DELETE</div>
+            <div color={"black"}  name={"Delete"} onClick={handleDelete}>DELETE</div>
           </div>
         ) : (
           <Button className='post' color={"black"} type={"submit"} name={"POST"}/>
