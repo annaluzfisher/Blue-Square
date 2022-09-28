@@ -4,14 +4,9 @@ import Masthead from '../Masthead/Masthead';
 import ThemeComponent from'../ThemeComponent/ThemeComponenet'
 import AngledCallout from '../AngledCallout';
 import SuggestedItems from '../SuggestedItems';
-import { getCategory } from '../../store/collections';
-import { useDispatch, useSelector } from "react-redux";
-import { useEffect, useState } from "react";
 
 function MainPage() {
-  const dispatch = useDispatch();
 
- const [itemIds , setItemIds] = useState([])
 
 
 

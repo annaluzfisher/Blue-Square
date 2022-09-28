@@ -13,7 +13,7 @@ export const removeCurrentUser = () => ({
   type: REMOVE_CURRENT_USER,
 });
 
-export const getCurrentUser = () => (state) => {
+export const getCurrentUser = (state) => {
   if (!state) return null;
   else if (!state.session.user) return null;
   else {

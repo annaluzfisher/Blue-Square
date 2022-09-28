@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import Button from "../../Buttons/Button";
 import { toggleModal } from "../../../store/ui";
 import { useDispatch, useSelector } from "react-redux";
-import { addCartItem, fetchCart } from "../../../store/cart";
+import { addCartItem} from "../../../store/cart";
 import { useNavigate } from "react-router-dom";
 import { getCurrentUser } from "../../../store/session";
 
@@ -15,7 +15,7 @@ function SizeBox({ item }) {
   const [size, setSize] = useState();
 
 
-  const currentUser = useSelector((state) => state.session.user);
+  const currentUser = useSelector(getCurrentUser);
 
   const [itemPayload, setItemPayload] = useState({});
   const ADDED_ID = 4;
@@ -118,12 +118,7 @@ function SizeBox({ item }) {
             <span>XXL</span>
             <input type="radio" name="size" value={size} />
           </label>
-          {/* <div>XS</div>
-          <div>S</div>
-          <div>M</div>
-          <div>L</div>
-          <div>XL</div>
-          <div>XXL</div> */}
+      
         </div>
         <span>----------------------------------------------------------</span>
         <div className="sb-price">

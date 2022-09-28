@@ -1,17 +1,16 @@
 import "./cartpage.css";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import {fetchCart, getCart} from '../../store/cart'
 import CartItemSnapshot from "./CartItemSnapshot";
 import Button from "../Buttons/Button";
-import ThemeComponenet from "../ThemeComponent/ThemeComponenet";
-import NavBar from "../NavBar/NavBar";
 import SuggestedItems from "../SuggestedItems";
+import { getCurrentUser } from "../../store/session";
 
 function CartPage() {
-   const { userId } = useParams();
-  const currentUser = useSelector((state) => state.session.user);
+
+  const currentUser = useSelector(getCurrentUser);
 
   const navigate = useNavigate();
   if (!currentUser) navigate("/Cart");
@@ -30,8 +29,6 @@ function CartPage() {
   });
   const [cart, setCart] = useState(storeCart);
   const [subtotal, setSubtotal] = useState('')
-  const [shipping, setShipping] = useState();
-  const [total, setTotal ] = useState();
 
 
 
@@ -45,7 +42,7 @@ function CartPage() {
          subTotalV += parseFloat((((item.price * item.quantity)/100)*100).toFixed(2));
         })
         setSubtotal(subTotalV)
-        setShipping((subtotal * 0.09).toFixed(2))
+   
 
         setCart(storeCart)
       }
@@ -59,11 +56,6 @@ function CartPage() {
     }
   }, [currentUser,cart]);
   
-  useEffect(() => { 
-    setCart(storeCart);
-
-   }, [numItems, currentUser]);
-
  
    
    if (!currentUser) return null;
