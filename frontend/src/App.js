@@ -44,24 +44,24 @@ const location = useLocation();
       <div className="app" id="app">
         <NavBar />
         <Routes>
-          <Route path="Create-Account" element={<CreateAccount />} />
+          <Route path="/Create-Account" element={<CreateAccount />} />
 
           <Route path="/" element={<MainPage />} />
 
-          <Route path="Cart/:userId" element={<CartPage />} />
+          <Route path="/Cart/:userId" element={<CartPage />} />
 
-          <Route path="Cart" element={<RequireLogin />} />
+          <Route path="/Cart" element={<RequireLogin />} />
 
-          <Route path="Items/:itemId" element={<ItemShowPage />} />
+          <Route path="/Items/:itemId" element={<ItemShowPage />} />
 
-          <Route path="Category/:categoryId" element={<CategoryShowPage />} />
+          <Route path="/Category/:categoryId" element={<CategoryShowPage />} />
           <Route
-            path="Collection/:collectionId"
+            path="/Collection/:collectionId"
             element={<CollectionShowPage />}
           />
           {/* <Route path=":collectionId/:categogryId" element={<CategoryShowPage />} /> */}
           <Route
-            path="404"
+            path="/404"
             element={<NotFound imgUrl={"BannerImages/notfound.jpg"} />}
           />
           <Route path="*" element={<Navigate to="/404" replace />} />
