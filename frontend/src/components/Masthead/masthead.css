@@ -64,7 +64,7 @@ position: relative;
 
 .buttons-container{
   display: flex;
-  justify-content: space-around;
+  justify-content: left;
   margin-top: 20px;
   position: relative;
   z-index: 100;

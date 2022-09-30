@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { fetchCollections, getCollections } from '../../store/collections';
 function SuggestedItems({title, collectionId}) {
 
+
   const dispatch = useDispatch();
   const storeCollections = useSelector(getCollections());
   const [collection, setCollection] = useState();
@@ -12,7 +13,7 @@ function SuggestedItems({title, collectionId}) {
 
   useEffect(() => {
     setCollection(storeCollections.collections[collectionId]);
-
+    console.log('what is it?',collection)
   }, [collectionId, storeCollections]);
 
 
