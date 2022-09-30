@@ -21,7 +21,7 @@ function ImageSnapshot({itemId}) {
   useEffect(() => {
     dispatch(fetchItem(itemId));
   }, [itemId]);
-  //two use effects
+
 
   useEffect(() => {
     dispatch(getItem(itemId));

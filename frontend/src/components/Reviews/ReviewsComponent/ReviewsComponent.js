@@ -65,9 +65,9 @@ function ReviewsComponent({item}) {
           <div className="stars-container-reviews">
             {[1, 2, 3, 4, 5].map((i) => {
               if (i <= item.average) {
-                return <Star filled={true} />;
+                return <Star key={i} filled={true} />;
               } else {
-                return <Star filled={false} />;
+                return <Star key={i} filled={false} />;
               }
             })}
           </div>
@@ -98,7 +98,7 @@ function ReviewsComponent({item}) {
       {storeItem?.reviewIds &&
        Object.values(storeReviews).map((sreview) => {
         if (sreview.itemId === parseInt(itemId)) 
-             return  <ReviewShow reviewId={sreview.id} /> 
+             return  <ReviewShow key={sreview.id} reviewId={sreview.id} /> 
        }) }
 
 

@@ -20,6 +20,13 @@ function ItemShowPage() {
   const [colId, setColId] = useState();
   const ADDED_ID = 4;
 
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    console.log('are we here on item id change?')
+  }, [itemId]);
+
+
   const modal = useSelector((state) => {
     if (!state) return null;
     if(!state.ui) return null;

@@ -25,7 +25,10 @@ function App() {
 
 const location = useLocation();
   
-
+useEffect(()=>{
+  window.scrollTo(0,0);
+  console.log('the location',location)
+},[location.pathname])
   const dispatch = useDispatch();
   const [currentUser, setCurrentUser] = useState(tempCurrentUser);
 
