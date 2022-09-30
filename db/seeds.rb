@@ -10,15 +10,15 @@
 require 'open-uri'
 
 
-# Review.destroy_all
-# CartItem.destroy_all
-# CategoryItem.destroy_all
-# CollectionCategory.destroy_all
-# Cart.destroy_all
-# Collection.destroy_all
-# Item.destroy_all
-User.destroy_all
-# Category.destroy_all
+Review.delete_all
+CartItem.delete_all
+CategoryItem.delete_all
+CollectionCategory.delete_all
+Cart.delete_all
+Category.delete_all
+Collection.delete_all
+Item.delete_all
+User.delete_all
 
 demo = User.create!(email: 'demo@email.com', password: 'password', first_name: 'Lynn', last_name: 'Hill', company_name: 'App Academy' )
 democart = Cart.create!(user_id: demo.id)
@@ -48,9 +48,9 @@ winter = Category.create!(name: 'Winter')
 wharnesses = Category.create!(name: "Harnesses", image_url:'https://bluesquarebucket.s3.us-west-1.amazonaws.com/womanclimmb.JPG')
 harnesses = Category.create!(name: "Harnesses", image_url:'https://bluesquarebucket.s3.us-west-1.amazonaws.com/womanclimmb.JPG')
 
-winter = Collection.create!(name: 'Winter',activity: true, image_url:'https://bluesquarebucket.s3.us-west-1.amazonaws.com/sunset.jpg')
-CollectionCategory.create!(collections_id: winter.id, categories_id: ski.id)
-CollectionCategory.create!(collections_id: winter.id, categories_id: ice_and_alpine.id)
+winter1 = Collection.create!(name: 'Winter',activity: true, image_url:'https://bluesquarebucket.s3.us-west-1.amazonaws.com/sunset.jpg')
+CollectionCategory.create!(collections_id: winter1.id, categories_id: ski.id)
+CollectionCategory.create!(collections_id: winter1.id, categories_id: ice_and_alpine.id)
 # CollectionCategory.create!(collections_id: winter.id, categories_id: jackets.id)
 
 climbing = Collection.create!(name: 'Climbing', activity: true, image_url:'https://bluesquarebucket.s3.us-west-1.amazonaws.com/bannerimages/image7.jpg')
