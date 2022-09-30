@@ -10,15 +10,15 @@
 require 'open-uri'
 
 
-Review.destroy_all
-CartItem.destroy_all
-CategoryItem.destroy_all
-CollectionCategory.destroy_all
-Cart.destroy_all
-Collection.destroy_all
-Item.destroy_all
+# Review.destroy_all
+# CartItem.destroy_all
+# CategoryItem.destroy_all
+# CollectionCategory.destroy_all
+# Cart.destroy_all
+# Collection.destroy_all
+# Item.destroy_all
 User.destroy_all
-Category.destroy_all
+# Category.destroy_all
 
 demo = User.create!(email: 'demo@email.com', password: 'password', first_name: 'Lynn', last_name: 'Hill', company_name: 'App Academy' )
 democart = Cart.create!(user_id: demo.id)
