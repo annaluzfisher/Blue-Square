@@ -11,7 +11,7 @@ wrap_parameters include: User.attribute_names + ['password']
       render :show
      else
       render "api/errors/internal_server_error", status: :internal_server_error
-      # render json: { errors: @user.errors.full_messages }, status: 422
+   
      end
   end
 

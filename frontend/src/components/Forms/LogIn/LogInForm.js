@@ -29,8 +29,6 @@ function LogInForm() {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (areValid(email, password)) {
-  
-
       let errors;
       errors = dispatch(loginUser(user));
       if (errors) {

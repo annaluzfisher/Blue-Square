@@ -41,10 +41,9 @@ export const reStoreUser = (userId) => async (dispatch) => {
 
 export const addCurrentUser = (user) => {
     return dispatch => {
-
-       dispatch(receiveUser(user));
-       dispatch(receiveCurrentUser(user));
-       dispatch(createCart(user));
+      dispatch(receiveUser(user));
+      dispatch(receiveCurrentUser(user));
+      dispatch(createCart(user));
     }
 }
 
