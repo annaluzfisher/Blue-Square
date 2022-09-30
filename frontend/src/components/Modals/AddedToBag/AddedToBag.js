@@ -3,15 +3,22 @@ import { useEffect, useState } from "react";
 import "../modals.css";
 import { useSelector, useDispatch } from "react-redux";
 import ModalNavBar from "../ModalNavBar/ModalNavBar";
-import {  useLocation, useNavigate, useParams } from "react-router-dom";
+import {  useParams } from "react-router-dom";
 import { getCart,fetchCart } from "../../../store/cart";
-import { getItem, fetchItem } from "../../../store/item";
-import CartItemSnapshot from "../../CartPage/CartItemSnapshot";
+import { getItem } from "../../../store/item";
+
 import SuggestedItems from "../../SuggestedItems";
 import Button from "../../Buttons/Button";
+import { getCollections } from "../../../store/collections";
 
 function AddedToBag() {
 
+  const collections = useSelector(getCollections());
+  const [suggestionId, setSuggestionId] = useState();
+
+  useEffect(() => {
+    setSuggestionId(Object.values(collections.collections)[2].id);
+  }, [])
 
   const{ itemId } = useParams();
    const ADDED_ID = 4;
@@ -113,7 +120,7 @@ if (!currentUser) return null;
           <div className="right-side">
             <h2> You might be interested in </h2>
             <p>Take a peek at some of the favourites at Blue Square, tried and true pieces of gear we use all the time.</p>
-            <SuggestedItems collectionId={3}/>
+            <SuggestedItems collectionId={suggestionId}/>
           </div>
         </div>
       </div>

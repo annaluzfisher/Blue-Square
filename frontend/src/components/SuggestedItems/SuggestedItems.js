@@ -29,8 +29,8 @@ useEffect(()=>{
       <h2>{title}</h2>
       <div className="si-snapshot-container">
  
-          {itemIds && itemIds.map((itemId) => {
-            return <ImageSnapshot key={itemId} itemId={itemId} />;
+          {itemIds && itemIds.map((itemId,i) => {
+            return <ImageSnapshot key={i} itemId={itemId} />;
           })}
   
       </div>

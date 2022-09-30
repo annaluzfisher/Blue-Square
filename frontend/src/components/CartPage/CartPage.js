@@ -20,8 +20,14 @@ function CartPage() {
   
   const storeCart = useSelector(getCart());
   const collections = useSelector(getCollections())
-  console.log(collections)
+  const [suggestionId, setSuggestionId] =  useState()
 
+  useEffect(()=>{
+   if(collections) {
+   const vals = Object.values(collections.collections)
+   setSuggestionId(vals[3]?.id)
+   }
+  },[collections])
   const numItems = useSelector((state) => {
     if (!state.cart.numItems){
       return null;
@@ -74,7 +80,8 @@ function CartPage() {
           {numItems > 0 ? (
             <div className="snapshot-holder">
               {Object.values(storeCart).map((item, i) => {
-                return <CartItemSnapshot key={i} item={item} />;
+                {console.log(item.id)}
+                return <CartItemSnapshot key={100+i} item={item} />;
               })}
             </div>
           ) : (
@@ -104,7 +111,7 @@ function CartPage() {
       </div>
 
      
-      <SuggestedItems title={'You might be interested in'} collectionId={collections.collections[3].id}/>
+      <SuggestedItems title={'You might be interested in'} collectionId={suggestionId}/>
     
     </>
   );
