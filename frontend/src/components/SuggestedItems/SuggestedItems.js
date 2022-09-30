@@ -13,7 +13,7 @@ function SuggestedItems({title, collectionId}) {
 
   useEffect(() => {
     setCollection(storeCollections.collections[collectionId]);
-    console.log('what is it?',collection)
+
   }, [collectionId, storeCollections]);
 
 

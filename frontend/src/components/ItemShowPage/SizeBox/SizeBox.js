@@ -34,7 +34,7 @@ function SizeBox({ item }) {
   const adjustSize = (e, newSize) => {
     setSize(newSize);
     if (e.currentTarget) {
-    console.log(e.currentTarget)
+
     e.currentTarget.style.backgroundColor = 'black'
         e.currentTarget.style.color = "white"
     }

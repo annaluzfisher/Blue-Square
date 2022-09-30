@@ -90,7 +90,7 @@ if (!currentUser) return null;
 
 
 
-console.log('what is the itemn', item, itemId)
+
 
   return (
     <>

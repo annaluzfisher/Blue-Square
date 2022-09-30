@@ -17,7 +17,7 @@ function MainPage() {
 
   useEffect(() => {
     Object.values(storeCollections.collections).map((collection) => {
-      console.log("collection.name", collection.name);
+  
       if (collection.name === "Camping") setCampingId(collection.id);
       if (collection.name === "Winter") setWinterId(collection.id);
 
@@ -37,7 +37,7 @@ function MainPage() {
       <div className="safety-alert"></div>
       <ThemeComponent />
       {/* <AngledCallout/> */}
-      {console.log(campingId)}
+  
       {campingId && (
         <SuggestedItems title={"SHOP ALL CAMPING"} collectionId={campingId} />
       )}

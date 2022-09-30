@@ -18,7 +18,7 @@ const {itemId} = useParams
 useEffect(()=>{
 
   review.current = storeReview
-console.log('reviewsssss',review)
+
 },[reviewId,storeReview,currentUser,itemId])
 
 if(!review.current) return null;

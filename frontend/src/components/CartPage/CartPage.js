@@ -7,6 +7,7 @@ import CartItemSnapshot from "./CartItemSnapshot";
 import Button from "../Buttons/Button";
 import SuggestedItems from "../SuggestedItems";
 import { getCurrentUser } from "../../store/session";
+import { getCollections } from "../../store/collections";
 
 function CartPage() {
 
@@ -18,7 +19,8 @@ function CartPage() {
   const dispatch = useDispatch();
   
   const storeCart = useSelector(getCart());
-
+  const collections = useSelector(getCollections())
+  console.log(collections)
 
   const numItems = useSelector((state) => {
     if (!state.cart.numItems){
@@ -102,7 +104,7 @@ function CartPage() {
       </div>
 
      
-      <SuggestedItems title={'You might be interested in'} collectionId={3}/>
+      <SuggestedItems title={'You might be interested in'} collectionId={collections.collections[3].id}/>
     
     </>
   );
