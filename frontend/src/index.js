@@ -26,9 +26,7 @@ if (
     initializeApp();
   }
 
-  window.onbeforeunload = function () {
-    window.scrollTo(0, 0);
-  };
+
  
   function initializeApp() {
     ReactDOM.render(

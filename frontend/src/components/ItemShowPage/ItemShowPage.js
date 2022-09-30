@@ -20,9 +20,7 @@ function ItemShowPage() {
   const [colId, setColId] = useState();
   const ADDED_ID = 4;
 
-    // useEffect(() => {
-    //   window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
-    // }, [itemId]);
+
 
 
   const modal = useSelector((state) => {

@@ -22,10 +22,7 @@ import ScrollToTop from "./Util/ScrollToTop";
 function App() {
   const location = useLocation();
 
-  useEffect(() => {
-    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
-    console.log("the location", location);
-  }, [location.pathname]);
+
 
   const dispatch = useDispatch();
   const [currentUser, setCurrentUser] = useState(tempCurrentUser);
