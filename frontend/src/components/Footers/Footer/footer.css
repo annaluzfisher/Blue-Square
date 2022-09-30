@@ -3,4 +3,31 @@
   width:100vw;
   height: 40vh;
   color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+}
+
+.footer-spacer{
+  height: 40px;
+}
+.text{
+  width: 80%;
+  height: 80%;
+}
+
+.links-box{
+  margin-bottom: 50px;
+  width: 40%;
+  display: flex;
+  justify-content: space-around;
+   font-size: 2rem;
+   transition: all .3s ease;
+}
+
+.links-box a:hover{
+  color: var(--orange);
 }
