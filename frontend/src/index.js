@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
-import { BrowserRouter } from "react-router-dom";
+import { HashRouter } from "react-router-dom";
 import { restoreCSRF } from "./store/csrf";
 import { Provider } from "react-redux";
 import configureStore from "./store/index";
@@ -29,13 +29,13 @@ if (
   function initializeApp() {
     ReactDOM.render(
       <React.StrictMode>
-        <BrowserRouter>
+        <HashRouter>
           <Provider store={store}>
             <ScrollToTop/>
               <App />
          
           </Provider>
-        </BrowserRouter>
+        </HashRouter>
       </React.StrictMode>,
       document.getElementById("root")
     );
