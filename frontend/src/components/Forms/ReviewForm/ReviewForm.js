@@ -126,7 +126,7 @@ const handleDelete = ()=>{
           required
         />
         <label>
-          <span>{"*"}</span>
+          <span>{""}</span>
           <label>Use your name</label>
         </label>
         <input

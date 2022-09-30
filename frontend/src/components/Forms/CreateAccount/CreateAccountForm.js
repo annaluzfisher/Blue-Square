@@ -39,26 +39,22 @@ function CreateAccountForm() {
       <form onSubmit={handleSubmit}>
         <div className="names">
           <div className="input-container">
-            <label>
-              First Name*
-              <input
-                type="text"
-                value={firstName}
-                onChange={(e) => setFirstName(e.target.value)}
-                required
-              />
-            </label>
+            <label>First Name*</label>
+            <input
+              type="text"
+              value={firstName}
+              onChange={(e) => setFirstName(e.target.value)}
+              required
+            />
           </div>
           <div className="input-container">
-            <label>
-              Last Name*
-              <input
-                type="text"
-                value={lastName}
-                onChange={(e) => setLastName(e.target.value)}
-                required
-              />
-            </label>
+            <label>Last Name*</label>
+            <input
+              type="text"
+              value={lastName}
+              onChange={(e) => setLastName(e.target.value)}
+              required
+            />
           </div>
         </div>
         <div className="input-container">
