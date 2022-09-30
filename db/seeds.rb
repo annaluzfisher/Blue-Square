@@ -10,15 +10,15 @@
 require 'open-uri'
 
 
-Review.destroy_all
-CartItem.destroy_all
-CategoryItem.destroy_all
-CollectionCategory.destroy_all
-Cart.destroy_all
-Category.destroy_all
-Collection.destroy_all
-Item.destroy_all
-User.destroy_all
+Review.delete_all
+CartItem.delete_all
+CategoryItem.delete_all
+CollectionCategory.delete_all
+Cart.delete_all
+Item.delete_all
+Category.delete_all
+Collection.delete_all
+User.delete_all
 
 demo = User.create!(email: 'demo@email.com', password: 'password', first_name: 'Lynn', last_name: 'Hill', company_name: 'App Academy' )
 democart = Cart.create!(user_id: demo.id)
@@ -35,7 +35,7 @@ ice_and_alpine = Category.create!(name: 'Ice & Alpine', parent_id: climb.id, ima
 jackets = Category.create!(name: 'Jackets', parent_id: ski.id, image_url: 'https://bluesquarebucket.s3.us-west-1.amazonaws.com/bannerimages/image4.jpg')
 # packs = Category.create!(name: 'Climbing Packs & Packpacks', parent_id: climb.id, image_url:'https://bluesquarebucket.s3.us-west-1.amazonaws.com/packs.jpg')
 packs = Category.create!(name: 'Packs', parent_id: climb.id, image_url:'https://bluesquarebucket.s3.us-west-1.amazonaws.com/bannerimages/image2.jpg')
-wbottoms = Category.create!(name: 'Bottoms',  image_url:'https://bluesquarebucket.s3.us-west-1.amazonaws.com/bannerimages/image5.jpg')
+wbottoms = Category.create!(name: 'Bottoms',  image_url:'https://bluesquarebucket.s3.us-west-1.amazonaws.com/2016-03-13+16.59.55.jpg')
 womensjackets = Category.create!(name: 'Jackets',  image_url:'https://bluesquarebucket.s3.us-west-1.amazonaws.com/bannerimages/image10.JPG')
 mensjackets = Category.create!(name: 'Jackets',  image_url:'https://bluesquarebucket.s3.us-west-1.amazonaws.com/climbhike.JPG')
 accesories = Category.create!(name: 'Accessories', image_url:'https://bluesquarebucket.s3.us-west-1.amazonaws.com/bannerimages/image3.jpg')
@@ -79,14 +79,14 @@ CollectionCategory.create!(collections_id: mens.id, categories_id: mbottoms.id)
 
 
 
-womens = Collection.create!(name: "Women's")
+womens = Collection.create!(name: "Women's", image_url: "https://bluesquarebucket.s3.us-west-1.amazonaws.com/2016-03-13+15.50.46.jpg")
 CollectionCategory.create!(collections_id: womens.id, categories_id: wharnesses.id)
 CollectionCategory.create!(collections_id: womens.id, categories_id: womensjackets.id)
 CollectionCategory.create!(collections_id: womens.id, categories_id: wbottoms.id)
 
 
 
-camping = Collection.create!(name: "Camping", activity: true)
+camping = Collection.create!(name: "Camping", activity: true, image_url: "https://bluesquarebucket.s3.us-west-1.amazonaws.com/8.jpg")
 
 CollectionCategory.create!(categories_id: tents.id, collections_id: camping.id)
 CollectionCategory.create!(categories_id: packs.id, collections_id: camping.id)
@@ -521,7 +521,7 @@ CategoryItem.create!(items_id: menmomentum2.id, categories_id: harnesses.id)
 CategoryItem.create!(items_id: menmomentum2.id, categories_id: mharnesses.id)
 CategoryItem.create!(items_id: menmomentum2.id, categories_id: climb.id)
 
-wzone = Item.create(name: "ZONE HARNESS - WOMEN'S", description: "Designed for the lightweight sport climbing redpoint ice route or alpine mission, the Black Diamond Zone Harness is a versatile powerhouse. High performance, lightweight and breathable, the redesigned Zone now features our patented seamless Infinity Belay Loop, which is durable, low profile, and eliminates the dreaded belay-loop-shift when the loop-seam catches while dogging a route. Fusion Comfort Technology ensures that you'll have ample support when on the wall, while the stretch woven outer fabric adds breathability. Finally, the contoured, women’s specific fit maximizes comfort for the inevitable big whips that come from pushing your limits.",
+wzone = Item.create!(name: "ZONE HARNESS - WOMEN'S", description: "Designed for the lightweight sport climbing redpoint ice route or alpine mission, the Black Diamond Zone Harness is a versatile powerhouse. High performance, lightweight and breathable, the redesigned Zone now features our patented seamless Infinity Belay Loop, which is durable, low profile, and eliminates the dreaded belay-loop-shift when the loop-seam catches while dogging a route. Fusion Comfort Technology ensures that you'll have ample support when on the wall, while the stretch woven outer fabric adds breathability. Finally, the contoured, women’s specific fit maximizes comfort for the inevitable big whips that come from pushing your limits.",
   price:99.95,
   size: true,
   image_url:"https://bluesquarebucket.s3.us-west-1.amazonaws.com/harnesses/zonew.webp"
@@ -530,7 +530,7 @@ CategoryItem.create!(items_id: wzone.id, categories_id: harnesses.id)
 CategoryItem.create!(items_id: wzone.id, categories_id: wharnesses.id)
 CategoryItem.create!(items_id: wzone.id, categories_id: climb.id)
 
-mzone = Item.create(name: "ZONE HARNESS - MEN'S", description: "Designed for the lightweight sport climbing redpoint ice route or alpine mission, the Black Diamond Zone Harness is a versatile powerhouse. High performance, lightweight and breathable, the redesigned Zone now features our patented seamless Infinity Belay Loop, which is durable, low profile, and eliminates the dreaded belay-loop-shift when the loop-seam catches while dogging a route. Fusion Comfort Technology ensures that you'll have ample support when on the wall, while the stretch woven outer fabric adds breathability. Finally, the contoured, women’s specific fit maximizes comfort for the inevitable big whips that come from pushing your limits.",
+mzone = Item.create!(name: "ZONE HARNESS - MEN'S", description: "Designed for the lightweight sport climbing redpoint ice route or alpine mission, the Black Diamond Zone Harness is a versatile powerhouse. High performance, lightweight and breathable, the redesigned Zone now features our patented seamless Infinity Belay Loop, which is durable, low profile, and eliminates the dreaded belay-loop-shift when the loop-seam catches while dogging a route. Fusion Comfort Technology ensures that you'll have ample support when on the wall, while the stretch woven outer fabric adds breathability. Finally, the contoured, women’s specific fit maximizes comfort for the inevitable big whips that come from pushing your limits.",
   price:99.95,
   size: true,
   image_url:"https://bluesquarebucket.s3.us-west-1.amazonaws.com/harnesses/zmone.webp"
@@ -551,7 +551,7 @@ CategoryItem.create!(items_id: couloir.id, categories_id: mharnesses.id)
 CategoryItem.create!(items_id: couloir.id, categories_id: ice_and_alpine.id)
 
 
-theo = Item.create(name: 'THEOREM 30 PACK',
+theo = Item.create!(name: 'THEOREM 30 PACK',
 description:'A 30-liter daypack that blends functionality with unparalleled style, the Theorem 30 holds everything you need for life’s multi-purpose missions. The internal organizer features a key-leash and zippered mesh pockets, while the electronics sleeve can be accessed both internally and externally. Two external stretchy side pockets hold water bottles, climbing shoes or any other gear you need, while a front-mounted daisy chain adds attachment options. the main pack body is built from 100% recycled fabrics.',
 price: 99.95,
 image_url:'https://bluesquarebucket.s3.us-west-1.amazonaws.com/packss/thorem.webp')
@@ -559,7 +559,7 @@ CategoryItem.create!(items_id: theo.id, categories_id: packs.id)
 CategoryItem.create!(items_id: theo.id, categories_id: climb.id)
 
 
-screek = Item.create(name: 'STREET CREEK 24 PACK',
+screek = Item.create!(name: 'STREET CREEK 24 PACK',
 description:"With best-in-class durability thanks to its haulbag inspired design, and urban features that make commutes a breeze, the Street Creek 24 is the ultimate everyday pack. The Street Creek’s dedicated 15” laptop sleeve adds versatility for the working stiff, while the burly haulbag construction holds up to day-in, day-out commutes. And when the weather goes south, an integrated rain cover pocket houses the protection you need when caught in a storm. The quick access main compartment is reminiscent of its haulbag-inspired design, while an internal security pocket stashes your keys and wallet safely. The Street Creek 24 also features a front zippered organizational pocket for your daily essentials, and the pack’s EVA padded shoulder straps and back panel provide maximum comfort while commuting.",
 price: 199.95,
 image_url:'https://bluesquarebucket.s3.us-west-1.amazonaws.com/packss/street24.webp')
@@ -567,7 +567,7 @@ image_url:'https://bluesquarebucket.s3.us-west-1.amazonaws.com/packss/street24.w
 CategoryItem.create!(items_id: screek.id, categories_id: packs.id)
 CategoryItem.create!(items_id: screek.id, categories_id: climb.id)
 
-s22 = Item.create(name: 'SPEED 22',
+s22 = Item.create!(name: 'SPEED 22',
 description:'Our tried-and-true on-route alpine pack, proven everywhere from the Canadian Rockies to the Fitz Roy massif, the Black Diamond Speed is designed for lightweight performance on rock, snow and ice objectives the world over. Featuring an updated BD X-rip 210d fabric with UTS™ coating, the new Speed is built to withstand season after season of mountain abuse. The pack is also fully strippable with a removable waistbelt, lid and frame-sheet, for minimalizing your set-up. We’ve improved the comfort as well with a moisture-wicking, updated back-panel and redesigned shoulder straps of dual-density foam for better load distribution on the approach while remaining streamlined on route. Ice tool PickPockets™ now feature a new custom metal dogbone ice tool attachment, boosting ice tool security, plus the snag-free crampon straps and a tuck-away rope strap secure gear to the outside. Surface-mounted glove-friendly main hood-buckles are a new addition and the drawcord skirt provides easy access and keeps out spindrift and light precip.',
 price: 129.95,
 image_url:'https://bluesquarebucket.s3.us-west-1.amazonaws.com/packss/speed22.webp')
@@ -575,7 +575,7 @@ image_url:'https://bluesquarebucket.s3.us-west-1.amazonaws.com/packss/speed22.we
 CategoryItem.create!(items_id: s22.id, categories_id: packs.id)
 
 
-jet = Item.create(name: 'JETFORCE PRO 35L AVALANCHE AIRBAG PACK',
+jet = Item.create!(name: 'JETFORCE PRO 35L AVALANCHE AIRBAG PACK',
 description:"Featuring the latest progression of our innovative JetForce Technology, the new JetForce Pro avalanche airbag with PIEPS technology is lighter, smaller and now features Bluetooth capabilities. Our revolutionary JetForce Technology is still rechargeable and travel-friendly, and features multiple deployments, with automatic deflation to create an air pocket, and has an automated self-diagnosis, but now the updated, lower-profile system is positioned lower, which improves the way the pack carries. With the addition of Bluetooth connectivity, you can update the software directly through the PIEPS app on your smartphone, as well as personalize settings. The 35-liter pack features a dedicated avy-tool pocket and plenty of storage for extra layers, water and additional gear, plus the pack is modular, giving you the option of purchasing a 10-liter, 25-liter, and 25-liter splitboard booster pack, which you can attach to the JetForce system for more versatility. The pack's ice-tool attachment secures your essential gear, while the tuck-away ski attachment system allows the airbag to deploy when skis are attached. The deploy trigger features status lights and can be switched to either the left or right shoulder strap and you can adjust the height for personal preference. ",
 size: true,
 price: 1499.95,
@@ -583,7 +583,7 @@ image_url:'https://bluesquarebucket.s3.us-west-1.amazonaws.com/packss/jet.webp')
 CategoryItem.create!(items_id: jet.id, categories_id: packs.id)
 CategoryItem.create!(items_id: jet.id, categories_id: ski.id)
 
-wtech = Item.create(name: "TECHNICIAN ALPINE PANTS - WOMEN'S",
+wtech = Item.create!(name: "TECHNICIAN ALPINE PANTS - WOMEN'S",
 description:'The rock jock version of our technical climbing pants, the Technician Alpine Pants are durable, abrasion-resistant, stretch synthetic pants engineered for sending at the crag. Articulated knees and adjustable drawcord hems are climb-specific features for unencumbered movement, while a ladder-lock waist belt lets you dial in the fit. The hand pockets are harness compatible while the zippered thigh pocket stashes topos and on-route essentials. Finally, the reflective logos are added touchpoints for visibility when you’re defying the dark.',
 size: true,
 price: 115.95,
@@ -591,7 +591,7 @@ image_url:'https://bluesquarebucket.s3.us-west-1.amazonaws.com/pants/wtech.webp'
 
 CategoryItem.create!(items_id: wtech.id, categories_id: wbottoms.id)
 
-wdawnp = Item.create(name: "WOMEN'S DAWN PATROL PANTS",
+wdawnp = Item.create!(name: "WOMEN'S DAWN PATROL PANTS",
 description:"For all-day tours and day-in, day-out backcountry use, the Black Diamond Dawn Patrol Pants are breathable enough to move with you and durable enough to make the journey. Designed with four-way stretch, double weave fabric with a DWR finish, the Dawn Patrol Pants provide high-level breathability without sacrificing durability. Providing superior temperature control on the uphill, mesh-backed vents cool you down while keeping unforeseen flurries out. Snow gaiters, boot-access zippers and Keprotec instep patches, they cover all of the needs of a mountain traveler with no excess.",
 price: 215.95,
 size: true,
@@ -599,69 +599,69 @@ image_url:'')
 
 CategoryItem.create!(items_id: wdawnp.id, categories_id: wbottoms.id)
 
-wrise = Item.create(name: "RISE TIGHTS - WOMEN'S",
+wrise = Item.create!(name: "RISE TIGHTS - WOMEN'S",
 description:"Rise to the occasion and send in the BD Rise Tight, designed for indoor gym comfort and no-slip coverage. With a high waist tailor-made for harness compatibility, the Rise features a four-way stretch fabric that balances durability with moisture-wicking performance. Lightweight and minimal.",
 price: 90.95,
 size: true,
 image_url:'https://bluesquarebucket.s3.us-west-1.amazonaws.com/pants/wrise.webp')
 CategoryItem.create!(items_id: wrise.id, categories_id: wbottoms.id)
 
-wzonep = Item.create(name: "ZONE DENIM PANTS - WOMEN'S",
+wzonep = Item.create!(name: "ZONE DENIM PANTS - WOMEN'S",
 description:"Designed to keep you crushing year-round, our Zone Denim Pants are a technical take on classic climbing denim. Featuring innovative Sorbtek technology, the Zone Pants have in-yarn moisture-wicking fibers that dry three times faster than other fibers. This technology keeps you cool, dry and comfortable during the cragging day. Plus, we’ve added a touch of stretch for mobility while sending, and the classic 5-pocket design is harness compatible. The fit is slim for climbing",
 price: 119.95,
 size: true,
 image_url:'https://bluesquarebucket.s3.us-west-1.amazonaws.com/pants/notion.webp')
 CategoryItem.create!(items_id: wzonep.id, categories_id: wbottoms.id)
 
-mtech = Item.create(name: "TECHNICIAN ALPINE PANTS  - MEN'S",
+mtech = Item.create!(name: "TECHNICIAN ALPINE PANTS  - MEN'S",
 description:"The cragging version of our technical climbing pants, the Technician Alpine Pants are durable, abrasion-resistant, stretch synthetic pants engineered for the send. Articulated knees and adjustable drawcord hems are climb-specific features for unencumbered movement, while a ladder-lock waist belt lets you dial in the fit. The hand pockets are harness compatible while the zippered thigh pocket stashes topos and on-route essentials. Finally, the reflective logos are added touchpoints for visibility when you’re defying the dark.",
 size: true,
 price: 115.95,
 image_url:'')
 CategoryItem.create!(items_id: mtech.id, categories_id: mbottoms.id)
 
-notion = Item.create(name: "NOTION SHORTS - MEN'S",
+notion = Item.create!(name: "NOTION SHORTS - MEN'S",
 description:"Ideal for long nights in the training cave and warm summer days in the actual cave, the Black Diamond Notion Shorts have a light, stretchy design with a drawstring elastic waist that fits comfortably under a harness. The movement-specific construction allows for full range of motion during high-steps, stems and heel hooks, while the two hand pockets and two rear pockets store your essential items on post-climb trips into town.",
 size: true,
 price: 75.95,
 image_url:'')
 CategoryItem.create!(items_id: notion.id, categories_id: mbottoms.id)
 
-rocklock = Item.create(name: "MEN'S ROCKLOCK CLIMB PANTS",
+rocklock = Item.create!(name: "MEN'S ROCKLOCK CLIMB PANTS",
 description:"The perfect pant for working the crux until you got it on lock, the Rocklock Climb Pants are a pair of comfortable organic cotton cragging bottoms featuring ripstop for added durability. Articulated knees combined with a gusseted inseam provide mobility, while the elastic waist with an interior drawcord gives you adjustability on the fit.",
 price: 115.95,
 size: true,
 image_url:'https://bluesquarebucket.s3.us-west-1.amazonaws.com/pants/rocklcok.webp')
 CategoryItem.create!(items_id: rocklock.id, categories_id: mbottoms.id)
 
-wool = Item.create(name: "MISSION WOOL DENIM PANTS - MEN'S",
+wool = Item.create!(name: "MISSION WOOL DENIM PANTS - MEN'S",
 description:"One of the best things about climbing is that you can still send in a pair of jeans. And now, thanks to Black Diamond’s Performance Wool Denim, when the temps drop, you can keep ‘em on and not freeze. Featuring a unique blend of cotton and certified non-mulesed wool, these jeans are like wolves in sheep’s clothing (pun intended) and maintain that cool Sharma style. Cut for mobility, the articulated knees combined with comfort stretch fabric allows for execution of tricky drop knees and high stepping, all while adding an increased level of warmth thanks to the wool. The fabric is treated with a DWR for added protection and each pocket placement is harness compatible.",
 size: true,
 price: 160.95,
 image_url:'https://bluesquarebucket.s3.us-west-1.amazonaws.com/pants/wool.webp')
 CategoryItem.create!(items_id: wool.id, categories_id: mbottoms.id)
 
-vaporH = Item.create(name: "VAPOR HELMET - HAZEL FINDLAY EDITION",
+vaporH = Item.create!(name: "VAPOR HELMET - HAZEL FINDLAY EDITION",
 description:"Providing ultralight, low-profile protection, unparalleled ventilation and a secure and super-comfortable fit, the Black Diamond Vapor helmet is a go-anywhere cragging lid that proves helmets aren't just for multi-pitch trad climbs and big alpine faces. We engineered a sheet of Kevlar and a series of carbon rods in between co-molded EPS foam and a polycarbonate shell to keep the weight at a minimum while keeping you protected. The Vapor's ratcheting suspension tucks into the helmet for compact storage in your pack or haul bag, and removable headlamp clips secure your light on pre-dawn starts or when rapping after dark.",
 size: true,
 price: 139.95,
 image_url:'https://bluesquarebucket.s3.us-west-1.amazonaws.com/pants/helmet/9539_source_1610126642.webp')
 CategoryItem.create!(items_id: vaporH.id, categories_id: helmets.id)
 
-wvapor = Item.create(name: "VAPOR HELMET - WOMEN'S",
+wvapor = Item.create!(name: "VAPOR HELMET - WOMEN'S",
 description:"Providing ultralight, low-profile protection, unparalleled ventilation and a secure and super-comfortable fit, the Black Diamond Vapor helmet is a go-anywhere cragging lid that proves helmets aren't just for multi-pitch trad climbs and big alpine faces. We engineered a sheet of Kevlar and a series of carbon rods in between co-molded EPS foam and a polycarbonate shell to keep the weight at a minimum while keeping you protected. The Vapor's ratcheting suspension tucks into the helmet for compact storage in your pack or haul bag, and removable headlamp clips secure your light on pre-dawn starts or when rapping after dark.",
 price: 139.95,
 size:true,
 image_url:'https://bluesquarebucket.s3.us-west-1.amazonaws.com/pants/helmet/wvapor.webp')
 CategoryItem.create!(items_id: wvapor.id, categories_id: helmets.id)
 
-foam = Item.create(name: "HALF DOME HELMET REPLACEMENT COMFORT FOAM PADS",
+foam = Item.create!(name: "HALF DOME HELMET REPLACEMENT COMFORT FOAM PADS",
 description:"Replacement pads for our Half Dome Helmet",
 price: 4.95,
 image_url:'https://bluesquarebucket.s3.us-west-1.amazonaws.com/pants/helmet/foam.webp')
 CategoryItem.create!(items_id: foam.id, categories_id: helmets.id)
 
-mips = Item.create(name: "CAPITAN HELMET - MIPS",
+mips = Item.create!(name: "CAPITAN HELMET - MIPS",
 description:"The Capitan MIPS is Black Diamond’s bomber, ultra-durable helmet, featuring added coverage on both the sides and back and MIPS tech, while maintaining a sleek, cradle fit for all-day comfort. The added MIPS (Multidirectional Impact Protection System) technology. The MIPS system is designed to protect against the rotational motion (or kinematics) transmitted to the brain from angled impacts to the head. This added protection system has been proven to reduce the rotational violence to the brain by absorbing and redirecting oblique impacts to the helmet. With a 2-piece ABS shell construction, a fusion of EPP foam and an EPS foam puck, the Capitan meets the proposed UIAA increased side and back protection requirements, while the vents provide ample breathability when temps heat up. A low-profile suspension system dials in the fit, and the integrated headlamp clips with an elastic keeper on the back secure your light so you can push through the night.",
 price: 99.95,
 size: true,
