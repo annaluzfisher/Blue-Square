@@ -42,7 +42,7 @@ accesories = Category.create!(name: 'Accessories', image_url:'https://bluesquare
 tents = Category.create!(name: 'Tents', image_url: 'https://bluesquarebucket.s3.us-west-1.amazonaws.com/bannerimages/image18.jpg')
 mharnesses = Category.create!(name: 'Harnesses', parent_id: climb.id, image_url:'https://bluesquarebucket.s3.us-west-1.amazonaws.com/bannerimages/image9.JPG')
 headlamps = Category.create!(name: 'Lighting', image_url:'https://bluesquarebucket.s3.us-west-1.amazonaws.com/category7.JPG')
-mbottoms  = Category.create!(name: 'Bottoms',  image_url:'https://bluesquarebucket.s3.us-west-1.amazonaws.com/bannerimages/image5.jpg')
+mbottoms  = Category.create!(name: 'Bottoms',  image_url:'https://bluesquarebucket.s3.us-west-1.amazonaws.com/IMG_0589.jpg')
 jackets = Category.create!(name: 'Jackets')
 winter = Category.create!(name: 'Winter')
 wharnesses = Category.create!(name: "Harnesses", image_url:'https://bluesquarebucket.s3.us-west-1.amazonaws.com/womanclimmb.JPG')
@@ -595,7 +595,7 @@ wdawnp = Item.create!(name: "WOMEN'S DAWN PATROL PANTS",
 description:"For all-day tours and day-in, day-out backcountry use, the Black Diamond Dawn Patrol Pants are breathable enough to move with you and durable enough to make the journey. Designed with four-way stretch, double weave fabric with a DWR finish, the Dawn Patrol Pants provide high-level breathability without sacrificing durability. Providing superior temperature control on the uphill, mesh-backed vents cool you down while keeping unforeseen flurries out. Snow gaiters, boot-access zippers and Keprotec instep patches, they cover all of the needs of a mountain traveler with no excess.",
 price: 215.95,
 size: true,
-image_url:'')
+image_url:'https://bluesquarebucket.s3.us-west-1.amazonaws.com/pants/wdawnp.jpeg')
 
 CategoryItem.create!(items_id: wdawnp.id, categories_id: wbottoms.id)
 
@@ -610,21 +610,21 @@ wzonep = Item.create!(name: "ZONE DENIM PANTS - WOMEN'S",
 description:"Designed to keep you crushing year-round, our Zone Denim Pants are a technical take on classic climbing denim. Featuring innovative Sorbtek technology, the Zone Pants have in-yarn moisture-wicking fibers that dry three times faster than other fibers. This technology keeps you cool, dry and comfortable during the cragging day. Plus, we’ve added a touch of stretch for mobility while sending, and the classic 5-pocket design is harness compatible. The fit is slim for climbing",
 price: 119.95,
 size: true,
-image_url:'https://bluesquarebucket.s3.us-west-1.amazonaws.com/pants/notion.webp')
+image_url:'https://bluesquarebucket.s3.us-west-1.amazonaws.com/pants/wzonep.webp')
 CategoryItem.create!(items_id: wzonep.id, categories_id: wbottoms.id)
 
 mtech = Item.create!(name: "TECHNICIAN ALPINE PANTS  - MEN'S",
 description:"The cragging version of our technical climbing pants, the Technician Alpine Pants are durable, abrasion-resistant, stretch synthetic pants engineered for the send. Articulated knees and adjustable drawcord hems are climb-specific features for unencumbered movement, while a ladder-lock waist belt lets you dial in the fit. The hand pockets are harness compatible while the zippered thigh pocket stashes topos and on-route essentials. Finally, the reflective logos are added touchpoints for visibility when you’re defying the dark.",
 size: true,
 price: 115.95,
-image_url:'')
+image_url:'https://bluesquarebucket.s3.us-west-1.amazonaws.com/pants/mtech.webp')
 CategoryItem.create!(items_id: mtech.id, categories_id: mbottoms.id)
 
 notion = Item.create!(name: "NOTION SHORTS - MEN'S",
 description:"Ideal for long nights in the training cave and warm summer days in the actual cave, the Black Diamond Notion Shorts have a light, stretchy design with a drawstring elastic waist that fits comfortably under a harness. The movement-specific construction allows for full range of motion during high-steps, stems and heel hooks, while the two hand pockets and two rear pockets store your essential items on post-climb trips into town.",
 size: true,
 price: 75.95,
-image_url:'')
+image_url:'https://bluesquarebucket.s3.us-west-1.amazonaws.com/pants/notion.webp')
 CategoryItem.create!(items_id: notion.id, categories_id: mbottoms.id)
 
 rocklock = Item.create!(name: "MEN'S ROCKLOCK CLIMB PANTS",
