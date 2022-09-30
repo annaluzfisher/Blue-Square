@@ -8,12 +8,11 @@ import ImageSnapshot from '../ItemShowPage/ImageSnapshot';
 
 function CategoryShowPage() {
   
-    useEffect(() => {
-   
-      window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
-    });
+  const { categoryId } = useParams();
+    // useEffect(() => {
+    //   window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+    // },[categoryId]);
 
-    const { categoryId } = useParams();
     const dispatch = useDispatch();
     const storeCategory = useSelector(getCategory(categoryId));
     const [category, setCategory] = useState({name:''});

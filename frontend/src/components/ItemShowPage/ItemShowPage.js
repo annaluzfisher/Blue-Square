@@ -20,11 +20,9 @@ function ItemShowPage() {
   const [colId, setColId] = useState();
   const ADDED_ID = 4;
 
-
-  useEffect(() => {
-    window.scrollTo(0, 0);
-    console.log('are we here on item id change?')
-  }, [itemId]);
+    // useEffect(() => {
+    //   window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+    // }, [itemId]);
 
 
   const modal = useSelector((state) => {
@@ -59,7 +57,7 @@ useEffect(()=>{
 
   return (
     <>  
-     {/* <ScrollToTop /> */}
+   
       {item && (
         <div className="item-show-page">
           <div className="spacer"></div>

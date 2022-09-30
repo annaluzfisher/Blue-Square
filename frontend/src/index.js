@@ -25,6 +25,10 @@ if (
   } else {
     initializeApp();
   }
+
+  window.onbeforeunload = function () {
+    window.scrollTo(0, 0);
+  };
  
   function initializeApp() {
     ReactDOM.render(
@@ -33,7 +37,7 @@ if (
           <Provider store={store}>
             <ScrollToTop/>
               <App />
-         
+   
           </Provider>
         </HashRouter>
       </React.StrictMode>,
