@@ -1,17 +1,26 @@
-.not-found-page{
-    width: inherit;
+/* .not-found-page{ */
+    /* width: inherit;
+  height: 100vh;
+  margin-top: 0px;
+  overflow: hidden; */
+  /* position: absolute;
+  z-index: 1;
+  color: white;
+} */
+
+.not-found-page {
+  width: inherit;
   height: inherit;
   margin-top: 0px;
   overflow: hidden;
   position: absolute;
   z-index: 2;
-  color: white;
 }
 
 .not-found-page img{
     position: absolute;
   width: 100%;
-  height: inherit;
+  height: 100%;
   opacity: .8;
   background-size: cover;
   object-fit: cover;

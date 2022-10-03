@@ -57,7 +57,6 @@ function App() {
             path="/Collection/:collectionId"
             element={<CollectionShowPage />}
           />
-          {/* <Route path=":collectionId/:categogryId" element={<CategoryShowPage />} /> */}
           <Route
             path="/404"
             element={<NotFound imgUrl={"BannerImages/notfound.jpg"} />}
