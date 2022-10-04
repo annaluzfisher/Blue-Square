@@ -1,7 +1,7 @@
 import './notfound.css'
 import Button from '../Buttons/Button/Button'
 function NotFound({imgUrl}) {
-  console.log('are we here!')
+
   return (
     <div className="not-found-page">
       <div className="overlay"></div>

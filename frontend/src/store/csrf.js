@@ -10,7 +10,7 @@ export const restoreCSRF = async () => {
     restoreCurrentUser(data);
     return data;
   } catch (error) {
-    console.log("error in restoreCSRF:", error);
+
   }
 };
 export let tempCurrentUser;

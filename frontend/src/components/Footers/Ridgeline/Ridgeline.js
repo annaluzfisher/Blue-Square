@@ -1,8 +1,7 @@
 import "./ridgeline.css";
-// import IntersectionObserver from 
+
 function Ridgeline() {
-  // const cover = document.querySelectorAll("image-cover")
-  // console.log('the cover!',cover)
+
 
 const observer = new IntersectionObserver((entries) => {
  entries.forEach((entry) => {
@@ -13,8 +12,7 @@ const observer = new IntersectionObserver((entries) => {
  });
 });
 
-// Tell the observer which elements to track
-// observer.observe(cover);
+
 
 
   return (
