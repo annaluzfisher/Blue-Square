@@ -4,3 +4,44 @@
   height: inherit;
   width:inherit;
 }
+
+
+.search-form{
+  border: 2px solid rgb(0, 0, 0);
+   height: fit-content;
+  width: 30vw;
+  min-width: 200px;
+  position: fixed;
+  margin-left: 80px;
+  top: 35px;
+  display:flex ;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.search-form > input{
+  height:40px;
+  width: 85%;
+  border: none;
+  padding-left: 10px;
+}
+
+.search-form > i{
+  padding: 10px;
+  font-size: 1.4em;
+  color:rgb(147, 147, 147)
+}
+.search-form > i:hover{
+  cursor: pointer;
+}
+
+.search-form  input:focus, 
+.search-form  select:focus,
+.search-form  textarea:focus{
+  outline: none;
+}
+
+
+[type=search] {
+    -webkit-appearance: textfield;
+}

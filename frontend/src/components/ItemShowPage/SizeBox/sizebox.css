@@ -12,19 +12,7 @@
 
 }
 
-/* .sizes-container div{
-  height: 35px;
-  width: 55px;
-  background-color: white;
-  border: 1px solid black;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: 'Roboto';
-  font-weight: 300;
-  margin: 10px;
-  position: relative;
-} */
+
 .sizes-container label{
     height: 35px;
   width: 60px;
@@ -42,10 +30,7 @@
   display: none;
 }
 
-/* .sizes-container > input:checked + label{
-  color:white;
-  background-color: rgb(243, 12, 12);
-} */
+
 
 .sizes-container{
   display: flex;
