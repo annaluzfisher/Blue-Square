@@ -14,4 +14,6 @@ class Collection < ApplicationRecord
   has_many :categories, through: :collection_categories, source: :category
   has_many :items, through: :categories, source: :items
 
+  include PgSearch::Model
+  multisearchable against: :name
 end

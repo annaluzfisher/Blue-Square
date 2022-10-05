@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     resources :users, only: [ :create ] 
     resources :collections, only: [ :index ] 
    resource :session, only: [ :show, :create, :destroy ]
+   get 'search/:params' to: 'search#search'
    get '*path', to: 'static_pages#frontend_index'
   end
 end

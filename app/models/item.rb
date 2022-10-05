@@ -18,6 +18,9 @@ class Item < ApplicationRecord
   has_many :category_items, foreign_key: :items_id, dependent: :destroy
   has_many :categories, through: :category_items, source: :category
   has_many :collections, through: :categories, source: :collections
+
+  include PgSearch::Model
+  multisearchable against: [:name, :description]
   
   def average
     ratings = self.reviews.pluck(:rating)
