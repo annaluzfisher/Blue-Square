@@ -13,7 +13,7 @@ import {
 import ImageSnapshot from "../../ItemShowPage/ImageSnapshot";
 import { useNavigate } from "react-router-dom";
 import { toggleModal } from "../../../store/ui";
-import SearchResults from "../../SearchResults/SearchResults";
+
 import Button from "../../Buttons/Button";
 
 function Search() {
@@ -27,13 +27,13 @@ function Search() {
   const handleSearch = () => {
     dispatch(fetchSearch(searchRequest));
     dispatch(toggleModal(SEARCH_ID));
-    navigate("/Search");
+    navigate(`/Search/${searchRequest}`);
   };
 
   const handleClick = () => {
     dispatch(fetchSearch(searchRequest));
     dispatch(toggleModal(SEARCH_ID));
-    navigate("/Search");
+    navigate(`/Search/${searchRequest}`);
   };
 
   const handleChange = (e) => {
@@ -52,21 +52,7 @@ function Search() {
     setOptions(items);
   }, [items]);
 
-  const delayedNoResults = () =>{
-
-setTimeout(()=>{
-  return ()=>{
-      <>
-           <h3>No results...</h3>
-           <Button
-             localPath={"/"}
-             name={"KEEP SHOPPING"}
-             primary={"secondary"}
-           />
-         </>
-  }
-    },100)
-  }
+  
   if (!visible) return null;
   return (
     <>

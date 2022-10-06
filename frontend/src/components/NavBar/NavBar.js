@@ -22,7 +22,9 @@ function NavBar() {
   const params = useParams();
   useEffect(() => {
 
-    location.pathname.includes("/Items/") || location.pathname.includes("Cart/")
+    location.pathname.includes("/Items/") ||
+    location.pathname.includes("Cart/") ||
+    location.pathname.includes("Search")
       ? setColor("black")
       : setColor("white");
   }, [location.pathname,params,currentUser]);

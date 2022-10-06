@@ -9,7 +9,7 @@ import { getReviews } from "../../store/reviews";
 import NoSizeBox from "./NoSizeBox";
 import SuggestedItems from "../SuggestedItems";
 import AddedToBag from "../Modals/AddedToBag";
-import ScrollToTop from "../../Util/ScrollToTop";
+
 
 function ItemShowPage() {
   const { itemId } = useParams();

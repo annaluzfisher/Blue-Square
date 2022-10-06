@@ -18,10 +18,7 @@ import Footer from "./components/Footers/Footer/Footer";
 import CategoryShowPage from "./components/CategoryShowPage";
 import CollectionShowPage from "./components/CollectionShowPage";
 
-
 function App() {
-
-
   const dispatch = useDispatch();
   const [currentUser, setCurrentUser] = useState(tempCurrentUser);
 
@@ -38,28 +35,26 @@ function App() {
       <div className="app" id="app">
         <NavBar />
         <Routes>
-          
-            <Route path="/Create-Account" element={<CreateAccount />} />
-          
+          <Route path="/Create-Account" element={<CreateAccount />} />
 
           <Route path="/" element={<MainPage />} />
 
           <Route path="/Cart/:userId" element={<CartPage />} />
 
           <Route path="/Cart" element={<RequireLogin />} />
-        
-            <Route path="/Items/:itemId" element={<ItemShowPage />} />
-          
+
+          <Route path="/Items/:itemId" element={<ItemShowPage />} />
+
           <Route path="/Category/:categoryId" element={<CategoryShowPage />} />
           <Route
             path="/Collection/:collectionId"
             element={<CollectionShowPage />}
           />
+            <Route path="/Search/:query" element={<SearchResults />} />
           <Route
             path="/404"
             element={<NotFound imgUrl={"BannerImages/notfound.jpg"} />}
           />
-          <Route path='/Search' element={<SearchResults/>} />
           <Route path="*" element={<Navigate to="/404" replace />} />
         </Routes>
 
