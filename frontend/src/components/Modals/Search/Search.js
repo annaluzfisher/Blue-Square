@@ -25,7 +25,6 @@ function Search() {
   const dispatch = useDispatch();
 
   const handleSearch = () => {
-
         if (searchRequest !== '') {  dispatch(fetchSearch(searchRequest));
     dispatch(toggleModal(SEARCH_ID));
     navigate(`/Search/${searchRequest}`)
@@ -33,7 +32,6 @@ function Search() {
   };
 
   const handleClick = () => {
-   
      if (searchRequest !== '') { dispatch(fetchSearch(searchRequest));
     dispatch(toggleModal(SEARCH_ID));
     navigate(`/Search/${searchRequest}`);

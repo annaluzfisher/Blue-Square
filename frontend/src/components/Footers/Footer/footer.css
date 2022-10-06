@@ -8,7 +8,10 @@
   align-items: center;
   justify-content: center;
   text-align: center;
-
+  animation-name: fade-in;
+  animation-duration: 1s;
+  animation-delay:2s;
+  animation-iteration-count: 1;
 }
 
 .footer-spacer{
@@ -17,6 +20,9 @@
 .text{
   width: 80%;
   height: 80%;
+  font-family: 'Roboto';
+  font-weight: 300;
+  font-size: 1.1em;
 }
 
 .links-box{
