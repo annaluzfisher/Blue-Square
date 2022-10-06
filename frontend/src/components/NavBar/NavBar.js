@@ -7,7 +7,8 @@ import { Link, useLocation, useParams } from "react-router-dom";
 import Logo from "../Buttons/Logo/Logo";
 import Search from "../Modals/Search/Search";
 import Shop from "../Modals/Shop/Shop";
-import AddedToBag from "../Modals/AddedToBag";
+
+import { clearResults } from "../../store/search";
 // const Shop = React.lazy(() => import("../Modals/Shop/Shop"));
 
 function NavBar() {
@@ -29,7 +30,12 @@ function NavBar() {
       : setColor("white");
   }, [location.pathname,params,currentUser]);
 
-
+const handleSearchToggle = () => {
+if (!location.pathname.includes('Search')){
+  dispatch(clearResults())
+}
+dispatch(toggleModal(SEARCH_ID))
+}
   return (
     <>
       <nav className="nav-bar" style={{color : color}}>
@@ -49,7 +55,7 @@ function NavBar() {
           </div>
           <div
             className="search-icon-wrapper"
-            onClick={() => dispatch(toggleModal(SEARCH_ID))}
+            onClick={handleSearchToggle}
           >
             <i className="fa-solid fa-magnifying-glass hover-icon"></i>
           </div>

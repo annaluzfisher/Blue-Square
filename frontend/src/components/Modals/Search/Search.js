@@ -25,20 +25,26 @@ function Search() {
   const dispatch = useDispatch();
 
   const handleSearch = () => {
-    dispatch(fetchSearch(searchRequest));
+
+        if (searchRequest !== '') {  dispatch(fetchSearch(searchRequest));
     dispatch(toggleModal(SEARCH_ID));
-    navigate(`/Search/${searchRequest}`);
+    navigate(`/Search/${searchRequest}`)
+        }
   };
 
   const handleClick = () => {
-    dispatch(fetchSearch(searchRequest));
+   
+     if (searchRequest !== '') { dispatch(fetchSearch(searchRequest));
     dispatch(toggleModal(SEARCH_ID));
     navigate(`/Search/${searchRequest}`);
+     }
   };
 
   const handleChange = (e) => {
-    setSearchRequest(e.target.value.toUpperCase());
-    dispatch(fetchSearch5(e.target.value));
+ setSearchRequest(e.target.value.toUpperCase());
+       if (e.target.value.length > 0) {
+        dispatch(fetchSearch5(e.target.value))
+       }
   };
 
   const items = useSelector(getResults);
