@@ -159,7 +159,7 @@ price:79.95,
 image_url:'https://bluesquarebucket.s3.us-west-1.amazonaws.com/c4/C4-4.webp')
 CategoryItem.create!(items_id: c4_4.id, categories_id: rock_protection.id)
 CategoryItem.create!(items_id: c4_4.id, categories_id: climb.id)
-CategoryItem.create!(items_id: c4_4.id, categories_id: ice_and_alpine.id)
+
 
 c4_5 = Item.create!(name: 'C4 #05',
 description:'The world’s best-selling, most trusted cam just got better. The new, redesigned Camalot C4 has now upped the ante, considering it’s 10% lighter yet just as durable as before. Plus, it features a modern design that improves on the old tried-and-true Camalots. The cam’s lobes are lighter and more sculpted, optimized for strength to weight, while the slings have a visual update for easier differentiation when racking. And speaking of racking, we’re introducing a new innovative trigger keeper on sizes #4, #5, #6, #7, and #8 that keeps the big guys contracted for compact racking and immediately release when you’re ready to place. We’ve also widened the trigger as well for better handling.',
@@ -167,7 +167,7 @@ price:79.95,
 image_url:'https://bluesquarebucket.s3.us-west-1.amazonaws.com/c4/C4-5.webp')
 CategoryItem.create!(items_id: c4_5.id, categories_id: rock_protection.id)
 CategoryItem.create!(items_id: c4_5.id, categories_id: climb.id)
-CategoryItem.create!(items_id: c4_5.id, categories_id: ice_and_alpine.id)
+
 
 c4_6 = Item.create!(name: 'C4 #06',
 description:'The world’s best-selling, most trusted cam just got better. The new, redesigned Camalot C4 has now upped the ante, considering it’s 10% lighter yet just as durable as before. Plus, it features a modern design that improves on the old tried-and-true Camalots. The cam’s lobes are lighter and more sculpted, optimized for strength to weight, while the slings have a visual update for easier differentiation when racking. And speaking of racking, we’re introducing a new innovative trigger keeper on sizes #4, #5, #6, #7, and #8 that keeps the big guys contracted for compact racking and immediately release when you’re ready to place. We’ve also widened the trigger as well for better handling.',
@@ -175,7 +175,7 @@ price:79.95,
 image_url:'https://bluesquarebucket.s3.us-west-1.amazonaws.com/c4/C4-6.webp')
 CategoryItem.create!(items_id: c4_6.id, categories_id: rock_protection.id)
 CategoryItem.create!(items_id: c4_6.id, categories_id: climb.id)
-CategoryItem.create!(items_id: c4_6.id, categories_id: ice_and_alpine.id)
+
 
 c4_7 = Item.create!(name: 'C4 #07',
 description:'The world’s best-selling, most trusted cam just got better. The new, redesigned Camalot C4 has now upped the ante, considering it’s 10% lighter yet just as durable as before. Plus, it features a modern design that improves on the old tried-and-true Camalots. The cam’s lobes are lighter and more sculpted, optimized for strength to weight, while the slings have a visual update for easier differentiation when racking. And speaking of racking, we’re introducing a new innovative trigger keeper on sizes #4, #5, #6, #7, and #8 that keeps the big guys contracted for compact racking and immediately release when you’re ready to place. We’ve also widened the trigger as well for better handling.',
@@ -183,7 +183,7 @@ price:79.95,
 image_url:'https://bluesquarebucket.s3.us-west-1.amazonaws.com/c4/C4-7.webp')
 CategoryItem.create!(items_id: c4_7.id, categories_id: rock_protection.id)
 CategoryItem.create!(items_id: c4_7.id, categories_id: climb.id)
-CategoryItem.create!(items_id: c4_7.id, categories_id: ice_and_alpine.id)
+
 
 c4_8 = Item.create!(name: 'C4 #08',
 description:'The world’s best-selling, most trusted cam just got better. The new, redesigned Camalot C4 has now upped the ante, considering it’s 10% lighter yet just as durable as before. Plus, it features a modern design that improves on the old tried-and-true Camalots. The cam’s lobes are lighter and more sculpted, optimized for strength to weight, while the slings have a visual update for easier differentiation when racking. And speaking of racking, we’re introducing a new innovative trigger keeper on sizes #4, #5, #6, #7, and #8 that keeps the big guys contracted for compact racking and immediately release when you’re ready to place. We’ve also widened the trigger as well for better handling.',
@@ -191,7 +191,7 @@ price:79.95,
 image_url:'https://bluesquarebucket.s3.us-west-1.amazonaws.com/c4/C4-8.webp')
 CategoryItem.create!(items_id: c4_8.id, categories_id: rock_protection.id)
 CategoryItem.create!(items_id: c4_8.id, categories_id: climb.id)
-CategoryItem.create!(items_id: c4_8.id, categories_id: ice_and_alpine.id)
+
 
 screwup = Item.create!(name: 'Ice Screw Up',
 description:"Protect and organize your winter rack with the Blue Square Ice ScrewUp. This lightweight, convenient roll-up pouch protects the threads and teeth of your ice screws and saves space when they're stored in your pack.",
