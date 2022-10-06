@@ -15,5 +15,6 @@ class Collection < ApplicationRecord
   has_many :items, through: :categories, source: :items
 
   include PgSearch::Model
-  multisearchable against: :name
+  # multisearchable against: :name
+   pg_search_scope :search_item, against: :name, using: :tsearch
 end

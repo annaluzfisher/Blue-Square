@@ -20,7 +20,8 @@ class Item < ApplicationRecord
   has_many :collections, through: :categories, source: :collections
 
   include PgSearch::Model
-  multisearchable against: [:name, :description]
+  # multisearchable against: [:name, :description]
+  pg_search_scope :search_item, against: [:name, :description ], using: :tsearch
   
   def average
     ratings = self.reviews.pluck(:rating)

@@ -1,7 +1,7 @@
 import { Routes, Route, Navigate, useLocation } from "react-router-dom";
 import MainPage from "./components/MainPage";
 import NavBar from "./components/NavBar/NavBar";
-import { Fragment, useEffect } from "react";
+import { useEffect } from "react";
 import { storageUser } from ".";
 import { removeCurrentUser, receiveCurrentUser } from "./store/session";
 import { useDispatch } from "react-redux";
@@ -13,15 +13,13 @@ import CartPage from "./components/CartPage";
 import ItemShowPage from "./components/ItemShowPage";
 import NotFound from "./components/NotFound";
 import RequireLogin from "./components/CartPage/RequireLogin/RequireLogin";
-
+import SearchResults from "./components/SearchResults/SearchResults";
 import Footer from "./components/Footers/Footer/Footer";
 import CategoryShowPage from "./components/CategoryShowPage";
 import CollectionShowPage from "./components/CollectionShowPage";
-import ScrollToTop from "./Util/ScrollToTop";
+
 
 function App() {
-  const location = useLocation();
-
 
 
   const dispatch = useDispatch();
@@ -61,6 +59,7 @@ function App() {
             path="/404"
             element={<NotFound imgUrl={"BannerImages/notfound.jpg"} />}
           />
+          <Route path='/Search' element={<SearchResults/>} />
           <Route path="*" element={<Navigate to="/404" replace />} />
         </Routes>
 
