@@ -1,51 +1,72 @@
-import './search.css'
-import "../modals.css"
-import NavTierLabel from '../NavTierLabel/NavTierLabel';
+import "./search.css";
+import "../modals.css";
+import NavTierLabel from "../NavTierLabel/NavTierLabel";
 import ModalNavBar from "../ModalNavBar/ModalNavBar";
-import { useSelector,useDispatch } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { useEffect, useState } from "react";
-import { clearResults, fetchSearch, getResults, fetchSearch5 } from '../../../store/search';
-import ImageSnapshot from '../../ItemShowPage/ImageSnapshot';
-import { useNavigate } from 'react-router-dom'
-import { toggleModal } from '../../../store/ui';
-import SearchResults from '../../SearchResults/SearchResults';
+import {
+  clearResults,
+  fetchSearch,
+  getResults,
+  fetchSearch5,
+} from "../../../store/search";
+import ImageSnapshot from "../../ItemShowPage/ImageSnapshot";
+import { useNavigate } from "react-router-dom";
+import { toggleModal } from "../../../store/ui";
+import SearchResults from "../../SearchResults/SearchResults";
+import Button from "../../Buttons/Button";
 
 function Search() {
-  const SEARCH_ID = 3
+  const SEARCH_ID = 3;
   const visible = useSelector((state) => state.ui.modals[SEARCH_ID].visible);
-  const [searchRequest, setSearchRequest] = useState('')
-    const [options, setOptions] = useState();
+  const [searchRequest, setSearchRequest] = useState("");
+  const [options, setOptions] = useState();
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  
-  const handleSearch = () =>{
-        dispatch(fetchSearch(searchRequest));
-      dispatch(toggleModal(SEARCH_ID))
-      navigate("/Search");
-  }
 
-  const handleClick = () =>{
-        dispatch(fetchSearch(searchRequest));
-      dispatch(toggleModal(SEARCH_ID));
-      navigate("/Search");
-  }
+  const handleSearch = () => {
+    dispatch(fetchSearch(searchRequest));
+    dispatch(toggleModal(SEARCH_ID));
+    navigate("/Search");
+  };
 
-  const handleChange = (e) =>{
-    setSearchRequest((e.target.value).toUpperCase())
-    dispatch(fetchSearch5(e.target.value))
-  }
+  const handleClick = () => {
+    dispatch(fetchSearch(searchRequest));
+    dispatch(toggleModal(SEARCH_ID));
+    navigate("/Search");
+  };
 
-  const items = useSelector(getResults)
-  useEffect(()=>{
-    if(searchRequest === ''){
-      dispatch(clearResults())
+  const handleChange = (e) => {
+    setSearchRequest(e.target.value.toUpperCase());
+    dispatch(fetchSearch5(e.target.value));
+  };
+
+  const items = useSelector(getResults);
+  useEffect(() => {
+    if (searchRequest === "") {
+      dispatch(clearResults());
     }
-  },[searchRequest])
+  }, [searchRequest]);
 
-  useEffect(()=>{
-    setOptions(items)
-  },[items])
+  useEffect(() => {
+    setOptions(items);
+  }, [items]);
 
+  const delayedNoResults = () =>{
+
+setTimeout(()=>{
+  return ()=>{
+      <>
+           <h3>No results...</h3>
+           <Button
+             localPath={"/"}
+             name={"KEEP SHOPPING"}
+             primary={"secondary"}
+           />
+         </>
+  }
+    },100)
+  }
   if (!visible) return null;
   return (
     <>
@@ -53,26 +74,41 @@ function Search() {
         <ModalNavBar modalId={SEARCH_ID} />
         <NavTierLabel name={"SUGGESTIONS"} />
         <div className="search modal-page">
-          <form className="search-form" onSubmit={handleSearch}>
+          <form className="search-form">
             <input type="search" onChange={(e) => handleChange(e)}></input>
-            <input type="submit" value={"search"}>
-              {/* <i className="fa-solid fa-magnifying-glass"></i> */}
-            </input>
+            <i
+              className="fa-solid fa-magnifying-glass"
+              onClick={handleSearch}
+            ></i>
           </form>
         </div>
         <div className="suggestions">
-          {searchRequest && <h1>'{searchRequest}'</h1>}
-          <div className="logout-button" onClick={handleClick}>
-            <span>shop all</span>
-            <i className="fa-solid fa-angle-right"></i>
+          <div className="header-holder">
+            {searchRequest && (
+              <>
+                <h1>'{searchRequest}'</h1>
+                <div className="arrow-button" onClick={handleClick}>
+                  <span>SHOP ALL</span>
+                  <i className="fa-solid fa-angle-right"></i>
+                </div>
+              </>
+            )}
           </div>
-          <div>
-            {options ? (
+          <div className="scroller">
+            {options[1] ? (
               options?.map((item) => {
                 return <ImageSnapshot itemId={item.id} />;
               })
             ) : (
-              <span>search for something </span>
+          
+              <div className="no-results-container">
+                <h3>No results...</h3>
+                <Button
+                  localPath={"/"}
+                  name={"KEEP SHOPPING"}
+                  primary={"secondary"}
+                />
+              </div>
             )}
           </div>
         </div>
@@ -81,12 +117,4 @@ function Search() {
   );
 }
 
-
-export default Search
-
-
-
-
-
-
-
+export default Search;
