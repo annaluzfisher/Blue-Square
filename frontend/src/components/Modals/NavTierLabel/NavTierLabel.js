@@ -1,11 +1,14 @@
 import './navtierlabel.css'
 
 function NavTierLabel({name,x,y}) {
-  // const logo = document.getElementsById('logo')
-  
+  // const logo = document.getElementById('logo')
+  // const rect = logo.getBoundingClientRect();
+  // console.log(rect.top, rect.left)
   return (
-   <span className='nav-tier-label'>{name}</span>
+   <span className='nav-tier-label' 
+  //  top={rect.top} 
+  //  left={rect.left}
+   >{name}</span>
   )
 }
-
 export default NavTierLabel;

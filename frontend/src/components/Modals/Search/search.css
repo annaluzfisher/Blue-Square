@@ -45,3 +45,19 @@
 [type=search] {
     -webkit-appearance: textfield;
 }
+
+.suggestions{
+  margin-top: 10%;
+  margin-left: 5%;
+  margin-right: 5%;
+  display: flex;
+  flex-direction: column;
+
+}
+
+.suggestions > div {
+  overflow-x: scroll;
+   display: flex;
+  align-items: center;
+
+}

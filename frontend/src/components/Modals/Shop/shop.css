@@ -8,10 +8,11 @@
     display: flex;
   flex-direction: row;
   justify-content: space-around;
-  /* border: 2px solid red; */
   height: fit-content;
   margin-left: 10%;
   margin-right: 10%;
+  min-width: 450px;
+  padding : 20px;
 }
 
 .activities-holder{

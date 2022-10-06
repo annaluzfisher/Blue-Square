@@ -20,8 +20,16 @@ class Item < ApplicationRecord
   has_many :collections, through: :categories, source: :collections
 
   include PgSearch::Model
-  # multisearchable against: [:name, :description]
-  pg_search_scope :search_item, against: [:name, :description ], using: :tsearch
+
+  pg_search_scope :search_item, against: {name: 'A', description: 'B' },  using: {
+    # :tsearch => { prefix: true , any_word: true, dictionary: 'english'},
+      :trigram => { threshold: 0.1}
+  }
+
+    pg_search_scope :deep_search, against: {name: 'A', description: 'B' },  using: {
+      :trigram => { threshold: 0.1},
+      :tsearch => { prefix: :true , dictionary: 'english'}
+  }
   
   def average
     ratings = self.reviews.pluck(:rating)

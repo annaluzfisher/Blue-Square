@@ -14,22 +14,7 @@ function Navigation() {
   );
   const currentUser = useSelector((state) => state.session.user);
 
-  // useEffect(()=>{
 
-  //   if (visible) {
-  //     const app = document.getElementById("app").childNodes;
-  //     app[2].style.position = "fixed";
-  //   } else {
-  //     if ( typeof document.getElementById("app") === null ){
-        
-  //     }
-  //     else{
-  //       const app = document.getElementById("app").childNodes;
-    
-  //       app[2].style.position = "absolute";
-  //     }
-  //   }
-  // },[visible])
     if  (!visible) return null;
   return (
     <div className={`navigation-modal modal ${visible ? "" : "hidden"}`}>

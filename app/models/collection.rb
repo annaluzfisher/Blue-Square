@@ -16,5 +16,9 @@ class Collection < ApplicationRecord
 
   include PgSearch::Model
   # multisearchable against: :name
-   pg_search_scope :search_item, against: :name, using: :tsearch
+  pg_search_scope :search_item, against: [:name],  using: {
+      :trigram => { threshold: 0.3},
+      :tsearch => { prefix: :true , dictionary: 'english'}
+  }
+  
 end

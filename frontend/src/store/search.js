@@ -27,13 +27,20 @@ export const fetchSearch = (query) => async (dispatch) => {
     .catch((error) => console.log("error in search results fetch", error));
 };
 
+export const fetchSearch5 = (query) => async (dispatch) => {
+  console.log(query);
+  csrfFetch(`api/search5/${query}`)
+    .then((res) => res.json())
+    .then((payload) => dispatch(receiveResults(payload)))
+    .catch((error) => console.log("error in search results fetch", error));
+};
+
 
 const resultsReducer = (state,action)=>{
   Object.freeze(state);
-  let newState = {};
+  let newState = {...state};
   switch (action.type) {
     case RECEIVE_ITEMS:
-  
     return { ...action.items};
     case DELETE_ITEMS:
       newState = {};
