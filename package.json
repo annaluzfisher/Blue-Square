@@ -24,6 +24,7 @@
   },
   "homepage": "https://github.com/annaluzfisher/Blue-Square#readme",
   "dependencies": {
-    "react-icons": "^4.4.0"
+    "react-icons": "^4.4.0",
+    "react-spinners": "^0.13.5"
   }
 }

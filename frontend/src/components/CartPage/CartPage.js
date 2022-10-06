@@ -1,94 +1,100 @@
 import "./cartpage.css";
 import { useDispatch, useSelector } from "react-redux";
-import { useEffect, useState } from "react";
+import { useEffect, useState , CSSProperties} from "react";
 import { useNavigate } from "react-router-dom";
-import {fetchCart, getCart} from '../../store/cart'
+import { fetchCart, getCart } from "../../store/cart";
 import CartItemSnapshot from "./CartItemSnapshot";
 import Button from "../Buttons/Button";
 import SuggestedItems from "../SuggestedItems";
 import { getCurrentUser } from "../../store/session";
 import { getCollections } from "../../store/collections";
+import BeatLoader from "react-spinners/BeatLoader";
 
 function CartPage() {
-
   const currentUser = useSelector(getCurrentUser);
 
   const navigate = useNavigate();
   if (!currentUser) navigate("/Cart");
 
   const dispatch = useDispatch();
-  
-  const storeCart = useSelector(getCart());
-  const collections = useSelector(getCollections())
-  const [suggestionId, setSuggestionId] =  useState()
 
-  useEffect(()=>{
-   if(collections) {
-   const vals = Object.values(collections.collections)
-   setSuggestionId(vals[3]?.id)
-   }
-  },[collections])
+  const storeCart = useSelector(getCart());
+  const collections = useSelector(getCollections());
+  const [suggestionId, setSuggestionId] = useState();
+  const [loading, setLoading] = useState(true);
+
+  setTimeout(() => {
+    setLoading(false);
+  }, 1000);
+  useEffect(() => {
+    if (collections) {
+      const vals = Object.values(collections.collections);
+      setSuggestionId(vals[3]?.id);
+    }
+  }, [collections]);
   const numItems = useSelector((state) => {
-    if (!state.cart.numItems){
+    if (!state.cart.numItems) {
       return null;
-    }else {
-      return state.cart.numItems.numItems
+    } else {
+      return state.cart.numItems.numItems;
     }
   });
   const [cart, setCart] = useState(storeCart);
-  const [subtotal, setSubtotal] = useState('')
-
-
+  const [subtotal, setSubtotal] = useState("");
 
   let allItems = [];
   let subTotalV = 0;
 
-  useEffect(()=>{
-      if (storeCart) {
-       let allItems = Object.values(storeCart);
-        allItems.map((item)=>{
-         subTotalV += parseFloat((((item.price * item.quantity)/100)*100).toFixed(2));
-        })
-        setSubtotal(subTotalV)
-   
+  useEffect(() => {
+    if (storeCart) {
+      let allItems = Object.values(storeCart);
+      allItems.map((item) => {
+        subTotalV += parseFloat(
+          (((item.price * item.quantity) / 100) * 100).toFixed(2)
+        );
+      });
+      setSubtotal(subTotalV);
 
-        setCart(storeCart)
-      }
-  },[numItems])
-
-
+      setCart(storeCart);
+    }
+  }, [numItems]);
 
   useEffect(() => {
-    if (currentUser){
-     dispatch(fetchCart(currentUser.id))
+    if (currentUser) {
+      dispatch(fetchCart(currentUser.id));
     }
-  }, [currentUser,cart]);
-  
- 
-   
-   if (!currentUser) return null;
-   
+  }, [currentUser, cart]);
+
+  if (!currentUser) return null;
+
   return (
     <>
-
       <div className="cart-page">
         <div>
           <div className="title-holder">
             <h1>{"SHOPPING BAG"}</h1>
             <span>{numItems} Items</span>
           </div>
-          {numItems > 0 ? (
-            <div className="snapshot-holder">
-              {Object.values(storeCart).map((item, i) => {
-                {console.log(item.id)}
-                return <CartItemSnapshot key={100+i} item={item} />;
-              })}
-            </div>
+          {loading ? (
+            <BeatLoader className="loader" color="#CD4C1D" speedMultiplier={0.5} />
           ) : (
-            <div className="empty-holder">
-              <h1>Looks like your cart is empty</h1>
-              <Button localPath="/" color="black" name={"KEEP SHOPPING"} />
-            </div>
+            <>
+              {numItems > 0 ? (
+                <div className="snapshot-holder">
+                  {Object.values(storeCart).map((item, i) => {
+                    {
+                      console.log(item.id);
+                    }
+                    return <CartItemSnapshot key={100 + i} item={item} />;
+                  })}
+                </div>
+              ) : (
+                <div className="empty-holder">
+                  <h1>Looks like your cart is empty</h1>
+                  <Button localPath="/" color="black" name={"KEEP SHOPPING"} />
+                </div>
+              )}
+            </>
           )}
         </div>
 
@@ -104,22 +110,18 @@ function CartPage() {
           </div>
           <div>
             <span>Total</span>
-            <span>$ {parseFloat((subtotal * 0.09) + (subtotal)).toFixed(2)}</span>
+            <span>$ {parseFloat(subtotal * 0.09 + subtotal).toFixed(2)}</span>
           </div>
           <Button name={"CHECK OUT NOW"} />
         </div>
       </div>
 
-     
-      <SuggestedItems title={'You might be interested in'} collectionId={suggestionId}/>
-    
+      <SuggestedItems
+        title={"You might be interested in"}
+        collectionId={suggestionId}
+      />
     </>
   );
-
 }
 
 export default CartPage;
-
-
-
-

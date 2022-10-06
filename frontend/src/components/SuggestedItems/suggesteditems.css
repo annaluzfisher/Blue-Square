@@ -2,7 +2,11 @@
 .suggested-items-container{
   /* border: 1px solid blue; */
   width: 90vw;
-  margin:5%;
+  margin-left:5%;
+  margin-right: 10%;
+  margin-top: 2%;
+  margin-bottom: 2%;  
+
 
 }
 
