@@ -81,7 +81,7 @@ export const updateCartItem = (cartItemId, quantity) => async (dispatch) => {
   });
   if (res.ok) {
     const cartItem = await res.json();
-    console.log("what does this give back,", cartItem);
+
     dispatch(receiveCartItem(cartItem));
   }
 };

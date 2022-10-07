@@ -61,7 +61,7 @@ export const createReview = (review) => async (dispatch) => {
   });
   if (res.ok) {
     const review = await res.json();
-    console.log('what is the review returned', review)
+
     dispatch(receiveReview(review))
        dispatch(fetchItem(Object.values(review)[0].itemId));
   }

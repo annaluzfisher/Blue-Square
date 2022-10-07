@@ -22,7 +22,7 @@ function SearchResults() {
     const dispatch = useDispatch();
 
     useEffect(()=>{
-      console.log('in use effect', results)
+    
        if(results.length === 0) dispatch(fetchSearch(query))
     },[])
     const handleSearch = () => {
