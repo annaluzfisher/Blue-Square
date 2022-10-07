@@ -82,9 +82,7 @@ function CartPage() {
               {numItems > 0 ? (
                 <div className="snapshot-holder">
                   {Object.values(storeCart).map((item, i) => {
-                    {
-                      console.log(item.id);
-                    }
+                  
                     return <CartItemSnapshot key={100 + i} item={item} />;
                   })}
                 </div>
