@@ -4,54 +4,70 @@ import ReviewForm from "../../Forms/ReviewForm";
 
 import ReviewShow from "../ReviewShow/ReviewShow";
 import Star from "../../Star";
-import { useSelector} from "react-redux";
+import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { getItem } from "../../../store/item";
 
-function ReviewsComponent({item}) {
+import { getAllReviews } from "../../../store/reviews";
+
+function ReviewsComponent({ item }) {
   const { itemId } = useParams();
-    const storeItem = useSelector(getItem(itemId));
- 
+  const storeItem = useSelector(getItem(itemId));
+  const [loading, setLoading] = useState(true);
+
   const [numReviews, setNumReviews] = useState(0);
   const [formVisible, setFormVisible] = useState(false);
-  const edit = useRef(false)
+  const edit = useRef(false);
   const currentUser = useSelector((state) => state.session.user);
-  const storeReviews = useSelector((state) => {
-    if (!state) return null;
-    if (!state.reviews) return null;
-    else {
-      return state.reviews;
-    }
-  });
+
+  const storeReviews = useSelector(getAllReviews);
 
   const [editableReview, setEditableReview] = useState();
 
-
-
-
-  useEffect(() => {
-
-      if (item.userIds?.includes(currentUser?.id)) {
-        edit.current = true
+  const handleFormToggle = ()=>{
+   if (formVisible) {
+    setFormVisible(false)
+    setLoading(true)
     } else {
-      setEditableReview()
-      edit.current = false
+      setFormVisible(true)
+      setTimeout(()=>{
+        setLoading(false)
+      },700)
     }
-  }, [itemId, currentUser,storeItem, numReviews,formVisible]);
+      
+  }
+  // useEffect(() => {
+  //   console.log(do we get here)
+  //  if(formVisible)
+  //   setTimeout(() => {
+  //     setLoading(false);
+  //   }, 500);
+  // }, [formVisible]);
 
   useEffect(() => {
-    if (typeof storeReviews === "undefined" || !currentUser) {
-    } else {
-     
-      Object.values(storeReviews).map((sreview) => {
-        if (sreview.userId === currentUser.id && sreview.itemId === parseInt(itemId)) setEditableReview(sreview);
 
+    if (item.userIds?.includes(currentUser?.id)) {
+      edit.current = true;
+    } else {
+      setEditableReview();
+      edit.current = false;
+    }
+  }, [storeItem, numReviews]);
+
+  useEffect(() => {
+    if (storeReviews && currentUser) {
+      setNumReviews(storeReviews.length);
+      storeReviews.map((sreview) => {
+        if (
+          sreview.userId === currentUser.id &&
+          sreview.itemId === parseInt(itemId)
+        ) {
+          setEditableReview(sreview);
+          edit.current = true;
+        }
       });
     }
-  }, [item.reviewIds?.length, numReviews,item]);
-
-
-
+  }, [storeReviews?.length]);
 
   if (!item) return null;
   return (
@@ -75,15 +91,13 @@ function ReviewsComponent({item}) {
         <span>{item.reviewIds?.length} Reviews</span>
         <div className="bottom-bar">
           <div
-            onClick={() =>
-              formVisible ? setFormVisible(false) : setFormVisible(true)
-            }
+            onClick={handleFormToggle}
           >
             <i className="fa-regular fa-pen-to-square"></i>
-            {!edit.current ? (
-              <span>Write a Review</span>
-            ) : (
+            {edit.current ? (
               <span>Edit Review</span>
+            ) : (
+              <span>Write a Review</span>
             )}
           </div>
         </div>
@@ -93,16 +107,14 @@ function ReviewsComponent({item}) {
           item={itemId}
           review={editableReview}
           patch={edit.current}
+          loading={loading}
         />
       )}
       {storeItem?.reviewIds &&
-       Object.values(storeReviews).map((sreview) => {
-        if (sreview.itemId === parseInt(itemId)) 
-             return  <ReviewShow key={sreview.id} reviewId={sreview.id} /> 
-       }) }
-
-
-       
+        storeReviews.map((sreview) => {
+          if (sreview.itemId === parseInt(itemId))
+            return <ReviewShow key={sreview.id} reviewId={sreview.id} />;
+        })}
     </>
   );
 }

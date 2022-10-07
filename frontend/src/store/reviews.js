@@ -1,8 +1,7 @@
 
 import csrfFetch from "./csrf";
-//need an array of review_ids when i fetch an item
-//need to also dispatch fetchReviews(itemId when i fetch a single item on the show page
 
+import { fetchItem } from "./item";
 
 const RECEIVE_REVIEW = "RECEIVE_REVIEW";
 const DELETE_REVIEW = "DELETE_REVIEW";
@@ -31,23 +30,29 @@ export const getReview = (reviewId) => (state) => {
   }
 };
 
-
-
-export const getReviews = (itemId) => (state) => {
-
-  if (!state) return null;
-  else if (!state.items) return null;
-  else if (!state.reviews) return null;
-  else if (!state.items[itemId]) return null;
-  else if (!state.items[itemId].reviewIds) return null;
-    let reviewIds= state.items[itemId].reviewIds
-    if (reviewIds.length > 0) {
-    reviewIds.map(id => {
-     return state.reviews[id]
-    })
+ export const getAllReviews = (state) => {
+    if (!state) return null;
+    if (!state.reviews) return null;
+    else {
+      return Object.values(state.reviews);
     }
+  }
 
-}
+
+// export const getReviews = (itemId) => (state) => {
+
+//   if (!state) return null;
+//   else if (!state.reviews) return null;
+//   else if (!state.items[itemId]) return null;
+//   else if (!state.items[itemId].reviewIds) return [];
+//     let reviewIds= state.items[itemId].reviewIds
+//     if (reviewIds.length > 0) {
+//     reviewIds.map(id => {
+//      return Object.values(state.reviews[id])
+//     })
+//     }
+
+// }
 
 export const createReview = (review) => async (dispatch) => {
   const res = await csrfFetch(`/api/reviews`, {
@@ -56,7 +61,9 @@ export const createReview = (review) => async (dispatch) => {
   });
   if (res.ok) {
     const review = await res.json();
-    dispatch(receiveReview(review));
+    console.log('what is the review returned', review)
+    dispatch(receiveReview(review))
+       dispatch(fetchItem(Object.values(review)[0].itemId));
   }
 };
 
@@ -67,7 +74,8 @@ export const updateReview = (review,reviewId) => async (dispatch) => {
   });
   if (res.ok) {
     const review = await res.json();
-    dispatch(receiveReview(review));
+    dispatch(receiveReview(review))
+ 
   }
 };
 export const deleteReview = (reviewId) => async (dispatch) => {

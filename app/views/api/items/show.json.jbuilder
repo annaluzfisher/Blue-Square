@@ -10,7 +10,7 @@ end
 
 json.item do 
   json.extract! @item, :id, :name, :description, :price, :discount, :image_url, :size
-  json.review_ids @item.review_ids
+  json.review_ids @item.review_ids || []
    json.average @item.average
    json.user_ids @item.reviewers
   #  json.categories @item.category_ids

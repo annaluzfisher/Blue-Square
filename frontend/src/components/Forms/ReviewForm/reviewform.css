@@ -6,6 +6,7 @@
   margin-left:8%;
 
 
+
 }
 .review-form-container > form  label :first-child{
 color: #88260f;
@@ -18,7 +19,10 @@ color: #88260f;
   padding: 2%;
 }
 
+.form-loader{
+padding: 100%;
 
+}
 
 
 input[type='text']{

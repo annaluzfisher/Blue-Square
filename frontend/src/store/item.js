@@ -3,6 +3,7 @@ import { receiveReviews } from "./reviews";
 
 const RECEIVE_ITEM = "RECEIVE_ITEM";
 
+
 export const receiveItem = (item) => ({
   type: RECEIVE_ITEM,
   item,
@@ -15,6 +16,8 @@ export const getItem = (itemId) => (state) => {
     return state.items[itemId];
   }
 };
+
+
 
 export const fetchItem = (itemId) => async (dispatch) => {
 
@@ -40,7 +43,8 @@ const itemReducer = (state = {}, action) => {
     case RECEIVE_ITEM:
       action.item.price = (Math.round(action.item.price * 100) / 100).toFixed(2);
       newState[action.item.id] = action.item
-     return newState
+     return newState;
+
     default:
       return newState;
   }

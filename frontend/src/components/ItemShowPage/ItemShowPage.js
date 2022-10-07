@@ -15,7 +15,6 @@ function ItemShowPage() {
   const { itemId } = useParams();
   const dispatch = useDispatch();
   const storeItem = useSelector(getItem(itemId));
-  const storeReviews = useSelector(getReviews(itemId))
   const [item, setItem] = useState({name:' ',description:' '});
   const [colId, setColId] = useState();
   const ADDED_ID = 4;

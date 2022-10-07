@@ -76,7 +76,7 @@ function CartPage() {
             <span>{numItems} Items</span>
           </div>
           {loading ? (
-            <BeatLoader className="loader" color="#CD4C1D" speedMultiplier={0.5} />
+              <BeatLoader className="loader" color="#CD4C1D" speedMultiplier={0.5} />
           ) : (
             <>
               {numItems > 0 ? (
