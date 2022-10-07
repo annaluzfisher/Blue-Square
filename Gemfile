@@ -19,7 +19,7 @@ gem "jbuilder"
 # gem "rack-cors"
 gem "pry-rails"
 
-gem "pg_trgm"
+
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem

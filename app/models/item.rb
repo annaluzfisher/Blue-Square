@@ -22,12 +22,11 @@ class Item < ApplicationRecord
   include PgSearch::Model
 
   pg_search_scope :search_item, against: {name: 'A', description: 'B' },  using: {
-    :tsearch => { prefix: true , any_word: true, dictionary: 'english'},
-      :trigram => { } 
+    :tsearch => { prefix: true , any_word: true, dictionary: 'english'}
   }
 
     pg_search_scope :deep_search, against: {name: 'A', description: 'B' },  using: {
-      :trigram => { threshold: 0.1},
+  
       :tsearch => { prefix: :true , dictionary: 'english'}
   }
   
