@@ -63,13 +63,15 @@ const handleDelete = ()=>{
   const handleSubmit = (e) => {
     e.preventDefault();
     if (validate(content)) {
-  
+   setErrors();
       
       if (!patch){
         
       dispatch(createReview({title,rating,content,name,userId,itemId}))
+  
       }else {
       dispatch(updateReview({title,rating,content,name,userId,itemId},reviewId))
+      
       }
 
     setTitle('')
