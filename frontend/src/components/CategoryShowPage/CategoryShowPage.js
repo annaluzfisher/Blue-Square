@@ -9,9 +9,7 @@ import ImageSnapshot from '../ItemShowPage/ImageSnapshot';
 function CategoryShowPage() {
   
   const { categoryId } = useParams();
-    // useEffect(() => {
-    //   window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
-    // },[categoryId]);
+
 
     const dispatch = useDispatch();
     const storeCategory = useSelector(getCategory(categoryId));

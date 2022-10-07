@@ -3,8 +3,7 @@ import { Link } from "react-router-dom";
 
 import { useDispatch, useSelector } from "react-redux";
 import { toggleModal } from "../../../store/ui";
-//
-//primary interpolared iojt button class
+
 
 function Button({
   localPath = "/",
