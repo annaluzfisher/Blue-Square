@@ -36,13 +36,9 @@ function ReviewsComponent({ item }) {
     }
       
   }
-  // useEffect(() => {
-  //   console.log(do we get here)
-  //  if(formVisible)
-  //   setTimeout(() => {
-  //     setLoading(false);
-  //   }, 500);
-  // }, [formVisible]);
+  useEffect(() => {
+  setFormVisible(false)
+  }, [itemId]);
 
   useEffect(() => {
 
@@ -67,7 +63,7 @@ function ReviewsComponent({ item }) {
         }
       });
     }
-  }, [storeReviews?.length]);
+  }, [storeReviews?.length,itemId]);
 
   if (!item) return null;
   return (
@@ -107,7 +103,7 @@ function ReviewsComponent({ item }) {
           item={itemId}
           review={editableReview}
           patch={edit.current}
-          loading={loading}
+         formLoading={loading}
         />
       )}
       {storeItem?.reviewIds &&

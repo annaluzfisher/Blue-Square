@@ -4,9 +4,6 @@
     border-bottom: 1px solid rgb(157, 157, 157);
   position: relative;
   margin-left:8%;
-
-
-
 }
 .review-form-container > form  label :first-child{
 color: #88260f;
@@ -17,6 +14,12 @@ color: #88260f;
   justify-content: space-around;
   height: 90%;
   padding: 2%;
+  opacity: 0;
+  animation-name: fade-in;
+  animation-duration: .6s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+
 }
 
 .form-loader{

@@ -13,11 +13,12 @@ import { useParams } from "react-router-dom";
 import { getCurrentUser } from "../../../store/session";
 import BeatLoader from "react-spinners/BeatLoader";
 
+
 function ReviewForm({
   item,
   review = { title: "", content: "", name: "" },
   patch,
-  loading,
+ formLoading,
 }) {
   const [title, setTitle] = useState(review.title);
   const [content, setContent] = useState(review.content);
@@ -30,6 +31,7 @@ function ReviewForm({
   const dispatch = useDispatch();
   const [errors, setErrors] = useState("");
   const { itemId } = useParams();
+
 
   useEffect(() => {
     if (currentUser) {
@@ -84,10 +86,10 @@ function ReviewForm({
         );
       }
 
-      setTitle("");
-      setContent("");
-      setRating(5);
-      setName("");
+      // setTitle("");
+      // setContent("");
+      // setRating(5);
+      // setName("");
     } else {
       setErrors(
         "Uh oh! Make sure all required fields are filled out... Review must be at least 50 characters, not over 299"
@@ -98,7 +100,7 @@ function ReviewForm({
   return (
     <>
       <div className="review-form-container">
-        {loading ? (
+        {formLoading ? (
           <form>
             <BeatLoader
               className="form-loader"
