@@ -34,11 +34,18 @@ function SizeBox({ item }) {
   const adjustSize = (e, newSize) => {
     setSize(newSize);
     if (e.currentTarget) {
-
     e.currentTarget.style.backgroundColor = 'black'
         e.currentTarget.style.color = "white"
+    } else{
+     let nodes =  document.getElementById('s-container').childNodes
+   for(let i=0; i<nodes.length; i++) {
+    if (nodes[i].nodeName.toLowerCase() == 'label') {
+         nodes[i].style.backgroundColor = 'white'
+         nodes[i].style.color = 'black'
+     }
     }
-  };
+  }
+}
 
   const selectedSize = (input)=>{
     if (size === input){
@@ -61,25 +68,26 @@ function SizeBox({ item }) {
 
   const addToCart = (e) => {
     e.preventDefault();
-
     if (!currentUser) {
       navigate("/Cart");
-
     } else {
       dispatch(toggleModal(ADDED_ID));
-  
-
-
       dispatch(addCartItem(itemPayload));
+      setSize()
+      setQuantity(1);
+      setTimeout(()=>{
+        adjustSize();
+      },400)
     }
   };
+
   return (
     <form className="size-box-form" onSubmit={addToCart}>
       <div className="size-box">
         <span>
           Size: -------------------------------------------------------
         </span>
-        <div className="sizes-container">
+        <div className="sizes-container" id='s-container'>
           <label
             onClick={(e) => adjustSize(e, "XS")}
             style={selectedSize("XS")}

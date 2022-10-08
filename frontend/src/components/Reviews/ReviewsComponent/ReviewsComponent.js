@@ -63,8 +63,7 @@ function ReviewsComponent({ item }) {
     if (storeReviews && currentUser) {
       setNumReviews(storeReviews.length);
       storeReviews.map((sreview) => {
-        console.log('userid from review',sreview.userId);
-        console.log('currentuser id', currentUser.id)
+
         if (
           sreview.userId === currentUser.id &&
           sreview.itemId === parseInt(itemId)

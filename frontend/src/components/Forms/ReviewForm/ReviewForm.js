@@ -20,7 +20,7 @@ function ReviewForm({
   patch,
  formLoading,
 }) {
-  console.log('what is it this time', review)
+
   const [title, setTitle] = useState(review.title);
   const [content, setContent] = useState(review.content);
   const [name, setName] = useState(review.name);
