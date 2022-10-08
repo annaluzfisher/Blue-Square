@@ -5,33 +5,34 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { fetchCollections, getCollections } from "../../store/collections";
 
-function ThemeComponenet({ collectionIds }) {
+function ThemeComponenet() {
   const dispatch = useDispatch();
-  const storeCollections = useSelector(getCollections());
-  const [collections, setCollections] = useState(storeCollections);
+  const collections = useSelector(getCollections());
 
-  const [campingId, setCampingId] = useState(1);
-  const [equpmentId, setEquipmentId] = useState(1);
-  const [winterId, setWinterId] = useState(1);
-  const [climbingId, setClimbingId] = useState(1);
+  const [campingId, setCampingId] = useState();
+  const [equpmentId, setEquipmentId] = useState();
+  const [winterId, setWinterId] = useState();
+  const [climbingId, setClimbingId] = useState();
   useEffect(() => {
     if (!collections) {
       dispatch(fetchCollections());
     }
-    setCollections(storeCollections.collections);
-  }, [collectionIds]);
 
-  useEffect(() => {
-    if (collections) {
-      Object.values(collections).map((collection) => {
-        if (collection.name === "Camping") setCampingId(collection.id);
-        if (collection.name === "Winter") setWinterId(collection.id);
-        if (collection.name === "Equipment") setEquipmentId(collection.id);
-        if (collection.name === "Climbing") setClimbingId(collection.id);
-      });
-    }
   }, [collections]);
 
+  setTimeout(()=>{
+
+    Object.values(collections?.collections).map((collection) => {
+      if (collection.name === "Camping") setCampingId(collection.id);
+      if (collection.name === "Winter") setWinterId(collection.id);
+      if (collection.name === "Equipment") setEquipmentId(collection.id);
+      if (collection.name === "Climbing") setClimbingId(collection.id);
+    });
+
+  },300)
+ 
+
+if (!campingId) return null;
   return (
     <div className="theme-component">
       <LazyImage
