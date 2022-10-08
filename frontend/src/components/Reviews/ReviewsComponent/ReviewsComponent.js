@@ -1,13 +1,11 @@
 import { useEffect, useState, useRef } from "react";
 import "./reviewscomponent.css";
 import ReviewForm from "../../Forms/ReviewForm";
-
 import ReviewShow from "../ReviewShow/ReviewShow";
 import Star from "../../Star";
 import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { getItem } from "../../../store/item";
-
 import { getAllReviews } from "../../../store/reviews";
 
 function ReviewsComponent({ item }) {
@@ -34,26 +32,39 @@ function ReviewsComponent({ item }) {
         setLoading(false)
       },700)
     }
-      
   }
+
+  useEffect(()=>{
+    setFormVisible(false)
+    // storeReviews.map((review)=>(
+    //   ids.push
+    // ))
+    if (!storeItem?.reviewIds.includes(editableReview?.id)){
+      edit.current = false
+      setEditableReview()
+    }
+
+  },[storeReviews.length])
+
   useEffect(() => {
   setFormVisible(false)
-  }, [itemId]);
+  }, [itemId, item.reviewIds?.length]);
 
-  useEffect(() => {
-
-    if (item.userIds?.includes(currentUser?.id)) {
-      edit.current = true;
-    } else {
-      setEditableReview();
-      edit.current = false;
-    }
-  }, [storeItem, numReviews]);
+  // useEffect(() => {
+  //   if (item.userIds?.includes(currentUser?.id)) {
+  //     edit.current = true;
+  //   } else {
+  //     setEditableReview();
+  //     edit.current = false;
+  //   }
+  // }, [storeItem, numReviews]);
 
   useEffect(() => {
     if (storeReviews && currentUser) {
       setNumReviews(storeReviews.length);
       storeReviews.map((sreview) => {
+        console.log('userid from review',sreview.userId);
+        console.log('currentuser id', currentUser.id)
         if (
           sreview.userId === currentUser.id &&
           sreview.itemId === parseInt(itemId)
@@ -63,7 +74,7 @@ function ReviewsComponent({ item }) {
         }
       });
     }
-  }, [storeReviews?.length,itemId]);
+  }, [itemId,item.reviewIds?.length]);
 
   if (!item) return null;
   return (

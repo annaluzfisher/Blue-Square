@@ -12,14 +12,15 @@ import Errors from "../../Errors";
 import { useParams } from "react-router-dom";
 import { getCurrentUser } from "../../../store/session";
 import BeatLoader from "react-spinners/BeatLoader";
+import { fetchItem } from "../../../store/item";
 
 
 function ReviewForm({
-  item,
   review = { title: "", content: "", name: "" },
   patch,
  formLoading,
 }) {
+  console.log('what is it this time', review)
   const [title, setTitle] = useState(review.title);
   const [content, setContent] = useState(review.content);
   const [name, setName] = useState(review.name);
@@ -33,12 +34,16 @@ function ReviewForm({
   const { itemId } = useParams();
 
 
-  useEffect(() => {
-    if (currentUser) {
-      setUserId(currentUser.id);
-      setName(currentUser.firstName + " " + currentUser.lastName[0] + ".");
-    }
-  }, [currentUser, item]);
+
+ useEffect(()=>{
+   if (currentUser) {
+     setUserId(currentUser.id);
+     setName(currentUser.firstName + " " + currentUser.lastName[0] + ".");
+   } 
+ },[currentUser,formLoading])
+
+
+
 
   useEffect(() => {
     setErrors("");
@@ -65,7 +70,8 @@ function ReviewForm({
   const handleDelete = () => {
     if (review.title === "" || review.content === "") {
     } else {
-      dispatch(deleteReview(reviewId));
+    dispatch(deleteReview(review.id))
+    dispatch(fetchItem(itemId))
     }
   };
 
@@ -81,7 +87,7 @@ function ReviewForm({
         dispatch(
           updateReview(
             { title, rating, content, name, userId, itemId },
-            reviewId
+            review.id
           )
         );
       }

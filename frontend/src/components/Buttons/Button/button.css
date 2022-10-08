@@ -16,10 +16,16 @@
   font-size: 15px;
   position: relative;
   z-index: 10;
+
+  /* animation-name: fade-in;
+  animation-duration: .5s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards; */
  
 }
 .button:hover{
   cursor: pointer;
+  opacity:1;
 }
 
 .primary{

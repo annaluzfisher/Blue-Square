@@ -32,7 +32,7 @@ export const getReview = (reviewId) => (state) => {
 
  export const getAllReviews = (state) => {
     if (!state) return null;
-    if (!state.reviews) return null;
+    if (!state.reviews) return [];
     else {
       return Object.values(state.reviews);
     }
@@ -74,7 +74,8 @@ export const updateReview = (review,reviewId) => async (dispatch) => {
   });
   if (res.ok) {
     const review = await res.json();
-    dispatch(receiveReview(review))
+    dispatch(receiveReview(review));
+    dispatch(fetchItem(Object.values(review)[0].itemId));
  
   }
 };
@@ -83,7 +84,9 @@ export const deleteReview = (reviewId) => async (dispatch) => {
     method: "DELETE",
   });
   if (res.ok) {
-    dispatch(removeReview(reviewId));
+    dispatch(removeReview(reviewId))
+
+   
   } else {
     console.log("error in delete review", res);
   }
@@ -98,7 +101,6 @@ const reviewsReducer = (state = {}, action) => {
       newState = {...newState,...action.reviews };
       return newState;
     case RECEIVE_REVIEW:
-      
       return {...newState,...action.review}
     case DELETE_REVIEW:
         delete newState[action.reviewId]

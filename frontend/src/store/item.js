@@ -44,7 +44,6 @@ const itemReducer = (state = {}, action) => {
       action.item.price = (Math.round(action.item.price * 100) / 100).toFixed(2);
       newState[action.item.id] = action.item
      return newState;
-
     default:
       return newState;
   }

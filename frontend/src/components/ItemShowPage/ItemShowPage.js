@@ -5,7 +5,7 @@ import { useEffect,useState } from "react";
 import { useParams } from "react-router-dom";
 import SizeBox from "./SizeBox/SizeBox";
 import ReviewsComponent from "../Reviews/ReviewsComponent";
-import { getReviews } from "../../store/reviews";
+
 import NoSizeBox from "./NoSizeBox";
 import SuggestedItems from "../SuggestedItems";
 import AddedToBag from "../Modals/AddedToBag";
