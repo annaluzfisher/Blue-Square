@@ -1,6 +1,6 @@
 import "./cartpage.css";
 import { useDispatch, useSelector } from "react-redux";
-import { useEffect, useState , CSSProperties} from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { fetchCart, getCart } from "../../store/cart";
 import CartItemSnapshot from "./CartItemSnapshot";
@@ -15,39 +15,44 @@ function CartPage() {
 
   const navigate = useNavigate();
   if (!currentUser) navigate("/Cart");
-
   const dispatch = useDispatch();
-
-  const storeCart = useSelector(getCart());
+  const storeCart = useSelector(getCart);
   const collections = useSelector(getCollections());
   const [suggestionId, setSuggestionId] = useState();
   const [loading, setLoading] = useState(true);
 
+useEffect(()=>{
+ dispatch(fetchCart(currentUser?.id))
+
+},[currentUser])
+
   setTimeout(() => {
     setLoading(false);
   }, 1000);
+
   useEffect(() => {
     if (collections) {
       const vals = Object.values(collections.collections);
       setSuggestionId(vals[3]?.id);
     }
   }, [collections]);
+
   const numItems = useSelector((state) => {
     if (!state.cart.numItems) {
-      return null;
+      return 0;
     } else {
       return state.cart.numItems.numItems;
     }
   });
-  const [cart, setCart] = useState(storeCart);
+
   const [subtotal, setSubtotal] = useState("");
 
-  let allItems = [];
+
   let subTotalV = 0;
 
   useEffect(() => {
     if (storeCart) {
-      let allItems = Object.values(storeCart);
+      let allItems = storeCart;
       allItems.map((item) => {
         subTotalV += parseFloat(
           (((item.price * item.quantity) / 100) * 100).toFixed(2)
@@ -55,15 +60,14 @@ function CartPage() {
       });
       setSubtotal(subTotalV);
 
-      setCart(storeCart);
     }
   }, [numItems]);
 
   useEffect(() => {
-    if (currentUser) {
+    if (currentUser && !storeCart) {
       dispatch(fetchCart(currentUser.id));
     }
-  }, [currentUser, cart]);
+  }, [currentUser]);
 
   if (!currentUser) return null;
 
@@ -81,7 +85,7 @@ function CartPage() {
             <>
               {numItems > 0 ? (
                 <div className="snapshot-holder">
-                  {Object.values(storeCart).map((item, i) => {
+                  {storeCart.map((item, i) => {
                   
                     return <CartItemSnapshot key={100 + i} item={item} />;
                   })}

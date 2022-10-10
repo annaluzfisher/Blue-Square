@@ -24,7 +24,7 @@ function AddedToBag() {
   const storeItem = useSelector(getItem(itemId));
   const dispatch = useDispatch();
   const [item, setItem] = useState(storeItem);
-  const storeCart = useSelector(getCart());
+  const storeCart = useSelector(getCart);
 
   useEffect(() => {
     const rand = Math.floor(Math.random() * 1 * item?.collections.length);
@@ -63,7 +63,7 @@ function AddedToBag() {
   }, [numItems]);
 
   useEffect(() => {
-    if (currentUser) {
+    if (currentUser && !storeCart) {
       dispatch(fetchCart(currentUser?.id));
     }
   }, [currentUser, cart]);

@@ -3,33 +3,39 @@ import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { deleteCartItem, updateCartItem, getCart } from "../../../store/cart";
+import MoonLoader from "react-spinners/MoonLoader";
 
-function CartItemSnapshot({ item ,fromModal = false}) {
+function CartItemSnapshot({ item, fromModal = false }) {
   const dispatch = useDispatch();
-  const [quantity, setQuantity] = useState(item.quantity)
+  const [quantity, setQuantity] = useState(item.quantity);
   const [cartItem, setCartItem] = useState(item);
-    const storeCart = useSelector(getCart());
-  
+  const storeCart = useSelector(getCart);
+  const [loading, setLoading] = useState(false);
   const updateQuantity = (change) => {
+    setLoading(true);
     if (change === "up") {
       setQuantity(quantity + 1);
     } else {
       if (quantity - 1 > 0) {
         setQuantity(quantity - 1);
-      } 
-      else {
-        setQuantity(0)
+      } else {
+        setQuantity(0);
         dispatch(deleteCartItem(item.cartItemId));
       }
     }
+    setTimeout(() => {
+      setLoading(false);
+    }, 400);
   };
-useEffect(()=>{
-  if (quantity <= 0){
-      dispatch(deleteCartItem(item.cartItemId));
-  } else if (item.quantity !== quantity){
-    dispatch(updateCartItem(item.cartItemId,quantity))
-  }
-},[quantity])
+
+  useEffect(() => {
+    if (quantity <= 0) {
+      // dispatch(deleteCartItem(item.cartItemId,item.id));
+    } else if (item.quantity !== quantity) {
+      dispatch(updateCartItem(item.cartItemId, quantity));
+    }
+  }, [quantity]);
+
   return (
     <div className="cis-container">
       <div>
@@ -47,20 +53,28 @@ useEffect(()=>{
           <span>Unit Price ${cartItem.price}</span>
         </div>
       </div>
-      <div className="cis-editor">
-        <div onClick={() => updateQuantity("up")}>+</div>
-        <div>{quantity}</div>
-        <div onClick={() => updateQuantity("down")}>-</div>
-      </div>
-      <div className="price">{((item.price * quantity * 100) / 100).toFixed(2)}</div>
-      <div
-        className="trash-or-edit"
-        onClick={() => dispatch(deleteCartItem(item.cartItemId))}
-      >
-        <div>
-          <i className="fa-regular fa-trash-can"></i>
-        </div>
-      </div>
+      {loading ? (
+        <MoonLoader className="loader" color="#CD4C1D" speedMultiplier={0.5} />
+      ) : (
+        <>
+          <div className="cis-editor">
+            <div onClick={() => updateQuantity("up")}>+</div>
+            <div>{quantity}</div>
+            <div onClick={() => updateQuantity("down")}>-</div>
+          </div>
+          <div className="price">
+            {((item.price * quantity * 100) / 100).toFixed(2)}
+          </div>
+          <div
+            className="trash-or-edit"
+            onClick={() => dispatch(deleteCartItem(item.cartItemId))}
+          >
+            <div>
+              <i className="fa-regular fa-trash-can"></i>
+            </div>
+          </div>
+        </>
+      )}
     </div>
   );
 }
